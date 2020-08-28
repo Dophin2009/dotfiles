@@ -128,6 +128,12 @@ let g:neoformat_lua_luaformat = {
   \ }
 "   markdown
 let g:neoformat_enabled_markdown = ['']
+"   pandoc
+let g:neoformat_pandoc_prettier = {
+  \ 'exe': 'prettier',
+  \ 'args': ['--stdin', '--stdin-filepath', '"%:p"'],
+  \ 'stdin': 1,
+  \ }
 "   pg sql
 let g:neofromat_sql_pg_format = {
   \ 'exe': 'pg_format',
