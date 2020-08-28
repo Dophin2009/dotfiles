@@ -24,6 +24,16 @@ template some configuration files and manage themes.
 
 Clone this repo somewhere (e.g. `~/.dotfiles`).
 
+In `dotprofile/.config/dotprofile/local.yaml`, specify these variables:
+
+    local:
+      os:
+      distro:
+      hostname:
+      user:
+
+Some packages require the specification of other local variables in the same file.
+
 Link the desired packages with `make <package>`.
 
 ## Base Packages
@@ -31,11 +41,11 @@ Link the desired packages with `make <package>`.
 The following are considered `base` packages. These are linked as
 dependencies for every other package.
 
-| Name         | Dependencies                                             | Usage / Description                                            | Customization                                                                                                     |
-| :----------- | :------------------------------------------------------- | :------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
-| `dotprofile` | [`dotprofile`](https://github.com/Dophin2009/dotprofile) | Configurations and profiles for templated configuration files. | `local/dotprofile/local.yaml` should be created with local variables under `local`. See dependents for variables. |
-| `sh`         |                                                          | Shared shell configurations for POSIX shells.                  | Additional configuration can be placed in `.config/sh/envc` and `.config/sh/aliasc`.                              |
-| `user-dirs`  |                                                          | Default file directory configuration.                          |                                                                                                                   |
+| Name         | Dependencies                                             | Usage / Description                                            | Customization                                                                                                          |
+| :----------- | :------------------------------------------------------- | :------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
+| `dotprofile` | [`dotprofile`](https://github.com/Dophin2009/dotprofile) | Configurations and profiles for templated configuration files. | `local/dotprofile/local.yaml` should be created with local variables under `local`. See [Installation](#installation). |
+| `sh`         |                                                          | Shared shell configurations for POSIX shells.                  | Additional configuration can be placed in `.config/sh/envc` and `.config/sh/aliasc`.                                   |
+| `user-dirs`  |                                                          | Default file directory configuration.                          |                                                                                                                        |
 
 ## Dev Packages
 
@@ -68,7 +78,7 @@ dependencies for every other package.
 | Name         | Package Dep.            | Application / Dependencies                                                                                                                                                         | Usage / Description                                                                                                              | Customization                                                       |
 | :----------- | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ |
 | `bat`        | `dotprofile`            | [`bat`](https://github.com/sharkdp/bat)                                                                                                                                            | Templated configuration that uses profile theme.                                                                                 |                                                                     |
-| `beets`      | `dotprofile`            | [`beets`](https://github.com/beetbox/beets), [`beets-playlistc`](https://github.com/Dophin2009/beets-playlistc)                                                                    | Templated configuraiton with some plugins. Adds some related aliases.                                                            | Must specify local `dotprofile` vars: `beets.root_dir`              |
+| `beets`      | `dotprofile`            | [`beets`](https://github.com/beetbox/beets), [`beets-playlistc`](https://github.com/Dophin2009/beets-playlistc)                                                                    | Templated configuraiton with some plugins. Adds some related aliases.                                                            | Must specify local `dotprofile` vars: `local.beets.root_dir`        |
 | `bitwarden`  |                         | [`bitwarden`](https://bitwarden.com/)                                                                                                                                              | Sets `BITWARDEN_APPDATA_DIR` and `BITWARDENCLI_APPDATA_DIR` to use XDG data.                                                     |                                                                     |
 | `cursedtag`  |                         | [`cursedtag`](https://github.com/hellricer/cursedtag)                                                                                                                              | rc file that adds some more fields.                                                                                              |                                                                     |
 | `dicth`      |                         | [`dictd`](https://sourceforge.net/projects/dict/), [`aiksaurus`](https://github.com/AbiWord/aiksaurus)                                                                             | Adds aliases `def` and `th` to query a `dictd` server with WordNet dictionary and `aiksaurus`.                                   |                                                                     |
@@ -109,8 +119,8 @@ Usage: `startx "$XDG_CONFIG_HOME/X11/xinitrc" -- "$XDG_CONFIG_HOME/X11/xserverrc
 
 **Dependencies**:
 
-- [`X11`](https://www.x.org/wiki/) (`X`, `startx`, `xrdb`, `xset`)
-- [`i3wm`](https://i3wm.org/)
+- [`X11`](https://www.x.org/wiki/)
+  - `X`, `startx`, `xrdb`, `xset`
 
 **Customization**:
 
@@ -118,10 +128,42 @@ Before starting the window manager, `xinitrc` will look for `xinitrc.local`.
 `make X11` will automatically link `local/X11/xinitrc.local` to the proper
 location if it exists.
 
+### i3
+
+An pretty personalized i3-gaps configuration for up to 2 monitors.
+
+**Local Variables** (see [Installation](#installation))
+
+| Name                    | Description                   | Optional? |
+| :---------------------- | :---------------------------- | :-------- |
+| `local.i3.primary`      | Name of the primary monitor   | no        |
+| `local.i3.secondary`    | Name of the secondary monitor | no        |
+| `local.i3.lock_command` | Command to lock the screen    | yes       |
+
+To get monitor names, try `xrandr --query \| grep " connected" \| cut -d" " -f1`.
+
+**Package Dependencies**:
+
+- `dotprofile`
+- `polybar`
+- `wallpaper`
+- `fscreenshot`
+
+**Dependencies**:
+
+- [`i3-gaps`](https://github.com/Airblader/i3)
+- [`alacritty`](https://github.com/alacritty/alacritty)
+- [`mpd`](https://github.com/MusicPlayerDaemon/MPD)
+- [`mpdnotify`](https://github.com/Dophin2009/mpdnotify)
+- [`networkmanager-dmenu`](https://github.com/firecat53/networkmanager-dmenu)
+- [`pulseaudio`](https://www.freedesktop.org/wiki/Software/PulseAudio/)
+- [`rofi`](https://github.com/davatorium/rofi)
+
 ### Polybar
 
 Create `polybar/.config/polybar/local.ini` to specify the modules used:
 
+    [modules]
     top-left = animated-wallpaper pacman-yay-updates
     top-center = i3
     top-right = date
@@ -154,19 +196,18 @@ Create `polybar/.config/polybar/local.ini` to specify the modules used:
 
 ### Other Packages
 
-| Name                   | Package Dep.                                        | Dependencies                                                                                                                                                                     | Usage / Description                                                                                            | Customization                                               |
-| :--------------------- | :-------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------- |
-| `alacritty`            | `dotprofile`, `terminfo`                            | [`alacritty`](https://github.com/alacritty/alacritty)                                                                                                                            | Templated configuration that uses profile colors and font.                                                     |                                                             |
-| `battery-notify`       |                                                     | `notify-send` from `libnotify`                                                                                                                                                   | Adds battery notification scripts to .local/bin                                                                |                                                             |
-| `dunst`                | `dotprofile`                                        | [`dunst`](https://github.com/dunst-project/dunst)                                                                                                                                | Templated configuration that uses profile colors and font.                                                     |                                                             |
-| `fscreenshot`          |                                                     | [`scrot`](https://phab.enlightenment.org/diffusion/ESVN/browse/trunk/misc/scrot;35502)                                                                                           | Adds script to take screenshot to /tmp/<timestamp>.png with scrot.                                             |                                                             |
-| `gimp`                 |                                                     | [`gimp`](https://gitlab.gnome.org/GNOME/gimp)                                                                                                                                    | Sets `GIMP2_DIRECTORY` to be XDG compliant.                                                                    |                                                             |
-| `gtk`                  | `dotprofile`                                        | [`git`](https://git-scm.com)                                                                                                                                                     | Profile-specific GTK themes, XDG compliance environment variables, and GTK 2 file chooser config.              |                                                             |
-| `i3`                   | `dotprofile`, `polybar`, `wallpaper`, `fscreenshot` | [`i3-gaps`](https://github.com/Airblader/i3)                                                                                                                                     | Templated configuration that uses profile colors and font.                                                     | Must specify local `dotprofile` vars: `i3.lock_command`.    |
-| `lock-screen`          |                                                     | [`i3lock`](https://github.com/i3/i3lock)                                                                                                                                         | Adds script to lock screen using `i3lock`, with pixelated screenshot of the current screen as the screensaver. |                                                             |
-| `mpdnotify`            | `mpd`                                               | [`mpdnotify`](https://github.com/Dophin2009/mpdnotify)                                                                                                                           | MPD notication daemon. Adds a user systemd service that requires `mpdnotify` to be in `/usr/local/bin`.        |                                                             |
-| `mplayer`              |                                                     | [`mplayer`](http://mplayerhq.hu/design7/news.html)                                                                                                                               | Sets `MPLAYER_HOME` to XDG config.                                                                             | Actual configuration can be specified at `.config/mplayer`. |
-| `networkmanager-dmenu` |                                                     | [`networkmanager-dmenu`](https://github.com/firecat53/networkmanager-dmenu), [`rofi`](https://github.com/davatorium/rofi), [`alacritty`](https://github.com/alacritty/alacritty) | Configuration to use with `rofi` and `alacritty`.                                                              |                                                             |
+| Name                   | Package Dep.             | Dependencies                                                                                                                                                                     | Usage / Description                                                                                            | Customization                                               |
+| :--------------------- | :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------- |
+| `alacritty`            | `dotprofile`, `terminfo` | [`alacritty`](https://github.com/alacritty/alacritty)                                                                                                                            | Templated configuration that uses profile colors and font.                                                     |                                                             |
+| `battery-notify`       |                          | `notify-send` from `libnotify`                                                                                                                                                   | Adds battery notification scripts to .local/bin                                                                |                                                             |
+| `dunst`                | `dotprofile`             | [`dunst`](https://github.com/dunst-project/dunst)                                                                                                                                | Templated configuration that uses profile colors and font.                                                     |                                                             |
+| `fscreenshot`          |                          | [`scrot`](https://phab.enlightenment.org/diffusion/ESVN/browse/trunk/misc/scrot;35502)                                                                                           | Adds script to take screenshot to /tmp/<timestamp>.png with scrot.                                             |                                                             |
+| `gimp`                 |                          | [`gimp`](https://gitlab.gnome.org/GNOME/gimp)                                                                                                                                    | Sets `GIMP2_DIRECTORY` to be XDG compliant.                                                                    |                                                             |
+| `gtk`                  | `dotprofile`             | [`git`](https://git-scm.com)                                                                                                                                                     | Profile-specific GTK themes, XDG compliance environment variables, and GTK 2 file chooser config.              |                                                             |
+| `lock-screen`          |                          | [`i3lock`](https://github.com/i3/i3lock)                                                                                                                                         | Adds script to lock screen using `i3lock`, with pixelated screenshot of the current screen as the screensaver. |                                                             |
+| `mpdnotify`            | `mpd`                    | [`mpdnotify`](https://github.com/Dophin2009/mpdnotify)                                                                                                                           | MPD notication daemon. Adds a user systemd service that requires `mpdnotify` to be in `/usr/local/bin`.        |                                                             |
+| `mplayer`              |                          | [`mplayer`](http://mplayerhq.hu/design7/news.html)                                                                                                                               | Sets `MPLAYER_HOME` to XDG config.                                                                             | Actual configuration can be specified at `.config/mplayer`. |
+| `networkmanager-dmenu` |                          | [`networkmanager-dmenu`](https://github.com/firecat53/networkmanager-dmenu), [`rofi`](https://github.com/davatorium/rofi), [`alacritty`](https://github.com/alacritty/alacritty) | Configuration to use with `rofi` and `alacritty`.                                                              |                                                             |
 
 ## Distro Packages
 
