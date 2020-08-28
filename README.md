@@ -32,7 +32,7 @@ The following are considered `base` packages. These are linked as
 dependencies for every other package.
 
 | Name        | Dependencies                                             | Usage / Description                                            | Customization                                                                                                       |
-| ----------- | -------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| :---------- | :------------------------------------------------------- | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------ |
 | dotprofile  | [`dotprofile`](https://github.com/Dophin2009/dotprofile) | Configurations and profiles for templated configuration files. | `.config/dotprofile/local.yaml` should be created with local variables under `local`. See dependents for variables. |
 | `sh`        |                                                          | Shared shell configurations for POSIX shells.                  |                                                                                                                     |
 | `user-dirs` |                                                          | Default file directory configuration.                          |                                                                                                                     |
@@ -40,7 +40,7 @@ dependencies for every other package.
 ## Dev Packages
 
 | Name      | Package Dep. | Application / Dependencies                                                          | Usage / Description                                                                                               | Customization                                                                           |
-| --------- | ------------ | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| :-------- | :----------- | :---------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------- |
 | `android` |              | `android`                                                                           | Sets `ANDROID_SDK_HOME` to use XDG data.                                                                          |                                                                                         |
 | `cargo`   |              | [`cargo`](https://github.com/rust-lang/cargo)                                       | Sets `CARGO_HOME` to use XDG data.                                                                                |                                                                                         |
 | `docker`  |              | [`docker`](https://www.docker.com/)                                                 | Sets `DOCKER_CONFIG` to use XDG config.                                                                           |                                                                                         |
@@ -66,14 +66,14 @@ dependencies for every other package.
 ## CLI Packages
 
 | Name       | Package Dep. | Dependencies                                                                                           | Usage / Description                                                                            | Customization                                    |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| :--------- | :----------- | :----------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- | :----------------------------------------------- |
 | `dicth`    |              | [`dictd`](https://sourceforge.net/projects/dict/), [`aiksaurus`](https://github.com/AbiWord/aiksaurus) | Adds aliases `def` and `th` to query a `dictd` server with WordNet dictionary and `aiksaurus`. |                                                  |
 | `newsboat` |              | [`newsboat`](https://github.com/newsboat/newsboat)                                                     | Minimal newsboat configuration file.                                                           | Populate `.config/newsboat/urls` with feed urls. |
 
 ## GUI Packages
 
 | Name        | Package Dep.             | Dependencies                                           | Usage / Description                                                                                     | Customization |
-| ----------- | ------------------------ | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------------- |
+| :---------- | :----------------------- | :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------ | :------------ |
 | `alacritty` | `dotprofile`, `terminfo` | [`alacritty`](https://github.com/alacritty/alacritty)  | Templated configuration that uses profile colors and font.                                              |               |
 | `mpdnotify` | `mpd`                    | [`mpdnotify`](https://github.com/Dophin2009/mpdnotify) | MPD notication daemon. Adds a user systemd service that requires `mpdnotify` to be in `/usr/local/bin`. |               |
 
@@ -82,5 +82,5 @@ dependencies for every other package.
 These are packages for specific distros.
 
 | Name     | Distro       | Dependencies                                                   | Usage / Description                                                          | Customization |
-| -------- | ------------ | -------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- |
+| :------- | :----------- | :------------------------------------------------------------- | :--------------------------------------------------------------------------- | :------------ |
 | `pacman` | pacman-based | `pacman`; (optional: [`fzf`](https://github.com/junegunn/fzf)) | Adds the alias `pacman-browse-pkgs` to browse installed packages with `fzf`. |               |
