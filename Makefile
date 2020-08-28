@@ -3,13 +3,16 @@ PROFILE := gruvbox
 ROOT := $(shell pwd)
 ENVFILE := sh/.config/sh/env
 
-BASE_PACKAGES := dotprofile git sh tmux user-dirs zsh less
-DEV_PACKAGES := maven npm R texlive
-CLI_PACKAGES := bat beets cursedtag elinks hangups mpd mutt ncmpcpp neofetch newsboat nvim \
-	ranger rtv task urlview wget
-GUI_PACKAGES := alacritty battery-notify dunst fscreenshot gtk i3 lock-screen mpdnotify mpv \
-	networkmanager-dmenu picom polybar qutebrowser rofi set-brightness steam termite wallpaper \
-	X11 zathura
+BASE_PACKAGES := dotprofile sh user-dirs
+DEV_PACKAGES := android cargo docker dotnet ghcup git go gradle java maven mysql npm nuget nvm \
+	pgsql pylint python R ruby rustup stack texlive
+CLI_PACKAGES := bat beets bitwarden cursedtag dicth elinks gnupg hangups less mpd mullvad mutt \
+	ncmpcpp neofetch newsboat notmuch nvim pass ranger rtv slack-term screen task tmux urlview \
+	weechat wget wine youtube-dl zsh
+GUI_PACKAGES := alacritty battery-notify dunst gimp fscreenshot gtk i3 lock-screen mpdnotify \
+	mplayer mpv networkmanager-dmenu picom polybar qutebrowser rofi set-brightness steam terminfo \
+	termite urxvt wallpaper X11 zathura
+DISTRO_PACKAGES := pacman
 
 ALL_PACKAGES = $(BASE_PACKAGES) $(DEV_PACKAGES) $(CLI_PACKAGES) $(GUI_PACKAGES)
 
@@ -62,41 +65,59 @@ sh :
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
-git :
-	@echo "-- Linking $@..."
-	@$(call link_files,$@)
-
 dotprofile : sh
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
-
-tmux : sh dotprofile
-	@echo "-- Linking $@..."
-	-@. $(ENVFILE) && \
-		rm -rf ${XDG_DATA_HOME}/tmux/plugins/tpm
-	@$(call link_files,$@)
-	@echo "-- Processing $@..."
-	@. $(ENVFILE) && \
-		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 user-dirs : sh
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
-zsh : sh tmux
-	@echo "-- Linking $@..."
-	@$(call link_files,$@)
-
-less : sh
-	@echo "-- Bootstrapping less"
-	@. $(ENVFILE) && \
-		mkdir -p ${XDG_CACHE_HOME}/$@
-
 ###
 ### -- Dev Packages
 ###
 
+android : base
+	@echo "-- Linking $@"
+	@$(call link_files,$@)
+
+cargo : base
+	@echo "-- Linking $@"
+	@$(call link_files,$@)
+
+docker : base
+	@echo "-- Linking $@"
+	@$(call link_files,$@)
+
+dotnet : base
+	@echo "-- Linking $@"
+	@$(call link_files,$@)
+
+ghcup : base
+	@echo "-- Linking $@"
+	@$(call link_files,$@)
+
+git : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+go : base
+	@echo "-- Linking $@"
+	@$(call link_files,$@)
+
+gradle : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+java : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
 maven : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+mysql : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
@@ -104,7 +125,39 @@ npm : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
+nuget : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+nvm : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+pgsql : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+pylint : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+python : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
 R : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+ruby : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+rustup : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+stack : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
@@ -132,11 +185,23 @@ beets : base dotprofile
 	@. $(ENVFILE) && \
 		mkdir -p ${XDG_DATA_HOME}/$@
 
+bitwarden : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
 cursedtag : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
+dicth : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
 elinks : base urlview
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+gnupg :
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
@@ -147,11 +212,22 @@ hangups : base dotprofile
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
+less : sh
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+	@echo "-- Bootstrapping $@"
+	@. $(ENVFILE) && \
+		mkdir -p ${XDG_CACHE_HOME}/$@
+
 mpd : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 	@. $(ENVFILE) && \
 		mkdir -p ${XDG_DATA_HOME}/$@
+
+mullvad : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
 
 mutt : base
 	@echo "-- Linking $@..."
@@ -169,6 +245,10 @@ newsboat : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
+notmuch : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
 nvim : base dotprofile
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
@@ -179,6 +259,10 @@ nvim : base dotprofile
 	@. $(ENVFILE) && \
 		$@/.config/nvim/scripts/bootstrap
 
+pass : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
 ranger : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
@@ -187,16 +271,45 @@ rtv : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
+slack-term : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
 task: base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
+
+tmux : base dotprofile
+	@echo "-- Linking $@..."
+	-@. $(ENVFILE) && \
+		rm -rf ${XDG_DATA_HOME}/tmux/plugins/tpm
+	@$(call link_files,$@)
+	@echo "-- Processing $@..."
+	@. $(ENVFILE) && \
+		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 urlview : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
+weechat : base
+	@echo "-- Linking $@"
+	@$(call link_files,$@)
+
 wget : base
 	@echo "-- Linking $@"
+	@$(call link_files,$@)
+
+wine : base
+	@echo "-- Linking $@"
+	@$(call link_files,$@)
+
+youtube-dl : base
+	@echo "-- Linking $@"
+	@$(call link_files,$@)
+
+zsh : base tmux
+	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
 ###
@@ -215,7 +328,7 @@ X11 : base dotprofile
 	@. $(ENVFILE) && \
 		mkdir -p "${XDG_LOG_HOME}/$@"
 
-alacritty : base dotprofile
+alacritty : base dotprofile terminfo
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 	@echo "-- Processing $@..."
@@ -232,6 +345,10 @@ dunst : base dotprofile
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
+
+gimp : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
 
 fscreenshot : base
 	@echo "-- Linking $@..."
@@ -258,6 +375,10 @@ lock-screen : base
 	@$(call link_files,$@)
 
 mpdnotify : base mpd
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+mplayer : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
@@ -318,17 +439,33 @@ steam : base wget
 		cp -r "$(METRO_PATCH)/Unofficial 4.x Patch/Main Files [Install First]"/* $(SKINS_DIR_METRO) && \
 		rm -rf $(METRO_PATCH)
 
-termite : base dotprofile gtk
+terminfo :
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+termite : base dotprofile gtk terminfo
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
+urxvt : base X11 terminfo
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
 wallpaper : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
 zathura : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+###
+### -- Distro Packages
+###
+
+pacman : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)

@@ -1,0 +1,3 @@
+#!/bin/sh
+# set relay location
+alias mullvadsrl="mullvad relay set location"

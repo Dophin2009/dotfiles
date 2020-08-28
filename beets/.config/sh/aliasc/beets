@@ -1,0 +1,5 @@
+#!/bin/sh
+# update beets database
+alias beetup="beet update && beet splupdate"
+# remove track(s) from beets database and file system
+alias beetrmd="beet rm -d"

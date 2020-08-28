@@ -1,0 +1,3 @@
+#!/bin/sh
+# always use custom config location
+alias slack-term='slack-term -config "${XDG_CONFIG_HOME}/slack-term/config"'

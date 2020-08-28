@@ -1,0 +1,5 @@
+#!/bin/sh
+# update mpd database
+alias mpcup="mpc update"
+# default mpd settings and playlist
+alias mpcdef="mpc clear && mpc random true && mpc repeat true && mpc load _japanese && mpc play"

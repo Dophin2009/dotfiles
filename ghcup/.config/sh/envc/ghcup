@@ -1,0 +1,2 @@
+#!/bin/sh
+export GHCUP_INSTALL_BASE_PREFIX="${XDG_DATA_HOME}/ghcup"

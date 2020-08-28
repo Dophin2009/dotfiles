@@ -1,7 +1,8 @@
 #!/bin/zsh
-
 # source sh config
 . "$XDG_CONFIG_HOME/sh/env"
 
 # source zsh aliases
 . "$XDG_CONFIG_HOME/zsh/aliases"
+
+export _Z_DATA="${XDG_DATA_HOME}/z"

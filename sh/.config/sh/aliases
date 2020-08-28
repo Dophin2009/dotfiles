@@ -5,10 +5,6 @@ alias v='f -e nvim'
 
 ### REDEFINITIONS
 alias ls="ls -a --color"
-alias slack-term='slack-term -config "${XDG_CONFIG_HOME}/slack-term/config"'
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-alias tmux='tmux -f ~/.config/tmux/tmux.conf'
-alias mvn='mvn -gs "$XDG_CONFIG_HOME/maven/settings.xml"'
 
 ### SHORTCUTS
 alias x="exit"
@@ -20,42 +16,9 @@ wtm() {
   echo "scale=2; $(wc -w $1 | awk '{print $1}') / 130" | bc
 }
 
-## git
-gdiff() {
-  preview="git diff $@ --color=always -- {-1}"
-  git diff $@ --name-only | fzf -m --ansi --preview $preview
-}
-
-##  neovim
-rmnswap() {
-  rm "$HOME/.local/share/nvim/swap/$(echo $1 | tr '/' '%').swp"
-}
-
-##  copy to clipboard
-#   copy text
-alias cclip="xclip -selection clipboard"
-#   copy image
-alias iclip="xclip -selection clipboard -t image/png -i"
-
-##  dictd
-#   wordnet english dictionary search
-alias def="dict -d wn"
-alias th="aiksaurus"
-
-##  music
-#   beet
-alias beetup="beet update && beet splupdate"
-alias beetrmd="beet rm -d"
-#   mpd
-alias mpcup="mpc update"
-alias mpcdef="mpc clear && mpc random true && mpc repeat true && mpc load _japanese && mpc play"
-#   youtube-dl
-alias ydlmp3="youtube-dl --extract-audio --audio-format mp3"
-
-##  mullvad
-#   set relay location
-alias mullvadsrl="mullvad relay set location"
-
-##  pacman
-#   browse packages
-alias pacman-browse-pkgs="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+### load other aliases
+if [ -d "$XDG_CONFIG_HOME/sh/aliasc" ]; then
+  for f in "$XDG_CONFIG_HOME/sh/aliasc"/*; do
+    . $f
+  done
+fi
