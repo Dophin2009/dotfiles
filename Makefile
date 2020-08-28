@@ -11,7 +11,7 @@ CLI_PACKAGES := bat beets bitwarden cursedtag dicth elinks gnupg hangups less mp
 	weechat wget wine youtube-dl zsh
 GUI_PACKAGES := alacritty battery-notify dunst gimp fscreenshot gtk i3 lock-screen mpdnotify \
 	mplayer mpv networkmanager-dmenu picom polybar qutebrowser rofi set-brightness steam terminfo \
-	termite urxvt wallpaper X11 zathura
+	termite urxvt wallpaper X11 zathura zprofile
 DISTRO_PACKAGES := pacman
 
 ALL_PACKAGES = $(BASE_PACKAGES) $(DEV_PACKAGES) $(CLI_PACKAGES) $(GUI_PACKAGES)
@@ -212,7 +212,7 @@ hangups : base dotprofile
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
-less : sh
+less : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 	@echo "-- Bootstrapping $@"
@@ -229,15 +229,11 @@ mullvad : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
-mutt : base
+mutt : base elinks
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
-ncmpcpp : base
-	@echo "-- Linking $@..."
-	@$(call link_files,$@)
-
-neofetch : base
+ncmpcpp : base mpd
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
@@ -267,17 +263,11 @@ ranger : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
-rtv : base
-	@echo "-- Linking $@..."
-	@$(call link_files,$@)
-
-slack-term : base
-	@echo "-- Linking $@..."
-	@$(call link_files,$@)
-
 task: base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
+	@. $(ENVFILE) && \
+		$(PROFILE_ACTIVATE) taskwarrior > /dev/null 2>&1
 
 tmux : base dotprofile
 	@echo "-- Linking $@..."
@@ -459,6 +449,10 @@ wallpaper : base
 	@$(call link_files,$@)
 
 zathura : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+zprofile : base X11 zsh
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 

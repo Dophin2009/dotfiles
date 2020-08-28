@@ -17,7 +17,7 @@ exit1() {
 }
 
 # Check that required commands exist
-cmds=(curl nvim yarn npx)
+cmds=(curl nvim yarn npx pip3)
 checkcmd "${cmds[@]}" || exit1
 
 # Install nodejs support
@@ -30,13 +30,9 @@ if ! checkcmd neovim-node-host; then
 fi
 
 # Install python support
-if checkcmd pip3; then
-  _echo "Installing pynvim package with pip3..."
-  if ! (pip3 list | grep -F pynvim); then
-    pip3 install --user pynvim
-  fi
-else
-  _echo "Skipping pynvim package installation..."
+_echo "Installing pynvim package with pip3..."
+if ! (pip3 list | grep -F pynvim); then
+  pip3 install --user pynvim
 fi
 
 # Install vim-plug
