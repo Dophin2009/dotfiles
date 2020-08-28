@@ -14,26 +14,13 @@ xrdb -merge "$HOME/.config/X11/xresources.theme"
 xset -b
 
 # pass DISPLAY variable to systemctl
-systemctl --user import-environment DISPLAY
-
-# enable lockscreen if laptop
-if [ "$XSS_LOCK" = true ]; then
-  xss-lock -- "$HOME/.local/bin/lock-screen" &
+if command -v systemctl &>/dev/null; then
+  systemctl --user import-environment DISPLAY
 fi
 
-# start compositor
-mkdir -p "$HOME/.local/var/log/picom"
-picom $PICOM_FLAGS >"$HOME/.local/var/log/picom/picom.log"
-
-# start ibus
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-mkdir -p "$HOME/.local/var/log/ibus"
-ibus-daemon --xim &
-
-# auto-adjust brightness
-set-brightness $DEFAULT_BRIGHTNESS
+if [ -f "$XDG_CONFIG_HOME/X11/xinitrc.local" ]; then
+  . "$XDG_CONFIG_HOME/X11/xinitrc.local"
+fi
 
 # start wm
 mkdir -p "$HOME/.local/var/log/i3"

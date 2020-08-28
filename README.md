@@ -31,11 +31,11 @@ Link the desired packages with `make <package>`.
 The following are considered `base` packages. These are linked as
 dependencies for every other package.
 
-| Name         | Dependencies                                             | Usage / Description                                            | Customization                                                                                                       |
-| :----------- | :------------------------------------------------------- | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------ |
-| `dotprofile` | [`dotprofile`](https://github.com/Dophin2009/dotprofile) | Configurations and profiles for templated configuration files. | `.config/dotprofile/local.yaml` should be created with local variables under `local`. See dependents for variables. |
-| `sh`         |                                                          | Shared shell configurations for POSIX shells.                  | Additional configuration can be placed in `.config/sh/envc` and `.config/sh/aliasc`.                                |
-| `user-dirs`  |                                                          | Default file directory configuration.                          |                                                                                                                     |
+| Name         | Dependencies                                             | Usage / Description                                            | Customization                                                                                                     |
+| :----------- | :------------------------------------------------------- | :------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| `dotprofile` | [`dotprofile`](https://github.com/Dophin2009/dotprofile) | Configurations and profiles for templated configuration files. | `local/dotprofile/local.yaml` should be created with local variables under `local`. See dependents for variables. |
+| `sh`         |                                                          | Shared shell configurations for POSIX shells.                  | Additional configuration can be placed in `.config/sh/envc` and `.config/sh/aliasc`.                              |
+| `user-dirs`  |                                                          | Default file directory configuration.                          |                                                                                                                   |
 
 ## Dev Packages
 
@@ -75,6 +75,7 @@ dependencies for every other package.
 | `elinks`     |                         | [`elinks`](http://elinks.or.cz/)                                                                                                                                                   | Basically default configuration with DuckDuckGo bookmark and smart rewrite.                                                      |                                                                     |
 | `gnupg`      |                         | [`gnupg`](https://gnupg.org/)                                                                                                                                                      | Sets `GNUPGHOME` and `PGPPATH` to use XDG data.                                                                                  |                                                                     |
 | `hangups`    | `dotprofile`            | [`hangups`](https://github.com/tdryer/hangups)                                                                                                                                     | Templated configuration with some keybinds and profile-specific theme.                                                           |                                                                     |
+| `ibus`       |                         | [`ibus`](https://github.com/phuang/ibus)                                                                                                                                           | Sets `GTK_IM_MODULE`, `XMODIFIERS`, and `QT_IM_MODULE` to `ibus`.                                                                |                                                                     |
 | `less`       |                         | `less`                                                                                                                                                                             | Sets `LESSHISTFILE` to use XDG cache.                                                                                            |                                                                     |
 | `mpd`        |                         | [`mpd`](https://github.com/MusicPlayerDaemon/MPD)                                                                                                                                  | Minimal configuration with ALSA and FIFO outputs + some convenience aliases.                                                     |                                                                     |
 | `mullvad`    |                         | [`mullvad`](https://github.com/mullvad/mullvadvpn-app)                                                                                                                             | Adds Mullvad VPN cli aliases.                                                                                                    |                                                                     |
@@ -96,10 +97,76 @@ dependencies for every other package.
 
 ## GUI Packages
 
-| Name        | Package Dep.             | Dependencies                                           | Usage / Description                                                                                     | Customization |
-| :---------- | :----------------------- | :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------ | :------------ |
-| `alacritty` | `dotprofile`, `terminfo` | [`alacritty`](https://github.com/alacritty/alacritty)  | Templated configuration that uses profile colors and font.                                              |               |
-| `mpdnotify` | `mpd`                    | [`mpdnotify`](https://github.com/Dophin2009/mpdnotify) | MPD notication daemon. Adds a user systemd service that requires `mpdnotify` to be in `/usr/local/bin`. |               |
+### X11
+
+Usage: `startx "$XDG_CONFIG_HOME/X11/xinitrc" -- "$XDG_CONFIG_HOME/X11/xserverrc" <vt>`
+
+**Package Dependencies**:
+
+- `dotprofile`
+- `set-brightness`
+- `i3`
+
+**Dependencies**:
+
+- [`X11`](https://www.x.org/wiki/) (`X`, `startx`, `xrdb`, `xset`)
+- [`i3wm`](https://i3wm.org/)
+
+**Customization**:
+
+Before starting the window manager, `xinitrc` will look for `xinitrc.local`.
+`make X11` will automatically link `local/X11/xinitrc.local` to the proper
+location if it exists.
+
+### Polybar
+
+Create `polybar/.config/polybar/local.ini` to specify the modules used:
+
+    top-left = animated-wallpaper pacman-yay-updates
+    top-center = i3
+    top-right = date
+    bottom-left = audio mpd
+    bottom-center =
+    bottom-right = keyboard ibus network mullvad
+
+**Package Dependencies**:
+
+- `dotprofile`
+
+**Dependencies**:
+
+- [`polybar`](https://github.com/polybar/polybar)
+- [`xrandr`](https://xorg.freedesktop.org/wiki/)
+- [Font Awesome 5](https://fontawesome.com/)
+- [Hack font](https://github.com/source-foundry/Hack)
+
+**Optional Dependencies** (depending on module usage):
+
+| Name                                                                  | Module               |
+| :-------------------------------------------------------------------- | :------------------- |
+| [`i3wm`](https://i3wm.org)                                            | `i3`                 |
+| [`ibus`](https://github.com/phuang/ibus)                              | `ibus`               |
+| [`mpd`](https://github.com/MusicPlayerDaemon/MPD)                     | `mpd`                |
+| [`mullvad`](https://github.com/mullvad/mullvadvpn-app)                | `mullvad`            |
+| [`pulseaudio`](https://www.freedesktop.org/wiki/Software/PulseAudio/) | `audio`              |
+| [`pacman`](https://www.archlinux.org/pacman/)                         | `pacman-yay-updates` |
+| [`yay`](https://github.com/Jguer/yay)                                 | `pacman-yay-updates` |
+
+### Other Packages
+
+| Name                   | Package Dep.                                        | Dependencies                                                                                                                                                                     | Usage / Description                                                                                            | Customization                                               |
+| :--------------------- | :-------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------- |
+| `alacritty`            | `dotprofile`, `terminfo`                            | [`alacritty`](https://github.com/alacritty/alacritty)                                                                                                                            | Templated configuration that uses profile colors and font.                                                     |                                                             |
+| `battery-notify`       |                                                     | `notify-send` from `libnotify`                                                                                                                                                   | Adds battery notification scripts to .local/bin                                                                |                                                             |
+| `dunst`                | `dotprofile`                                        | [`dunst`](https://github.com/dunst-project/dunst)                                                                                                                                | Templated configuration that uses profile colors and font.                                                     |                                                             |
+| `fscreenshot`          |                                                     | [`scrot`](https://phab.enlightenment.org/diffusion/ESVN/browse/trunk/misc/scrot;35502)                                                                                           | Adds script to take screenshot to /tmp/<timestamp>.png with scrot.                                             |                                                             |
+| `gimp`                 |                                                     | [`gimp`](https://gitlab.gnome.org/GNOME/gimp)                                                                                                                                    | Sets `GIMP2_DIRECTORY` to be XDG compliant.                                                                    |                                                             |
+| `gtk`                  | `dotprofile`                                        | [`git`](https://git-scm.com)                                                                                                                                                     | Profile-specific GTK themes, XDG compliance environment variables, and GTK 2 file chooser config.              |                                                             |
+| `i3`                   | `dotprofile`, `polybar`, `wallpaper`, `fscreenshot` | [`i3-gaps`](https://github.com/Airblader/i3)                                                                                                                                     | Templated configuration that uses profile colors and font.                                                     | Must specify local `dotprofile` vars: `i3.lock_command`.    |
+| `lock-screen`          |                                                     | [`i3lock`](https://github.com/i3/i3lock)                                                                                                                                         | Adds script to lock screen using `i3lock`, with pixelated screenshot of the current screen as the screensaver. |                                                             |
+| `mpdnotify`            | `mpd`                                               | [`mpdnotify`](https://github.com/Dophin2009/mpdnotify)                                                                                                                           | MPD notication daemon. Adds a user systemd service that requires `mpdnotify` to be in `/usr/local/bin`.        |                                                             |
+| `mplayer`              |                                                     | [`mplayer`](http://mplayerhq.hu/design7/news.html)                                                                                                                               | Sets `MPLAYER_HOME` to XDG config.                                                                             | Actual configuration can be specified at `.config/mplayer`. |
+| `networkmanager-dmenu` |                                                     | [`networkmanager-dmenu`](https://github.com/firecat53/networkmanager-dmenu), [`rofi`](https://github.com/davatorium/rofi), [`alacritty`](https://github.com/alacritty/alacritty) | Configuration to use with `rofi` and `alacritty`.                                                              |                                                             |
 
 ## Distro Packages
 

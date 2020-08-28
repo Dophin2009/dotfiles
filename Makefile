@@ -6,11 +6,11 @@ ENVFILE := sh/.config/sh/env
 BASE_PACKAGES := dotprofile sh user-dirs
 DEV_PACKAGES := android cargo docker dotnet ghcup git go gradle java maven mysql npm nuget nvm \
 	pgsql pylint python R ruby rustup stack texlive
-CLI_PACKAGES := bat beets bitwarden cursedtag dicth elinks gnupg hangups less mpd mullvad mutt \
-	ncmpcpp neofetch newsboat notmuch nvim pass ranger rtv slack-term screen task tmux urlview \
+CLI_PACKAGES := bat beets bitwarden cursedtag dicth elinks gnupg hangups ibus less mpd mullvad mutt \
+	ncmpcpp neofetch newsboat notmuch nvim pass ranger slack-term screen task tmux urlview \
 	weechat wget wine youtube-dl zsh
 GUI_PACKAGES := alacritty battery-notify dunst gimp fscreenshot gtk i3 lock-screen mpdnotify \
-	mplayer mpv networkmanager-dmenu picom polybar qutebrowser rofi set-brightness steam terminfo \
+	mplayer networkmanager-dmenu polybar qutebrowser rofi set-brightness steam terminfo \
 	termite urxvt wallpaper X11 zathura zprofile
 DISTRO_PACKAGES := pacman
 
@@ -212,6 +212,10 @@ hangups : base dotprofile
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
+ibus :
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
 less : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
@@ -336,15 +340,15 @@ dunst : base dotprofile
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
-gimp : base
-	@echo "-- Linking $@..."
-	@$(call link_files,$@)
-
 fscreenshot : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
-gtk :
+gimp : base
+	@echo "-- Linking $@..."
+	@$(call link_files,$@)
+
+gtk : base dotprofile
 	@echo "-- Linking $@..."
 	@$(call link_files_rel,$@/.config,.config,$@/.config)
 	-@. $(ENVFILE) && \
@@ -372,15 +376,7 @@ mplayer : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
-mpv : base
-	@echo "-- Linking $@..."
-	@$(call link_files,$@)
-
 networkmanager-dmenu : base rofi
-	@echo "-- Linking $@..."
-	@$(call link_files,$@)
-
-picom : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
