@@ -358,7 +358,7 @@ gtk :
 	@echo "-- Linking $@..."
 	@$(call link_files_rel,$@/.config,.config,$@/.config)
 	-@. $(ENVFILE) && \
-		rm -f $(foreach f,$(wildcard $@/.local/share/themes/*),"${XDG_DATA_HOME}/themes/$(shell realpath --relative-to $@/themes $(f))")
+		rm -f $(foreach f,$(wildcard $@/.local/share/themes/*),"${XDG_DATA_HOME}/themes/$(shell realpath --relative-to $@/.local/share/themes $(f))")
 	@$(call link_files_shallow_rel,$@/.local/share/themes,.local/share/themes,$@/.local/share/themes)
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
