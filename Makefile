@@ -389,7 +389,10 @@ polybar : base dotprofile
 
 qutebrowser : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_rel,$@/root,.,$@/root)
+	@echo "-- Downloading and verifying $@ userscripts..."
+	@. $(ENVFILE) && \
+		$@/greasemonkey-dl.sh
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
