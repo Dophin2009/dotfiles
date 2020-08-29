@@ -31,7 +31,7 @@ fi
 
 # Install python support
 _echo "Installing pynvim package with pip3..."
-if ! (pip3 list | grep -F pynvim); then
+if ! (pip3 list | grep -F pynvim >/dev/null); then
   pip3 install --user pynvim
 fi
 
