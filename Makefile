@@ -11,7 +11,7 @@ CLI_PACKAGES := bat beets bitwarden cursedtag dicth elinks gnupg hangups ibus le
 	weechat wget wine youtube-dl zsh
 GUI_PACKAGES := alacritty battery-notify dunst gimp fscreenshot gtk i3 lock-screen mpdnotify \
 	mplayer networkmanager-dmenu polybar qutebrowser rofi set-brightness steam terminfo \
-	termite urxvt wallpaper X11 zathura zprofile
+	termite wallpaper X11 zathura zprofile
 DISTRO_PACKAGES := pacman
 
 ALL_PACKAGES = $(BASE_PACKAGES) $(DEV_PACKAGES) $(CLI_PACKAGES) $(GUI_PACKAGES)
