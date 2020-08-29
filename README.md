@@ -16,8 +16,15 @@ template some configuration files and manage themes.
 
 - [Installation](#installation)
 - [Base Packages](#base-packages)
+- [Dev Packages](#dev-packages)
 - [CLI Packages](#cli-packages)
+  - [Neovim](#neovim)
+  - [Other Packages](#other-packages)
 - [GUI Packages](#gui-packages)
+  - [X11](#x11)
+  - [i3](#i3)
+  - [Polybar](#polybar)
+  - [Other Packages](#other-packages-1)
 - [Distro Packages](#distro-packages)
 
 ## Installation
@@ -85,7 +92,7 @@ Configuration using `vim-plug`, `nvim-lsp`, `deoplete.nvim`, `ranger.vim`, `vim-
 
 **Dependencies**:
 
-- [`neovim` v0.5 nightly](https://github.com/neovim/neovim),
+- [`neovim` v0.5 nightly](https://github.com/neovim/neovim)
 - [`nodejs`](https://nodejs.org/en/)
 - [`yarn`](https://github.com/yarnpkg/yarn)
 - [`python3`](https://www.python.org/)
