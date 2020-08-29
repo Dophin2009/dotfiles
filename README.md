@@ -61,11 +61,21 @@ The wallpapers are not included in the repository.
 The following are considered `base` packages. These are linked as
 dependencies for every other package.
 
-| Name         | Dependencies                                             | Usage / Description                                            | Customization                                                                                                          |
-| :----------- | :------------------------------------------------------- | :------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
-| `dotprofile` | [`dotprofile`](https://github.com/Dophin2009/dotprofile) | Configurations and profiles for templated configuration files. | `local/dotprofile/local.yaml` should be created with local variables under `local`. See [Installation](#installation). |
-| `sh`         |                                                          | Shared shell configurations for POSIX shells.                  | Additional configuration can be placed in `.config/sh/local`.                                                          |
-| `user-dirs`  |                                                          | Default file directory configuration.                          |                                                                                                                        |
+| Name        | Dependencies | Usage / Description                           | Customization                                                 |
+| :---------- | :----------- | :-------------------------------------------- | :------------------------------------------------------------ |
+| `sh`        |              | Shared shell configurations for POSIX shells. | Additional configuration can be placed in `.config/sh/local`. |
+| `user-dirs` |              | Default file directory configuration.         |                                                               |
+
+### Dotprofile
+
+Configurations and profiles for templated configuration files.
+
+`local/dotprofile/local.yaml` should be created with local variables
+under `local`. See [Installation](#installation).
+
+**Dependencies**:
+
+- [`dotprofile`](https://github.com/Dophin2009/dotprofile)
 
 ## Dev Packages
 
