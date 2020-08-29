@@ -43,7 +43,9 @@ fi
 
 # Call init script
 _echo "Sourcing nvim init.vim..."
-nvim +PlugInstall "+source ~/.config/nvim/init.vim" +qall
+mv "$XDG_CONFIG_HOME/nvim/init.vim" "$XDG_CONFIG_HOME/nvim/init_.vim"
+nvim "+source $XDG_CONFIG_HOME/nvim/plugins.vim" +PlugInstall +qall
+mv "$XDG_CONFIG_HOME/nvim/init_.vim" "$XDG_CONFIG_HOME/nvim/init.vim"
 
 if checkcmd go; then
   _echo "Install Go binaries..."

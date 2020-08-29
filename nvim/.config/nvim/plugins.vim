@@ -1,3 +1,5 @@
+let g:nvim_data = $XDG_DATA_HOME . "/nvim"
+
 "   begin plugin check/installation
 call plug#begin(nvim_data . '/plugged')
 
