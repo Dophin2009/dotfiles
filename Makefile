@@ -3,10 +3,10 @@ PROFILE := gruvbox
 ROOT := $(shell pwd)
 ENVFILE := sh/.config/sh/env
 
-BASE_PACKAGES := dotprofile sh user-dirs
+BASE_PACKAGES := sh user-dirs
 DEV_PACKAGES := android cargo docker dotnet ghcup git go gradle java maven mysql npm nuget nvm \
 	pgsql pylint python R ruby rustup stack texlive
-CLI_PACKAGES := bat beets bitwarden cursedtag dicth elinks gnupg hangups ibus less mpd mullvad mutt \
+CLI_PACKAGES := bat beets bitwarden cursedtag dicth dotprofile elinks gnupg hangups ibus less mpd mullvad mutt \
 	ncmpcpp neofetch newsboat notmuch nvim pass ranger slack-term screen task tmux urlview \
 	weechat wget wine youtube-dl zsh
 GUI_PACKAGES := alacritty battery-notify dunst gimp fscreenshot gtk i3 lock-screen mpdnotify \
@@ -65,11 +65,15 @@ sh :
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
-dotprofile : sh
+user-dirs : sh
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
-user-dirs : sh
+###
+### -- Dotprofile
+###
+
+dotprofile : sh
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
