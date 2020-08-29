@@ -1,4 +1,5 @@
 local nvim_lsp = require('nvim_lsp')
+local configs = require('nvim_lsp/configs')
 local diagnostic = require('diagnostic')
 local lsp_status = require('lsp-status')
 
@@ -59,6 +60,22 @@ nvim_lsp.clangd.setup {
 }
 -- cmake language server
 nvim_lsp.cmake.setup {
+    on_attach = on_attach,
+    capabilities = lsp_status.capabilities
+}
+-- dhall lsp server
+configs.dhall_lsp = {
+    default_config = {
+        cmd = {'dhall-lsp-server'},
+        filetypes = {'dhall'},
+        root_dir = function(fname)
+            return nvim_lsp.util.find_git_ancestor(fname) or
+                       vim.loop.os_homedir()
+        end,
+        settings = {}
+    }
+}
+nvim_lsp.dhall_lsp.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }
