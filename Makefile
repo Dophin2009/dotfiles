@@ -313,9 +313,6 @@ zsh : base tmux
 X11 : base dotprofile
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
-	@echo "-- Processing xinitrc.variables..."
-	@. $(ENVFILE) && \
-		$(PROFILE_ACTIVATE) xinitrc.variables > /dev/null 2>&1
 	@echo "-- Processing xresources-theme..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) xresources-theme > /dev/null 2>&1

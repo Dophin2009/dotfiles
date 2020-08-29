@@ -121,10 +121,6 @@ applications:
     template: true
     src: "{{ .config_home }}/termite/config.tmpl"
     dest: "{{ .config_home }}/termite/config"
-  - name: xinitrc.variables
-    template: true
-    src: "{{ .config_home }}/X11/xinitrc.variables.tmpl"
-    dest: "{{ .config_home }}/X11/xinitrc.variables"
   - name: xresources-theme
     template: true
     src: "{{ .config_home }}/X11/xresources.theme.tmpl"
