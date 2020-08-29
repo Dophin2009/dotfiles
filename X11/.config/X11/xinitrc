@@ -3,9 +3,6 @@
 # alacritty scale factor
 export WINIT_X11_SCALE_FACTOR=1
 
-# load local variables
-. "$XDG_CONFIG_HOME/X11/xinitrc.variables"
-
 # load xresources
 xrdb -load "$HOME/.config/X11/xresources"
 xrdb -merge "$HOME/.config/X11/xresources.theme"
