@@ -27,6 +27,7 @@ template some configuration files and manage themes.
   - [Polybar](#polybar)
   - [Other Packages](#other-packages-1)
 - [Distro Packages](#distro-packages)
+- [To-Do](#to-do)
 
 ## Installation
 
@@ -262,3 +263,11 @@ These are packages for specific distros.
 | Name     | Distro       | Dependencies                                       | Usage / Description                                                          | Customization |
 | :------- | :----------- | :------------------------------------------------- | :--------------------------------------------------------------------------- | :------------ |
 | `pacman` | pacman-based | `pacman`, [`fzf`](https://github.com/junegunn/fzf) | Adds the alias `pacman-browse-pkgs` to browse installed packages with `fzf`. |               |
+
+## To-Do
+
+- [ ] Remove hard-coding of `~/files/` and eventually `user-dirs`.
+- [ ] Maybe remove unused packages that do only XDG compliance fixes.
+- [ ] `dotprofile` and `Makefile` overlap in responsibilities; consolidate
+      them into one?
+- [ ] Make more modular and more customizable.
