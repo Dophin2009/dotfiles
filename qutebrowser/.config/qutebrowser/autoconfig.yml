@@ -61,8 +61,6 @@ settings:
     global: true
   content.webrtc_ip_handling_policy:
     global: default-public-interface-only
-  downloads.location.directory:
-    global: ~/files/downloads
   fonts.default_family:
     global:
     - Inconsolata 11
