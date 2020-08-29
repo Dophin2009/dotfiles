@@ -6,4 +6,5 @@ git/.config/git/config.local
 mutt/.config/mutt/accounts
 
 polybar/.config/polybar/local.ini
+qutebrowser/.config/qutebrowser/bookmarks
 X11/.config/X11/xinitrc.local
