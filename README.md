@@ -15,6 +15,7 @@ Packages](#base-packages).
 template some configuration files and manage themes.
 
 - [Installation](#installation)
+- [Profiles](#profiles)
 - [Base Packages](#base-packages)
 - [Dev Packages](#dev-packages)
 - [CLI Packages](#cli-packages)
@@ -42,6 +43,17 @@ In `dotprofile/.config/dotprofile/local.yaml`, specify these variables:
 Some packages require the specification of other local variables in the same file.
 
 Link the desired packages with `make <package>`.
+
+## Profiles
+
+Some boring choices, I know.
+
+| Name      | Description                                                           | Dependencies                                                                                   | Screenshot                                                                           |
+| :-------- | :-------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
+| `gruvbox` | Uses the [gruvbox](https://github.com/morhetz/gruvbox) colorscheme.   | [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) | ![gruvbox-preview](./dotprofile/.config/dotprofile/profiles/screenshots/gruvbox.png) |
+| `nord`    | Uses the [nord](https://github.com/arcticicestudio/nord) colorscheme. | [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) | ![nord-preview](./dotprofile/.config/dotprofile/profiles/screenshots/nord.png)       |
+
+The wallpapers are not included in the repository.
 
 ## Base Packages
 
