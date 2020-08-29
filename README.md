@@ -271,3 +271,4 @@ These are packages for specific distros.
 - [ ] `dotprofile` and `Makefile` overlap in responsibilities; consolidate
       them into one?
 - [ ] Make more modular and more customizable.
+- [ ] Complete documentation of local variables.
