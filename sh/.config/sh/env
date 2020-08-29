@@ -30,3 +30,9 @@ export PATH="${PATH}:${HOME}/.local/bin"
 . "$XDG_CONFIG_HOME/sh/path"
 # define aliases from shared aliases files
 . "$XDG_CONFIG_HOME/sh/aliases"
+
+if [ -d "$XDG_CONFIG_HOME/sh/local" ]; then
+  for f in "$XDG_CONFIG_HOME/sh/local"/*; do
+    . $f
+  done
+fi

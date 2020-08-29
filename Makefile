@@ -425,7 +425,7 @@ steam : base wget
 		cp -r "$(METRO_PATCH)/Unofficial 4.x Patch/Main Files [Install First]"/* $(SKINS_DIR_METRO) && \
 		rm -rf $(METRO_PATCH)
 
-terminfo :
+terminfo : base
 	@echo "-- Linking $@..."
 	@$(call link_files,$@)
 
@@ -435,10 +435,6 @@ termite : base dotprofile gtk terminfo
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
-
-urxvt : base X11 terminfo
-	@echo "-- Linking $@..."
-	@$(call link_files,$@)
 
 wallpaper : base
 	@echo "-- Linking $@..."

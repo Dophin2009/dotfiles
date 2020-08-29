@@ -1,3 +1,6 @@
 dotprofile/.config/dotprofile/local.yaml
+sh/.config/sh/local/*
+!sh/.config/sh/local/.gitkeep
+
 polybar/.config/polybar/local.ini
 X11/.config/X11/xinitrc.local
