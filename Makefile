@@ -32,8 +32,8 @@ define link_files_rel
 	$(foreach f,$(shell find $1 -type f),$(call link,$(f),$2/$(shell realpath --relative-to $3 $(f))))
 endef
 
-define link_files_root
-	$(call link_files_rel,$1/root,.,$1/root)
+define link_files_tree
+	$(call link_files_rel,$1/tree,.,$1/tree)
 endef
 
 define link_files_shallow

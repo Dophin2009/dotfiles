@@ -1,6 +1,6 @@
-[submodule "qutebrowser/.config/qutebrowser/jmatrix"]
-  path = qutebrowser/.config/qutebrowser/jmatrix
-  url = https://gitlab.com/jgkamat/jmatrix.git
+[submodule "qutebrowser/tree/.config/qutebrowser/jmatrix"]
+	path = qutebrowser/tree/.config/qutebrowser/jmatrix
+	url = https://gitlab.com/jgkamat/jmatrix.git
 [submodule "tmux/.local/share/tmux/plugins/tpm"]
   path = tmux/.local/share/tmux/plugins/tpm
   url = https://github.com/tmux-plugins/tpm
