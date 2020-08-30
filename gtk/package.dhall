@@ -1,12 +1,12 @@
 let List/map = ../lib/prelude/List/map
 
-let Homm = ../lib/homm.dhall
+let Stew = ../lib/stew.dhall
 
 let profile = ../current.dhall
 
 let LocalExport = ./types/local.dhall
 
-let Package = Homm.Package
+let Package = Stew.Package
 
 let local
     : LocalExport.Type
@@ -18,10 +18,10 @@ let themes
 
 let makeThemeFile =
       λ(name : Text) →
-        Homm.File::{ path = "tree/.local/share/themes/${name}", shallow = True }
+        Stew.File::{ path = "tree/.local/share/themes/${name}", shallow = True }
 
 let switchThemeHook
-    : Homm.Hook
+    : Stew.Hook
     = { string = "hooks/switch-theme.sh \"${profile.gtk.theme}\""
       , name = "GTK current theme switch"
       }
@@ -29,8 +29,8 @@ let switchThemeHook
 let package =
       Package::{
       , name = "gtk"
-      , files = List/map Text Homm.File.Type makeThemeFile themes
-      , afterLink = [ switchThemeHook ] : List Homm.Hook
+      , files = List/map Text Stew.File.Type makeThemeFile themes
+      , afterLink = [ switchThemeHook ] : List Stew.Hook
       }
 
 in  package
