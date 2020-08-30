@@ -357,7 +357,7 @@ gtk : base dotprofile
 	@echo "-- Linking $@..."
 	@$(call link_files_rel,$@/tree/.config,.config,$@/tree/.config)
 	-@. $(ENVFILE) && \
-		rm -f $(foreach f,$(wildcard $@/tree/local/share/themes/*),"${XDG_DATA_HOME}/themes/$(shell realpath --relative-to $@/tree/.local/share/themes $(f))")
+		rm -f $(foreach f,$(wildcard $@/tree/.local/share/themes/*),"${XDG_DATA_HOME}/themes/$(shell realpath --relative-to $@/tree/.local/share/themes $(f))")
 	@$(call link_files_shallow_rel,$@/tree/.local/share/themes,.local/share/themes,$@/tree/.local/share/themes)
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
