@@ -1,3 +1,4 @@
 #!/bin/bash
-rm -f "$XDG_DATA_HOME/themes/current-theme"
-ln -sf "$XDG_DATA_HOME/themes/$1" "$XDG_DATA_HOME/themes/current-theme"
+THEMES="$HOME/.local/share/themes"
+rm -f "$THEMES/current-theme"
+ln -sf "$THEMES/$1" "$THEMES/current-theme"
