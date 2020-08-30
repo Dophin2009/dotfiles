@@ -1,0 +1,10 @@
+# vim: ft=muttrc
+set my_protonmail=~/files/mail/protonmail.mutt
+
+folder-hook 'protonmail' source $my_protonmail
+
+# Default account
+source $my_protonmail
+
+# Switch accounts
+macro index <f2> '<sync-mailbox><enter-command>source $my_protonmail<enter><change-folder>!<enter>'

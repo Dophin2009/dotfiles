@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# start compositor
+mkdir -p "$HOME/.local/var/log/picom"
+picom -fCb -D8 >"$HOME/.local/var/log/picom/picom.log"
+
+# start ibus
+mkdir -p "$HOME/.local/var/log/ibus"
+ibus-daemon --xim &
+
+# auto-adjust brightness
+set-brightness 0.8

@@ -1,7 +1,7 @@
 PROFILE := gruvbox
 
 ROOT := $(shell pwd)
-ENVFILE := sh/.config/sh/env
+ENVFILE := sh/tree/.config/sh/env
 
 BASE_PACKAGES := sh user-dirs
 DEV_PACKAGES := android cargo docker dotnet ghcup git go gradle java maven mysql npm nuget nvm \
@@ -67,11 +67,11 @@ update-submodules :
 
 sh :
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 user-dirs : sh
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 ###
 ### -- Dotprofile
@@ -79,7 +79,7 @@ user-dirs : sh
 
 dotprofile : sh
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 ###
 ### -- Dev Packages
@@ -87,91 +87,91 @@ dotprofile : sh
 
 android : base
 	@echo "-- Linking $@"
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 cargo : base
 	@echo "-- Linking $@"
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 docker : base
 	@echo "-- Linking $@"
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 dotnet : base
 	@echo "-- Linking $@"
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 ghcup : base
 	@echo "-- Linking $@"
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 git : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 go : base
 	@echo "-- Linking $@"
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 gradle : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 java : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 maven : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 mysql : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 npm : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 nuget : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 nvm : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 pgsql : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 pylint : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 python : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 R : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 ruby : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 rustup : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 stack : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 texlive : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 ###
 ### -- CLI Packages
@@ -179,14 +179,14 @@ texlive : base
 
 bat : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 beets : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
@@ -195,89 +195,89 @@ beets : base dotprofile
 
 bitwarden : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 cursedtag : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 dicth : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 elinks : base urlview
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 gnupg :
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 hangups : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 ibus :
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 less : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Bootstrapping $@"
 	@. $(ENVFILE) && \
 		mkdir -p ${XDG_CACHE_HOME}/$@
 
 mpd : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@. $(ENVFILE) && \
 		mkdir -p ${XDG_DATA_HOME}/$@
 
 mullvad : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 mutt : base elinks
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 ncmpcpp : base mpd
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 newsboat : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 notmuch : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 nvim : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing neovim"
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) neovim > /dev/null 2>&1
 	@echo "-- Bootstrapping neovim"
 	@. $(ENVFILE) && \
-		$@/.config/nvim/scripts/bootstrap
+		$@/tree/.config/nvim/scripts/bootstrap
 
 pass : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 ranger : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 task: base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) taskwarrior > /dev/null 2>&1
 
@@ -285,34 +285,34 @@ tmux : base dotprofile
 	@echo "-- Linking $@..."
 	-@. $(ENVFILE) && \
 		rm -rf ${XDG_DATA_HOME}/tmux/plugins/tpm
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 urlview : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 weechat : base
 	@echo "-- Linking $@"
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 wget : base
 	@echo "-- Linking $@"
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 wine : base
 	@echo "-- Linking $@"
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 youtube-dl : base
 	@echo "-- Linking $@"
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 zsh : base tmux
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 ###
 ### -- GUI Packages
@@ -320,7 +320,7 @@ zsh : base tmux
 
 X11 : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing xresources-theme..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) xresources-theme > /dev/null 2>&1
@@ -329,65 +329,65 @@ X11 : base dotprofile
 
 alacritty : base dotprofile terminfo
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 battery-notify : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 dunst : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 fscreenshot : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 gimp : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 gtk : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files_rel,$@/.config,.config,$@/.config)
+	@$(call link_files_rel,$@/tree/.config,.config,$@/tree/.config)
 	-@. $(ENVFILE) && \
-		rm -f $(foreach f,$(wildcard $@/.local/share/themes/*),"${XDG_DATA_HOME}/themes/$(shell realpath --relative-to $@/.local/share/themes $(f))")
-	@$(call link_files_shallow_rel,$@/.local/share/themes,.local/share/themes,$@/.local/share/themes)
+		rm -f $(foreach f,$(wildcard $@/tree/local/share/themes/*),"${XDG_DATA_HOME}/themes/$(shell realpath --relative-to $@/tree/.local/share/themes $(f))")
+	@$(call link_files_shallow_rel,$@/tree/.local/share/themes,.local/share/themes,$@/tree/.local/share/themes)
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 i3 : base dotprofile polybar wallpaper fscreenshot
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 lock-screen : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 mpdnotify : base mpd
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 mplayer : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 networkmanager-dmenu : base rofi
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 polybar : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing polybar-network..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) polybar-network > /dev/null 2>&1
@@ -397,7 +397,7 @@ polybar : base dotprofile
 
 qutebrowser : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files_root,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Downloading and verifying $@ userscripts..."
 	@. $(ENVFILE) && \
 		$@/greasemonkey-dl.sh
@@ -407,14 +407,14 @@ qutebrowser : base dotprofile
 
 rofi : base dotprofile
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 set-brightness : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 steam : SKINS_DIR = ${XDG_DATA_HOME}/Steam/skins
 steam : SKINS_DIR_METRO = $(SKINS_DIR)/metro-for-steam-4.4
@@ -435,26 +435,26 @@ steam : base wget
 
 terminfo : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 termite : base dotprofile gtk terminfo
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 	@echo "-- Processing $@..."
 	@. $(ENVFILE) && \
 		$(PROFILE_ACTIVATE) $@ > /dev/null 2>&1
 
 wallpaper : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 zathura : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 zprofile : base X11 zsh
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
 
 ###
 ### -- Distro Packages
@@ -462,4 +462,4 @@ zprofile : base X11 zsh
 
 pacman : base
 	@echo "-- Linking $@..."
-	@$(call link_files,$@)
+	@$(call link_files_tree,$@)
