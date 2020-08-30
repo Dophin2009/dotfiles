@@ -49,10 +49,10 @@ Link the desired packages with `make <package>`.
 
 Some boring choices, I know.
 
-| Name      | Description                                                           | Dependencies                                                                                   | Screenshot                                                                           |
-| :-------- | :-------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| `gruvbox` | Uses the [gruvbox](https://github.com/morhetz/gruvbox) colorscheme.   | [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) | ![gruvbox-preview](./dotprofile/.config/dotprofile/profiles/screenshots/gruvbox.png) |
-| `nord`    | Uses the [nord](https://github.com/arcticicestudio/nord) colorscheme. | [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) | ![nord-preview](./dotprofile/.config/dotprofile/profiles/screenshots/nord.png)       |
+| Name      | Description                                                           | Dependencies                                                                                   | Screenshot                                                                                |
+| :-------- | :-------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------- |
+| `gruvbox` | Uses the [gruvbox](https://github.com/morhetz/gruvbox) colorscheme.   | [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) | ![gruvbox-preview](./dotprofile/tree/.config/dotprofile/profiles/screenshots/gruvbox.png) |
+| `nord`    | Uses the [nord](https://github.com/arcticicestudio/nord) colorscheme. | [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) | ![nord-preview](./dotprofile/tree/.config/dotprofile/profiles/screenshots/nord.png)       |
 
 The wallpapers are not included in the repository.
 
