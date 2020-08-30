@@ -9,7 +9,7 @@ let TemplateFile = (./template.dhall).File
 let Package =
       { Type =
           { name : Text
-          , depedencies : List Text
+          , dependencies : List Text
           , extensions : List Text
           , defaultLinkType : LinkType
           , files : List File.Type
@@ -18,7 +18,7 @@ let Package =
           , afterLink : List Hook
           }
       , default =
-        { depedencies = [] : List Text
+        { dependencies = [] : List Text
         , extensions = [] : List Text
         , defaultLinkType = LinkType.Link
         , files = [] : List File.Type
