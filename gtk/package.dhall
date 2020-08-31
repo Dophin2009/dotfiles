@@ -18,7 +18,10 @@ let themes
 
 let makeThemeFile =
       λ(name : Text) →
-        Stew.File::{ path = "tree/.local/share/themes/${name}", shallow = True }
+        Stew.File::{
+        , src = "tree/.local/share/themes/${name}"
+        , dest = ".local/share/themes/${name}"
+        }
 
 let switchThemeHook
     : Stew.Hook
@@ -33,4 +36,4 @@ let package =
       , afterLink = [ switchThemeHook ] : List Stew.Hook
       }
 
-in  package
+in  { package }
