@@ -12,6 +12,7 @@ let Package =
           , dependencies : List Text
           , extensions : List Text
           , defaultLinkType : LinkType
+          , ignorePatterns : List Text
           , files : List File.Type
           , templateFiles : List TemplateFile.Type
           , beforeLink : List Hook
@@ -21,6 +22,7 @@ let Package =
         { dependencies = [] : List Text
         , extensions = [] : List Text
         , defaultLinkType = LinkType.Link
+        , ignorePatterns = [] : List Text
         , files = [] : List File.Type
         , templateFiles = [] : List TemplateFile.Type
         , beforeLink = [] : List Hook
