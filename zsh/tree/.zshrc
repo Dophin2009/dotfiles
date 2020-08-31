@@ -1,3 +1,6 @@
+### environment
+source "$XDG_CONFIG_HOME/zsh/env"
+
 # open tmux by default
 [[ $TERM != "screen-256color" ]] && exec tmux
 
@@ -23,9 +26,6 @@ fi
 export HISTSIZE=290000
 export SAVEHIST=290000
 export HISTFILE="$ZSH_CACHE/history"
-
-### environment
-source "$XDG_CONFIG_HOME/zsh/env"
 
 ### macros / aliases
 # change directory on demand after exiting ranger

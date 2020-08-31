@@ -32,7 +32,9 @@ export PATH="${PATH}:${HOME}/.local/bin"
 . "$XDG_CONFIG_HOME/sh/aliases"
 
 if [ -d "$XDG_CONFIG_HOME/sh/local" ]; then
-  for f in "$XDG_CONFIG_HOME/sh/local"/*; do
-    . $f
-  done
+  if [[ "$(find "$XDG_CONFIG_HOME/sh/local" -not -path '*/\.*' -maxdepth 1 -mindepth 1 2>/dev/null)" ]]; then
+    for f in "$XDG_CONFIG_HOME/sh/local/"*; do
+      . "$f"
+    done
+  fi
 fi
