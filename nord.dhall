@@ -1,6 +1,6 @@
 let home = (./lib/stew/env.dhall).home
 
-let Profile = ./profile.dhall
+let Profile = ./Profile.dhall
 
 let font = "Iosevka Nerd Font"
 
@@ -29,41 +29,94 @@ let colors =
         }
       }
 
-let wallpaper = "${home}/.config/wallpaper/nord.jpg"
+let alacritty = { font, colors }
 
 let bat = { theme = "Nord" }
 
-let dunst = { low_bg = "#32302f", normal_bg = "#32302f" }
+let dunst =
+      { font
+      , colors =
+        { low =
+          { foreground = colors.primary.foreground, background = "#4C566A" }
+        , normal =
+          { foreground = colors.primary.foreground, background = "#4C566A" }
+        , critical =
+          { foreground = colors.primary.foreground
+          , background = colors.primary.alarm
+          }
+        }
+      }
 
 let gtk = { theme = "nordic" }
 
 let hangups = { theme = "solarized-dark" }
 
-let i3 = { gaps = { inner = 15, outer = 0 } }
+let i3 =
+      { font = { family = font, size = 10 }
+      , colors =
+        { foc =
+          { border = colors.primary.background
+          , bg = colors.primary.background
+          , text = colors.primary.foreground
+          , indic = colors.primary.background
+          , cborder = colors.bright.white
+          }
+        , foc_in =
+          { border = colors.primary.background
+          , bg = colors.primary.background
+          , text = colors.primary.foreground
+          , indic = colors.primary.background
+          , cborder = colors.normal.white
+          }
+        , unfoc =
+          { border = colors.primary.background
+          , bg = colors.primary.background
+          , text = colors.primary.foreground
+          , indic = colors.primary.background
+          , cborder = colors.normal.white
+          }
+        , urgent =
+          { border = colors.primary.background
+          , bg = colors.primary.background
+          , text = colors.primary.foreground
+          , indic = colors.primary.background
+          , cborder = colors.normal.white
+          }
+        , ph =
+          { border = colors.primary.background
+          , bg = colors.primary.background
+          , text = colors.primary.foreground
+          , indic = colors.primary.background
+          , cborder = colors.normal.white
+          }
+        }
+      , gaps = { inner = 15, outer = 0 }
+      }
 
-let neovim = { theme = "nord" }
+let nvim = { theme = "nord" }
 
 let qutebrowser = { theme = "nord" }
 
 let rofi = { theme = "nord" }
 
-let taskwarrior = { theme = "dark-256" }
+let task = { theme = "dark-256" }
 
 let tmux = { theme = "nord" }
 
+let wallpaper = { path = "${home}/.config/wallpaper/nord.jpg" }
+
 let profile
-    : Profile.Type
-    = { font
-      , colors
+    : Profile
+    = { alacritty
       , bat
       , dunst
       , gtk
       , hangups
       , i3
-      , neovim
+      , nvim
       , qutebrowser
       , rofi
-      , taskwarrior
+      , task
       , tmux
       , wallpaper
       }

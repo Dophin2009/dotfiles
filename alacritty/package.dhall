@@ -1,18 +1,18 @@
-let Stew = ../lib/stew.dhall
+let Stew = ../lib/stew/stew.dhall
 
-let profile = ../current.dhall
+let profile = ../loaded.dhall
 
-let Package = Stew.Package
+let local = ./local.dhall
 
-let alacrittyTemplate =
+let configTemplate =
       Stew.TemplateFile::{
       , src = "tree/.config/alacritty/alacritty.yml.tmpl"
       , dest = ".config/alacritty/alacritty.yml"
       }
 
 let package =
-      Package::{ name = "alacritty", templateFiles = [ alacrittyTemplate ] }
+      Stew.Package::{ name = "alacritty", templateFiles = [ configTemplate ] }
 
-let variables = profile
+let variables = profile.alacritty ∧ local
 
 in  { package, variables }

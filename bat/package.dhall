@@ -1,8 +1,10 @@
-let Stew = ../lib/stew.dhall
+let Stew = ../lib/stew/stew.dhall
 
-let profile = ../current.dhall
+let Profile = ../Profile.dhall
 
-let Package = Stew.Package
+let profile
+    : Profile
+    = ../loaded.dhall
 
 let configTemplate =
       Stew.TemplateFile::{
@@ -10,8 +12,8 @@ let configTemplate =
       , dest = ".config/bat/config"
       }
 
-let package = Package::{ name = "bat", templateFiles = [ configTemplate ] }
+let package = Stew.Package::{ name = "bat", templateFiles = [ configTemplate ] }
 
-let variables = profile
+let variables = profile.bat
 
 in  { package, variables }

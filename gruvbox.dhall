@@ -1,6 +1,6 @@
 let home = (./lib/stew/env.dhall).home
 
-let Profile = ./profile.dhall
+let Profile = ./Profile.dhall
 
 let font = "Iosevka Nerd Font"
 
@@ -29,41 +29,97 @@ let colors =
         { background = "#282828", foreground = "#ebdbb2", alarm = "#cc241d" }
       }
 
-let wallpaper = "${home}/.config/wallpaper/gruvbox.jpg"
+let alacritty = { font, colors }
 
 let bat = { theme = "TwoDark" }
 
-let dunst = { low_bg = "#32302f", normal_bg = "#32302f" }
+let dunst =
+      { font
+      , colors =
+        { low =
+          { foreground = colors.primary.foreground, background = "#32302f" }
+        , normal =
+          { foreground = colors.primary.foreground, background = "#32302f" }
+        , critical =
+          { foreground = colors.primary.foreground
+          , background = colors.primary.alarm
+          }
+        }
+      }
 
 let gtk = { theme = "gruvbox-gtk" }
 
 let hangups = { theme = "solarized-dark" }
 
-let i3 = { gaps = { inner = 15, outer = 0 } }
+let i3 =
+      { font = { family = font, size = 10 }
+      , colors =
+        { foc =
+          { border = colors.primary.background
+          , bg = colors.primary.background
+          , text = colors.primary.foreground
+          , indic = colors.primary.background
+          , cborder = colors.bright.white
+          }
+        , foc_in =
+          { border = colors.primary.background
+          , bg = colors.primary.background
+          , text = colors.primary.foreground
+          , indic = colors.primary.background
+          , cborder = colors.normal.white
+          }
+        , unfoc =
+          { border = colors.primary.background
+          , bg = colors.primary.background
+          , text = colors.primary.foreground
+          , indic = colors.primary.background
+          , cborder = colors.normal.white
+          }
+        , urgent =
+          { border = colors.primary.background
+          , bg = colors.primary.background
+          , text = colors.primary.foreground
+          , indic = colors.primary.background
+          , cborder = colors.normal.white
+          }
+        , ph =
+          { border = colors.primary.background
+          , bg = colors.primary.background
+          , text = colors.primary.foreground
+          , indic = colors.primary.background
+          , cborder = colors.normal.white
+          }
+        }
+      , gaps = { inner = 15, outer = 0 }
+      }
 
-let neovim = { theme = "gruvbox-dark" }
+let nvim = { theme = "gruvbox-dark" }
+
+let polybar = {}
 
 let qutebrowser = { theme = "gruvbox-dark-medium" }
 
 let rofi = { theme = "gruvbox-dark-hard" }
 
-let taskwarrior = { theme = "dark-256" }
+let task = { theme = "dark-256" }
 
 let tmux = { theme = "gruvbox" }
 
-let profile =
-      Profile::{
-      , font
-      , colors
+let wallpaper = { path = "${home}/.config/wallpaper/gruvbox.jpg" }
+
+let profile
+    : Profile
+    = { alacritty
       , bat
       , dunst
       , gtk
       , hangups
       , i3
-      , neovim
+      , nvim
       , qutebrowser
+      , polybar
       , rofi
-      , taskwarrior
+      , task
       , tmux
       , wallpaper
       }

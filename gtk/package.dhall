@@ -1,12 +1,10 @@
 let List/map = ../lib/prelude/List/map
 
-let Stew = ../lib/stew.dhall
+let Stew = ../lib/stew/stew.dhall
 
-let profile = ../current.dhall
+let LocalExport = ./types/LocalType.dhall
 
-let LocalExport = ./types/local.dhall
-
-let Package = Stew.Package
+let profile = ../loaded.dhall
 
 let local
     : LocalExport.Type
@@ -21,19 +19,22 @@ let makeThemeFile =
         Stew.File::{
         , src = "tree/.local/share/themes/${name}"
         , dest = ".local/share/themes/${name}"
+        , replaceDirectories = Some True
         }
 
-let switchThemeHook
-    : Stew.Hook
-    = { string = "hooks/switch-theme.sh \"${profile.gtk.theme}\""
-      , name = "GTK current theme switch"
+let currentThemeFile =
+      Stew.File::{
+      , src = "tree/.local/share/themes/${profile.gtk.theme}"
+      , dest = ".local/share/themes/current-theme"
+      , replaceDirectories = Some True
       }
 
 let package =
-      Package::{
+      Stew.Package::{
       , name = "gtk"
-      , files = List/map Text Stew.File.Type makeThemeFile themes
-      , afterLink = [ switchThemeHook ] : List Stew.Hook
+      , files =
+            List/map Text Stew.File.Type makeThemeFile themes
+          # [ currentThemeFile ]
       }
 
 in  { package }
