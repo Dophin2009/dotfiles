@@ -10,7 +10,8 @@ let alacrittyTemplate =
       , dest = ".config/alacritty/alacritty.yml"
       }
 
-let package = Package::{ name = "gtk", templateFiles = [ alacrittyTemplate ] }
+let package =
+      Package::{ name = "alacritty", templateFiles = [ alacrittyTemplate ] }
 
 let variables = profile
 
