@@ -51,9 +51,9 @@ let taskwarrior = { theme = "dark-256" }
 
 let tmux = { theme = "gruvbox" }
 
-let profile
-    : Profile.Type
-    = { font
+let profile =
+      Profile::{
+      , font
       , colors
       , bat
       , dunst

@@ -1,6 +1,11 @@
+let LocalExport = ./lib/local.dhall
+
+let local = ./local.dhall
+
 let Profile =
       { Type =
-          { font : Text
+          { local : LocalExport
+          , font : Text
           , colors :
               { bright :
                   { black : Text
@@ -36,6 +41,7 @@ let Profile =
           , taskwarrior : { theme : Text }
           , tmux : { theme : Text }
           }
+      , default.local = local
       }
 
 in  Profile
