@@ -1,4 +1,5 @@
 loaded.dhall
+**/local.dhall
 
 dotprofile/.config/dotprofile/local.yaml
 sh/.config/sh/local/*
