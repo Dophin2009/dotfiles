@@ -3,7 +3,7 @@ Description=Notification daemon for MPD
 After=mpd.service
 
 [Service]
-ExecStart=/usr/local/bin/mpdnotify monitor
+ExecStart={{ .bin }} monitor
 
 [Install]
 WantedBy=default.target

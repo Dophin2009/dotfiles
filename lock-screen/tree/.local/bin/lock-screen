@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 pkill -u "$USER" -USR1 dunst
 
 tmpbg="/tmp/screen.png"

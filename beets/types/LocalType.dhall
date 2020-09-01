@@ -1,1 +1,1 @@
-{ rootDir : Text }
+{ root : Text, library : Text, playlists : Text }

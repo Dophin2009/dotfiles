@@ -6,12 +6,11 @@ let local = ./local.dhall
 
 let configTemplate =
       Stew.TemplateFile::{
-      , src = "tree/.config/beets/config.yaml.tmpl"
-      , dest = ".config/beets/config.yaml"
+      , src = "tree/.config/mpd/mpd.conf.tmpl"
+      , dest = ".config/mpd/mpd.conf"
       }
 
-let package =
-      Stew.Package::{ name = "beets", templateFiles = [ configTemplate ] }
+let package = Stew.Package::{ name = "mpd", templateFiles = [ configTemplate ] }
 
 let variables = { home } ∧ local
 

@@ -1,22 +1,22 @@
 let Stew = ../../lib/stew/stew.dhall
 
-let home = (../../lib/stew/env.dhall).home
+let local = ./local.dhall
 
 let serviceTemplate =
       Stew.TemplateFile::{
-      , src = "tree/.config/systemd/user/battery-monitor.service.tmpl"
-      , dest = ".config/systemd/user/battery-monitor.service"
+      , src = "tree/.config/systemd/user/mpdnotify.service.tmpl"
+      , dest = ".config/systemd/user/mpdnotify.service"
       }
 
 let dependencies = [ ".." ]
 
 let package =
       Stew.Package::{
-      , name = "battery-notify/systemd-service"
+      , name = "mpdnotify/systemd-service"
       , dependencies
       , templateFiles = [ serviceTemplate ]
       }
 
-let variables = { home }
+let variables = local
 
 in  { package, variables }
