@@ -27,9 +27,9 @@ let joinModuleText
 
 let mapBarModules =
       λ(bar : BarModules) →
-        { left = joinModuleText local.modules.top.left
-        , center = joinModuleText local.modules.top.center
-        , right = joinModuleText local.modules.top.right
+        { left = joinModuleText bar.left
+        , center = joinModuleText bar.center
+        , right = joinModuleText bar.right
         }
 
 let variables =
