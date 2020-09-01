@@ -1,2 +1,2 @@
-tree/.config/sh/local/*
-!tree/.config/sh/local/.gitkeep
+local/*
+!local/.gitkeep
