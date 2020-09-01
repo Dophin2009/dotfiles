@@ -1,6 +1,5 @@
 #!/bin/sh
 
-## User binaries
 # Local user binaries
 if [ -d "$HOME/.local/bin" ]; then
   export PATH="$PATH:$HOME/.local/bin"
@@ -32,44 +31,3 @@ fi
 if [ -d "$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin" ]; then
   export PATH="$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin"
 fi
-
-## Java home directory
-if [ -d "/usr/lib/jvm/java-14-openjdk" ]; then
-  export JAVA_HOME="/usr/lib/jvm/java-14-openjdk"
-  if [ -d "$JAVA_HOME/bin" ]; then
-    export PATH="$PATH:$JAVA_HOME/bin"
-  fi
-fi
-
-## TeXlive
-# TeXlive binaries
-if [ -d "/usr/local/share/texlive/2019/bin/x86_64-linux" ]; then
-  export PATH="$PATH:/usr/local/share/texlive/2019/bin/x86_64-linux"
-fi
-
-# TeXlive man pages
-if [ -d "/usr/local/share/texlive/2019/texmf-dist/doc/man" ]; then
-  export MANPATH="$MANPATH:/usr/local/share/texlive/2019/texmf-dist/doc/man"
-fi
-
-# TeXlive info pages
-if [ -d "/usr/local/share/texlive/2019/texmf-dist/doc/info" ]; then
-  export INFOPATH="$INFOPATH:/usr/local/texlive/2019/texmf-dist/doc/info"
-fi
-
-## R user libraries directory
-export R_PROFILE="$XDG_CONFIG_HOME/R/Rprofile"
-export R_LIBS_USER="$XDG_DATA_HOME/R/library"
-
-## Remove duplicates
-old_PATH=$PATH:; PATH=
-while [ -n "$old_PATH" ]; do
-  x=${old_PATH%%:*}
-  case $PATH: in
-    *:"$x":*) ;;
-    *) PATH=$PATH:$x;;
-  esac
-  old_PATH=${old_PATH#*:}
-done
-PATH=${PATH#:}
-unset old_PATH x
