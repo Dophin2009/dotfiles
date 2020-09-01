@@ -3,11 +3,15 @@ let Stew = ../lib/stew/stew.dhall
 let profile = ../loaded.dhall
 
 let imagesLink =
-      Stew.File::{ src = "images", dest = ".config/wallpaper/images" }
+      Stew.File::{
+      , src = "images"
+      , dest = ".config/wallpaper/images"
+      , replaceDirectories = Some True
+      }
 
 let currentLink =
       Stew.File::{
-      , src = "images/${profile.wallpaper.name}"
+      , src = "images/${profile.wallpaper.name}.jpg"
       , dest = ".config/wallpaper/still.jpg"
       }
 
