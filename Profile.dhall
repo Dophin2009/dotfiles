@@ -12,8 +12,10 @@ let Profile =
       , polybar : ./polybar/types/ProfileType.dhall
       , rofi : ./rofi/types/ProfileType.dhall
       , task : ./task/types/ProfileType.dhall
+      , termite : ./termite/types/ProfileType.dhall
       , tmux : ./tmux/types/ProfileType.dhall
       , wallpaper : ./wallpaper/types/ProfileType.dhall
+      , x11 : ./x11/types/ProfileType.dhall
       }
 
 in  Profile

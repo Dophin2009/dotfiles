@@ -95,17 +95,84 @@ let i3 =
 
 let nvim = { theme = "gruvbox-dark" }
 
-let polybar = {}
+let polybar =
+      { font
+      , colors =
+        { black = colors.normal.black
+        , darkgray = colors.bright.black
+        , gray = colors.normal.white
+        , white = colors.bright.white
+        , darkred = colors.normal.red
+        , red = colors.bright.red
+        , darkblue = colors.normal.blue
+        , blue = colors.bright.blue
+        , darkyellow = colors.normal.yellow
+        , yellow = colors.bright.yellow
+        , darkcyan = colors.normal.cyan
+        , cyan = colors.bright.cyan
+        , background = colors.primary.background
+        , foreground = colors.primary.foreground
+        , alert = colors.primary.alarm
+        }
+      }
 
 let qutebrowser = { theme = "gruvbox-dark-medium" }
 
-let rofi = { theme = "gruvbox-dark-hard" }
+let rofi = { font, theme = "gruvbox-dark-hard" }
 
 let task = { theme = "dark-256" }
 
+let termite =
+      { font = { family = font, size = 9 }
+      , colors =
+        { background = colors.primary.background
+        , foreground = colors.primary.foreground
+        , foregroundBold = colors.primary.foreground
+        , c0 = colors.normal.black
+        , c1 = colors.normal.red
+        , c2 = colors.normal.green
+        , c3 = colors.normal.yellow
+        , c4 = colors.normal.blue
+        , c5 = colors.normal.magenta
+        , c6 = colors.normal.cyan
+        , c7 = colors.normal.white
+        , c8 = colors.bright.black
+        , c9 = colors.bright.red
+        , c10 = colors.bright.green
+        , c11 = colors.bright.yellow
+        , c12 = colors.bright.blue
+        , c13 = colors.bright.magenta
+        , c14 = colors.bright.cyan
+        , c15 = colors.bright.white
+        }
+      }
+
 let tmux = { theme = "gruvbox" }
 
-let wallpaper = { path = "${home}/.config/wallpaper/gruvbox.jpg" }
+let x11 =
+      { colors =
+        { background = colors.primary.background
+        , foreground = colors.primary.foreground
+        , c0 = colors.normal.black
+        , c1 = colors.normal.red
+        , c2 = colors.normal.green
+        , c3 = colors.normal.yellow
+        , c4 = colors.normal.blue
+        , c5 = colors.normal.magenta
+        , c6 = colors.normal.cyan
+        , c7 = colors.normal.white
+        , c8 = colors.bright.black
+        , c9 = colors.bright.red
+        , c10 = colors.bright.green
+        , c11 = colors.bright.yellow
+        , c12 = colors.bright.blue
+        , c13 = colors.bright.magenta
+        , c14 = colors.bright.cyan
+        , c15 = colors.bright.white
+        }
+      }
+
+let wallpaper = { name = "gruvbox" }
 
 let profile
     : Profile
@@ -120,8 +187,10 @@ let profile
       , polybar
       , rofi
       , task
+      , termite
       , tmux
       , wallpaper
+      , x11
       }
 
 in  profile

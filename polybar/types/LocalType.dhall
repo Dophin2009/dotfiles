@@ -1,9 +1,7 @@
-let Module = ./Module.dhall
-
-let ModuleList = List Module
-
 let BarModules = ./BarModules.dhall
 
+let Network = ./Network.dhall
+
 in  { modules : { top : BarModules, bottom : BarModules }
-    , network : Optional { interface : Text, type : Text }
+    , network : Optional Network
     }

@@ -16,5 +16,4 @@
     , foreground : Text
     , alert : Text
     }
-, gaps : { inner : Natural, outer : Natural }
 }

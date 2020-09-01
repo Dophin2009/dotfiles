@@ -1,5 +1,5 @@
 #!/bin/bash
-SCRIPT_DIR="$XDG_DATA_HOME/qutebrowser/greasemonkey"
+SCRIPT_DIR="$HOME/.local/share/qutebrowser/greasemonkey"
 
 dl() {
   local script_path="$SCRIPT_DIR/$1"

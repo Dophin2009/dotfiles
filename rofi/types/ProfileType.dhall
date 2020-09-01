@@ -1,1 +1,1 @@
-{ theme : Text }
+{ font : Text, theme : Text }

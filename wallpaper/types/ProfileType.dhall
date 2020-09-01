@@ -1,1 +1,1 @@
-{ path : Text }
+{ name : Text }

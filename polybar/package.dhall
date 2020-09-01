@@ -2,11 +2,15 @@ let List/map = ../lib/prelude/List/map
 
 let Text/concatSep = ../lib/prelude/Text/concatSep
 
+let Optional/fold = ../lib/prelude/Optional/fold
+
 let Stew = ../lib/stew/stew.dhall
 
 let Module = ./types/Module.dhall
 
 let BarModules = ./types/BarModules.dhall
+
+let Network = ./types/Network.dhall
 
 let Module/toText = ./types/Module/toText.dhall
 
@@ -34,7 +38,13 @@ let variables =
           { top = mapBarModules local.modules.top
           , bottom = mapBarModules local.modules.bottom
           }
-        , network = local.network
+        , network =
+            Optional/fold
+              Network
+              local.network
+              Network
+              (λ(x : Network) → x)
+              { interface = "", type = "" }
         }
 
 let configTemplate =

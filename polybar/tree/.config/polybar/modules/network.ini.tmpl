@@ -4,12 +4,12 @@
 [module/network]
 type = internal/network
 
-interface = {{ .local.net.interface }}
+interface = {{ .network.interface }}
 
-{{ if eq .local.net.type "wifi" }}
+{{ if eq .network.type "wifi" }}
 label-connected = %upspeed%, %downspeed%  %{T4}%{T} %essid% (%local_ip%)
 label-disconnected = %{T4}%{T} <disconnected>
-{{ else if eq .local.net.type "ethernet" }}
+{{ else if eq .network.type "ethernet" }}
 label-connected = %upspeed%, %downspeed%  %{T4}%{T}  eno2 (%local_ip%)
 label-disconnected = %{T4}%{T}  <disconnected>
 {{ end }}
