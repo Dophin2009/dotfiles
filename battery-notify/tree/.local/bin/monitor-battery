@@ -1,6 +1,5 @@
 #!/bin/bash
-dirpath=$(dirname "$(readlink -f "$0")")
-notify_battery="$dirpath/notify-battery"
+notify_battery="$HOME/.local/bin/notify-battery"
 
 "$notify_battery" -f
 while true; do
