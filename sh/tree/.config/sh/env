@@ -28,18 +28,17 @@ __source_files() {
       . "$f"
     done
   fi
-
 }
 
 # load other env files
-__source_files "$XDG_CONFIG_HOME/sh/envc"/*; do
+__source_files "$XDG_CONFIG_HOME/sh/envc"/*
 
 # define PATH
 export PATH="${PATH}:${HOME}/.local/bin"
 . "$XDG_CONFIG_HOME/sh/path"
 __source_files "$XDG_CONFIG_HOME/sh/pathc"
 
-# define aliases 
+# define aliases
 . "$XDG_CONFIG_HOME/sh/aliases"
 __source_files "$XDG_CONFIG_HOME/sh/aliasc"
 
