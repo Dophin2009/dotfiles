@@ -15,10 +15,3 @@ alias rn="ranger"
 wtm() {
   echo "scale=2; $(wc -w $1 | awk '{print $1}') / 130" | bc
 }
-
-### load other aliases
-if [ -d "$XDG_CONFIG_HOME/sh/aliasc" ]; then
-  for f in "$XDG_CONFIG_HOME/sh/aliasc"/*; do
-    . $f
-  done
-fi

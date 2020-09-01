@@ -18,23 +18,30 @@ export BASH_COMPLETION_USER_FILE="${XDG_CONFIG_HOME}/bash-completion/bash_comple
 export HISTFILE="${XDG_DATA_HOME}/bash/history"
 export INPUTRC="${XDG_CONFIG_HOME}/readline/inputrc"
 
-# load other env files
-if [ -d "$XDG_CONFIG_HOME/sh/envc" ]; then
-  for f in "$XDG_CONFIG_HOME/sh/envc"/*; do
-    . $f
-  done
-fi
+__files_in() {
+  find "$1" -not -path '*/\.*' -maxdepth 1 -mindepth 1 2>/dev/null
+}
 
-# define PATH from shared PATH file
-export PATH="${PATH}:${HOME}/.local/bin"
-. "$XDG_CONFIG_HOME/sh/path"
-# define aliases from shared aliases files
-. "$XDG_CONFIG_HOME/sh/aliases"
-
-if [ -d "$XDG_CONFIG_HOME/sh/local" ]; then
-  if [[ "$(find "$XDG_CONFIG_HOME/sh/local" -not -path '*/\.*' -maxdepth 1 -mindepth 1 2>/dev/null)" ]]; then
-    for f in "$XDG_CONFIG_HOME/sh/local/"*; do
+__source_files() {
+  if [[ "$(files_in "$1")" ]]; then
+    for f in "$1/"*; do
       . "$f"
     done
   fi
-fi
+
+}
+
+# load other env files
+__source_files "$XDG_CONFIG_HOME/sh/envc"/*; do
+
+# define PATH
+export PATH="${PATH}:${HOME}/.local/bin"
+. "$XDG_CONFIG_HOME/sh/path"
+__source_files "$XDG_CONFIG_HOME/sh/pathc"
+
+# define aliases 
+. "$XDG_CONFIG_HOME/sh/aliases"
+__source_files "$XDG_CONFIG_HOME/sh/aliasc"
+
+# load other local files
+__source_files "$XDG_CONFIG_HOME/sh/local/"
