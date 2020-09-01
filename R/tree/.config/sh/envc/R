@@ -1,0 +1,4 @@
+#!/bin/sh
+# R user libraries directory
+export R_PROFILE="$XDG_CONFIG_HOME/R/Rprofile"
+export R_LIBS_USER="$XDG_DATA_HOME/R/library"
