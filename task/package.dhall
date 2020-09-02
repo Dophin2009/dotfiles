@@ -8,6 +8,9 @@ let themeFile =
       , dest = ".config/task/theme.theme"
       }
 
-let package = Stew.Package::{ name = "task", files = [ themeFile ] }
+let dependencies = [ "../sh" ]
+
+let package =
+      Stew.Package::{ name = "task", dependencies, files = [ themeFile ] }
 
 in  { package }

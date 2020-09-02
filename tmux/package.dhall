@@ -12,9 +12,12 @@ let reloadHook
     : Stew.Hook
     = { string = "hooks/reload-tmux.sh", name = "Reload tmux" }
 
+let dependencies = [ "../sh" ]
+
 let package =
       Stew.Package::{
       , name = "tmux"
+      , dependencies
       , files = [ themeFile ]
       , afterLink = [ reloadHook ]
       }

@@ -63,9 +63,12 @@ let reloadHook
     : Stew.Hook
     = { string = "${home}/.local/bin/launch-polybar", name = "Reload polybar" }
 
+let dependencies = [ "../sh" ]
+
 let package =
       Stew.Package::{
       , name = "polybar"
+      , dependencies
       , templateFiles = [ configTemplate, networkTemplate ]
       , afterLink = [ reloadHook ]
       }

@@ -8,6 +8,9 @@ let themeFile =
       , dest = ".config/nvim/theme.vim"
       }
 
-let package = Stew.Package::{ name = "nvim", files = [ themeFile ] }
+let dependencies = [ "../sh" ]
+
+let package =
+      Stew.Package::{ name = "nvim", dependencies, files = [ themeFile ] }
 
 in  { package }
