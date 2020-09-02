@@ -19,13 +19,14 @@ let reloadHook
     : Stew.Hook
     = { string = "hooks/reload-wallpaper.sh", name = "Reload wallpaper" }
 
+let dependencies = [ "../sh" ]
+
 let package =
       Stew.Package::{
-      , name = "x11"
+      , name = "wallpaper"
+      , dependencies
       , files = [ imagesLink, currentLink ]
       , afterLink = [ reloadHook ]
       }
 
-let variables = profile.x11
-
-in  { package, variables }
+in  { package }

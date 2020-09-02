@@ -1,5 +1,5 @@
 ### environment
-source "$XDG_CONFIG_HOME/zsh/env"
+source "$HOME/.config/zsh/env"
 
 # open tmux by default
 [[ $TERM != "screen-256color" ]] && exec tmux

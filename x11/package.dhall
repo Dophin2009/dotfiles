@@ -22,9 +22,12 @@ let reloadHook
       , name = "Load ${xresourcesTheme}"
       }
 
+let dependencies = [ "../sh" ]
+
 let package =
       Stew.Package::{
       , name = "x11"
+      , dependencies
       , files = [ localXinitrc ]
       , templateFiles = [ themeTemplate ]
       , afterLink = [ reloadHook ]
