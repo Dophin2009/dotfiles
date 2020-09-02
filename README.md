@@ -240,3 +240,4 @@ These are packages for specific distros.
 - [ ] Maybe remove unused packages that do only XDG compliance fixes.
 - [x] Make more modular and more customizable.
 - [ ] Complete documentation of local variables.
+- [ ] Split documentation into files in packages?
