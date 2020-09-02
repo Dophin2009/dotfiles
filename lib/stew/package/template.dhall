@@ -10,8 +10,8 @@ let File =
           }
       , default =
         { engine = Engine.Gtmpl
-        , replaceFiles = None Bool
-        , replaceDirectories = None Bool
+        , replaceFiles = None
+        , replaceDirectories = None
         }
       }
 

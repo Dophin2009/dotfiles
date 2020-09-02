@@ -10,7 +10,6 @@ let Package =
       { Type =
           { name : Text
           , dependencies : List Text
-          , extensions : List Text
           , defaultLinkType : LinkType
           , ignorePatterns : List Text
           , files : List File.Type
@@ -20,7 +19,6 @@ let Package =
           }
       , default =
         { dependencies = [] : List Text
-        , extensions = [] : List Text
         , defaultLinkType = LinkType.Link
         , ignorePatterns = [] : List Text
         , files = [] : List File.Type

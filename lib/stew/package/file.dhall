@@ -10,8 +10,8 @@ let File =
           }
       , default =
         { linkType = LinkType.Link
-        , replaceFiles = None Bool
-        , replaceDirectories = None Bool
+        , replaceFiles = None
+        , replaceDirectories = None
         }
       }
 
