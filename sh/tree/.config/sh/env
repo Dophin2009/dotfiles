@@ -60,3 +60,6 @@ __source_files "$XDG_CONFIG_HOME/sh/aliasc"
 
 # load other local files
 __source_files "$XDG_CONFIG_HOME/sh/local"
+
+unset -f __files_in
+unset -f __source_files
