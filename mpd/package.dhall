@@ -10,7 +10,14 @@ let configTemplate =
       , dest = ".config/mpd/mpd.conf"
       }
 
-let package = Stew.Package::{ name = "mpd", templateFiles = [ configTemplate ] }
+let dependencies = [ "../sh" ]
+
+let package =
+      Stew.Package::{
+      , name = "mpd"
+      , dependencies
+      , templateFiles = [ configTemplate ]
+      }
 
 let variables = { home } ∧ local
 
