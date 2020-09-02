@@ -10,10 +10,9 @@ export XDG_LOG_HOME="${HOME}/.local/var/log"
 export LD_LIBRARY_PATH="${XDG_LIB_HOME}"
 export XDG_DATA_DIRS="${XDG_DATA_HOME}:/usr/local/share:/usr/share"
 
-# XDG base directory fixes
-export BASH_COMPLETION_USER_FILE="${XDG_CONFIG_HOME}/bash-completion/bash_completion"
-export HISTFILE="${XDG_DATA_HOME}/bash/history"
-export INPUTRC="${XDG_CONFIG_HOME}/readline/inputrc"
+# export BASH_COMPLETION_USER_FILE="${XDG_CONFIG_HOME}/bash-completion/bash_completion"
+# export HISTFILE="${XDG_DATA_HOME}/bash/history"
+# export INPUTRC="${XDG_CONFIG_HOME}/readline/inputrc"
 
 __files_in() {
   if [[ -d "$1" ]]; then
