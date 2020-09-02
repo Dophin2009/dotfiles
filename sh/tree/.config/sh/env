@@ -32,12 +32,14 @@ __source_files() {
   fi
 }
 
+# Local user binaries
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$PATH:$HOME/.local/bin"
+fi
+
 # load other env files
 __source_files "$XDG_CONFIG_HOME/sh/envc"
 
-# define PATH
-. "$XDG_CONFIG_HOME/sh/path"
-__source_files "$XDG_CONFIG_HOME/sh/pathc"
 # Remove duplicates from PATH
 old_PATH=$PATH:
 PATH=

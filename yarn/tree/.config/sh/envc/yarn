@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Yarn installed binaries
+if [ -d "$XDG_DATA_HOME/npm/bin" ]; then
+  export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
+fi

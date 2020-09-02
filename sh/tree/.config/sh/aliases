@@ -1,7 +1,6 @@
 #!/bin/sh
-
 eval "$(fasd --init auto)"
-alias v='f -e nvim'
+alias v="f -e $EDITOR"
 
 ### REDEFINITIONS
 alias ls="ls -a --color"

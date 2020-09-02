@@ -1,2 +1,7 @@
 #!/bin/sh
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+
+# Rust cargo installed binaries
+if [ -d "$CARGO_HOME/bin" ]; then
+  export PATH="$PATH:$CARGO_HOME/bin"
+fi
