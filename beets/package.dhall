@@ -10,8 +10,16 @@ let configTemplate =
       , dest = ".config/beets/config.yaml"
       }
 
+let mkDataDirHook
+    : Stew.Hook
+    = { string = "hooks/mk-datadir.sh", name = "Create beets data directory" }
+
 let package =
-      Stew.Package::{ name = "beets", templateFiles = [ configTemplate ] }
+      Stew.Package::{
+      , name = "beets"
+      , templateFiles = [ configTemplate ]
+      , afterLink = [ mkDataDirHook ]
+      }
 
 let variables = { home } ∧ local
 

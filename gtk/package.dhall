@@ -29,9 +29,12 @@ let currentThemeFile =
       , replaceDirectories = Some True
       }
 
+let dependencies = [ "../sh" ]
+
 let package =
       Stew.Package::{
       , name = "gtk"
+      , dependencies
       , files =
             List/map Text Stew.File.Type makeThemeFile themes
           # [ currentThemeFile ]

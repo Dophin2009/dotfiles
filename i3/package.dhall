@@ -14,9 +14,12 @@ let reloadHook
     : Stew.Hook
     = { string = "hooks/reload-i3.sh", name = "Reload i3" }
 
+let dependencies = [ "../polybar", "../wallpaper", "../fscreenshot" ]
+
 let package =
       Stew.Package::{
       , name = "i3"
+      , dependencies
       , templateFiles = [ configTemplate ]
       , afterLink = [ reloadHook ]
       }

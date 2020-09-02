@@ -1,3 +1,5 @@
 let Stew = ../lib/stew/stew.dhall
 
-in  { package = Stew.Package::{ name = "ncmpcpp" } }
+let dependencies = [ "../mpd" ]
+
+in  { package = Stew.Package::{ name = "ncmpcpp", dependencies } }
