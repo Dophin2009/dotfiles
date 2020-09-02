@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# fix QT display bugs
+export QT_AUTO_SCREEN_SCALE_FACTOR=0

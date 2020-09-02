@@ -14,9 +14,12 @@ let greasemonkeyDLHook
       , name = "Download greasemonkey scripts"
       }
 
+let dependencies = [ "../qt" ]
+
 let package =
       Stew.Package::{
       , name = "qutebrowser"
+      , dependencies
       , files = [ themeFile ]
       , afterLink = [ greasemonkeyDLHook ]
       }

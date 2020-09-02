@@ -10,8 +10,14 @@ let configTemplate =
       , dest = ".config/alacritty/alacritty.yml"
       }
 
+let dependencies = [ "../qt" ]
+
 let package =
-      Stew.Package::{ name = "alacritty", templateFiles = [ configTemplate ] }
+      Stew.Package::{
+      , name = "alacritty"
+      , dependencies
+      , templateFiles = [ configTemplate ]
+      }
 
 let variables = profile.alacritty ∧ local
 
