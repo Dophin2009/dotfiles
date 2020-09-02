@@ -19,7 +19,9 @@ export HISTFILE="${XDG_DATA_HOME}/bash/history"
 export INPUTRC="${XDG_CONFIG_HOME}/readline/inputrc"
 
 __files_in() {
-  find "$1" -not -path '*/\.*' -maxdepth 1 -mindepth 1 2>/dev/null
+  if [[ -d "$1" ]]; then
+    find "$1" -maxdepth 1 -mindepth 1 -not -path '\.*'
+  fi
 }
 
 __source_files() {
