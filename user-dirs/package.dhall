@@ -1,4 +1,4 @@
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
 let LocalType = ./types/LocalType.dhall
 
@@ -7,7 +7,7 @@ let local
     = ./local.dhall
 
 let template =
-      Stew.TemplateFile::{
+      Stew.Template::{
       , src = "tree/.config/user-dirs.dirs.tmpl"
       , dest = ".config/user-dirs.dirs"
       }

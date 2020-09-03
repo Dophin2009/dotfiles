@@ -1,10 +1,10 @@
-let List/map = ../lib/prelude/List/map
+let List/map = ../lib/dhall-lang/Prelude/List/map
 
-let Text/concatSep = ../lib/prelude/Text/concatSep
+let Text/concatSep = ../lib/dhall-lang/Prelude/Text/concatSep
 
-let Optional/fold = ../lib/prelude/Optional/fold
+let Optional/fold = ../lib/dhall-lang/Prelude/Optional/fold
 
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
 let Module = ./types/Module.dhall
 
@@ -14,7 +14,7 @@ let Network = ./types/Network.dhall
 
 let Module/toText = ./types/Module/toText.dhall
 
-let home = (../lib/stew/env.dhall).home
+let home = (../lib/stew/Prelude/Env).home
 
 let profile = ../loaded.dhall
 
@@ -48,13 +48,13 @@ let variables =
         }
 
 let configTemplate =
-      Stew.TemplateFile::{
+      Stew.Template::{
       , src = "tree/.config/polybar/settings.ini.tmpl"
       , dest = ".config/polybar/settings.ini"
       }
 
 let networkTemplate =
-      Stew.TemplateFile::{
+      Stew.Template::{
       , src = "tree/.config/polybar/modules/network.ini.tmpl"
       , dest = ".config/polybar/modules/network.ini"
       }

@@ -1,9 +1,9 @@
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
 let profile = ../loaded.dhall
 
 let configTemplate =
-      Stew.TemplateFile::{
+      Stew.Template::{
       , src = "tree/.config/termite/config.tmpl"
       , dest = ".config/termite/config"
       }

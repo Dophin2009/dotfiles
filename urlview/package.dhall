@@ -1,3 +1,3 @@
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
 in  { package = Stew.Package::{ name = "urlview" } }

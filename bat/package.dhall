@@ -1,4 +1,4 @@
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
 let Profile = ../Profile.dhall
 
@@ -7,7 +7,7 @@ let profile
     = ../loaded.dhall
 
 let configTemplate =
-      Stew.TemplateFile::{
+      Stew.Template::{
       , src = "tree/.config/bat/config.tmpl"
       , dest = ".config/bat/config"
       }

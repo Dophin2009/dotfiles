@@ -1,9 +1,9 @@
-let Stew = ../../lib/stew/stew.dhall
+let Stew = ../../lib/stew/Prelude/Prelude
 
-let home = (../../lib/stew/env.dhall).home
+let home = (../../lib/stew/Prelude/Env).home
 
 let serviceTemplate =
-      Stew.TemplateFile::{
+      Stew.Template::{
       , src = "tree/.config/systemd/user/battery-monitor.service.tmpl"
       , dest = ".config/systemd/user/battery-monitor.service"
       }

@@ -1,11 +1,11 @@
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
-let home = (../lib/stew/env.dhall).home
+let home = (../lib/stew/Prelude/Env).home
 
 let local = ./local.dhall
 
 let configTemplate =
-      Stew.TemplateFile::{
+      Stew.Template::{
       , src = "tree/.config/beets/config.yaml.tmpl"
       , dest = ".config/beets/config.yaml"
       }

@@ -1,6 +1,6 @@
-let List/map = ../lib/prelude/List/map
+let List/map = ../lib/dhall-lang/Prelude/List/map
 
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
 let LocalExport = ./types/LocalType.dhall
 

@@ -1,9 +1,9 @@
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
 let profile = ../loaded.dhall
 
 let configTemplate =
-      Stew.TemplateFile::{
+      Stew.Template::{
       , src = "tree/.config/hangups/hangups.conf.tmpl"
       , dest = ".config/hangups/hangups.conf"
       }

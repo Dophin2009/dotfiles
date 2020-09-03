@@ -1,4 +1,4 @@
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
 let profile = ../loaded.dhall
 

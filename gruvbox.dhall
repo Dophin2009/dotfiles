@@ -1,5 +1,3 @@
-let home = (./lib/stew/env.dhall).home
-
 let Profile = ./Profile.dhall
 
 let font = "Iosevka Nerd Font"

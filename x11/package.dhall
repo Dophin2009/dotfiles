@@ -1,6 +1,6 @@
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
-let home = (../lib/stew/env.dhall).home
+let home = (../lib/stew/Prelude/Env).home
 
 let profile = ../loaded.dhall
 
@@ -10,7 +10,7 @@ let localXinitrc =
 let xresourcesTheme = "xresources.theme"
 
 let themeTemplate =
-      Stew.TemplateFile::{
+      Stew.Template::{
       , src = "tree/.config/X11/xresources.theme.tmpl"
       , dest = ".config/X11/${xresourcesTheme}"
       }

@@ -1,11 +1,11 @@
-let Stew = ../lib/stew/stew.dhall
+let Stew = ../lib/stew/Prelude/Prelude
 
 let profile = ../loaded.dhall
 
 let local = ./local.dhall
 
 let configTemplate =
-      Stew.TemplateFile::{
+      Stew.Template::{
       , src = "tree/.config/alacritty/alacritty.yml.tmpl"
       , dest = ".config/alacritty/alacritty.yml"
       }
