@@ -1,17 +1,17 @@
 #!/bin/bash
 
-wallpapers_config="$XDG_CONFIG_HOME/wallpapers"
+wallpapers_config="$XDG_CONFIG_HOME/wallpaper"
 cache_dir="$XDG_CACHE_HOME/wallpaper"
 pid_file="$cache_dir/animated_pid"
 toggle_file="$cache_dir/toggled"
 
 pid_exists() {
-  ps -p $1 > /dev/null
+  ps -p $1 >/dev/null
 }
 
 write_toggle() {
   mkdir -p "$cache_dir"
-  echo $1 > "$toggle_file"
+  echo $1 >"$toggle_file"
 }
 
 load_still() {
@@ -23,7 +23,7 @@ start_paperview() {
   pid=$!
 
   mkdir -p "$cache_dir"
-  echo $pid > "$pid_file"
+  echo $pid >"$pid_file"
 
   write_toggle 1
 }
@@ -31,7 +31,7 @@ start_paperview() {
 play_paperview() {
   # pid file exists, check it
   if [[ -f $pid_file ]]; then
-    read -d $'\0x4' pid < "$pid_file"
+    read -d $'\0x4' pid <"$pid_file"
     # continue the process if it exists
     if pid_exists $pid; then
       kill -CONT $pid
@@ -49,7 +49,7 @@ play_paperview() {
 suspend_paperview() {
   # pid file exists, check it
   if [[ -f $pid_file ]]; then
-    read -d $'\0x4' pid < "$pid_file"
+    read -d $'\0x4' pid <"$pid_file"
     # suspend the process if it exists
     pid_exists $pid && kill -STOP $pid
   fi
@@ -61,7 +61,7 @@ suspend_paperview() {
 kill_paperview() {
   # pid file exists, check it
   if [[ -f $pid_file ]]; then
-    read -d $'\0x4' pid < "$pid_file"
+    read -d $'\0x4' pid <"$pid_file"
     # kill the process if it exists
     pid_exists $pid && kill -9 $pid
   fi
@@ -74,7 +74,7 @@ kill_paperview() {
 if [ $1 == "toggle" ]; then
   # toggle file exists, check it
   if [[ -f $toggle_file ]]; then
-    read -d $'\0x4' toggle < "$toggle_file"
+    read -d $'\0x4' toggle <"$toggle_file"
     # if toggle marked as on, suspend the process
     if [ $toggle == 1 ]; then
       suspend_paperview
