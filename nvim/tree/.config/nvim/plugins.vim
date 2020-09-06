@@ -19,7 +19,9 @@ Plug 'rafaqz/ranger.vim'
 """ WINDOW
 """
 
-Plug 'nvim-lua/lsp-status.nvim'
+""" lsp-status
+" Plug 'nvim-lua/lsp-status.nvim'
+
 """ airline
 Plug 'vim-airline/vim-airline'
 "   airline themes
@@ -33,12 +35,15 @@ Plug 'airblade/vim-gitgutter'
 """
 
 """ nvim-lsp
-Plug 'neovim/nvim-lsp'
+" Plug 'neovim/nvim-lsp'
 """ diagnostic-nvim
-Plug 'nvim-lua/diagnostic-nvim'
+" Plug 'nvim-lua/diagnostic-nvim'
 
 """ completion-nvim
 " Plug 'nvim-lua/completion-nvim'
+
+""" Asynchronous Lint Engine (ALE)
+Plug 'dense-analysis/ale'
 
 """ deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -61,13 +66,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'alvan/vim-closetag'
 """ import-js (import js dependencies)
 Plug 'galooshi/vim-import-js', { 'for': 'javascript' }
-
-""" neosnippet
-" Plug 'Shougo/neosnippet.vim'
-" Plug 'Shougo/neosnippet-snippets'
-
-""" Asynchronous Lint Engine (ALE)
-" Plug 'dense-analysis/ale'
 
 """
 """ FORMATTING

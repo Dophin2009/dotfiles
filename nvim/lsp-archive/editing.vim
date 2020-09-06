@@ -29,20 +29,21 @@ let g:sql_type_default = 'pgsql'
 """ CODE COMPLETION
 """
 
-""" ALE
-""  define linters and fixers
-let g:ale_linters = {
-  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \}
-let g:ale_fixers = {
-  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \}
-"   autofix
-let g:ale_fix_on_save = 1
-"   goto remaps
-nnoremap <silent> gd :ALEGoToDefinition <CR>
-nnoremap <silent> gy :ALEGoToTypeDefinition <CR>
-nnoremap <silent> gr :ALEFindReferences <CR>
+""" nvim-lsp
+lua require("lsp")
+
+""" diagnostic-nvim
+let g:diagnostic_show_sign = 1
+let g:diagnostic_enable_virtual_text = 1
+" let g:diagnostic_insert_delay = 1
+
+""" completion-nvim
+"   enable snippet support
+" let g:completion_enable_snippet = 'Neosnippet'
+"   use tab for completion menu navigation
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" set completeopt=menuone,noinsert,noselect
 
 """ deoplete
 let g:deoplete#enable_at_startup = 1
@@ -50,24 +51,25 @@ set completeopt=menuone,noinsert,noselect
 "   use tab for completion menu navigation
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"   enable ALE completion source
-call deoplete#custom#option('sources', {
-  \ '_': ['ale'],
-  \})
 "   reduce max list size
 call deoplete#custom#option('max_list', 30)
 "   delay completion
 call deoplete#custom#option('auto_complete_delay', 100)
+"   disable clutter sources
+" call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
+"   enable echodoc
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
+"   disable lsp for cpp
+call deoplete#custom#source('_', {
+\ 'filetype': ['cpp', 'c'],
+\ 'disabled_syntaxes': ['lsp']
+\ })
 "   deoplete-clang options
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 "   disable tmux completion trigger
 let g:tmuxcomplete#trigger = ''
-
-""" deoplete echodoc
-"   enable echodoc
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'floating'
 
 """ delimitMate
 let g:delimitMate_expand_cr = 2
@@ -79,6 +81,20 @@ let g:closetag_regions = {
     \ 'javascript.jsx': 'jsxRegion',
     \ }
 let g:closetag_close_shortcut = '<leader>>'
+
+
+"""
+""" SNIPPETS
+"""
+
+""" neosnippet
+"   use C-k to select snippet
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
+"   supertab behavior
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  " \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 
 """
