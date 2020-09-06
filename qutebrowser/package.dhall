@@ -32,6 +32,20 @@ let files =
         (λ(_ : Text) → [ themeFile, searchEnginesFile ])
         [ themeFile ]
 
+let localConfigFile =
+      Stew.File::{
+      , src = "config.local.py"
+      , dest = ".config/qutebrowser/config.local.py"
+      }
+
+let files =
+      Optional/fold
+        Text
+        (Some ./config.local.py as Text ? None Text)
+        (List Stew.File.Type)
+        (λ(_ : Text) → files # [ localConfigFile ])
+        files
+
 let dependencies = [ "../qt" ]
 
 let package =

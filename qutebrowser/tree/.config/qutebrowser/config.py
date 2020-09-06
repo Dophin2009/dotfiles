@@ -96,3 +96,11 @@ config.source("jmatrix/jmatrix/integrations/qutebrowser.py")
 
 # enable dynamic theme loading
 config.source("qutewal.py")
+
+# load local config
+local_config_file = "config.local.py"
+try:
+    with (config.configdir / local_config_file).open() as f:
+        config.source(local_config_file)
+except IOError:
+    pass
