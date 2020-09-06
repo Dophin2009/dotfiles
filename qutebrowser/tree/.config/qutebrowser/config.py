@@ -29,6 +29,7 @@ c.auto_save.session = True
 
 # custom keybinds
 config.bind(',n', 'open -t ;; messages')
+config.bind(',m', 'mpv')
 
 # completion settings
 c.completion.cmd_history_max_items = 0
