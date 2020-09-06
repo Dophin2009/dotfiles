@@ -3,7 +3,7 @@
 """
 
 """ vim-polyglot
-let g:polyglot_disabled = ['latex']
+let g:polyglot_disabled = ['go', 'pgsql']
 
 """ vim-go
 let g:go_code_completion_enabled = 1

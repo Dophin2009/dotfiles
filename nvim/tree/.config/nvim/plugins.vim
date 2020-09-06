@@ -52,11 +52,11 @@ Plug 'Shougo/context_filetype.vim'
 "   prints documentation in completion menu
 Plug 'Shougo/echodoc.vim'
 "   nvim-lsp source
-Plug 'Shougo/deoplete-lsp'
+" Plug 'Shougo/deoplete-lsp'
 "   file includes sources
 Plug 'Shougo/neoinclude.vim'
 "   clang source
-Plug 'zchee/deoplete-clang'
+" Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp', 'objc', 'objcpp']}
 "   tmux panes source
 Plug 'wellle/tmux-complete.vim'
 
@@ -86,27 +86,25 @@ Plug 'godlygeek/tabular'
 
 """ polyglot (covers most languages)
 Plug 'sheerun/vim-polyglot'
-""" arduino
-Plug 'stevearc/vim-arduino'
 """ csv
-Plug 'mechatroner/rainbow_csv'
+Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }
 """ editorconfig
 Plug 'editorconfig/editorconfig-vim'
 """ golang
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
 """ jsonc
-Plug 'kevinoid/vim-jsonc'
+Plug 'kevinoid/vim-jsonc', { 'for': 'jsonc' }
 """ pandoc
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
 """ postgresql
-Plug 'lifepillar/pgsql.vim'
+Plug 'lifepillar/pgsql.vim', { 'for': 'pgsql' }
 """ rmarkdown
-Plug 'vim-pandoc/vim-rmarkdown'
+Plug 'vim-pandoc/vim-rmarkdown', { 'for': 'rmarkdown' }
 """ vimtex
 " Plug 'lervag/vimtex'
 """ cxx semantic highlighting
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
 """ thesaurus
 Plug 'ron89/thesaurus_query.vim'
 
