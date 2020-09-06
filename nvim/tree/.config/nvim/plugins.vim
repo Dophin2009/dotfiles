@@ -57,6 +57,8 @@ Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neoinclude.vim'
 "   clang source
 " Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp', 'objc', 'objcpp']}
+"   python source
+Plug 'deoplete-plugins/deoplete-jedi'
 "   tmux panes source
 Plug 'wellle/tmux-complete.vim'
 

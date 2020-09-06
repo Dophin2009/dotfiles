@@ -53,6 +53,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "   enable ALE completion source
 call deoplete#custom#option('sources', {
   \ '_': ['ale'],
+  \ 'python': ['jedi']
   \})
 "   reduce max list size
 call deoplete#custom#option('max_list', 30)

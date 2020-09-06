@@ -1,2 +1,4 @@
 " linters
-let b:ale_linters = ['pyls', 'flake8', 'autopep8']
+let b:ale_linters = ['flake8']
+" fixers
+let b:ale_fixers = ['autopep8']

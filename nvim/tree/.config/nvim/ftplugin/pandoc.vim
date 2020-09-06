@@ -1,2 +1,3 @@
 " linters
-let b:ale_linters = ['proselint', 'textlint', 'vale', 'write-good']
+let b:ale_linter_aliases = ['markdown']
+let b:ale_linters = ['textlint', 'vale', 'write-good']
