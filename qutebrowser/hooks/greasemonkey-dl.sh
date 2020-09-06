@@ -3,15 +3,16 @@ SCRIPT_DIR="$HOME/.local/share/qutebrowser/greasemonkey"
 
 dl() {
   local script_path="$SCRIPT_DIR/$1"
-  if [ ! -f "$SCRIPT_DIR/$1" ]; then
-    wget -q -O "$SCRIPT_DIR/$1" "$2"
+  if [ ! -f "$script_path" ]; then
+    wget -q -O "$script_path" "$2"
   fi
 
   printf -- "-- Checking $1..."
-  local checksum="$(sha256sum "$SCRIPT_DIR/$1" | cut -d " " -f1)"
+  local checksum
+  checksum="$(sha256sum "$SCRIPT_DIR/$1" | cut -d " " -f1)"
   if [ ! "$checksum" == "$3" ]; then
     echo "Failed!"
-    rm "$SCRIPT_DIR/$1"
+    rm "$script_path"
   else
     echo "OK"
   fi
