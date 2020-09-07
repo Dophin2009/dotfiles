@@ -56,6 +56,8 @@ setopt extendedhistory
 # setopt sharehistory
 # completion within words
 setopt completeinword
+# autocontinue suspended process on disown
+setopt AUTO_CONTINUE
 
 ### autoloads
 autoload -Uz colors
