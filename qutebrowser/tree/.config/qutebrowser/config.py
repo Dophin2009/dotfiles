@@ -49,8 +49,8 @@ c.content.javascript.can_access_clipboard = False
 c.content.geolocation = False
 # set user agent string
 c.content.headers.user_agent = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
-                                'AppleWebKit/537.36 (KHTML, like Gecko)'
-                                'Chrome/79.0.3945.117 Safari/537.36')
+                                ' AppleWebKit/537.36 (KHTML, like Gecko)'
+                                ' Chrome/79.0.3945.117 Safari/537.36')
 # enable pdfjs
 c.content.pdfjs = True
 # set webrtc policy
