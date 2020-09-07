@@ -97,8 +97,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 """ jsonc
 Plug 'kevinoid/vim-jsonc', { 'for': 'jsonc' }
 """ pandoc
-Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
+Plug 'vim-pandoc/vim-pandoc', { 'for': ['pandoc', 'rmarkdown'] }
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['pandoc', 'rmarkdown'] }
 """ postgresql
 Plug 'lifepillar/pgsql.vim', { 'for': 'pgsql' }
 """ rmarkdown
