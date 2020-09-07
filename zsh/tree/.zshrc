@@ -27,24 +27,6 @@ export HISTSIZE=290000
 export SAVEHIST=290000
 export HISTFILE="$ZSH_CACHE/history"
 
-### macros / aliases
-# change directory on demand after exiting ranger
-function ranger {
-  local IFS=$'\t\n'
-  local tempfile="$(mktemp -t tmp.XXXXXX)"
-  local ranger_cmd=(
-    command
-    ranger
-    --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
-  )
-
-  ${ranger_cmd[@]} "$@"
-  if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
-    cd -- "$(cat "$tempfile")" || return
-  fi
-  command rm -f -- "$tempfile" 2>/dev/null
-}
-
 ### setopts
 # comments in interactive code
 setopt interactivecomments
@@ -163,7 +145,7 @@ zinit light romkatv/powerlevel10k
 ### load plugins
 
 # auto-notify
-AUTO_NOTIFY_IGNORE+=("ranger")
+AUTO_NOTIFY_IGNORE+=("ranger", "rn")
 zinit light MichaelAquilina/zsh-auto-notify
 
 # autoswitch-virtualenv
