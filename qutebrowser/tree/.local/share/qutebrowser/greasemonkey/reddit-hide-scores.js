@@ -10,9 +10,15 @@
 // ==/UserScript==
 
 (function () {
-  const elements = Array.from(document.querySelectorAll(".score.unvoted"));
-
-  for (let el of elements) {
+  // Hide score values
+  const scores = Array.from(document.querySelectorAll(".score.unvoted"));
+  for (let el of scores) {
     el.style.setProperty("color", "rgba(0, 0, 0, 0)");
+  }
+
+  // Hide awards
+  const awards = Array.from(document.querySelectorAll(".awardings-bar"));
+  for (let el of awards) {
+    el.style.setProperty("opacity", "0");
   }
 })();
