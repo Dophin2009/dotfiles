@@ -44,7 +44,7 @@ c.content.autoplay = False
 # enable canvas, webgl, and clipboard access
 c.content.canvas_reading = True
 c.content.webgl = True
-c.content.javascript.can_access_clipboard = False
+c.content.javascript.can_access_clipboard = True
 # disable geolocation
 c.content.geolocation = False
 # set user agent string
