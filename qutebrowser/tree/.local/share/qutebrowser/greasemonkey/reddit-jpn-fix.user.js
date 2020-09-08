@@ -25,19 +25,25 @@
   const dateEl = select(
     "body > div.side > div:nth-child(2) > div > div.date > time"
   );
-  const date = Date.parse(dateEl.dateTime);
-  dateEl.innerText = new Intl.DateTimeFormat("ja-JP", { era: "long" }).format(
-    date
-  );
+  if (dateEl && dateEl.dateTime) {
+    const date = Date.parse(dateEl.dateTime);
+    dateEl.innerText = new Intl.DateTimeFormat("ja-JP", { era: "long" }).format(
+      date
+    );
+  }
 
   const score = select("body > div.side > div:nth-child(2) > div > div.score")
-    .childNodes[3];
-  score.nodeValue = score.nodeValue.replace("upvote", "アップして");
+    ?.childNodes[3];
+  if (score) {
+    score.nodeValue = score?.nodeValue?.replace("upvote", "アップして");
+  }
 
   const shortlink = select(
     "body > div.side > div:nth-child(2) > div > div.shortlink"
   );
-  shortlink.childNodes[0].nodeValue = "ショートリンク: ";
+  if (shortlink && shortlink.childNodes && shortlink.childNodes[0]) {
+    shortlink.childNodes[0].nodeValue = "ショートリンク: ";
+  }
 
   const changes = [
     [
