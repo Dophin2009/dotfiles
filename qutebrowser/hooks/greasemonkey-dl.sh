@@ -57,3 +57,6 @@ dl "github-json-dependencies-linker.user.js" \
 dl "github-image-viewer.user.js" \
   "https://raw.githubusercontent.com/jerone/UserScripts/master/Github_Image_Viewer/Github_Image_Viewer.user.js" \
   "a830d077c4bc84f1153f77c8078f6ac868ffdb40b8467aeee0a7cc799c9ce4cf"
+dl "general-url-cleaner.user.js" \
+  "https://greasyfork.org/scripts/395298-general-url-cleaner/code/General%20URL%20Cleaner.user.js" \
+  "a6b8f6cb147f84afab179508e16ecb4bea485857564af8238f4c4df9dc18b8d8"
