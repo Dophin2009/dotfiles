@@ -51,6 +51,12 @@ c.content.geolocation = False
 c.content.headers.user_agent = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
                                 ' AppleWebKit/537.36 (KHTML, like Gecko)'
                                 ' Chrome/79.0.3945.117 Safari/537.36')
+# set YouTube user agent string
+youtube_user_agent = ('Google Bot (Mozilla/5.0'
+                      ' (compatible; Googlebot/2.1;'
+                      ' +http://www.google.com/bot.html))')
+config.set('content.headers.user_agent',
+           youtube_user_agent, '*://youtube.com/')
 # enable pdfjs
 c.content.pdfjs = True
 # set webrtc policy
