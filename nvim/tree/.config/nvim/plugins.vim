@@ -74,7 +74,7 @@ Plug 'galooshi/vim-import-js', { 'for': 'javascript' }
 """
 
 """ neoformat
-Plug 'sbdchd/neoformat'
+" Plug 'sbdchd/neoformat'
 """ nerdcommenter
 "   comment/uncomment with keybindings (\ + c + <space>)
 Plug 'scrooloose/nerdcommenter'

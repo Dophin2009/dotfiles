@@ -88,10 +88,10 @@ let g:closetag_close_shortcut = '<leader>>'
 
 """ neoformat
 "   auto-format on save
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+" augroup fmt
+  " autocmd!
+  " autocmd BufWritePre * undojoin | Neoformat
+" augroup END
 ""  default formatting
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
