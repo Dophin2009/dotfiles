@@ -60,3 +60,6 @@ dl "github-image-viewer.user.js" \
 dl "general-url-cleaner.user.js" \
   "https://greasyfork.org/scripts/395298-general-url-cleaner/code/General%20URL%20Cleaner.user.js" \
   "a6b8f6cb147f84afab179508e16ecb4bea485857564af8238f4c4df9dc18b8d8"
+dl "google-hit-hider.user.js" \
+  "https://greasyfork.org/scripts/1682-google-hit-hider-by-domain-search-filter-block-sites/code/Google%20Hit%20Hider%20by%20Domain%20(Search%20Filter%20%20Block%20Sites).user.js" \
+  "42144cee9ba6a4476a458e13b3f9b56fafdfe5588324cba5ca4ab7046120e286"
