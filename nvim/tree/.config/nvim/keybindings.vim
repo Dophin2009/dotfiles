@@ -19,6 +19,7 @@ map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
 map <leader>rd :RangerCD<cr>
 map <leader>rld :RangerLCD<cr>
 
+map <leader>y :TagbarToggle<cr>
 
 """
 """ MISC

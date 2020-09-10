@@ -19,6 +19,9 @@ Plug 'rafaqz/ranger.vim'
 """ WINDOW
 """
 
+""" tagbar
+Plug 'majutsushi/tagbar'
+
 """ lsp-status
 " Plug 'nvim-lua/lsp-status.nvim'
 
@@ -43,6 +46,8 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'nvim-lua/completion-nvim'
 
 """ Asynchronous Lint Engine (ALE)
+"   hover settings
+let g:ale_set_balloons = 1
 Plug 'dense-analysis/ale'
 
 """ deoplete
