@@ -52,7 +52,7 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "   enable ALE completion source
 call deoplete#custom#option('sources', {
-  \ '_': ['ale', 'file', 'buffer', 'tmux'],
+  \ '_': ['ale', 'file', 'buffer', 'tmux-complete'],
   \ 'python': ['jedi']
   \})
 "   reduce max list size
