@@ -1,15 +1,13 @@
-import sys
+# type: ignore
 import os
-import yaml
+import sys
 
-# pylint: disable=C0111
-from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
+import yaml
 from qutebrowser.config.config import ConfigContainer  # noqa: F401
+from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
+# pylint: disable=C0111
 config = config  # type: ConfigAPI # noqa: F821 pylint: disable=E0602,C0103
 c = c  # type: ConfigContainer # noqa: F821 pylint: disable=E0602,C0103
-
-# load autoconfig.yml
-# config.load_autoconfig()
 
 # aliases
 aliases = {'bw': 'spawn --userscript qute-bitwarden',
@@ -97,8 +95,11 @@ except IOError:
     pass
 
 # register jmatrix
-sys.path.append(os.path.join(sys.path[0], 'jmatrix'))
-config.source("jmatrix/jmatrix/integrations/qutebrowser.py")
+try:
+    sys.path.append(os.path.join(sys.path[0], 'jmatrix'))
+    config.source("jmatrix/jmatrix/integrations/qutebrowser.py")
+except ValueError:
+    pass
 
 # enable dynamic theme loading
 config.source("qutewal.py")
