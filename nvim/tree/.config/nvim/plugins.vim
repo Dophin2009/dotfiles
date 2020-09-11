@@ -104,6 +104,7 @@ Plug 'kevinoid/vim-jsonc', { 'for': 'jsonc' }
 """ pandoc
 Plug 'vim-pandoc/vim-pandoc', { 'for': ['pandoc', 'rmarkdown'] }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['pandoc', 'rmarkdown'] }
+Plug 'junegunn/goyo.vim', { 'for': ['pandoc', 'text', 'asciidoc', 'rst', 'rmarkdown', 'markdown'] }
 """ postgresql
 Plug 'lifepillar/pgsql.vim', { 'for': 'pgsql' }
 """ rmarkdown
