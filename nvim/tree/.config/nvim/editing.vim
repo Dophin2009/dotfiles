@@ -30,15 +30,18 @@ let g:sql_type_default = 'pgsql'
 """
 
 """ ALE
-""  define linters and fixers
+""  define fixers
 let g:ale_linters = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
   \}
+""  define fixers
 let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
   \}
 "   autofix
 let g:ale_fix_on_save = 1
+"   lint on text change
+let g:ale_lint_on_text_changed = 'always'
 "   goto remaps
 nnoremap <silent> gd :ALEGoToDefinition <CR>
 nnoremap <silent> gy :ALEGoToTypeDefinition <CR>
