@@ -28,3 +28,6 @@ map <leader>y :TagbarToggle<cr>
 """ thesaurus_query.vim
 let g:tq_map_keys = 0
 nnoremap <leader>t :ThesaurusQueryReplaceCurrentWord<CR>
+
+""" goyo toggle
+nnoremap <leader>G :Goyo<cr>
