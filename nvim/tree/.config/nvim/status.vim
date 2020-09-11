@@ -21,3 +21,6 @@ let g:tagbar_indent = 1
 let g:tagbar_width = 60
 "   show line numbers
 let g:tagbar_show_linenumbers = 1
+"   autoclose and autofocus
+let g:tagbar_autoclose = 1
+let g:tagbar_auofocus = 1
