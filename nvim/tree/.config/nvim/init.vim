@@ -2,6 +2,9 @@ let g:nvim_config = $XDG_CONFIG_HOME . "/nvim"
 let g:nvim_data = $XDG_DATA_HOME . "/nvim"
 let g:nvim_cache = $XDG_CACHE_HOME . "/nvim"
 
+""" vim-polyglot disables
+let g:polyglot_disabled = ['go', 'pgsql']
+
 let g:config_files = ['plugins.vim',
   \ 'macros.vim',
   \ 'theme.vim',

@@ -2,9 +2,6 @@
 """ LANGUAGE SPECIFIC
 """
 
-""" vim-polyglot
-let g:polyglot_disabled = ['go', 'pgsql']
-
 """ vim-go
 let g:go_code_completion_enabled = 1
 let g:go_auto_type_info = 1
