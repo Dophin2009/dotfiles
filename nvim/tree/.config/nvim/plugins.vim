@@ -1,4 +1,4 @@
-let g:nvim_data = $XDG_DATA_HOME . "/nvim"
+let g:nvim_data = $XDG_DATA_HOME . '/nvim'
 
 "   begin plugin check/installation
 call plug#begin(nvim_data . '/plugged')
@@ -80,8 +80,6 @@ Plug 'galooshi/vim-import-js', { 'for': 'javascript' }
 """ FORMATTING
 """
 
-""" neoformat
-" Plug 'sbdchd/neoformat'
 """ nerdcommenter
 "   comment/uncomment with keybindings (\ + c + <space>)
 Plug 'scrooloose/nerdcommenter'
