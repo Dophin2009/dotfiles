@@ -1,3 +1,8 @@
+"   tab size
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 ""  vim-pandoc
 let g:pandoc#modules#disabled = ['folding', 'spell']
 " let g:pandoc#filetypes#pandoc_markdown = 0
