@@ -1,3 +1,7 @@
+""  vim-pandoc
+let g:pandoc#modules#disabled = ['folding', 'spell']
+" let g:pandoc#filetypes#pandoc_markdown = 0
+
 ""  linters
 let b:ale_linter_aliases = ['text']
 let b:ale_linters = ['textlint', 'vale', 'write-good']
@@ -34,5 +38,19 @@ function PandocFix(buffer) abort
   \}
 endfunction
 
-call ale#fix#registry#Add('pandoc', 'PandocFix', ['pandoc'], "Pandoc formatter")
+call ale#fix#registry#Add('pandoc', 'PandocFix', ['pandoc'], 'Pandoc formatter using pandoc')
 let b:ale_fixers = ['pandoc']
+
+""  tabular
+"   auto-align when using pipe key to make table
+inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
