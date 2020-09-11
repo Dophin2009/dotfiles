@@ -116,6 +116,8 @@ Plug 'vim-pandoc/vim-rmarkdown', { 'for': 'rmarkdown' }
 Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
 """ thesaurus
 Plug 'ron89/thesaurus_query.vim'
+""" vader
+Plug 'junegunn/vader.vim'
 
 
 """
