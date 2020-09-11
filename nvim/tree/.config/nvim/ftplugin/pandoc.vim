@@ -9,7 +9,9 @@ let g:pandoc#modules#disabled = ['folding', 'spell']
 
 ""  linters
 let b:ale_linter_aliases = ['text']
-let b:ale_linters = ['textlint', 'vale', 'write-good']
+let b:ale_linters = ['textlint', 'vale', 'languagetool']
+"   languagetool options
+let g:ale_languagetool_options = '--autoDetect -d WHITESPACE_RULE,DASH_RULE'
 ""  fixers
 "   define pandoc formatter
 function PandocFix(buffer) abort
