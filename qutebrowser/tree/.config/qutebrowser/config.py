@@ -59,6 +59,8 @@ config.set('content.headers.user_agent',
 c.content.pdfjs = True
 # set webrtc policy
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
+# reject 3rd party cookies
+c.content.cookies.accept = "no-3rdparty"
 
 # editor command
 c.editor.command = ['alacritty', '-e', 'nvim',
