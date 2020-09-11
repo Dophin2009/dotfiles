@@ -9,17 +9,17 @@ nnoremap H gT
 nnoremap L gt
 
 """ ranger
-map <leader>rr :RangerEdit<cr>
-map <leader>rv :RangerVSplit<cr>
-map <leader>rs :RangerSplit<cr>
-map <leader>rt :RangerTab<cr>
-map <leader>ri :RangerInsert<cr>
-map <leader>ra :RangerAppend<cr>
-map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
-map <leader>rd :RangerCD<cr>
-map <leader>rld :RangerLCD<cr>
+nnoremap <leader>rr :RangerEdit<cr>
+nnoremap <leader>rv :RangerVSplit<cr>
+nnoremap <leader>rs :RangerSplit<cr>
+nnoremap <leader>rt :RangerTab<cr>
+nnoremap <leader>ri :RangerInsert<cr>
+nnoremap <leader>ra :RangerAppend<cr>
+nnoremap <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
+nnoremap <leader>rd :RangerCD<cr>
+nnoremap <leader>rld :RangerLCD<cr>
 
-map <leader>y :TagbarToggle<cr>
+nnoremap <leader>y :TagbarToggle<cr>
 
 """
 """ MISC
