@@ -2,6 +2,11 @@ if exists("did_load_filetypes")
   finish
 endif
 
+" detect markdown files
+aug markdown_ft_detection
+  autocmd BufRead,BufNewFile *.md set filetype=pandoc
+aug end
+
 " detect proselint configuration
 aug proselint_ft_detection
   au! BufNewFile,BufRead ~/.config/proselint/config set filetype=json
