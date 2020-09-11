@@ -71,6 +71,8 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'Raimondi/delimitMate'
 """ vim-closetag (autoclose XHTML tags)
 Plug 'alvan/vim-closetag'
+""" surround.vim
+Plug 'tpope/vim-surround'
 """ import-js (import js dependencies)
 Plug 'galooshi/vim-import-js', { 'for': 'javascript' }
 
