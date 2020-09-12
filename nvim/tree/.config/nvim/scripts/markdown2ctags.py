@@ -1,20 +1,19 @@
 #!/usr/bin/env python
-
 # Copyright (C) 2013-2018 John Szakmeister <john@szakmeister.net>
 # All rights reserved.
 #
 # This software is licensed as described in the file LICENSE.txt, which
 # you should have received as part of this distribution.
-
 from __future__ import absolute_import
 from __future__ import print_function
 
 import codecs
 import io
 import locale
-import pkg_resources
-import sys
 import re
+import sys
+
+import pkg_resources
 
 
 def _version():
@@ -215,7 +214,6 @@ def findSections(filename, lines):
             if not inFrontMatter and line:
                 beyondFrontMatter = True
 
-
         # Skip GitHub Markdown style code blocks.
         if line.startswith("```"):
             inCodeBlock = not inCodeBlock
@@ -321,14 +319,16 @@ def main():
         "", "--sro", metavar="SEPARATOR", dest="sro",
         default="|", action="store",
         help=u'Use the specified string to scope nested headings.  The '
-              'default is pipe symbol ("|"), but that can be an issue if your '
-              'headings contain the pipe symbol.  It might be more useful to '
-              'use a such as the UTF-8 chevron ("\u00bb").')
+        'default is pipe symbol ("|"), but that can be an issue if your '
+        'headings contain the pipe symbol.  It might be more useful to '
+        'use a such as the UTF-8 chevron ("\u00bb").')
 
     options, args = parser.parse_args()
 
     if sys.version_info[0] == 2:
-        encoding = sys.stdin.encoding or locale.getpreferredencoding() or 'utf-8'
+        encoding = sys.stdin.encoding \
+            or locale.getpreferredencoding() \
+            or 'utf-8'
         options.sro = options.sro.decode(encoding)
 
     if options.tagfile == '-':
