@@ -63,3 +63,6 @@ dl "general-url-cleaner.user.js" \
 dl "google-hit-hider.user.js" \
   "https://greasyfork.org/scripts/1682-google-hit-hider-by-domain-search-filter-block-sites/code/Google%20Hit%20Hider%20by%20Domain%20(Search%20Filter%20%20Block%20Sites).user.js" \
   "42144cee9ba6a4476a458e13b3f9b56fafdfe5588324cba5ca4ab7046120e286"
+dl "wikichan.user.js" \
+  "https://github.com/Dophin2009/wikichan/releases/download/v3.0.1/wikichan.user.js" \
+  "aecc6e36347048c5a0adceca94dd40b5c69c4e3cb80e05958b910bd0049ddca3"
