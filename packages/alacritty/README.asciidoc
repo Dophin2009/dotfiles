@@ -1,10 +1,18 @@
 = Alacritty
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
 
 A package with Alacritty terminal configuration files.
 
-This depends on the profile file link:../profile.dhall[`loaded.dhall`] to set colors and
-font family. See link:./types/ProfileType.dhall[`ProfileType.dhall`] for the profile
-configuration type.
+IMPORTANT: This depends on the link:../../loaded.dhall[profile file] to set colors and
+font-family. See specific profiles for their dependencies. See
+link:./types/ProfileType.dhall[`ProfileType.dhall`] for the profile configuration type
+for this package.
 
 == Package Dependencies
 
