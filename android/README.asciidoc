@@ -1,0 +1,17 @@
+= Android
+
+include::../docs/variables.asciidoc[]
+
+A package for Android SDK {xdg}[XDG base directory] compliance.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+None.
+
+== Configuration
+
+None.
