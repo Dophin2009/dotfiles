@@ -1,6 +1,6 @@
 = Android
 
-include::../docs/variables.asciidoc[]
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
 
 A package for Android SDK {xdg}[XDG base directory] compliance.
 
