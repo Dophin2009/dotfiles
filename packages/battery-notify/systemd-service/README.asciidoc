@@ -1,0 +1,27 @@
+= battery-notify/systemd-service
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:dep: link:..
+:depname: battery-notify
+
+A package that adds a user systemd service for `{depname}`.
+
+To enable the service:
+
+....
+$ systemd --user enable mpdnotify.service
+....
+
+== Package Dependencies
+
+* {dep}[`{depname}`]
+
+== Dependencies
+
+* https://systemd.io/[`systemd`]
