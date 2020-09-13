@@ -33,10 +33,10 @@ Link the desired packages with `stew <package>`.
 
 Some boring choices, I know.
 
-| Name      | Description                                                           | Dependencies                                                                                   | Screenshot                        |
-| :-------- | :-------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- | :-------------------------------- |
-| `gruvbox` | Uses the [gruvbox](https://github.com/morhetz/gruvbox) colorscheme.   | [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) | ![gruvbox-preview](./gruvbox.png) |
-| `nord`    | Uses the [nord](https://github.com/arcticicestudio/nord) colorscheme. | [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) | ![nord-preview](./nord.png)       |
+| Name      | Description                                                           | Dependencies                                                                                   | Screenshot                             |
+| :-------- | :-------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- | :------------------------------------- |
+| `gruvbox` | Uses the [gruvbox](https://github.com/morhetz/gruvbox) colorscheme.   | [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) | ![gruvbox-preview](./docs/gruvbox.png) |
+| `nord`    | Uses the [nord](https://github.com/arcticicestudio/nord) colorscheme. | [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) | ![nord-preview](./docs/nord.png)       |
 
 The wallpapers are not included in the repository.
 

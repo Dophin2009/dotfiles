@@ -4,15 +4,15 @@
 [submodule "lib/stew"]
   path = lib/stew
   url = https://github.com/Dophin2009/stew.git
-[submodule "qutebrowser/tree/.config/qutebrowser/jmatrix"]
-  path = qutebrowser/tree/.config/qutebrowser/jmatrix
+[submodule "packages/qutebrowser/tree/.config/qutebrowser/jmatrix"]
+  path = packages/qutebrowser/tree/.config/qutebrowser/jmatrix
   url = https://gitlab.com/jgkamat/jmatrix.git
-[submodule "tmux/tree/.local/share/tmux/plugins/tpm"]
-  path = tmux/tree/.local/share/tmux/plugins/tpm
+[submodule "packages/tmux/tree/.local/share/tmux/plugins/tpm"]
+  path = packages/tmux/tree/.local/share/tmux/plugins/tpm
   url = https://github.com/tmux-plugins/tpm
-[submodule "gtk/tree/.local/share/themes/gruvbox-gtk"]
-  path = gtk/tree/.local/share/themes/gruvbox-gtk
+[submodule "packages/gtk/tree/.local/share/themes/gruvbox-gtk"]
+  path = packages/gtk/tree/.local/share/themes/gruvbox-gtk
   url = https://github.com/3ximus/gruvbox-gtk
-[submodule "gtk/tree/.local/share/themes/nordic"]
-  path = gtk/tree/.local/share/themes/nordic
+[submodule "packages/gtk/tree/.local/share/themes/nordic"]
+  path = packages/gtk/tree/.local/share/themes/nordic
   url = https://github.com/EliverLara/Nordic
