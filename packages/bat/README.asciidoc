@@ -28,7 +28,7 @@ None.
 * {bat}[`{name}`]
 
 [#profile-config]
-=== Profile Configuration (Optional)
+== Profile Configuration (Optional)
 
 The file `{profilelocal}` can be created with color and font configurations.
 It should return the type specified in `{profiletype}[]`.
