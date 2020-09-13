@@ -1,0 +1,28 @@
+= Alacritty
+
+A package with Alacritty terminal configuration files.
+
+This depends on the profile file link:../loaded.dhall[`loaded.dhall`] in the parent
+directory to set colors and font family. See
+link:./types/ProfileType.dhall[`ProfileType.dhall`] for the profile configuration type.
+
+== Package Dependencies
+
+* link:../qt[`qt`]
+
+== Dependencies
+
+* https://github.com/alacritty/alacritty[`alacritty`]
+
+== Local Configuration (Optional)
+
+The file `local.dhall` can be created to set the font size, which defaults to `10`.
+See link:./types/LocalType.dhall[`LocalType.dhall`] for more information
+
+Example:
+
+[source,dhall]
+----
+let LocalType = ./types/LocalType.dhall
+in  LocalType::{ fontSize = 11 }
+----

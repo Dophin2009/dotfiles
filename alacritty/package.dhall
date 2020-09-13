@@ -1,8 +1,10 @@
 let Stew = ../lib/stew/Prelude/Prelude
 
+let LocalExport = ./types/LocalType.dhall
+
 let profile = ../loaded.dhall
 
-let local = ./local.dhall
+let local = ./local.dhall ? LocalExport.default
 
 let configTemplate =
       Stew.Template::{
