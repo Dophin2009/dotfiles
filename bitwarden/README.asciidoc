@@ -11,7 +11,7 @@ A package for {bw}[Bitwarden CLI] {xdg}[XDG base directory] compliance.
 
 == Dependencies
 
-None.
+* {bw}[Bitwarden]
 
 == Configuration
 

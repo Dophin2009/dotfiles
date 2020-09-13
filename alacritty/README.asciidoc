@@ -12,7 +12,7 @@ link:./types/ProfileType.dhall[`ProfileType.dhall`] for the profile configuratio
 
 == Dependencies
 
-* https://github.com/alacritty/alacritty[`alacritty`]
+* https://github.com/alacritty/alacritty[Alacritty]
 
 == Local Configuration (Optional)
 

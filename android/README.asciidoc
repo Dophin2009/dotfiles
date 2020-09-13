@@ -1,8 +1,9 @@
 = Android
 
+:android: https://developer.android.com/studio
 :xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
 
-A package for Android SDK {xdg}[XDG base directory] compliance.
+A package for {android}[Android SDK] {xdg}[XDG base directory] compliance.
 
 == Package Dependencies
 
@@ -10,7 +11,7 @@ A package for Android SDK {xdg}[XDG base directory] compliance.
 
 == Dependencies
 
-None.
+* {android}[Android SDK]
 
 == Configuration
 

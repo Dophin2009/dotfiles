@@ -1,0 +1,17 @@
+= IBus
+
+:ibus: https://github.com/ibus/ibus
+
+A package to enable IBus input in GUI.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {ibus}[IBus]
+
+== Configuration
+
+None.

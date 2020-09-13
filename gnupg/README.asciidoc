@@ -1,9 +1,9 @@
-= Docker
+= GnuPG
 
-:docker: https://www.docker.com/)
+:gnupg: https://gnupg.org/
 :xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
 
-A package for {docker}[Docker] {xdg}[XDG base directory] compliance.
+A package for {gnupg}[GnuPG] {xdg}[XDG base directory] compliance.
 
 == Package Dependencies
 
@@ -11,7 +11,7 @@ A package for {docker}[Docker] {xdg}[XDG base directory] compliance.
 
 == Dependencies
 
-* {docker}[Docker]
+* {gnupg}[GnuPG]
 
 == Configuration
 

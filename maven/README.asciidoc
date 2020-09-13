@@ -1,9 +1,9 @@
-= Docker
+= Maven
 
-:docker: https://www.docker.com/)
+:maven: https://maven.apache.org/
 :xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
 
-A package for {docker}[Docker] {xdg}[XDG base directory] compliance.
+A package for {maven}[Maven] {xdg}[XDG base directory] compliance.
 
 == Package Dependencies
 
@@ -11,7 +11,7 @@ A package for {docker}[Docker] {xdg}[XDG base directory] compliance.
 
 == Dependencies
 
-* {docker}[Docker]
+* {maven}[Maven]
 
 == Configuration
 

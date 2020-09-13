@@ -12,7 +12,7 @@ is also added to `PATH`.
 
 == Dependencies
 
-* {cargo}[`cargo`]
+* {cargo}[Cargo]
 
 == Configuration
 

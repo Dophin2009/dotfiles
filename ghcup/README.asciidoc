@@ -1,0 +1,19 @@
+= ghcup-hs
+
+:ghcup: https://gitlab.haskell.org/haskell/ghcup-hs
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {ghcup}[`ghcup`] {xdg}[XDG base directory] compliance. The `bin` directory
+for `ghcup` is also added to `PATH`.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {ghcup}[`ghcup`]
+
+== Configuration
+
+None.

@@ -1,9 +1,9 @@
-= Docker
+= .NET
 
-:docker: https://www.docker.com/)
+:dotnet: https://dotnet.microsoft.com/
 :xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
 
-A package for {docker}[Docker] {xdg}[XDG base directory] compliance.
+A package that disables .NET CLI telemetry via `DOTNET_CLI_TELEMETRY_OPTOUT`.
 
 == Package Dependencies
 
@@ -11,7 +11,7 @@ A package for {docker}[Docker] {xdg}[XDG base directory] compliance.
 
 == Dependencies
 
-* {docker}[Docker]
+* {dotnet}[.NET]
 
 == Configuration
 

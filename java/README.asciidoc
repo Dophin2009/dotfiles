@@ -1,9 +1,10 @@
-= Docker
+= Java
 
-:docker: https://www.docker.com/)
+:java: https://www.java.com/en/
 :xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
 
-A package for {docker}[Docker] {xdg}[XDG base directory] compliance.
+A package for {java}[Java] {xdg}[XDG base directory] compliance that sets
+`__JAVA_OPTIONS`.
 
 == Package Dependencies
 
@@ -11,7 +12,7 @@ A package for {docker}[Docker] {xdg}[XDG base directory] compliance.
 
 == Dependencies
 
-* {docker}[Docker]
+* {java}[Java]
 
 == Configuration
 
