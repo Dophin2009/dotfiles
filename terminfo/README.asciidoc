@@ -1,0 +1,17 @@
+= terminfo
+
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {xdg}[XDG base directory] compliance for `terminfo`.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* `terminfo`
+
+== Configuration
+
+None.

@@ -1,0 +1,18 @@
+= wget
+
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {xdg}[XDG base directory] compliance for `wget`, which is redefined by
+aliasing to use an alternate history file.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* `wget`
+
+== Configuration
+
+None.

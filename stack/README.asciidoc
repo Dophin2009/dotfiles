@@ -1,0 +1,18 @@
+= Stack
+
+:stack: https://docs.haskellstack.org/en/stable/README/
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {xdg}[XDG base directory] compliance for {stack}[Stack].
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {stack}[Stack]
+
+== Configuration
+
+None.

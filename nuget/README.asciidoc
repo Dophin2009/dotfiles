@@ -1,0 +1,18 @@
+= NuGet
+
+:nuget: https://www.nuget.org/
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {xdg}[XDG base directory] compliance for {nuget}[NuGet].
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {nuget}[NuGet]
+
+== Configuration
+
+None.

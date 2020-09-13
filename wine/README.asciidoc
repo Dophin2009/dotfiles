@@ -1,0 +1,18 @@
+= Wine
+
+:wine: https://www.winehq.org/
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {xdg}[XDG base directory] compliance for {wine}[Wine].
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {wine}[Wine]
+
+== Configuration
+
+None.

@@ -1,0 +1,18 @@
+= pass
+
+:pass: https://www.passwordstore.org/
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {xdg}[XDG base directory] compliance for {pass}[`pass`].
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {pass}[`pass`]
+
+== Configuration
+
+None.

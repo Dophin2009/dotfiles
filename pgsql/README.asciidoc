@@ -1,0 +1,18 @@
+= PostgreSQL
+
+:pgsql: https://www.postgresql.org/
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {xdg}[XDG base directory] compliance for {pgsql}[PostgreSQL].
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {pgsql}[PostgreSQL]
+
+== Configuration
+
+None.

@@ -1,0 +1,17 @@
+= yarn
+
+:yarn: https://yarnpkg.com/
+
+A package that adds `yarn` installed binaries to `PATH`.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {yarn}[yarn]
+
+== Configuration
+
+None.
