@@ -1,0 +1,18 @@
+= Docker
+
+:docker: https://www.docker.com/)
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {docker}[Docker] {xdg}[XDG base directory] compliance.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+None.
+
+== Configuration
+
+None.
