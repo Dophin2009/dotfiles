@@ -93,6 +93,8 @@ Plug 'godlygeek/tabular'
 
 """ polyglot (covers most languages)
 Plug 'sheerun/vim-polyglot'
+""" asciidoc
+Plug 'habamax/vim-asciidoctor', { 'for': 'asciidoc' }
 """ csv
 Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }
 """ editorconfig
