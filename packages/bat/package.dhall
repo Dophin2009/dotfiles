@@ -1,6 +1,6 @@
 let Stew = ./lib/stew/Prelude/Prelude
 
-let profile = ../../loaded.dhall
+let profile = ./profile.dhall ? (../../loaded.dhall).bat
 
 let configTemplate =
       Stew.Template::{
@@ -10,6 +10,6 @@ let configTemplate =
 
 let package = Stew.Package::{ name = "bat", templateFiles = [ configTemplate ] }
 
-let variables = profile.bat
+let variables = profile
 
 in  { package, variables }
