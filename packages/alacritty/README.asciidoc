@@ -7,12 +7,17 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
+:profilelocal: profile.dhall
+:profile: link:../../loaded.dhall
+:profiletype: link:./types/ProfileType.dhall
+:local: local.dhall
+:localtype: link:./types/LocalType.dhall
+
 A package with Alacritty terminal configuration files.
 
-IMPORTANT: This depends on the link:../../loaded.dhall[profile file] to set colors and
-font-family. See specific profiles for their dependencies. See
-link:./types/ProfileType.dhall[`ProfileType.dhall`] for the profile configuration type
-for this package.
+IMPORTANT: By default, this package loads the `alacritty` section of the
+{profile}[profile file], unless `{profilelocal}` exists (see <<profile-config>>).
+See specific profiles for their dependencies.
 
 == Package Dependencies
 
@@ -22,10 +27,11 @@ for this package.
 
 * https://github.com/alacritty/alacritty[Alacritty]
 
+[#local-config]
 == Local Configuration (Optional)
 
-The file `local.dhall` can be created to set the font size, which defaults to `10`.
-See link:./types/LocalType.dhall[`LocalType.dhall`] for more information
+The file `{local}` can be created to set the font size, which defaults to `10`.
+See `{localtype}[]` for more information
 
 Example:
 
@@ -34,3 +40,9 @@ Example:
 let LocalType = ./types/LocalType.dhall
 in  LocalType::{ fontSize = 11 }
 ----
+
+[#profile-config]
+=== Profile Configuration
+
+The file `{profilelocal}` can be created with color and font configurations.
+It should return the type specified in `{profiletype}[]`.

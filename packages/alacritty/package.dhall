@@ -2,7 +2,7 @@ let Stew = ./lib/stew/Prelude/Prelude
 
 let LocalExport = ./types/LocalType.dhall
 
-let profile = ../../loaded.dhall
+let profile = ./profile.dhall ? (../../loaded.dhall).alacritty
 
 let local = ./local.dhall ? LocalExport.default
 
@@ -21,6 +21,6 @@ let package =
       , templateFiles = [ configTemplate ]
       }
 
-let variables = profile.alacritty ∧ local
+let variables = profile ∧ local
 
 in  { package, variables }
