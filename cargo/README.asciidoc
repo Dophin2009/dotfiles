@@ -1,0 +1,19 @@
+= Cargo
+
+:cargo: https://github.com/rust-lang/cargo
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {cargo}Cargo {xdg}[XDG base directory] compliance. Cargo's `bin` directory
+is also added to `PATH`.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {cargo}[`cargo`]
+
+== Configuration
+
+None.
