@@ -4,7 +4,7 @@ let Stew = ./lib/stew/Prelude/Prelude
 
 let LocalExport = ./types/LocalType.dhall
 
-let profile = ../../loaded.dhall
+let profile = ./profile.dhall ? (../../loaded.dhall).gtk
 
 let local
     : LocalExport.Type
@@ -24,7 +24,7 @@ let makeThemeFile =
 
 let currentThemeFile =
       Stew.File::{
-      , src = "tree/.local/share/themes/${profile.gtk.theme}"
+      , src = "tree/.local/share/themes/${profile.theme}"
       , dest = ".local/share/themes/current-theme"
       , replaceDirectories = Some True
       }

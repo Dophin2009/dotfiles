@@ -1,6 +1,6 @@
 let Stew = ./lib/stew/Prelude/Prelude
 
-let profile = ../../loaded.dhall
+let profile = ./profile.dhall ? (../../loaded.dhall).dunst
 
 let configTemplate =
       Stew.Template::{

@@ -1,4 +1,4 @@
-= bat
+= dunst
 ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
@@ -7,15 +7,14 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-:name: bat
-:bat: https://github.com/sharkdp/bat
+:dunst: https://github.com/dunst-project/dunst
 :profilelocal: profile.dhall
 :profile: link:../../loaded.dhall
 :profiletype: link:./types/ProfileType.dhall
 
-A package with {bat}[`{name}`] configuration files.
+A package with {dunst}[dunst] configuration files.
 
-IMPORTANT: By default, this package loads the `bat` section of the
+IMPORTANT: By default, this package loads the `dunst` section of the
 {profile}[profile file], unless `{profilelocal}` exists (see <<profile-config>>).
 See specific profiles for their dependencies.
 
@@ -25,10 +24,10 @@ None.
 
 == Dependencies
 
-* {bat}[`{name}`]
+* {dunst}[dunst]
 
 [#profile-config]
-== Profile Configuration (Optional)
+== Profile Configuration
 
-The file `{profilelocal}` can be created with color configurations.
+The file `{profilelocal}` can be created with color and font configurations.
 It should return the type specified in `{profiletype}[]`.

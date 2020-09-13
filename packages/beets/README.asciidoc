@@ -1,0 +1,43 @@
+= beets
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:name: beets
+:beets: https://beets.io/
+:local: local.dhall
+:localtype: link:./types/LocalType.dhall
+
+A package with {beets}[`beets`] configuration files.
+
+== Package Dependencies
+
+* link:../sh[sh]
+
+== Dependencies
+
+* {beets}[`beets`]
+
+[#local-config]
+== Local Configuration
+
+The file `{local}` must be created to set the music directories. See `{localtype}[]` for
+more information.
+
+Example:
+
+[source,dhall]
+----
+let Export = ./types/LocalType.dhall
+let export
+    : Export
+    = { root = "~/music"
+      , library = "~/music/library"
+      , playlists = "~/music/playlists"
+      }
+in  export
+----

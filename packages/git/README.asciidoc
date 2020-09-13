@@ -1,0 +1,38 @@
+= git
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:git: https://git-scm.com/
+:fzf: https://github.com/junegunn/fzf
+:local: config.local
+
+A package with a minimal {git}[`git`] configuration. Also adds some aliases for common git
+operations.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {git}[`git`]
+* {fzf}[`fzf`]
+
+[#local-config]
+== Local Configuration
+
+The file `{local}` should be created to set credentials.
+
+Example:
+
+[source,gitconfig]
+----
+[user]
+  name = John Doe
+  email = example@example.com
+----

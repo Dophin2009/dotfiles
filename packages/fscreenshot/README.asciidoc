@@ -1,0 +1,20 @@
+= fscreenshot
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:scrot: https://phab.enlightenment.org/diffusion/ESVN/browse/trunk/misc/scrot;35502
+
+Adds a script to take a fullscreen screenshot to `/tmp/{timestamp}`.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {scrot}[`scrot`]

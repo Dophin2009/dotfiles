@@ -1,0 +1,23 @@
+= cursedtag
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:aiksaurus: https://github.com/AbiWord/aiksaurus
+:dictd: https://sourceforge.net/projects/dict/
+:dictd-wn: https://aur.archlinux.org/packages/dict-wn/
+
+A package of convenience aliases for dictionary and thesaurus queries.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {aiksaurus}[Aiksaurus]
+* {dictd}[DICT] and WordNet database for DICT ({dictd-wn}[AUR link])

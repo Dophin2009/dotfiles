@@ -20,4 +20,4 @@ A package that adds a script to check and monitor battery level by sending notif
 
 == Extensions
 
-* link:./systemd-service[battery-notify/systemd-service]
+* link:./systemd-service[`battery-notify/systemd-service`]

@@ -1,0 +1,14 @@
+= GIMP
+
+:gimp: https://www.gimp.org/
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package for {xdg}[XDG base directory] compliance for {gimp}[GIMP].
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {gimp}[GIMP]

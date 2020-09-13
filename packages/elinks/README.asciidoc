@@ -1,0 +1,22 @@
+= ELinks
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:elinks: http://elinks.or.cz/
+:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+
+A package with {elinks}[ELinks] configuration files and {xdg}[XDG base directory]
+compliance.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {elinks}[ELinks]

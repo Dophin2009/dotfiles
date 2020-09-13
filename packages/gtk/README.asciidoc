@@ -1,4 +1,4 @@
-= bat
+= GTK
 ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
@@ -7,28 +7,35 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-:name: bat
-:bat: https://github.com/sharkdp/bat
+:gtk: https://www.gtk.org/
 :profilelocal: profile.dhall
 :profile: link:../../loaded.dhall
 :profiletype: link:./types/ProfileType.dhall
+:local: local.dhall
+:localtype: link:./types/LocalType.dhall
 
-A package with {bat}[`{name}`] configuration files.
+A package with some {gtk}[GTK] themes.
 
-IMPORTANT: By default, this package loads the `bat` section of the
+IMPORTANT: By default, this package loads the `gtk` section of the
 {profile}[profile file], unless `{profilelocal}` exists (see <<profile-config>>).
 See specific profiles for their dependencies.
 
 == Package Dependencies
 
-None.
+* link:../sh[`sh`]
 
 == Dependencies
 
-* {bat}[`{name}`]
+* {gtk}[GTK]
+
+[#local-config]
+== Local Configuration (Optional)
+
+The file `{local}` can be created to specify extra themes, which must be located in
+`tree/.local/share/themes[]`. See `{localtype}[]`.
 
 [#profile-config]
-== Profile Configuration (Optional)
+=== Profile Configuration
 
-The file `{profilelocal}` can be created with color configurations.
+The file `{profilelocal}` can be created to specify the default loaded theme.
 It should return the type specified in `{profiletype}[]`.

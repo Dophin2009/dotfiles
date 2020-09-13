@@ -1,0 +1,21 @@
+= cursedtag
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:name: cursedtag
+:cursedtag: https://github.com/hellricer/cursedtag
+
+A package with {cursedtag}[`{name}`] configuration files.
+
+== Package Dependencies
+
+None.
+
+== Dependencies
+
+* {cursedtag}[`{name}`]
