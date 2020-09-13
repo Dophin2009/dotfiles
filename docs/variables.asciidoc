@@ -1,4 +1,0 @@
-:xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
-:localtype: link:./types/LocalType.dhall
-:profiletype: link:./types/ProfileType.dhall
-:loaded: link:../loaded.dhall

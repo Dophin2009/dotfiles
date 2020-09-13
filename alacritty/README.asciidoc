@@ -1,12 +1,10 @@
 = Alacritty
 
-include::../docs/variables.asciidoc[]
-
 A package with Alacritty terminal configuration files.
 
-This depends on the profile file {loaded}[`loaded.dhall`] in the parent
+This depends on the profile file link:../loaded.dhall[`loaded.dhall`] in the parent
 directory to set colors and font family. See
-{profiletype}[`ProfileType.dhall`] for the profile configuration type.
+link:./types/ProfileType.dhall[`ProfileType.dhall`] for the profile configuration type.
 
 == Package Dependencies
 
@@ -19,7 +17,7 @@ directory to set colors and font family. See
 == Local Configuration (Optional)
 
 The file `local.dhall` can be created to set the font size, which defaults to `10`.
-See {localtype}[`LocalType.dhall`] for more information
+See link:./types/LocalType.dhall[`LocalType.dhall`] for more information
 
 Example:
 
