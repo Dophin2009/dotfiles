@@ -38,6 +38,7 @@ See specific profiles for their dependencies.
 :ncmpcpp: https://github.com/ncmpcpp/ncmpcpp
 :pulseaudio: https://www.freedesktop.org/wiki/Software/PulseAudio/
 :ranger: https://github.com/ranger/ranger
+:rofi: https://github.com/davatorium/rofi
 
 * {i3-gaps}[i3-gaps]
 
