@@ -1,0 +1,39 @@
+= mpdnotify/systemd-service
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:mpdnotify: https://github.com/Dophin2009/mpdnotify
+:local: local.dhall
+:localtype: link:./types/LocalType.dhall
+
+A package with a systemd service for {mpdnotify}[mpdnotify].
+
+== Package Dependencies
+
+* link:..[`mpdnotify`]
+
+== Dependencies
+
+* `systemd`
+
+[#local-config]
+== Local Configuration
+
+The file `{local}` must be created to set the `mpdnotify` binary to call. See
+`{localtype}[]`.
+
+Example:
+
+[source,dhall]
+----
+let Export = ./types/LocalExport.dhall
+
+let export : Export = { bin = "mpdnotify" }
+
+in export
+----

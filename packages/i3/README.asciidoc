@@ -1,0 +1,82 @@
+= i3
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:i3-gaps: https://github.com/Airblader/i3
+:profilelocal: profile.dhall
+:profile: link:../../loaded.dhall
+:profiletype: link:./types/ProfileType.dhall
+:local: local.dhall
+:localtype: link:./types/LocalType.dhall
+
+A package with highly personalized {i3-gaps}[i3-gaps] configuration files for up to two
+monitors. To be used generally with the other desktop ricing packages.
+
+IMPORTANT: By default, this package loads the `i3` section of the
+{profile}[profile file], unless `{profilelocal}` exists (see <<profile-config>>).
+See specific profiles for their dependencies.
+
+== Package Dependencies
+
+* link:../battery-notify[`battery-notify`]
+* link:../fscreenshot[`fscreenshot`]
+* link:../polybar[`polybar`]
+* link:../rofi[`rofi`]
+* link:../wallpaper[`wallpaper`]
+
+== Dependencies
+:alacritty: https://github.com/alacritty/alacritty
+:dunst: https://github.com/dunst-project/dunst
+:htop: https://htop.dev/
+:mpd: https://www.musicpd.org/
+:mpdnotify: https://github.com/Dophin2009/mpdnotify
+:ncmpcpp: https://github.com/ncmpcpp/ncmpcpp
+:pulseaudio: https://www.freedesktop.org/wiki/Software/PulseAudio/
+:ranger: https://github.com/ranger/ranger
+
+* {i3-gaps}[i3-gaps]
+
+These dependencies are not strictly necessary, but certain features will not work without
+them.
+
+* {alacritty}[Alacritty] (for some terminal shortcuts)
+** {htop}[htop]
+** {ncmpcpp}[ncmpcpp]
+** {ranger}[ranger]
+* {dunst}[dunst] (dunst is started on wm start)
+* {mpd}[mpd] (for track control with `mpc`) and {mpdnotify}[mpdnotify] (for checking mpd
+  status)
+* {pulseaudio}[PulseAudio] (for volume control with `pactl`)
+* {rofi}[rofi] (for application launching)
+
+[#local-config]
+== Local Configuration
+
+The file `{local}` must be created to set some variables. See `{localtype}[]` for more
+information.
+
+Example:
+
+[source,dhall]
+----
+let LocalType = ./types/LocalType.dhall
+
+let export
+    : LocalType
+    = { lockCommand = "xset s activate"
+      , monitors = { primary = "eDP-1", secondary = "eDP-1" }
+      }
+
+in  export
+----
+
+[#profile-config]
+=== Profile Configuration (Optional)
+
+The file `{profilelocal}` can be created with color, font, etc. configurations.
+It should return the type specified in `{profiletype}[]`.

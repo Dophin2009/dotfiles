@@ -1,0 +1,33 @@
+= hangups
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:hangups: https://github.com/tdryer/hangups
+:profilelocal: profile.dhall
+:profile: link:../../loaded.dhall
+:profiletype: link:./types/ProfileType.dhall
+
+A package with {hangups}[hangups] configuration files.
+
+IMPORTANT: By default, this package loads the `hangups` section of the
+{profile}[profile file], unless `{profilelocal}` exists (see <<profile-config>>).
+See specific profiles for their dependencies.
+
+== Package Dependencies
+
+None.
+
+== Dependencies
+
+* {hangups}[hangups]
+
+[#profile-config]
+=== Profile Configuration (Optional)
+
+The file `{profilelocal}` can be created with theme configuration.
+It should return the type specified in `{profiletype}[]`.

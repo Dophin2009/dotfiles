@@ -19,5 +19,5 @@ A package of convenience aliases for dictionary and thesaurus queries.
 
 == Dependencies
 
-* {aiksaurus}[Aiksaurus]
-* {dictd}[DICT] and WordNet database for DICT ({dictd-wn}[AUR link])
+* {aiksaurus}[`aiksaurus`]
+* {dictd}[`dict`] and WordNet database ({dictd-wn}[AUR link])

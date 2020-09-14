@@ -1,6 +1,6 @@
 let Stew = ./lib/stew/Prelude/Prelude
 
-let profile = ../../loaded.dhall
+let profile = ./profile ? (../../loaded.dhall).i3
 
 let local = ./local.dhall
 
@@ -14,7 +14,8 @@ let reloadHook
     : Stew.Hook
     = { string = "hooks/reload-i3.sh", name = "Reload i3" }
 
-let dependencies = [ "../polybar", "../wallpaper", "../fscreenshot" ]
+let dependencies =
+      [ "../battery-notify", "../polybar", "../wallpaper", "../fscreenshot" ]
 
 let package =
       Stew.Package::{
@@ -24,6 +25,6 @@ let package =
       , afterLink = [ reloadHook ]
       }
 
-let variables = profile.i3 ∧ local
+let variables = profile ∧ local
 
 in  { package, variables }

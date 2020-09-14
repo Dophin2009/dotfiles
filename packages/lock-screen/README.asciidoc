@@ -1,0 +1,25 @@
+= lock-screen
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:i3lock: https://github.com/i3/i3lock
+:imagemagick: https://imagemagick.org/script/index.php
+:scrot: https://phab.enlightenment.org/diffusion/ESVN/browse/trunk/misc/scrot;35502
+
+A script to lock the screen using {i3lock}[i3lock], with a blurred screenshot of the
+current screen.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {i3lock}[i3lock]
+* {scrot}[scrot]
+* {imagemagick}[ImageMagick] (for `convert`)

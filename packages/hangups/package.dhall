@@ -1,6 +1,6 @@
 let Stew = ./lib/stew/Prelude/Prelude
 
-let profile = ../../loaded.dhall
+let profile = ./profile.dhall ? (../../loaded.dhall).hangups
 
 let configTemplate =
       Stew.Template::{
@@ -11,6 +11,6 @@ let configTemplate =
 let package =
       Stew.Package::{ name = "hangups", templateFiles = [ configTemplate ] }
 
-let variables = profile.hangups
+let variables = profile
 
 in  { package, variables }

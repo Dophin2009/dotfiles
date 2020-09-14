@@ -1,0 +1,40 @@
+= mpdnotify
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:mpdnotify: https://github.com/Dophin2009/mpdnotify
+:local: local.dhall
+:localtype: link:./types/LocalType.dhall
+
+A package with {mpdnotify}[mpdnotify] configuration files.
+
+== Package Dependencies
+
+* link:../sh[`sh`]
+
+== Dependencies
+
+* {mpd}[MPD]
+
+[#local-config]
+== Local Configuration
+
+The file `{local}` can be created to set the music directories. See `{localtype}[]`.
+
+Example:
+
+[source,dhall]
+----
+let Export = ./types/LocalType.dhall
+
+let export
+    : Export
+    = { library = "~/music/library" }
+
+in  export
+----
