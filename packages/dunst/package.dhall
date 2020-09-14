@@ -17,6 +17,6 @@ let package =
       , afterLink = [ restartHook ]
       }
 
-let variables = profile.dunst
+let variables = profile
 
 in  { package, variables }
