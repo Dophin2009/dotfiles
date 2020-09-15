@@ -10,15 +10,21 @@
 // ==/UserScript==
 
 (function () {
-  // Hide score values
-  const scores = Array.from(document.querySelectorAll(".score.unvoted"));
-  for (let el of scores) {
-    el.style.setProperty("color", "rgba(0, 0, 0, 0)");
-  }
+  const hide = function () {
+    // Hide score values
+    const scores = Array.from(document.querySelectorAll(".score.unvoted"));
+    for (let el of scores) {
+      el.style.setProperty("color", "rgba(0, 0, 0, 0)");
+    }
 
-  // Hide awards
-  const awards = Array.from(document.querySelectorAll(".awardings-bar"));
-  for (let el of awards) {
-    el.style.setProperty("opacity", "0");
-  }
+    // Hide awards
+    const awards = Array.from(document.querySelectorAll(".awardings-bar"));
+    for (let el of awards) {
+      el.style.setProperty("opacity", "0");
+    }
+  };
+
+  const observer = new MutationObserver(hide);
+  const config = { attributes: true, childList: true, subtree: true };
+  observer.observe(document, config);
 })();
