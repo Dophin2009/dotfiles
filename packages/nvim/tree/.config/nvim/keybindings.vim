@@ -19,6 +19,11 @@ nnoremap <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
 nnoremap <leader>rd :RangerCD<cr>
 nnoremap <leader>rld :RangerLCD<cr>
 
+""" ALE shortcuts
+nnoremap <leader>n :ALENext<cr>
+nnoremap <leader>N :ALEPrevious<cr>
+
+""" toggle tagbar
 nnoremap <leader>y :TagbarToggle<cr>
 
 """
