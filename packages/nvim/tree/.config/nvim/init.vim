@@ -5,6 +5,10 @@ let g:nvim_cache = $XDG_CACHE_HOME . "/nvim"
 """ vim-polyglot disables
 let g:polyglot_disabled = ['asciidoc', 'pgsql']
 
+""" python host path
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
+
 let g:config_files = ['plugins.vim',
   \ 'macros.vim',
   \ 'theme.vim',
