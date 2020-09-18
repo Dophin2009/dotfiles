@@ -160,21 +160,21 @@ zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps -
 zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=always $realpath'
 
 # case-insensitive completion
-# zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
 
 # various completions
 # zstyle ":completion:*:descriptions" format "%B%d%b"
 
-# zstyle ':completion:*:*:kill:*' menu yes select
-# zstyle ':completion:*:kill:*'   force-list always
-# zstyle ':completion:*:*:killall:*' menu yes select
-# zstyle ':completion:*:killall:*'   force-list always
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*'   force-list always
+zstyle ':completion:*:*:killall:*' menu yes select
+zstyle ':completion:*:killall:*'   force-list always
 
-# zstyle ':completion:*:pacman:*' force-list always
-# zstyle ':completion:*:*:pacman:*' menu yes select
+zstyle ':completion:*:pacman:*' force-list always
+zstyle ':completion:*:*:pacman:*' menu yes select
 
-# zstyle ':completion:*:*:*:default' menu yes select search
-# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:*:default' menu yes select search
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 ### keybinds
 typeset -g -A key
