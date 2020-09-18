@@ -1,7 +1,7 @@
 auto-reload               yes
 prepopulate-query-feeds   yes
 reload-time               20
-reload-threads            2
+reload-threads            100
 
 articlelist-format        "%4i %D %F %t"
 
