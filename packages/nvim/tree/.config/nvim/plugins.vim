@@ -12,7 +12,9 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 """ fzf
 Plug 'junegunn/fzf.vim'
 """ ranger
-Plug 'rafaqz/ranger.vim'
+" Plug 'rafaqz/ranger.vim'
+""" vifm
+Plug 'vifm/vifm.vim'
 
 
 """
@@ -58,12 +60,19 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/echodoc.vim'
 "   nvim-lsp source
 " Plug 'Shougo/deoplete-lsp'
+"   syntax sources
+Plug 'Shougo/neco-syntax'
 "   file includes sources
 Plug 'Shougo/neoinclude.vim'
 "   clang source
 " Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp', 'objc', 'objcpp']}
 "   python source
 Plug 'deoplete-plugins/deoplete-jedi'
+"   typescript source
+"   yarn install -g neovim
+"   yarn install -g typescript
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 "   tmux panes source
 Plug 'wellle/tmux-complete.vim'
 

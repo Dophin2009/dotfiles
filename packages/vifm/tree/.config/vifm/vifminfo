@@ -1,0 +1,75 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/dophin2009/
+	..
+1600432249
+'b
+	/home/dophin2009/bin/
+	..
+1600432249
+'h
+	/home/dophin2009/
+	..
+1600432249
+'z
+	/home/dophin2009/.config/vifm
+	..
+1600432249
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/dophin2009
+	files
+1
+d/home/dophin2009/files
+	tmp
+12
+d/home/dophin2009/.dotfiles/packages/nvim/tree/.config/nvim
+	editing.vim
+7
+d
+
+# Right window history (oldest to newest):
+D/home/dophin2009
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:q
+:help
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0

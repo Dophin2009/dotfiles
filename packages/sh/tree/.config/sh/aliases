@@ -8,7 +8,7 @@ alias ls="ls -a --color"
 ### SHORTCUTS
 alias x="exit"
 alias la="ls -al --color"
-alias rn="ranger"
+alias vf="vifmrun"
 
 ##  misc
 wtm() {

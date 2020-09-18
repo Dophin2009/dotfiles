@@ -37,7 +37,7 @@ See specific profiles for their dependencies.
 :mpdnotify: https://github.com/Dophin2009/mpdnotify
 :ncmpcpp: https://github.com/ncmpcpp/ncmpcpp
 :pulseaudio: https://www.freedesktop.org/wiki/Software/PulseAudio/
-:ranger: https://github.com/ranger/ranger
+:vifm: https://github.com/vifm/vifm
 :rofi: https://github.com/davatorium/rofi
 
 * {i3-gaps}[i3-gaps]
@@ -48,7 +48,7 @@ them.
 * {alacritty}[Alacritty] (for some terminal shortcuts)
 ** {htop}[htop]
 ** {ncmpcpp}[ncmpcpp]
-** {ranger}[ranger]
+** {vifm}[vifm]
 * {dunst}[dunst] (dunst is started on wm start)
 * {mpd}[mpd] (for track control with `mpc`) and {mpdnotify}[mpdnotify] (for checking mpd
   status)

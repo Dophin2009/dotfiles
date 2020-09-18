@@ -8,16 +8,11 @@ nnoremap H gT
 "   focus tab right
 nnoremap L gt
 
-""" ranger
-nnoremap <leader>rr :RangerEdit<cr>
-nnoremap <leader>rv :RangerVSplit<cr>
-nnoremap <leader>rs :RangerSplit<cr>
-nnoremap <leader>rt :RangerTab<cr>
-nnoremap <leader>ri :RangerInsert<cr>
-nnoremap <leader>ra :RangerAppend<cr>
-nnoremap <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
-nnoremap <leader>rd :RangerCD<cr>
-nnoremap <leader>rld :RangerLCD<cr>
+""" vifm
+nnoremap <leader>rr :Vifm<cr>
+nnoremap <leader>rv :VsplitVifm<cr>
+nnoremap <leader>rs :SplitVifm<cr>
+nnoremap <leader>rt :TabVifm<cr>
 
 """ ALE shortcuts
 nnoremap <leader>n :ALENext<cr>

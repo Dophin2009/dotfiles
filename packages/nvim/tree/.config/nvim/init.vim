@@ -61,5 +61,3 @@ set undofile
 let &undodir=g:nvim_cache . "/undo"
 "   current working directory
 autocmd BufEnter * lcd %:p:h
-"   netwr cache
-let g:netrw_home = g:nvim_cache
