@@ -1,0 +1,2 @@
+#!/bin/sh
+export CHKTEXRC="$XDG_CONFIG_HOME/chktexrc"

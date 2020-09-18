@@ -19,6 +19,8 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 "   lint on text change
 let g:ale_lint_on_text_changed = 'always'
+"   linting message
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 "   goto remaps
 nnoremap <silent> gd :ALEGoToDefinition <CR>
 nnoremap <silent> gy :ALEGoToTypeDefinition <CR>
