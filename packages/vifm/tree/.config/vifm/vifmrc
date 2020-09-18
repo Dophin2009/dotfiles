@@ -144,6 +144,11 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep nvim "+grep %a"
 command! reload :write | restart
 command! link ln -s %d/%f %D
+command! rg rg -p %a | less -RX
+
+" ------------------------------------------------------------------------------
+
+autocmd DirEnter ** !fasd %d >/dev/null &
 
 " ------------------------------------------------------------------------------
 
