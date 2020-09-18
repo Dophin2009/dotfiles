@@ -1,3 +1,7 @@
+" linters
+let b:ale_linters = ['jsonlint', 'prettier']
+" fixers
+let b:ale_fixers = ['prettier']
 " tagbar
 let g:tagbar_type_json = {
   \ 'ctagstype' : 'json',

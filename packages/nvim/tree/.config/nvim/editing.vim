@@ -46,6 +46,9 @@ let g:tmuxcomplete#trigger = ''
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'floating'
 
+""" nvim-typescript
+" let g:nvim_typescript#type_info_on_hold = 1
+
 """ delimitMate
 let g:delimitMate_expand_cr = 2
 
