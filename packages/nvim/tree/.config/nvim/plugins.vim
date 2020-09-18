@@ -121,7 +121,7 @@ Plug 'lifepillar/pgsql.vim', { 'for': 'pgsql' }
 """ rmarkdown
 Plug 'vim-pandoc/vim-rmarkdown', { 'for': 'rmarkdown' }
 """ vimtex
-" Plug 'lervag/vimtex'
+Plug 'lervag/vimtex'
 """ cxx semantic highlighting
 Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
 """ thesaurus

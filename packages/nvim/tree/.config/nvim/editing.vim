@@ -2,6 +2,10 @@
 """ CODE COMPLETION
 """
 
+""" vimtex
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
+
 """ ALE
 ""  define fixers
 let g:ale_linters = {
@@ -29,7 +33,11 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "   enable ALE completion source
 call deoplete#custom#option('sources', {
   \ '_': ['ale', 'file', 'buffer', 'tmux-complete'],
-  \ 'python': ['jedi']
+  \ 'python': ['jedi'],
+  \ 'tex': ['omni']
+  \})
+call deoplete#custom#var('omni', 'input_patterns', {
+  \ 'tex': g:vimtex#re#deoplete
   \})
 "   reduce max list size
 call deoplete#custom#option('max_list', 30)
