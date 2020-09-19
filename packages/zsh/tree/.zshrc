@@ -32,6 +32,8 @@ export HISTFILE="$ZSH_CACHE/history"
 setopt interactivecomments
 # no c-s/c-q output freezing
 setopt noflowcontrol
+# do not write duplicates to history
+setopt HIST_SAVE_NO_DUPS
 # save each command's beginning timestamp and the duration to the history file
 setopt extendedhistory
 # share new history across active zsh sessions
@@ -40,6 +42,8 @@ setopt extendedhistory
 setopt completeinword
 # autocontinue suspended process on disown
 setopt AUTO_CONTINUE
+# match hidden files without specify dot
+setopt globdots
 
 ### autoloads
 autoload -Uz colors
