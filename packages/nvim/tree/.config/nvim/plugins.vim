@@ -17,6 +17,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'vifm/vifm.vim'
 """ NERDTree
 Plug 'preservim/nerdtree'
+""" dev icons
+Plug 'ryanoasis/vim-devicons'
 
 
 """
