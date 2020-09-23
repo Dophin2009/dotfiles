@@ -15,6 +15,8 @@ Plug 'junegunn/fzf.vim'
 " Plug 'rafaqz/ranger.vim'
 """ vifm
 Plug 'vifm/vifm.vim'
+""" NERDTree
+Plug 'preservim/nerdtree'
 
 
 """

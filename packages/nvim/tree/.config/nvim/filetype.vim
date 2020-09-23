@@ -18,7 +18,7 @@ aug i3config_ft_detection
 aug end
 
 " mail filetype
-augroup filetypedetect
+augroup mail_ft_detection
   " Mail
   autocmd BufRead,BufNewFile *mutt-* set filetype=mail
 augroup END

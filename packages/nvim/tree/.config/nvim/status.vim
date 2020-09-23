@@ -11,6 +11,11 @@ let g:netrw_winsize = 25
 "   cache location
 let g:netrw_home = g:nvim_cache
 
+""" NERDTree
+augroup nerdtree_autoclose
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup END
+
 """ airline
 "   enable tabline status
 let g:airline#extensions#tabline#enabled = 1

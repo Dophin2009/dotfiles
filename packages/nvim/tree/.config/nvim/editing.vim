@@ -34,7 +34,7 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "   enable ALE completion source
 call deoplete#custom#option('sources', {
-  \ '_': ['ale', 'file', 'buffer', 'tmux-complete'],
+  \ '_': ['ale', 'file', 'buffer'],
   \ 'python': ['jedi'],
   \ 'tex': ['omni']
   \})
@@ -49,7 +49,7 @@ call deoplete#custom#option('auto_complete_delay', 100)
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 "   disable tmux completion trigger
-let g:tmuxcomplete#trigger = ''
+" let g:tmuxcomplete#trigger = ''
 
 """ deoplete echodoc
 "   enable echodoc
