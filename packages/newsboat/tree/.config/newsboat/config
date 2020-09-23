@@ -11,11 +11,11 @@ notify-program notify-send
 
 browser elinks
 external-url-viewer urlview
-# html-renderer "elinks -dump"
+html-renderer "elinks -dump"
 player mpv
 
-pager "~/.local/bin/nbparser"
-html-renderer "/bin/cat"
+# pager "~/.local/bin/nbparser"
+# html-renderer "/bin/cat"
 
 bind-key j next
 bind-key k prev
