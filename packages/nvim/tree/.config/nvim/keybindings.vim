@@ -24,6 +24,9 @@ nnoremap <leader>N :ALEPrevious<cr>
 """ toggle tagbar
 nnoremap <leader>y :TagbarToggle<cr>
 
+""" toggle minimap
+nnoremap <leader>m :MinimapToggle<cr>
+
 """
 """ MISC
 """

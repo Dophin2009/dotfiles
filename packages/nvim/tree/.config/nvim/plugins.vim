@@ -19,6 +19,8 @@ Plug 'vifm/vifm.vim'
 Plug 'preservim/nerdtree'
 """ dev icons
 Plug 'ryanoasis/vim-devicons'
+""" minimap
+Plug 'wfxr/minimap.vim'
 
 
 """
