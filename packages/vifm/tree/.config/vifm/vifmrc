@@ -236,16 +236,16 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
         \ vifmimg clear
 
 " Web
-filextype *.html,*.htm
-        \ {Open with qutebrowser}
-        \ qutebrowser %f &,
-        \ {Open with dwb}
-        \ dwb %f %i &,
-        \ {Open with firefox}
-        \ firefox %f &,
-        \ {Open with uzbl}
-        \ uzbl-browser %f %i &,
-filetype *.html,*.htm elinks, links, lynx
+" filextype *.html,*.htm
+        " \ {Open with qutebrowser}
+        " \ qutebrowser %f &,
+        " \ {Open with dwb}
+        " \ dwb %f %i &,
+        " \ {Open with firefox}
+        " \ firefox %f &,
+        " \ {Open with uzbl}
+        " \ uzbl-browser %f %i &,
+" filetype *.html,*.htm elinks, links, lynx
 
 " Object
 filetype *.o nm %f | less
