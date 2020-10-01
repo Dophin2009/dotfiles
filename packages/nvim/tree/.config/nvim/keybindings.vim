@@ -20,6 +20,10 @@ nnoremap <leader>rt :TabVifm<cr>
 """ ALE shortcuts
 nnoremap <leader>n :ALENext<cr>
 nnoremap <leader>N :ALEPrevious<cr>
+"   goto remaps
+nnoremap <silent> gd :ALEGoToDefinition <CR>
+nnoremap <silent> gy :ALEGoToTypeDefinition <CR>
+nnoremap <silent> gr :ALEFindReferences <CR>
 
 """ toggle tagbar
 nnoremap <leader>y :TagbarToggle<cr>
