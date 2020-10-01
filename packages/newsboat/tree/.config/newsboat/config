@@ -26,4 +26,5 @@ bind-key k up article
 bind-key J next article
 bind-key K prev article
 
+macro i set browser "feh %u > /dev/null 2>&1 &" ; open-in-browser ; set browser "elinks %u"
 macro y set browser "mpv %u > /dev/null 2>&1 &" ; open-in-browser ; set browser "elinks %u"
