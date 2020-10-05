@@ -29,7 +29,7 @@ let colors =
 
 let alacritty = { font, colors }
 
-let bat = { theme = "TwoDark" }
+let bat = { theme = "gruvbox" }
 
 let dunst =
       { font
