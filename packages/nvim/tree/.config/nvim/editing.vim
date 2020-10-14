@@ -46,6 +46,8 @@ call deoplete#custom#option('auto_complete_delay', 100)
 "   deoplete-clang options
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+"   javacomplete2 options
+let g:JavaComplete_CheckServerVersionAtStartup = 0
 "   disable tmux completion trigger
 " let g:tmuxcomplete#trigger = ''
 

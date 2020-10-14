@@ -56,7 +56,7 @@ Plug 'airblade/vim-gitgutter'
 """ Asynchronous Lint Engine (ALE)
 "   hover settings
 let g:ale_set_balloons = 1
-Plug 'dense-analysis/ale', { 'dir': '~/files/programming/ale' }
+Plug 'dense-analysis/ale'
 
 """ deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -72,6 +72,8 @@ Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neoinclude.vim'
 "   clang source
 Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp', 'objc', 'objcpp']}
+"   java source
+" Plug 'artur-shaik/vim-javacomplete2', { 'tag': 'v2.4.0' }
 "   python source
 Plug 'deoplete-plugins/deoplete-jedi'
 "   typescript source
