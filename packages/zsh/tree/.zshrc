@@ -94,6 +94,9 @@ zinit light MichaelAquilina/zsh-auto-notify
 # autoswitch-virtualenv
 zinit light MichaelAquilina/zsh-autoswitch-virtualenv
 
+# autoswitch poetry
+zinit light darvid/zsh-poetry
+
 # command not found
 zinit light Tarrasch/zsh-command-not-found
 

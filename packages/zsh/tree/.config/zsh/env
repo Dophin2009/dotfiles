@@ -1,8 +1,27 @@
 #!/bin/zsh
+export _Z_DATA="${XDG_DATA_HOME}/z"
+
 # source sh config
 . "$XDG_CONFIG_HOME/sh/env"
 
+__files_in() {
+  if [[ -d "$1" ]]; then
+    find "$1" -maxdepth 1 -mindepth 1 -not -path '\.*'
+  fi
+}
+
+__source_files() {
+  if [[ "$(__files_in "$1")" ]]; then
+    for f in "$1/"*; do
+      . "$f"
+    done
+  fi
+}
+
 # source zsh aliases
 . "$XDG_CONFIG_HOME/zsh/aliases"
+__source_files "$XDG_CONFIG_HOME/zsh/aliasc"
 
-export _Z_DATA="${XDG_DATA_HOME}/z"
+__source_files "$XDG_CONFIG_HOME/zsh/envc"
+unset -f __files_in
+unset -f __source_files
