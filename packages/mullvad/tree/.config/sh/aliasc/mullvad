@@ -1,3 +1,6 @@
 #!/bin/sh
 # set relay location
-alias mullvadsrl="mullvad relay set location"
+alias mullrsl="mullvad relay set location"
+alias mullrg="mullvad relay get"
+alias mullst="mullvad status"
+alias mullre="mullvad reconnect"
