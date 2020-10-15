@@ -12,10 +12,10 @@ nnoremap L gt
 nnoremap <leader>l :NERDTreeToggle<CR>
 
 """ vifm
-nnoremap <leader>rr :Vifm<cr>
-nnoremap <leader>rv :VsplitVifm<cr>
-nnoremap <leader>rs :SplitVifm<cr>
-nnoremap <leader>rt :TabVifm<cr>
+" nnoremap <leader>rr :Vifm<cr>
+" nnoremap <leader>rv :VsplitVifm<cr>
+" nnoremap <leader>rs :SplitVifm<cr>
+" nnoremap <leader>rt :TabVifm<cr>
 
 """ ALE shortcuts
 nnoremap <leader>n :ALENext<cr>

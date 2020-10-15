@@ -14,7 +14,7 @@ Plug 'junegunn/fzf.vim'
 """ ranger
 " Plug 'rafaqz/ranger.vim'
 """ vifm
-Plug 'vifm/vifm.vim'
+" Plug 'vifm/vifm.vim'
 """ NERDTree
 Plug 'preservim/nerdtree'
 """ dev icons
@@ -137,6 +137,8 @@ Plug 'ron89/thesaurus_query.vim'
 """ vader
 Plug 'junegunn/vader.vim'
 
+""" fugitive
+Plug 'tpope/vim-fugitive'
 
 """
 """ THEME
