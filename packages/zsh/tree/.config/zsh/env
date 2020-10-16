@@ -1,5 +1,6 @@
 #!/bin/zsh
 export _Z_DATA="${XDG_DATA_HOME}/z"
+export GPG_TTY=$(tty)
 
 # source sh config
 . "$XDG_CONFIG_HOME/sh/env"
@@ -23,5 +24,11 @@ __source_files() {
 __source_files "$XDG_CONFIG_HOME/zsh/aliasc"
 
 __source_files "$XDG_CONFIG_HOME/zsh/envc"
+
+# source local config
+if [[ -f "$XDG_CONFIG_HOME/zsh/local.zsh" ]]; then
+  . "$XDG_CONFIG_HOME/zsh/local.zsh"
+fi
+
 unset -f __files_in
 unset -f __source_files
