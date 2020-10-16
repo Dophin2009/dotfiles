@@ -1,6 +1,8 @@
 [push]
-  followTags = true
+	followTags = true
 [pull]
-  rebase = false
+	rebase = false
 [include]
-  path = config.local
+	path = config.local
+[credential]
+	helper = cache --timeout=3600
