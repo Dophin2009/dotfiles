@@ -88,7 +88,7 @@ let i3 =
           , cborder = colors.normal.white
           }
         }
-      , gaps = { inner = 15, outer = 0 }
+      , gaps = { inner = 0, outer = 0 }
       }
 
 let nvim = { theme = "gruvbox-dark" }
