@@ -1,5 +1,4 @@
 #!/bin/zsh
-export _Z_DATA="${XDG_DATA_HOME}/z"
 export GPG_TTY=$(tty)
 
 # source sh config

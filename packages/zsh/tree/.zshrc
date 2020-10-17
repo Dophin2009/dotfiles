@@ -94,6 +94,7 @@ source "$ZINIT_HOME/bin/zinit.zsh"
 ### NAVIGATION
 
 # z.lua
+export _ZL_DATA="$ZSH_DATA/.zlua"
 zinit light skywind3000/z.lua
 
 ### SYNTAX
