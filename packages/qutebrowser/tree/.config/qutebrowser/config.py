@@ -1,6 +1,7 @@
 # type: ignore
 import os
 import sys
+import glob
 
 import yaml
 from qutebrowser.config.config import ConfigContainer  # noqa: F401
@@ -62,6 +63,10 @@ c.content.pdfjs = True
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 # reject 3rd party cookies
 c.content.cookies.accept = "no-3rdparty"
+
+# per-domain styles
+user_styles_dir = os.path.join(config.configdir, 'styles', '*.user.css')
+c.content.user_stylesheets = glob.glob(user_styles_dir)
 
 # editor command
 c.editor.command = ['alacritty', '-e', 'nvim',
