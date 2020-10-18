@@ -1,0 +1,47 @@
+package nvim;
+
+description
+  Configuration files for Neovim.
+  Uses `vim-plug`;
+
+require ../sh
+  ../nvim
+  ../alacritty;
+
+
+using loaded from ../../loaded;
+using local;
+
+let themes_dir = ".local/share/themes"
+let themes = ["gruvbox-gtk", "nordic"]
+for name in themes {
+  file "tree" + themes_dir + name,
+       themes_dir + name,
+       replacedir;
+}
+
+-----------------------
+
+start : stmts
+
+stmts : stmt stmts
+
+stmt  : stmt_inner ";"
+
+stmt_inner : package_stmt
+          | package_stmt
+          | description_stmt
+          | require_stmt
+          | using_stmt
+          | let_stmt
+
+package_stmt : "package" str
+description_stmt : "description" str_series
+require_stmt : "require"
+using_stmt : "using" str
+          | "using" str from str
+file_stmt :
+let_stmt : "let" set_stmt
+set_stmt : ident "=" expr
+
+str_series : str str_series
