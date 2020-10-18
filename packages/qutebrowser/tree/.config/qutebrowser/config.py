@@ -13,6 +13,7 @@ c = c  # type: ConfigContainer # noqa: F821 pylint: disable=E0602,C0103
 # aliases
 aliases = {'bw': 'spawn --userscript qute-bitwarden',
            'json': 'spawn --userscript format_json',
+           'code': 'spawn --userscript format_code',
            'mpv': 'spawn --userscript view_in_mpv',
            'gr': 'greasemonkey-reload',
            'w': 'session-save',
