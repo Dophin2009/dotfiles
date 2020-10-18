@@ -7,6 +7,10 @@ set expandtab
 let g:pandoc#modules#disabled = ['folding', 'spell']
 " let g:pandoc#filetypes#pandoc_markdown = 0
 
+""  delimitMate
+let b:delimitMate_matchpairs = "(:),[:],{:}"
+let delimitMate_quotes = "\" ` * _"
+
 ""  linters
 let b:ale_linter_aliases = ['text']
 let b:ale_linters = ['textlint', 'vale', 'languagetool']
