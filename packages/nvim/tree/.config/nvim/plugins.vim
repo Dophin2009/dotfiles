@@ -114,8 +114,12 @@ Plug 'sheerun/vim-polyglot'
 Plug 'habamax/vim-asciidoctor', { 'for': 'asciidoc' }
 """ csv
 Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }
+""" cxx semantic highlighting
+Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
 """ editorconfig
 Plug 'editorconfig/editorconfig-vim'
+""" elinks.conf
+Plug 'vim-scripts/elinks.vim'
 """ golang
 Plug 'fatih/vim-go', { 'for': 'go' }
 """ jsonc
@@ -128,15 +132,13 @@ Plug 'junegunn/goyo.vim'
 Plug 'lifepillar/pgsql.vim', { 'for': 'pgsql' }
 """ rmarkdown
 Plug 'vim-pandoc/vim-rmarkdown', { 'for': 'rmarkdown' }
-""" vimtex
+""" tex
 Plug 'lervag/vimtex'
-""" cxx semantic highlighting
-Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
-""" thesaurus
-Plug 'ron89/thesaurus_query.vim'
 """ vader
 Plug 'junegunn/vader.vim'
 
+""" thesaurus
+Plug 'ron89/thesaurus_query.vim'
 """ fugitive
 Plug 'tpope/vim-fugitive'
 
