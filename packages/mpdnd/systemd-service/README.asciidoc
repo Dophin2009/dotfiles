@@ -1,4 +1,4 @@
-= mpdnotify/systemd-service
+= mpdnd/systemd-service
 ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
@@ -7,15 +7,15 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-:mpdnotify: https://github.com/Dophin2009/mpdnotify
+:mpdnd: https://github.com/Dophin2009/mpdnd
 :local: local.dhall
 :localtype: link:./types/LocalType.dhall
 
-A package with a systemd service for {mpdnotify}[mpdnotify].
+A package with a systemd service for {mpdnd}[mpdnd].
 
 == Package Dependencies
 
-* link:..[`mpdnotify`]
+* link:..[`mpdnd`]
 
 == Dependencies
 
@@ -24,7 +24,7 @@ A package with a systemd service for {mpdnotify}[mpdnotify].
 [#local-config]
 == Local Configuration
 
-The file `{local}` must be created to set the `mpdnotify` binary to call. See
+The file `{local}` must be created to set the `mpdnd` binary to call. See
 `{localtype}[]`.
 
 Example:
@@ -33,7 +33,7 @@ Example:
 ----
 let Export = ./types/LocalExport.dhall
 
-let export : Export = { bin = "mpdnotify" }
+let export : Export = { bin = "mpdnd" }
 
 in export
 ----

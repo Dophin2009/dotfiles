@@ -6,13 +6,13 @@ let dependencies = [ "../sh", "../mpd" ]
 
 let template =
       Stew.Template::{
-      , src = "tree/.config/mpdnotify/config.yaml.tmpl"
-      , dest = ".config/mpdnotify/config.yaml"
+      , src = "tree/.config/mpdnd/config.toml.tmpl"
+      , dest = ".config/mpdnd/config.toml"
       }
 
 let package =
       Stew.Package::{
-      , name = "mpdnotify"
+      , name = "mpdnd"
       , dependencies
       , templateFiles = [ template ]
       }

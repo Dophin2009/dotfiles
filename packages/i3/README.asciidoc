@@ -34,7 +34,7 @@ See specific profiles for their dependencies.
 :dunst: https://github.com/dunst-project/dunst
 :htop: https://htop.dev/
 :mpd: https://www.musicpd.org/
-:mpdnotify: https://github.com/Dophin2009/mpdnotify
+:mpdnd: https://github.com/Dophin2009/mpdnd
 :ncmpcpp: https://github.com/ncmpcpp/ncmpcpp
 :pulseaudio: https://www.freedesktop.org/wiki/Software/PulseAudio/
 :vifm: https://github.com/vifm/vifm
@@ -50,7 +50,7 @@ them.
 ** {ncmpcpp}[ncmpcpp]
 ** {vifm}[vifm]
 * {dunst}[dunst] (dunst is started on wm start)
-* {mpd}[mpd] (for track control with `mpc`) and {mpdnotify}[mpdnotify] (for checking mpd
+* {mpd}[mpd] (for track control with `mpc`) and {mpdnd}[mpdnd] (for checking mpd
   status)
 * {pulseaudio}[PulseAudio] (for volume control with `pactl`)
 * {rofi}[rofi] (for application launching)

@@ -15,7 +15,7 @@ A package that adds a user systemd service for `{depname}`.
 To enable the service:
 
 ....
-$ systemd --user enable mpdnotify.service
+$ systemd --user enable battery-notify.service
 ....
 
 == Package Dependencies

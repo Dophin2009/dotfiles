@@ -1,4 +1,4 @@
-= mpdnotify
+= mpdnd
 ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
@@ -7,11 +7,11 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-:mpdnotify: https://github.com/Dophin2009/mpdnotify
+:mpdnd: https://github.com/Dophin2009/mpdnd
 :local: local.dhall
 :localtype: link:./types/LocalType.dhall
 
-A package with {mpdnotify}[mpdnotify] configuration files.
+A package with {mpdnd}[mpdnd] configuration files.
 
 == Package Dependencies
 
@@ -20,6 +20,7 @@ A package with {mpdnotify}[mpdnotify] configuration files.
 == Dependencies
 
 * {mpd}[MPD]
+* {mpdnd}[mpdnd]
 
 [#local-config]
 == Local Configuration

@@ -4,15 +4,15 @@ let local = ./local.dhall
 
 let serviceTemplate =
       Stew.Template::{
-      , src = "tree/.config/systemd/user/mpdnotify.service.tmpl"
-      , dest = ".config/systemd/user/mpdnotify.service"
+      , src = "tree/.config/systemd/user/mpdnd.service.tmpl"
+      , dest = ".config/systemd/user/mpdnd.service"
       }
 
 let dependencies = [ ".." ]
 
 let package =
       Stew.Package::{
-      , name = "mpdnotify/systemd-service"
+      , name = "mpdnd/systemd-service"
       , dependencies
       , templateFiles = [ serviceTemplate ]
       }
