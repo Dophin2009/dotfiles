@@ -12,6 +12,18 @@ let g:netrw_winsize = 25
 let g:netrw_home = g:nvim_cache
 
 """ NERDTree
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+  \ 'Modified'  :'*',
+  \ 'Staged'    :'+',
+  \ 'Untracked' :'~',
+  \ 'Renamed'   :'➜',
+  \ 'Unmerged'  :'═',
+  \ 'Deleted'   :'✖',
+  \ 'Dirty'     :'✗',
+  \ 'Ignored'   :'o',
+  \ 'Clean'     :'✔︎',
+  \ 'Unknown'   :'?',
+  \ }
 augroup nerdtree_autoclose
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 augroup END
