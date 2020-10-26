@@ -11,7 +11,7 @@ xrdb -merge "$HOME/.config/X11/xresources.theme"
 xset -b
 
 # pass DISPLAY variable to systemctl
-if command -v systemctl &>/dev/null; then
+if command -v systemctl >/dev/null; then
   systemctl --user import-environment DISPLAY
 fi
 
@@ -20,5 +20,8 @@ if [ -f "$XDG_CONFIG_HOME/X11/xinitrc.local" ]; then
 fi
 
 # start wm
-mkdir -p "$HOME/.local/var/log/i3"
-exec i3 >"$HOME/.local/var/log/i3/i3.log"
+session=${1:-i3}
+case $session in
+  i3|i3wm         ) exec i3;;
+  *               ) exec $1;;
+esac

@@ -9,7 +9,7 @@ nnoremap H gT
 nnoremap L gt
 
 """ NERDTree
-nnoremap <leader>l :NERDTreeToggle<CR>
+nnoremap <leader>' :NERDTreeToggle<CR>
 
 """ vifm
 " nnoremap <leader>rr :Vifm<cr>

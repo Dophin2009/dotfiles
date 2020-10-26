@@ -17,6 +17,7 @@ Plug 'junegunn/fzf.vim'
 " Plug 'vifm/vifm.vim'
 """ NERDTree
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 """ dev icons
 Plug 'ryanoasis/vim-devicons'
 """ minimap
@@ -116,6 +117,8 @@ Plug 'habamax/vim-asciidoctor', { 'for': 'asciidoc' }
 Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }
 """ cxx semantic highlighting
 Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
+""" ebnf
+Plug 'a-vrma/ebnf-vim'
 """ editorconfig
 Plug 'editorconfig/editorconfig-vim'
 """ elinks.conf
