@@ -1,2 +1,3 @@
 #!/bin/sh
 export PYTHON_EGG_CACHE="${XDG_CACHE_HOME}/python-eggs"
+export MYPY_CACHE_DIR="${XDG_CACHE_HOME}/mypy"
