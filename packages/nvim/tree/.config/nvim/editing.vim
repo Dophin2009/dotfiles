@@ -2,6 +2,8 @@
 """ CODE COMPLETION
 """
 
+lua require('treesitter')
+
 """ vimtex
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
@@ -63,7 +65,7 @@ let g:echodoc#type = 'floating'
 let g:delimitMate_expand_cr = 2
 
 """ vim-closetag
-let g:closetag_filetypes = 'html,xhtml,phtml,javascriptreact,typescriptreact'
+let g:closetag_filetypes = 'html,xhtml,phtml,html.handlebars,javascriptreact,typescriptreact'
 let g:closetag_regions = {
     \ 'typescript.tsx': 'jsxRegion,tsxRegion',
     \ 'javascript.jsx': 'jsxRegion',

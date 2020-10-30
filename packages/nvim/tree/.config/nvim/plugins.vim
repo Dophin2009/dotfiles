@@ -54,6 +54,9 @@ Plug 'airblade/vim-gitgutter'
 """ completion-nvim
 " Plug 'nvim-lua/completion-nvim'
 
+""" treesitter
+Plug 'nvim-treesitter/nvim-treesitter'
+
 """ Asynchronous Lint Engine (ALE)
 "   hover settings
 let g:ale_set_balloons = 1
