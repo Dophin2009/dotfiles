@@ -1,0 +1,25 @@
+#!/usr/bin/env rust-script
+//! Script for converting numbers between bases/radixes.
+//!
+//! ```cargo
+//! [dependencies]
+//! radix_fmt = "1"
+//! ```
+use radix_fmt::radix;
+use std::env;
+
+fn main() {
+    let n = env::args()
+        .nth(1)
+        .expect("no number argument given")
+        .parse::<i32>()
+        .expect("invalid number");
+    let r = env::args()
+        .nth(2)
+        .expect("no radix argument given")
+        .parse::<u8>()
+        .expect("invalid radix");
+    println!("{}", radix(n, r));
+}
+
+// vim:ft=rust
