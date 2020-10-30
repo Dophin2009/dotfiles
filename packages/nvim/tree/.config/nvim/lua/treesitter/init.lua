@@ -1,9 +1,11 @@
 local treesitter = require('nvim-treesitter.configs')
 
-treesitter.setup {
-  ensure_installed = 'maintained',
-  highlight = {
-    enable = true,
-    disable = { 'rust' },
-  },
-}
+if not(treesitter == nil) then
+  treesitter.setup {
+    ensure_installed = 'maintained',
+    highlight = {
+      enable = true,
+      disable = { 'rust' },
+    },
+  }
+end
