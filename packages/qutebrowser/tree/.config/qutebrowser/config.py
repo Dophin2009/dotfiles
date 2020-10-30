@@ -1,7 +1,7 @@
 # type: ignore
+import glob
 import os
 import sys
-import glob
 
 import yaml
 from qutebrowser.config.config import ConfigContainer  # noqa: F401
@@ -9,6 +9,9 @@ from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
 # pylint: disable=C0111
 config = config  # type: ConfigAPI # noqa: F821 pylint: disable=E0602,C0103
 c = c  # type: ConfigContainer # noqa: F821 pylint: disable=E0602,C0103
+
+# for next qutebrowser version
+#  config.load_autoconfig(False)
 
 # aliases
 aliases = {'bw': 'spawn --userscript qute-bitwarden',
@@ -30,6 +33,7 @@ c.auto_save.session = True
 # custom keybinds
 config.bind(',n', 'open -t ;; messages')
 config.bind(',m', 'mpv')
+config.bind('ch', 'history-clear')
 config.bind('gy', 'open-editor')
 
 # completion settings

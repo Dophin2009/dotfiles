@@ -1,5 +1,9 @@
-import json
+# type: ignore
 import os
+
+# pylint: disable=C0111
+config = config  # noqa: F821 pylint: disable=E0602,C0103
+c = c   # noqa: F821 pylint: disable=E0602,C0103
 
 qutewal_dynamic_loading = True
 
@@ -12,7 +16,8 @@ daemon_absolute = os.path.join(home, daemon_relative)
 if os.path.isfile(theme_absolute):
     config.source(theme_absolute)
 
-    if qutewal_dynamic_loading or bool(os.getenv('QUTEWAL_DYNAMIC_LOADING')):
+    #  if qutewal_dynamic_loading or bool(os.getenv('QUTEWAL_DYNAMIC_LOADING')):
+    if False:
         import signal
         import subprocess
         import prctl

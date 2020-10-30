@@ -5,7 +5,7 @@ class z(Command):
     """
     :z
 
-    Jump to directory using fasd
+    Jump to directory using z.lua
     """
 
     def execute(self):
@@ -15,7 +15,7 @@ class z(Command):
             if directories:
                 self.fm.cd(directories[0])
             else:
-                self.fm.notify("No results from fasd", bad=True)
+                self.fm.notify("No results from z.lua", bad=True)
 
     def tab(self, tabnum):
         start, current = self.start(1), self.rest(1)
@@ -25,7 +25,7 @@ class z(Command):
     @staticmethod
     def _get_directories(*args):
         import subprocess
-        output = subprocess.check_output(["fasd", "-dl"] + list(args),
+        output = subprocess.check_output(["z", "-l"] + list(args),
                                          universal_newlines=True)
         dirs = output.strip().split("\n")
         dirs.sort(reverse=True)  # Listed in ascending frecency
@@ -55,7 +55,8 @@ class mkcd(Command):
 
             for m in re.finditer('[^/]+', dirname):
                 s = m.group(0)
-                if s == '..' or (s.startswith('.') and not self.fm.settings['show_hidden']):
+                if s == '..' or (s.startswith('.') and
+                                 not self.fm.settings['show_hidden']):
                     self.fm.cd(s)
                 else:
                     self.fm.thisdir.load_content(schedule=False)
