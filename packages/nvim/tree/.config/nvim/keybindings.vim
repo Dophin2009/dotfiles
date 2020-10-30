@@ -8,14 +8,12 @@ nnoremap H gT
 "   focus tab right
 nnoremap L gt
 
+""" fzf
+nnoremap <C-p> :Files<CR>
+nnoremap <C-[> :GitFiles<CR>
+
 """ NERDTree
 nnoremap <leader>' :NERDTreeToggle<CR>
-
-""" vifm
-" nnoremap <leader>rr :Vifm<cr>
-" nnoremap <leader>rv :VsplitVifm<cr>
-" nnoremap <leader>rs :SplitVifm<cr>
-" nnoremap <leader>rt :TabVifm<cr>
 
 """ ALE shortcuts
 nnoremap <leader>n :ALENext<cr>
@@ -26,10 +24,10 @@ nnoremap <silent> gy :ALEGoToTypeDefinition <CR>
 nnoremap <silent> gr :ALEFindReferences <CR>
 
 """ toggle tagbar
-nnoremap <leader>y :TagbarToggle<cr>
+nnoremap <leader>y :TagbarToggle<CR>
 
 """ toggle minimap
-nnoremap <leader>m :MinimapToggle<cr>
+nnoremap <leader>m :MinimapToggle<CR>
 
 """
 """ MISC
@@ -40,4 +38,4 @@ let g:tq_map_keys = 0
 nnoremap <leader>t :ThesaurusQueryReplaceCurrentWord<CR>
 
 """ goyo toggle
-nnoremap <leader>G :Goyo<cr>
+nnoremap <leader>G :Goyo<CR>
