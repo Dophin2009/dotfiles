@@ -44,7 +44,7 @@ function PandocFix(buffer) abort
   \   'command': ale#Escape(l:executable)
   \     . ' -f ' . join(l:input_flags, '')
   \     . ' -t ' . join(l:target_flags, '')
-  \     . ' -s --wrap=auto --atx-headers '
+  \     . ' -s --wrap=auto --atx-headers --columns=80 '
   \     . l:filename
   \}
 endfunction

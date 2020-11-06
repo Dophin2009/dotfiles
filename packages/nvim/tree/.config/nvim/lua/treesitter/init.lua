@@ -5,7 +5,7 @@ if not(treesitter == nil) then
     ensure_installed = 'maintained',
     highlight = {
       enable = true,
-      disable = { 'rust' },
+      disable = { 'rust', 'zsh' },
     },
   }
 end

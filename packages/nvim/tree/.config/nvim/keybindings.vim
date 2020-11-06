@@ -10,7 +10,6 @@ nnoremap L gt
 
 """ fzf
 nnoremap <C-p> :Files<CR>
-nnoremap <C-[> :GitFiles<CR>
 
 """ NERDTree
 nnoremap <leader>' :NERDTreeToggle<CR>

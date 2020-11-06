@@ -9,4 +9,4 @@ function! LuaFix(buffer) abort
   \}
 endfunction
 call ale#fix#registry#Add('lua-format', 'LuaFix', ['lua'], 'Format lua code with lua-format')
-let b:ale_fixers = ['lua']
+let b:ale_fixers = ['lua-format']
