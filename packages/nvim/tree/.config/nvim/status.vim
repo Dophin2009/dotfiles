@@ -54,6 +54,7 @@ let g:tagbar_autoclose = 1
 let g:tagbar_auofocus = 1
 
 """ goyo
+let g:goyo_width = 85
 function! s:goyo_enter()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status off
