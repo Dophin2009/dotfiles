@@ -144,7 +144,6 @@ Plug 'vim-pandoc/vim-rmarkdown', { 'for': 'rmarkdown' }
 """ rust crates
 Plug 'mhinz/vim-crates'
 """ tex
-let g:tex_flavor = 'latex'
 Plug 'lervag/vimtex'
 """ vader
 Plug 'junegunn/vader.vim'
