@@ -138,6 +138,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'lifepillar/pgsql.vim', { 'for': 'pgsql' }
 """ rmarkdown
 Plug 'vim-pandoc/vim-rmarkdown', { 'for': 'rmarkdown' }
+""" rust crates
+Plug 'mhinz/vim-crates'
 """ tex
 Plug 'lervag/vimtex'
 """ vader

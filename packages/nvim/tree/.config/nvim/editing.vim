@@ -19,6 +19,8 @@ let g:ale_fixers = {
   \}
 "   autofix
 let g:ale_fix_on_save = 1
+"   auto import on completion
+let g:ale_completion_autoimport = 1
 "   lint on text change
 let g:ale_lint_on_text_changed = 'always'
 "   linting message

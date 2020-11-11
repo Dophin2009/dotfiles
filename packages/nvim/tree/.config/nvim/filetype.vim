@@ -1,4 +1,4 @@
-if exists("did_load_filetypes")
+if exists('did_load_filetypes')
   finish
 endif
 
@@ -21,3 +21,10 @@ aug end
 aug mail_ft_detection
   au! BufNewFile,BufRead *mutt-* set filetype=mail
 aug end
+
+" detect Cargo.toml
+if has('nvim')
+  aug cargo_ft_detection
+    autocmd BufRead Cargo.toml call crates#toggle()
+  aug end
+endif
