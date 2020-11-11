@@ -1,5 +1,5 @@
 " linters
-let b:ale_linters = ['eslint', 'tsserver']
+let b:ale_linters = ['eslint']
 " fixers
 let b:ale_fixers = ['eslint']
 " tagbar

@@ -2,6 +2,8 @@
 """ WINDOW
 """
 
+lua require('status')
+
 """ netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -37,6 +39,8 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
 "   enable wordcount for filetypes
 let g:airline#extensions#wordcount#filetypes = '\vasciidoc|help|mail|markdown|pandoc|org|rst|tex|text'
+"   lsp_status integration
+let g:airline#extensions#nvimlsp#enalbed = 1
 
 """ gitgutter
 let g:gitgutter_max_signs = 1000

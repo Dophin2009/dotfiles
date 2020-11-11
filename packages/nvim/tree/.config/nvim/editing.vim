@@ -1,12 +1,28 @@
 """
+""" SYNTAX
+"""
+
+""" treesitter
+lua require('treesitter')
+
+
+"""
 """ CODE COMPLETION
 """
 
-lua require('treesitter')
+""" nvim-lsp
+lua require('lsp')
+set completeopt=menuone,noinsert,noselect
 
-""" vimtex
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method = 'zathura'
+""" diagnostic-nvim
+let g:diagnostic_show_sign = 1
+let g:diagnostic_enable_virtual_text = 1
+let g:diagnostic_trimmed_virtual_text = '40'
+"   don't show diagnostics while in insert mode
+let g:diagnostic_insert_delay = 1
+aug lsp_line_diagnostics
+  autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
+aug END
 
 """ ALE
 ""  define fixers
@@ -20,7 +36,7 @@ let g:ale_fixers = {
 "   autofix
 let g:ale_fix_on_save = 1
 "   auto import on completion
-let g:ale_completion_autoimport = 1
+" let g:ale_completion_autoimport = 1
 "   lint on text change
 let g:ale_lint_on_text_changed = 'always'
 "   linting message
@@ -29,36 +45,36 @@ let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 " let g:ale_open_list = 1
 
 """ deoplete
-let g:deoplete#enable_at_startup = 1
-set completeopt=menuone,noinsert,noselect
+" let g:deoplete#enable_at_startup = 1
+" set completeopt=menuone,noinsert,noselect
 "   use tab for completion menu navigation
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "   enable ALE completion source
-call deoplete#custom#option('sources', {
-  \ '_': ['ale', 'file', 'buffer'],
-  \ 'python': ['jedi'],
-  \ 'tex': ['omni']
-  \})
-call deoplete#custom#var('omni', 'input_patterns', {
-  \ 'tex': g:vimtex#re#deoplete
-  \})
+" call deoplete#custom#option('sources', {
+  " \ '_': ['ale', 'file', 'buffer'],
+  " \ 'python': ['jedi'],
+  " \ 'tex': ['omni']
+  " \})
+" call deoplete#custom#var('omni', 'input_patterns', {
+  " \ 'tex': g:vimtex#re#deoplete
+  " \})
 "   reduce max list size
-call deoplete#custom#option('max_list', 30)
+" call deoplete#custom#option('max_list', 30)
 "   delay completion
-call deoplete#custom#option('auto_complete_delay', 100)
+" call deoplete#custom#option('auto_complete_delay', 100)
 "   deoplete-clang options
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+" let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+" let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 "   javacomplete2 options
-let g:JavaComplete_CheckServerVersionAtStartup = 0
+" let g:JavaComplete_CheckServerVersionAtStartup = 0
 "   disable tmux completion trigger
 " let g:tmuxcomplete#trigger = ''
 
 """ deoplete echodoc
 "   enable echodoc
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'floating'
+" let g:echodoc#enable_at_startup = 1
+" let g:echodoc#type = 'floating'
 
 """ nvim-typescript
 " let g:nvim_typescript#type_info_on_hold = 1

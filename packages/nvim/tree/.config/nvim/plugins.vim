@@ -32,7 +32,7 @@ Plug 'wfxr/minimap.vim'
 Plug 'majutsushi/tagbar'
 
 """ lsp-status
-" Plug 'nvim-lua/lsp-status.nvim'
+Plug 'nvim-lua/lsp-status.nvim'
 
 """ airline
 Plug 'vim-airline/vim-airline'
@@ -47,46 +47,49 @@ Plug 'airblade/vim-gitgutter'
 """
 
 """ nvim-lsp
-" Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lsp'
+""" nvim-lsp extensions
+Plug 'nvim-lua/lsp_extensions.nvim'
 """ diagnostic-nvim
-" Plug 'nvim-lua/diagnostic-nvim'
-
+Plug 'nvim-lua/diagnostic-nvim'
 """ completion-nvim
-" Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/completion-nvim'
+""" nvim-lsputils
+Plug 'RishabhRD/popfix'
+Plug 'RishabhRD/nvim-lsputils'
 
 """ treesitter
 Plug 'nvim-treesitter/nvim-treesitter'
 
 """ Asynchronous Lint Engine (ALE)
 "   hover settings
-let g:ale_set_balloons = 1
 Plug 'dense-analysis/ale'
 
 """ deoplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "   context filetype functionality
-Plug 'Shougo/context_filetype.vim'
+" Plug 'Shougo/context_filetype.vim'
 "   prints documentation in completion menu
-Plug 'Shougo/echodoc.vim'
+" Plug 'Shougo/echodoc.vim'
 "   nvim-lsp source
 " Plug 'Shougo/deoplete-lsp'
 "   syntax sources
-Plug 'Shougo/neco-syntax'
+" Plug 'Shougo/neco-syntax'
 "   file includes sources
-Plug 'Shougo/neoinclude.vim'
+" Plug 'Shougo/neoinclude.vim'
 "   clang source
-Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp', 'objc', 'objcpp']}
+" Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp', 'objc', 'objcpp']}
 "   java source
 " Plug 'artur-shaik/vim-javacomplete2', { 'tag': 'v2.4.0' }
 "   python source
-Plug 'deoplete-plugins/deoplete-jedi'
+" Plug 'deoplete-plugins/deoplete-jedi'
 "   typescript source
 "   yarn install -g neovim
 "   yarn install -g typescript
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 "   tmux panes source
-Plug 'wellle/tmux-complete.vim'
+" Plug 'wellle/tmux-complete.vim'
 
 """ delimitMate (autoclose parentheses, etc.)
 Plug 'Raimondi/delimitMate'
@@ -141,6 +144,7 @@ Plug 'vim-pandoc/vim-rmarkdown', { 'for': 'rmarkdown' }
 """ rust crates
 Plug 'mhinz/vim-crates'
 """ tex
+let g:tex_flavor = 'latex'
 Plug 'lervag/vimtex'
 """ vader
 Plug 'junegunn/vader.vim'

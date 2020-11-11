@@ -1,6 +1,6 @@
-let g:nvim_config = $XDG_CONFIG_HOME . "/nvim"
-let g:nvim_data = $XDG_DATA_HOME . "/nvim"
-let g:nvim_cache = $XDG_CACHE_HOME . "/nvim"
+let g:nvim_config = $XDG_CONFIG_HOME . '/nvim'
+let g:nvim_data = $XDG_DATA_HOME . '/nvim'
+let g:nvim_cache = $XDG_CACHE_HOME . '/nvim'
 
 """ vim-polyglot disables
 let g:polyglot_disabled = ['asciidoc', 'pgsql']
@@ -50,14 +50,15 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-"   better display for messages
-set cmdheight=2
+"   better display for messages set cmdheight=2
 "   avoid hit-enter messages
 set shortmess+=c
 "   always show signcolumns
 set signcolumn=yes
 "   maintain undo history between sessions
 set undofile
-let &undodir=g:nvim_cache . "/undo"
+let &undodir=g:nvim_cache . '/undo'
+"   updatetime for CursorHold
+set updatetime=300
 "   current working directory
 autocmd BufEnter * lcd %:p:h
