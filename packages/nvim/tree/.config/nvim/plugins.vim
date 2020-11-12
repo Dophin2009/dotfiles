@@ -41,6 +41,9 @@ Plug 'vim-airline/vim-airline-themes'
 """ gitgutter
 Plug 'airblade/vim-gitgutter'
 
+""" barbar tabline
+Plug 'romgrk/barbar.nvim'
+
 
 """
 """ LINTING / COMPLETION

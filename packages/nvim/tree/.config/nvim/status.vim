@@ -30,6 +30,23 @@ augroup nerdtree_autoclose
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 augroup END
 
+""" barbar
+let bufferline = {}
+" enable animations
+let bufferline.animation = v:true
+" enable icons
+let bufferline.icons = 'numbers'
+"   enable close button
+let bufferline.closable = v:true
+"   set buffer letters first in terms of their name
+let bufferline.semantic_letters = v:true
+"   letters to assign buffers in order
+let bufferline.letters =
+  \ 'asdfjkl;ghnmxcbziowerutyqpASDFJKLGHNMXCBZIOWERUTYQP'
+
+" Sets the maximum padding width with which to surround each tab
+let bufferline.maximum_padding = 4
+
 """ airline
 "   enable tabline status
 let g:airline#extensions#tabline#enabled = 1

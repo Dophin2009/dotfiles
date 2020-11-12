@@ -14,6 +14,27 @@ nnoremap <C-p> :Files<CR>
 """ NERDTree
 nnoremap <leader>' :NERDTreeToggle<CR>
 
+""" barbar
+nnoremap <silent> <C-s> :BufferPick<CR>
+"   move to previous/next
+nnoremap <silent> t, :BufferPrevious<CR>
+nnoremap <silent> t. :BufferNext<CR>
+"   re-order to previous/next
+nnoremap <silent> t< :BufferMovePrevious<CR>
+nnoremap <silent> t> :BufferMoveNext<CR>
+"   goto buffer in position
+nnoremap <silent> t1 :BufferGoto 1<CR>
+nnoremap <silent> t2 :BufferGoto 2<CR>
+nnoremap <silent> t3 :BufferGoto 3<CR>
+nnoremap <silent> t4 :BufferGoto 4<CR>
+nnoremap <silent> t5 :BufferGoto 5<CR>
+nnoremap <silent> t6 :BufferGoto 6<CR>
+nnoremap <silent> t7 :BufferGoto 7<CR>
+nnoremap <silent> t8 :BufferGoto 8<CR>
+nnoremap <silent> t9 :BufferLast<CR>
+"   close buffer
+nnoremap <silent> tc :BufferClose<CR>
+
 """ nvim-lsp
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gh <cmd>lua vim.lsp.buf.hover()<CR>
