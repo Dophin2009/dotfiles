@@ -148,6 +148,8 @@ Plug 'lervag/vimtex'
 """ vader
 Plug 'junegunn/vader.vim'
 
+""" colorizer
+Plug 'norcalli/nvim-colorizer.lua'
 """ thesaurus
 Plug 'ron89/thesaurus_query.vim'
 """ fugitive

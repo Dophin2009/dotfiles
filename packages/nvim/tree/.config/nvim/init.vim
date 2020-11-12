@@ -14,17 +14,7 @@ let g:vimtex_enabled = 1
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
 
-let g:config_files = [
-  \ 'plugins.vim',
-  \ 'macros.vim',
-  \ 'theme.vim',
-  \ 'editing.vim',
-  \ 'keybindings.vim',
-  \ 'status.vim'
-  \ ]
-for f in g:config_files
-  execute 'source ' . g:nvim_config . '/' . f
-endfor
+execute 'source ' . g:nvim_config . '/plugins.vim'
 
 """
 """ THEME
@@ -35,6 +25,8 @@ set termguicolors
 "   set vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+lua require('colorizer')
 
 
 """
@@ -68,3 +60,19 @@ let &undodir=g:nvim_cache . '/undo'
 set updatetime=300
 "   current working directory
 autocmd BufEnter * lcd %:p:h
+
+
+"""
+""" OTHER CONFIGS
+"""
+
+let g:config_files = [
+  \ 'macros.vim',
+  \ 'theme.vim',
+  \ 'editing.vim',
+  \ 'keybindings.vim',
+  \ 'status.vim'
+  \ ]
+for f in g:config_files
+  execute 'source ' . g:nvim_config . '/' . f
+endfor

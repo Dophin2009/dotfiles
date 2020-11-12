@@ -1,4 +1,5 @@
 local treesitter = require('nvim-treesitter.configs')
+local colorizer = require('colorizer')
 
 if not(treesitter == nil) then
   treesitter.setup {
@@ -7,5 +8,13 @@ if not(treesitter == nil) then
       enable = true,
       disable = { 'rust', 'zsh' },
     },
+  }
+end
+
+if not(colorizer == nil) then
+  colorizer.setup{
+    '*';
+    css = { rgb_fn = true; };
+    html = { names = false; }
   }
 end
