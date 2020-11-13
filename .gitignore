@@ -1,11 +1,6 @@
-local.dhall
-*/local.dhall
-
-sh/.config/sh/local/*
-!sh/.config/sh/local/.gitkeep
-
-git/.config/git/config.local
-mutt/.config/mutt/accounts
+local.lua
+*/local.lua
+*/*.local.lua
 
 polybar/.config/polybar/local.ini
 qutebrowser/.config/qutebrowser/bookmarks

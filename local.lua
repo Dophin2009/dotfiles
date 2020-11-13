@@ -1,5 +1,5 @@
 local home = os.getenv('HOME')
-local music_root = home + '/files/music'
+local music_root = home .. '/files/music'
 
 return {
     music = {

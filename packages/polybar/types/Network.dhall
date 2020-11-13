@@ -1,1 +1,0 @@
-{ interface : Text, type : Text }
