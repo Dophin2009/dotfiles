@@ -2,6 +2,4 @@ local.lua
 */local.lua
 */*.local.lua
 
-polybar/.config/polybar/local.ini
-qutebrowser/.config/qutebrowser/bookmarks
-X11/.config/X11/xinitrc.local
+loaded.lua
