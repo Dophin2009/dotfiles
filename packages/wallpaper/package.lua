@@ -5,7 +5,7 @@ package.after_link = {
     {name = 'Reload wallpaper', string = 'hooks/reload-wallpaper.sh'}
 }
 
-local profile = require('local')
+local profile = require('profile').wallpaper
 package.files = {
     {src = 'images', dest = '.config/wallpaper/images', replace_dirs = true}, {
         src = 'images/' .. profile.name .. '.jpg',

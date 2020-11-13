@@ -8,6 +8,6 @@ package.templates = {
 local home = os.getenv('HOME')
 local lcl = require('local')
 package.variables = {home = home}
-for k, v in ipairs(lcl) do package.variables[k] = v end
+for k, v in pairs(lcl) do package.variables[k] = v end
 
 return package

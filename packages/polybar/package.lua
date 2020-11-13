@@ -19,8 +19,10 @@ package.after_link = {
 package.variables = require('profile').polybar
 
 local lcl = require('local')
+
 local network = lcl.network
 if network == nil then network = {interface = '', type = ''} end
+package.variables.network = network
 
 local map_bars = function(bar)
     return {
@@ -29,13 +31,9 @@ local map_bars = function(bar)
         right = table.concat(bar.right, ' ')
     }
 end
-local modules = {
+package.variables.modules = {
     top = map_bars(lcl.modules.top),
     bottom = map_bars(lcl.modules.bottom)
 }
-
-for k, v in ipairs({modules = modules, network = network}) do
-    package.variables[k] = v
-end
 
 return package
