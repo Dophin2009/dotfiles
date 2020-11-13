@@ -1,4 +1,4 @@
 local package = {}
-package.name = 'tmux'
+package.name = 'zsh'
 package.dependencies = {'../sh'}
 return package
