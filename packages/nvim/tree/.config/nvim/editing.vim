@@ -19,7 +19,7 @@ let g:diagnostic_show_sign = 1
 let g:diagnostic_enable_virtual_text = 1
 let g:diagnostic_trimmed_virtual_text = '40'
 "   don't show diagnostics while in insert mode
-let g:diagnostic_insert_delay = 1
+" let g:diagnostic_insert_delay = 1
 aug lsp_line_diagnostics
   autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
 aug END

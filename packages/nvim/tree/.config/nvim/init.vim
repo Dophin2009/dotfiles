@@ -57,7 +57,7 @@ set signcolumn=yes
 set undofile
 let &undodir=g:nvim_cache . '/undo'
 "   updatetime for CursorHold
-set updatetime=300
+set updatetime=800
 "   current working directory
 autocmd BufEnter * lcd %:p:h
 

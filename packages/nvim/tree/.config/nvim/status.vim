@@ -43,8 +43,7 @@ let bufferline.semantic_letters = v:true
 "   letters to assign buffers in order
 let bufferline.letters =
   \ 'asdfjkl;ghnmxcbziowerutyqpASDFJKLGHNMXCBZIOWERUTYQP'
-
-" Sets the maximum padding width with which to surround each tab
+"   maximum padding width with which to surround each tab
 let bufferline.maximum_padding = 4
 
 """ airline
