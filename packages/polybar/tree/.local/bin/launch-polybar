@@ -18,9 +18,9 @@ fi
 if type "xrandr" >/dev/null; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     MONITOR=$m polybar top -c "$top" --reload -l info 2>"$polybar_log/$m-top.log" &
-    MONITOR=$m polybar bottom -c "$bottom" --reload -l info 2>"$polybar_log/$m-bottom.log" &
+    # MONITOR=$m polybar bottom -c "$bottom" --reload -l info 2>"$polybar_log/$m-bottom.log" &
   done
 else
   polybar top -c "$top" --reload 2>"$polybar_log/top.log" &
-  polybar bottom -c "$bottom" --reload 2>"$polybar_log/bottom.log" &
+  # polybar bottom -c "$bottom" --reload 2>"$polybar_log/bottom.log" &
 fi

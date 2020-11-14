@@ -1,6 +1,7 @@
 local package = {}
 
 package.name = 'nvim'
+package.requirements = {'neovim-nightly'}
 package.dependencies = {'../sh'}
 
 local profile = require('profile').nvim
