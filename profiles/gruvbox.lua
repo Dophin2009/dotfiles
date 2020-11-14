@@ -3,28 +3,28 @@ local font = 'Iosevka Nerd Font'
 local colors = {
     bright = {
         black = '#928374',
-        blue = '#83a598',
-        cyan = '#8ec07c',
-        green = '#b8bb26',
+        blue = '#7daea3',
+        cyan = '#89b482',
+        green = '#a9b665',
         magenta = '#d3869b',
-        red = '#fb4934',
-        white = '#ebdbb2',
-        yellow = '#fabd2f'
+        red = '#ea6962',
+        white = '#dfdf8e',
+        yellow = '#e3a84e'
     },
     normal = {
-        black = '#282828',
-        blue = '#458588',
-        cyan = '#689d6a',
-        green = '#98971a',
-        magenta = '#b16286',
-        red = '#cc241d',
-        white = '#a89984',
-        yellow = '#d79921'
+        black = '#665c54',
+        blue = '#7daea3',
+        cyan = '#89b482',
+        green = '#a9b665',
+        magenta = '#d3869b',
+        red = '#ea6962',
+        white = '#dfdf8e',
+        yellow = '#e78a4e'
     },
     primary = {
         background = '#282828',
         foreground = '#ebdbb2',
-        alarm = '#cc241d'
+        alarm = '#ea6962'
     }
 }
 
