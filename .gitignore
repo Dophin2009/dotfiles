@@ -3,3 +3,5 @@ local.lua
 */*.local.lua
 
 loaded.lua
+
+__pycache__
