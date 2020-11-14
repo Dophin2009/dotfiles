@@ -166,6 +166,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'sainnhe/gruvbox-material'
 "   nord
 Plug 'arcticicestudio/nord-vim'
+"   iceberg
+Plug 'cocopon/iceberg.vim'
+" Plug 'gkeep/iceberg-dark'
 "   terminal colors
 " Plug 'dylanaraps/wal.vim'
 

@@ -12,3 +12,7 @@ gruvbox	:
 nord :
 	ln -sf $(PROFILES)/nord.lua $(LOADED)
 	$(STEW) -vvv $(wildcard packages/*)
+
+iceberg : 
+	ln -sf $(PROFILES)/iceberg.lua $(LOADED)
+	$(STEW) -vvv $(wildcard packages/*)

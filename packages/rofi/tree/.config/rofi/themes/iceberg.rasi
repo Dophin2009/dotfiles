@@ -1,0 +1,47 @@
+@import "Arc.rasi"
+* {
+    /* Theme settings */
+    highlight: bold italic;
+    scrollbar: true;
+
+    /* Sakura dark colors */
+    iceberg-bg0-hard:     #161821;
+    iceberg-bg0:          #161821;
+    iceberg-bg2:          #6b7089;
+    iceberg-fg0:          #d2d4de;
+    iceberg-fg1:          #c6c8d1;
+    iceberg-red-dark:     #e27878;
+    iceberg-red-light:    #e98989;
+    iceberg-yellow-dark:  #e2a479;
+    iceberg-yellow-light: #e9b189;
+    iceberg-gray:         #6b7089;
+
+    /* Theme colors */
+    background:                  @iceberg-bg0-hard;
+    background-color:            @background;
+    foreground:                  @iceberg-fg1;
+    border-color:                @iceberg-gray;
+    separatorcolor:              @border-color;
+    scrollbar-handle:            @border-color;
+
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @iceberg-bg0;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @iceberg-bg2;
+    selected-normal-foreground:  @iceberg-fg0;
+
+    active-background:           @iceberg-yellow-dark;
+    active-foreground:           @background;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @iceberg-yellow-light;
+    selected-active-foreground:  @active-foreground;
+
+    urgent-background:           @iceberg-red-dark;
+    urgent-foreground:           @background;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @iceberg-red-light;
+    selected-urgent-foreground:  @urgent-foreground;
+}
