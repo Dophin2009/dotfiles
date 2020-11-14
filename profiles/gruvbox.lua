@@ -41,7 +41,7 @@ local dunst = {
             background = '#32302f'
         },
         critical = {
-            foreground = colors.primary.foreground,
+            foreground = colors.primary.background,
             background = colors.primary.alarm
         }
     }
