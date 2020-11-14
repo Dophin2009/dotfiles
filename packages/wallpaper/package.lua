@@ -9,7 +9,7 @@ local profile = require('profile').wallpaper
 package.files = {
     {src = 'images', dest = '.config/wallpaper/images', replace_dirs = true}, {
         src = 'images/' .. profile.name .. '.jpg',
-        dest = '.config/wallpaper.still.jpg'
+        dest = '.config/wallpaper/still.jpg'
     }
 }
 return package
