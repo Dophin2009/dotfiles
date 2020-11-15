@@ -147,6 +147,9 @@ zinit wait silent for \
 # disable sort when completing options of any command
 zstyle ':completion:complete:*:options' sort false
 
+# pass default opts to fzf-tab
+zstyle ':fzf-tab:complete:*' fzf-flags ${=FZF_DEFAULT_OPTS}
+
 # use input as query string when completing zlua
 zstyle ':fzf-tab:complete:_zlua:*' query-string input
 
@@ -165,14 +168,15 @@ zstyle ':fzf-tab:complete:nvim:*' fzf-flags --preview-window=right:70%
 # case-insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
 
-# various completions
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
 
+# pacman completion settings
 zstyle ':completion:*:pacman:*' force-list always
 zstyle ':completion:*:*:pacman:*' menu yes select
+zstyle ':fzf-tab:complete:pacman:*' fzf-preview 'pacman -Qi $realpath'
 
 zstyle ':completion:*:*:*:default' menu yes select search
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
