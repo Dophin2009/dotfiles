@@ -28,7 +28,7 @@ local colors = {
     }
 }
 
-local alacritty = {font = font, colors = colors}
+local alacritty = {font = font, colors = colors, font_size = 10}
 
 local bat = {theme = 'Nord'}
 

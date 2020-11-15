@@ -1,1 +1,1 @@
-return {fontSize = 11}
+return {font_size = 11}
