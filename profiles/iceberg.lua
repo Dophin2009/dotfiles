@@ -50,6 +50,8 @@ local dunst = {
     }
 }
 
+local fzf = {name = 'nord'}
+
 local gtk = {theme = 'gruvbox-gtk'}
 
 local hangups = {theme = 'solarized-dark'}
@@ -181,6 +183,7 @@ return {
     alacritty = alacritty,
     bat = bat,
     dunst = dunst,
+    fzf = fzf,
     gtk = gtk,
     hangups = hangups,
     i3 = i3,
