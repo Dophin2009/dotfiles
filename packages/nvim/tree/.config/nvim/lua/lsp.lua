@@ -1,5 +1,5 @@
-local nvim_lsp = require('nvim_lsp')
-local configs = require('nvim_lsp/configs')
+local nvim_lsp = require('lspconfig')
+local configs = require('lspconfig/configs')
 local diagnostic = require('diagnostic')
 local completion = require('completion')
 local lsp_status = require('lsp-status')
