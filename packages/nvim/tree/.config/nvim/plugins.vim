@@ -53,8 +53,6 @@ Plug 'romgrk/barbar.nvim'
 Plug 'neovim/nvim-lsp'
 """ nvim-lsp extensions
 Plug 'nvim-lua/lsp_extensions.nvim'
-""" diagnostic-nvim
-Plug 'nvim-lua/diagnostic-nvim'
 """ completion-nvim
 Plug 'nvim-lua/completion-nvim'
 """ nvim-lsputils

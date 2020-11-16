@@ -1,12 +1,21 @@
 local nvim_lsp = require('lspconfig')
 local configs = require('lspconfig/configs')
-local diagnostic = require('diagnostic')
 local completion = require('completion')
 local lsp_status = require('lsp-status')
 
+-- diagnostics handle
+vim.lsp.handlers['textDocument/publishDiagnostics'] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        underline = true,
+        virtual_text = true,
+        signs = true,
+        update_in_insert = true
+    })
+
 -- grouped on_attach
 local on_attach = function(client, bufnr)
-    diagnostic.on_attach(client, bufnr)
+    -- hack fix for bug(?)
+    client.config = {callbacks = {}}
     completion.on_attach(client, bufnr)
     lsp_status.on_attach(client, bufnr)
 end
