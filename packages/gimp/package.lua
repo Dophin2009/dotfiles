@@ -1,4 +1,7 @@
-local package = {}
-package.name = 'gimp'
-package.dependencies = {'../sh'}
-return package
+require('lib')
+
+pkg.name = 'gimp'
+pkg.dependencies:extend('../sh')
+
+-- Load local file if exists
+require_opt('local')

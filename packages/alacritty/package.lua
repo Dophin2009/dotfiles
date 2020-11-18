@@ -1,18 +1,17 @@
-local package = {}
+require 'lib'
 
-package.name = 'alacritty'
-package.dependencies = {'../qt'}
-package.templates = {
-    {
-        src = 'tree/.config/alacritty/alacritty.yml.tmpl',
-        dest = '.config/alacritty/alacritty.yml'
-    }
-}
+pkg.name = 'alacritty'
+pkg.dependencies:extend('../qt')
+
+pkg.files.trees:front().ignore:push('**/*.tmpl')
+pkg.files.templates:push({
+    src = 'tree/.config/alacritty/alacritty.yml.tmpl',
+    dest = '.config/alacritty/alacritty.yml',
+    engine = "gotmpl"
+})
 
 local profile = require('profile').alacritty
-local lcl = require('local')
-for k, v in pairs(lcl) do profile[k] = v end
+pkg.variables:overwrite(profile)
 
-package.variables = profile
-
-return package
+-- Load local file if it exists
+require_opt('local')

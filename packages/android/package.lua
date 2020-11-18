@@ -1,4 +1,7 @@
-local package = {}
-package.name = 'android'
-package.dependencies = {'../sh'}
-return package
+require('lib')
+
+pkg.name = 'android'
+pkg.dependencies:extend('../sh')
+
+-- Load local file if it exists
+require_opt('local')

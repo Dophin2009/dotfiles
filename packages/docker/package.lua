@@ -1,4 +1,7 @@
-local package = {}
-package.name = 'docker'
-package.dependencies = {'../sh'}
-return package
+require('lib')
+
+pkg.name = 'docker'
+pkg.dependencies:extend('../sh')
+
+-- Load local file if it exists
+require_opt('local')

@@ -1,10 +1,11 @@
-local package = {}
-package.name = 'fzf'
-package.dependencies = {'../sh'}
+require('lib')
+
+pkg.name = 'fzf'
+pkg.dependencies:extend('../sh')
 
 local profile = require('profile').fzf
-package.files = {
-    {src = 'themes/' .. profile.name, dest = '.config/sh/envc/fzf'}
-}
+pkg.files.extra:push({
+    src = 'themes/' .. profile.name,
+    dest = '.config/sh/envc/fzf'
+})
 
-return package

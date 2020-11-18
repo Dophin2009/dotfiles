@@ -15,7 +15,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] =
 -- grouped on_attach
 local on_attach = function(client, bufnr)
     -- hack fix for bug(?)
-    client.config = {callbacks = {}}
+    -- client.config = {callbacks = {}}
     completion.on_attach(client, bufnr)
     lsp_status.on_attach(client, bufnr)
 end
@@ -72,7 +72,8 @@ nvim_lsp.jedi_language_server.setup {
 nvim_lsp.sumneko_lua.setup {
     cmd = {'lua-language-server'},
     on_attach = on_attach,
-    capabilities = lsp_status.capabilities
+    capabilities = lsp_status.capabilities,
+    settings = {Lua = {diagnostics = {enable = false}}}
 }
 -- r language server
 nvim_lsp.r_language_server.setup {

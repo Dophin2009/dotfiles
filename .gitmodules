@@ -4,9 +4,9 @@
 [submodule "packages/tmux/tree/.local/share/tmux/plugins/tpm"]
 	path = packages/tmux/tree/.local/share/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "packages/gtk/tree/.local/share/themes/gruvbox-gtk"]
-	path = packages/gtk/tree/.local/share/themes/gruvbox-gtk
+[submodule "packages/gtk/themes/gruvbox-gtk"]
+	path = packages/gtk/themes/gruvbox-gtk
 	url = https://github.com/3ximus/gruvbox-gtk
-[submodule "packages/gtk/tree/.local/share/themes/nordic"]
-	path = packages/gtk/tree/.local/share/themes/nordic
+[submodule "packages/gtk/themes/nordic"]
+	path = packages/gtk/themes/nordic
 	url = https://github.com/EliverLara/Nordic

@@ -1,13 +1,8 @@
-local package = {}
+pkg.name = 'sh'
 
-package.name = 'sh'
-package.file = {
-    {
-        src = 'local',
-        dest = '.config/sh/local',
-        link_type = 'copy',
-        replace_dirs = true
-    }
-}
-
-return package
+table.insert(pkg.files.extra, {
+    src = 'local',
+    dest = '.config/sh/local',
+    link_type = 'copy',
+    replace_dirs = true
+})
