@@ -6,26 +6,26 @@ bell:
   duration: 0
 colors:
   bright:
-    black: "{{ .colors.bright.black }}"
-    blue: "{{ .colors.bright.blue }}"
-    cyan: "{{ .colors.bright.cyan }}"
-    green: "{{ .colors.bright.green }}"
-    magenta: "{{ .colors.bright.magenta }}"
-    red: "{{ .colors.bright.red }}"
-    white: "{{ .colors.bright.white }}"
-    yellow: "{{ .colors.bright.yellow }}"
+    black: "{{ colors.bright.black }}"
+    blue: "{{ colors.bright.blue }}"
+    cyan: "{{ colors.bright.cyan }}"
+    green: "{{ colors.bright.green }}"
+    magenta: "{{ colors.bright.magenta }}"
+    red: "{{ colors.bright.red }}"
+    white: "{{ colors.bright.white }}"
+    yellow: "{{ colors.bright.yellow }}"
   normal:
-    black: "{{ .colors.normal.black }}"
-    blue: "{{ .colors.normal.blue }}"
-    cyan: "{{ .colors.normal.cyan }}"
-    green: "{{ .colors.normal.green }}"
-    magenta: "{{ .colors.normal.magenta }}"
-    red: "{{ .colors.normal.red }}"
-    white: "{{ .colors.normal.white }}"
-    yellow: "{{ .colors.normal.yellow }}"
+    black: "{{ colors.normal.black }}"
+    blue: "{{ colors.normal.blue }}"
+    cyan: "{{ colors.normal.cyan }}"
+    green: "{{ colors.normal.green }}"
+    magenta: "{{ colors.normal.magenta }}"
+    red: "{{ colors.normal.red }}"
+    white: "{{ colors.normal.white }}"
+    yellow: "{{ colors.normal.yellow }}"
   primary:
-    background: "{{ .colors.primary.background }}"
-    foreground: "{{ .colors.primary.foreground }}"
+    background: "{{ colors.primary.background }}"
+    foreground: "{{ colors.primary.foreground }}"
 cursor:
   style: Block
   unfocused_hollow: true
@@ -33,12 +33,12 @@ env:
   TERM: xterm-256color
 font:
   bold:
-    family: "{{ .font }}"
+    family: "{{ font }}"
     style: Bold
   normal:
-    family: "{{ .font }}"
+    family: "{{ font }}"
     style: Regular
-  size: {{ .font_size }}
+  size: {{ font_size }}
 key_bindings:
   - action: Paste
     key: V

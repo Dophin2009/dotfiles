@@ -3,11 +3,11 @@ require 'lib'
 pkg.name = 'alacritty'
 pkg.dependencies:extend('../qt')
 
-pkg.files.trees:front().ignore:push('**/*.tmpl')
+pkg.files.trees:front().ignore:push('**/*.hbs')
 pkg.files.templates:push({
-    src = 'tree/.config/alacritty/alacritty.yml.tmpl',
+    src = 'tree/.config/alacritty/alacritty.yml.hbs',
     dest = '.config/alacritty/alacritty.yml',
-    engine = "gotmpl"
+    engine = "handlebars"
 })
 
 local profile = require('profile').alacritty
