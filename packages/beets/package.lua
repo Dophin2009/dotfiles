@@ -3,11 +3,11 @@ require('lib')
 pkg.name = 'beets'
 pkg.dependencies:extend('../sh')
 
-pkg.files.trees:front().ignore:push('**/*.tmpl')
+pkg.files.trees:front().ignore:push('**/*.hbs')
 pkg.files.templates:push({
-    src = 'tree/.config/beets/config.yaml.tmpl',
+    src = 'tree/.config/beets/config.yaml.hbs',
     dest = '.config/beets/config.yaml',
-    engine = 'gotmpl'
+    engine = 'handlebars'
 })
 
 pkg.hooks.post:push({
