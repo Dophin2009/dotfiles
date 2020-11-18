@@ -10,3 +10,6 @@
 [submodule "packages/gtk/themes/nordic"]
 	path = packages/gtk/themes/nordic
 	url = https://github.com/EliverLara/Nordic
+[submodule "lib/luafilesystem"]
+	path = lib/luafilesystem
+	url = https://github.com/keplerproject/luafilesystem

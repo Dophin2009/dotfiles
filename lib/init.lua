@@ -9,13 +9,7 @@ require_relative('batteries'):export()
 function table.overwrite(m, n) for k, v in pairs(n) do m[k] = v end end
 
 -- Extend a list table.
-function table.extend(t, list)
-    if type(list) == 'table' then
-        for _, v in pairs(list) do table.push(t, v) end
-    else
-        table.push(t, list)
-    end
-end
+function table.extend(t, ...) for _, v in ipairs({...}) do table.push(t, v) end end
 
 -- Require, but return nil if not found.
 -- luacheck: globals require_opt
