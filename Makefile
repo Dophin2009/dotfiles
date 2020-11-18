@@ -1,6 +1,7 @@
 STEW ?= stew
 
 LIB := lib
+VENDOR := vendor
 PROFILES := profiles
 LOADED := loaded.lua
 
@@ -8,9 +9,9 @@ LOADED := loaded.lua
 
 prepare:
 	git submodule update --init --recursive
-	cd $(LIB)/luafilesystem && \
+	cd $(VENDOR)/luafilesystem && \
 		make lib
-	cp $(LIB)/luafilesystem/src/lfs.so $(LIB)/lfs.so
+	cp $(VENDOR)/luafilesystem/src/lfs.so $(LIB)/lfs.so
 
 gruvbox	:
 	ln -sf $(PROFILES)/gruvbox.lua $(LOADED)
