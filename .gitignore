@@ -1,7 +1,6 @@
+loaded.lua
 variables.lua
 local.lua
 */local.lua
 
-loaded.lua
-
-__pycache__
+lib/lfs.so
