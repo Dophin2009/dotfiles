@@ -1,4 +1,7 @@
-local package = {}
-package.name = 'pgsql'
-package.dependencies = {'../sh'}
-return package
+require('lib')
+
+pkg.name = 'pgsql'
+pkg.dependencies:extend('../sh')
+
+-- Load local file if exists
+require_opt('local')

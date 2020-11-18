@@ -1,3 +1,6 @@
-local package = {}
-package.name = 'newsboat'
-return package
+require('lib')
+
+pkg.name = 'newsboat'
+
+-- Load local file if exists
+require_opt('local')

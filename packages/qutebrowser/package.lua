@@ -1,39 +1,42 @@
-local package = {}
-package.name = 'qutebrowser'
-package.dependencies = {'../qt'}
+require('lib')
+local lfs = require('lfs')
+
+pkg.name = 'qutebrowser'
+pkg.dependencies:extend('../qt')
 
 local profile = require('profile').qutebrowser
-package.files = {
-    {
-        src = 'tree/.config/qutebrowser/themes/' .. profile.theme .. '.py',
-        dest = '.config/qutebrowser/theme.py'
-    }
-}
-local next_idx = 1
+pkg.files.extra:extend({
+    src = 'tree/.config/qutebrowser/themes/' .. profile.theme .. '.py',
+    dest = '.config/qutebrowser/theme.py'
+})
 
 -- Load searchengines.yaml if it it exists
-if not io.open('searchengines.yaml') == nil then
-    package.files[next_idx] = {
+if lfs.attributes('searchengines.yaml') then
+    pkg.files.extra:extend({
         src = 'searchengines.yaml',
         dest = '.config/qutebrowser/searchengines.yaml'
-    }
-    next_idx = next_idx + 1
+    })
+end
+
+if lfs.attributes('bookmarks') then
+    pkg.files.extra:extend({
+        src = 'bookmarks',
+        dest = '.config/qutebrowser/bookmarks/urls'
+    })
 end
 
 -- Load config.local.py if it exists
-if not io.open('config.local.py') == nil then
-    package.files[next_idx] = {
+if lfs.attributes('config.local.py') then
+    pkg.files.extra:extend({
         src = 'config.local.py',
         dest = '.config/qutebrowser/config.local.py'
-    }
-    next_idx = next_idx + 1
+    })
 end
 
-package.after_link = {
-    {
-        name = 'Download greasemonkey scripts',
-        string = 'hooks/greasemonkey-dl.sh'
-    }
-}
+pkg.hooks.post:extend({
+    name = 'Download greasemonkey scripts',
+    command = 'hooks/greasemonkey-dl.sh'
+})
 
-return package
+-- Load local file if it exists
+require_opt('local')

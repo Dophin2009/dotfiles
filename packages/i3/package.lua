@@ -1,16 +1,23 @@
-local package = {}
-package.name = 'i3'
-package.dependencies = {
-    '../battery-notify', '../polybar', '../wallpaper', '../fscreenshot'
-}
-package.templates = {
-    {src = 'tree/.config/i3/config.tmpl', dest = '.config/i3/config'}
-}
-package.after_link = {{name = 'Reload i3', string = 'hooks/reload-i3.sh'}}
+require('lib')
 
-local lcl = require('local')
+pkg.name = 'i3'
+pkg.dependencies:extend('../battery-notify', '../polybar', '../wallpaper',
+                        '../fscreenshot')
+
+pkg.files.trees:front().ignore:push('**/*.tmpl')
+pkg.files.templates:push({
+    src = 'tree/.config/i3/config.tmpl',
+    dest = '.config/i3/config',
+    engine = 'gotmpl'
+})
+
+pkg.hooks.post.push({name = 'Reload i3', command = 'hooks/reload-i3.sh'})
+
 local profile = require('profile').i3
-for k, v in pairs(lcl) do profile[k] = v end
-package.variables = profile
+pkg.variables:overwrite(profile)
 
-return package
+local lcl = require('variables')
+pkg.variables:overwrite(lcl)
+
+-- Load local file if it exists
+require_opt('local')

@@ -1,6 +1,6 @@
 require('lib')
 
-pkg.name = 'less'
+pkg.name = 'mutt'
 pkg.dependencies:extend('../sh')
 
 -- Load local file if exists

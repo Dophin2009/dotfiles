@@ -1,9 +1,9 @@
-= Python
+= Pylint
 
-:python: https://www.python.org/
+:pylint: https://pylint.org/
 :xdg: https://wiki.archlinux.org/index.php/XDG_Base_Directory
 
-A package for {xdg}[XDG base directory] compliance for {python}[Python].
+A package for {xdg}[XDG base directory] compliance for {pylint}[Pylint].
 
 == Package Dependencies
 
@@ -11,7 +11,7 @@ A package for {xdg}[XDG base directory] compliance for {python}[Python].
 
 == Dependencies
 
-* {python}[Python]
+* {pylint}[Pylint]
 
 == Configuration
 

@@ -1,15 +1,13 @@
-local package = {}
+require('lib')
 
-package.name = 'nvim'
-package.requirements = {'neovim-nightly'}
-package.dependencies = {'../sh'}
+pkg.name = 'nvim'
+pkg.dependencies:extend('../sh')
 
 local profile = require('profile').nvim
-package.files = {
-    {
-        src = 'tree/.config/nvim/themes/' .. profile.theme .. '.vim',
-        dest = '.config/nvim/theme.vim'
-    }
-}
+pkg.files.extra:extend({
+    src = 'tree/.config/nvim/themes/' .. profile.theme .. '.vim',
+    dest = '.config/nvim/theme.vim'
+})
 
-return package
+-- Load local file if it exists
+require_opt('local')

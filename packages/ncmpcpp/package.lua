@@ -1,4 +1,7 @@
-local package = {}
-package.name = 'ncmcpp'
-package.dependencies = {'../mpd'}
-return package
+require('lib')
+
+pkg.name = 'ncmcpp'
+pkg.dependencies:extend('../sh')
+
+-- Load local file if exists
+require_opt('local')

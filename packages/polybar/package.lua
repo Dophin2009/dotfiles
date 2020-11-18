@@ -1,28 +1,33 @@
-local package = {}
-package.name = 'polybar'
-package.dependencies = {'../sh'}
-package.templates = {
-    {
-        src = 'tree/.config/polybar/settings.ini.tmpl',
-        dest = '.config/polybar/settings.ini'
-    }, {
-        src = 'tree/.config/polybar/modules/network.ini.tmpl',
-        dest = '.config/polybar/modules/network.ini'
-    }
-}
+require('lib')
+
+pkg.name = 'polybar'
+pkg.dependencies:extend('../sh')
+
+pkg.files.trees:front().ignore:extend('**/*.tmpl')
+pkg.files.templates:extend({
+    src = 'tree/.config/polybar/settings.ini.tmpl',
+    dest = '.config/polybar/settings.ini',
+    engine = 'gotmpl'
+}, {
+    src = 'tree/.config/polybar/modules/network.ini.tmpl',
+    dest = '.config/polybar/modules/network.ini',
+    engine = 'gotmpl'
+})
 
 local home = os.getenv('HOME')
-package.after_link = {
-    {name = 'Reload polybar', string = home .. '/.local/bin/launch-polybar'}
-}
+pkg.hooks.post:extend({
+    name = 'Reload polybar',
+    command = home .. '/.local/bin/launch-polybar'
+})
 
-package.variables = require('profile').polybar
+local profile = require('profile').polybar
+pkg.variables:overwrite(profile)
 
-local lcl = require('local')
+local lcl = require('variables')
 
 local network = lcl.network
 if network == nil then network = {interface = '', type = ''} end
-package.variables.network = network
+pkg.variables.network = network
 
 local map_bars = function(bar)
     return {
@@ -31,9 +36,11 @@ local map_bars = function(bar)
         right = table.concat(bar.right, ' ')
     }
 end
-package.variables.modules = {
+
+pkg.variables.modules = {
     top = map_bars(lcl.modules.top),
     bottom = map_bars(lcl.modules.bottom)
 }
 
-return package
+-- Load local file if it exists
+require_opt('local')
