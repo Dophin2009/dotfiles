@@ -1,24 +1,30 @@
-local package = {}
-package.name = 'x11'
-package.dependencies = {'../sh'}
-package.files = {{src = 'xinitrc.local', dest = '.config/X11/xinitrc.local'}}
-package.variables = require('profile').x11
+require('lib')
+
+pkg.name = 'x11'
+pkg.dependencies:extend('../sh')
+
+pkg.files.extra:extend({
+    src = 'xinitrc.local',
+    dest = '.config/X11/xinitrc.local'
+})
+
+local profile = require('profile').x11
+pkg.variables:overwrite(profile)
 
 local xresources_theme = 'xresources.theme'
-package.templates = {
-    {
-        src = 'tree/.config/X11/xresources.theme.tmpl',
-        dest = '.config/X11/' .. xresources_theme
-    }
-}
+pkg.files.trees:front().ignore:extend('**/*.tmpl')
+pkg.files.templates:extend({
+    src = 'tree/.config/X11/xresources.theme.tmpl',
+    dest = '.config/X11/' .. xresources_theme,
+    engine = 'gotmpl'
+})
 
 local home = os.getenv('HOME')
-package.after_link = {
-    {
-        string = 'hooks/xrdb-merge.sh "' .. home .. '/.config/X11/' ..
-            xresources_theme .. '"',
-        name = 'Load ' .. xresources_theme
-    }
-}
+pkg.hooks.post:extend({
+    name = 'Load ' .. xresources_theme,
+    command = 'hooks/xrdb-merge.sh "' .. home .. '/.config/X11/' ..
+        xresources_theme .. '"'
+})
 
-return package
+-- Load local file if it exists
+require_opt('local')

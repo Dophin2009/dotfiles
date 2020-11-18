@@ -1,3 +1,7 @@
-local package = {}
-package.name = 'zathura'
-return package
+require('lib')
+
+pkg.name = 'zathura'
+pkg.dependencies:extend('../sh')
+
+-- Load local file if it exists
+require_opt('local')

@@ -1,4 +1,7 @@
-local package = {}
-package.name = 'ranger'
-package.dependencies = {'../sh'}
-return package
+require('lib')
+
+pkg.name = 'ranger'
+pkg.dependencies:extend('../sh')
+
+-- Load local file if exists
+require_opt('local')

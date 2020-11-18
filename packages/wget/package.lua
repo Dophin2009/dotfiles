@@ -1,4 +1,7 @@
-local package = {}
-package.name = 'wget'
-package.dependencies = {'../sh'}
-return package
+require('lib')
+
+pkg.name = 'wget'
+pkg.dependencies:extend('../sh')
+
+-- Load local file if it exists
+require_opt('local')

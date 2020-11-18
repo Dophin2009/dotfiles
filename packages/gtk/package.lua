@@ -4,13 +4,13 @@ pkg.name = 'gtk'
 pkg.dependencies:extend('../sh')
 
 local themes = {'gruvbox-gtk', 'nordic'}
-pkg.files.extra:extend(functional.map(themes, function(v)
+pkg.files.extra:extend(table.unpack(functional.map(themes, function(v)
     return {
         src = 'themes/' .. v,
         dest = '.local/share/themes/' .. v,
         replace_dirs = true
     }
-end))
+end)))
 
 local profile = require('profile').gtk
 pkg.files.extra:push({

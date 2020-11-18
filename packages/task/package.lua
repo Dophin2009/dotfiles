@@ -1,13 +1,13 @@
-local package = {}
-package.name = 'task'
-package.dependencies = {'../sh'}
+require('lib')
+
+pkg.name = 'task'
+pkg.dependencies:extend('../sh')
 
 local profile = require('profile').task
+pkg.files.extra:extend({
+    src = 'tree/.config/task/themes/' .. profile.theme .. '.theme',
+    dest = '.config/task/theme.theme'
+})
 
-package.files = {
-    {
-        src = 'tree/.config/task/themes/' .. profile.theme .. '.theme',
-        dest = '.config/task/theme.theme'
-    }
-}
-return package
+-- Load local file if it exists
+require_opt('local')
