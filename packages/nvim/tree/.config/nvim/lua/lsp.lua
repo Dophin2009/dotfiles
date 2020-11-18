@@ -3,6 +3,8 @@ local configs = require('lspconfig/configs')
 local completion = require('completion')
 local lsp_status = require('lsp-status')
 
+completion.addCompletionSource('vimtex', require('vimtex').complete_item)
+
 -- diagnostics handle
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -82,6 +84,10 @@ nvim_lsp.r_language_server.setup {
 }
 -- rust analyzer
 nvim_lsp.rust_analyzer.setup {
+    on_attach = on_attach,
+    capabilities = lsp_status.capabilities
+}
+nvim_lsp.texlab.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }

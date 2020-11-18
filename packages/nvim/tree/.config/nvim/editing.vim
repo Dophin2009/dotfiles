@@ -17,6 +17,13 @@ aug lsp_line_diagnostics
   autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 aug END
 
+""" completion-nvim
+" let g:completion_chain_complete_list = {
+  " \ 'tex': [
+  " \   {'complete_items': ['vimtex']}
+  " \ ],
+  " \}
+
 """ ALE
 ""  define fixers
 let g:ale_linters = {
