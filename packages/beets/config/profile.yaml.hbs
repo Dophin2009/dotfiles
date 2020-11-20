@@ -1,0 +1,18 @@
+directory: {{ root }}
+library: {{ home }}/.local/share/beets/library.db
+
+pluginpath:
+  - {{ home }}/.local/share/beets/plugins
+
+playlistc:
+  playlist_dir: {{ playlists }}
+  relative_to: {{ library }}
+
+smartplaylist:
+  playlist_dir: {{ playlists }}
+  relative_to: {{ library }}
+  playlists:
+    - name: "_all.m3u"
+      query: ""
+    - name: "_%lower{$genre}.m3u"
+      query: ""

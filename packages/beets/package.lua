@@ -3,11 +3,14 @@ require('lib')
 pkg.name = 'beets'
 pkg.dependencies:extend('../sh')
 
-pkg.files.trees:front().ignore:push('**/*.hbs')
 pkg.files.templates:push({
-    src = 'tree/.config/beets/config.yaml.hbs',
+    src = 'config/config.yaml.hbs',
     dest = '.config/beets/config.yaml',
-    engine = 'handlebars'
+    engine = 'handlebars',
+    partials = {
+        common = 'config/common.yaml',
+        profile = 'config/profile.yaml.hbs'
+    }
 })
 
 pkg.hooks.post:push({
