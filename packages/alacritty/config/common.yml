@@ -1,0 +1,41 @@
+background_opacity: 1.0
+bell:
+  duration: 0
+cursor:
+  style: Block
+  unfocused_hollow: true
+env:
+  TERM: xterm-256color
+key_bindings:
+  - action: Paste
+    key: V
+    mods: Control|Shift
+  - action: Copy
+    key: C
+    mods: Control|Shift
+live_config_reload: true
+mouse:
+  double_click:
+    threshold: 300
+  triple_click:
+    threshold: 300
+  url:
+    launcher:
+      args: []
+      modifiers: None
+      program: xdg-open
+mouse_bindings:
+  - action: PasteSelection
+    mouse: Middle
+scrolling:
+  history: 10000
+  multiplier: 3
+selection:
+  save_to_clipboard: false
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+window:
+  dynamic_padding: false
+  dynamic_title: true
+  padding:
+    x: 10
+    y: 10

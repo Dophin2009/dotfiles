@@ -3,11 +3,15 @@ require 'lib'
 pkg.name = 'alacritty'
 pkg.dependencies:extend('../qt')
 
-pkg.files.trees:front().ignore:push('**/*.hbs')
+pkg.files.trees:clear()
 pkg.files.templates:push({
-    src = 'tree/.config/alacritty/alacritty.yml.hbs',
+    src = 'config/alacritty.yml.hbs',
     dest = '.config/alacritty/alacritty.yml',
-    engine = "handlebars"
+    engine = 'handlebars',
+    partials = {
+        common = 'config/common.yml',
+        profile = 'config/profile.yml.hbs'
+    }
 })
 
 local profile = require('profile').alacritty
