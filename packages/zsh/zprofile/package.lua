@@ -1,4 +1,2 @@
-local package = {}
-package.name = 'zprofile'
-package.dependencies = {'../../sh', '../../x11'}
-return package
+pkg.name = 'zprofile'
+pkg.dependencies:extend('../../sh', '../../x11')
