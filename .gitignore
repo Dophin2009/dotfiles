@@ -1,6 +1,5 @@
-loaded.lua
 variables.lua
 local.lua
-*/local.lua
 
-lib/lfs.so
+/local
+/loaded.lua
