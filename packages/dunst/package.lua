@@ -2,11 +2,11 @@ require('lib')
 
 pkg.name = 'dunst'
 
-pkg.files.trees:front().ignore:push('**/*.tmpl')
+pkg.files.trees:clear()
 pkg.files.templates:push({
-    src = 'tree/.config/dunst/dunstrc.tmpl',
+    src = 'config/dunstrc.ini.hbs',
     dest = '.config/dunst/dunstrc',
-    engine = 'gotmpl'
+    engine = 'handlebars'
 })
 
 pkg.hooks.post:push({name = 'Restart dunst', command = 'hooks/dunst-restart.sh'})
