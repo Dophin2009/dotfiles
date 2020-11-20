@@ -3,11 +3,11 @@ require('lib')
 pkg.name = 'battery-notify'
 pkg.dependencies:extend('../sh')
 
-pkg.files.trees:front().ignore:push('**/*.tmpl')
+pkg.files.trees:front().ignore:push('**/*.hbs')
 pkg.files.templates:push({
-    src = 'tree/.config/systemd/user/battery-monitor.service.tmpl',
+    src = 'tree/.config/systemd/user/battery-monitor.service.hbs',
     dest = '.config/systemd/user/battery-monitor.service',
-    engine = 'gotmpl'
+    engine = 'handlebars'
 })
 
 pkg.variables.home = os.getenv('HOME')
