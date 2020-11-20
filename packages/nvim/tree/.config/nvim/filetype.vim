@@ -3,28 +3,33 @@ if exists('did_load_filetypes')
 endif
 
 " detect markdown files
-aug markdown_ft_detection
+aug ftdetectmd
   au! BufNewFile,BufFilePre,BufRead *.md set filetype=pandoc
 aug end
 
+" detect handlebars files
+aug ftdetecthbs
+  au! BufNewFile,BufFilePre,BufRead *.hbs set filetype=handlebars
+aug end
+
 " detect proselint configuration
-aug proselint_ft_detection
+aug ftdetectproselint
   au! BufNewFile,BufRead ~/.config/proselint/config set filetype=json
 aug end
 
 " detect i3 configuration file
-aug i3config_ft_detection
+aug ftdetecti3config
   au! BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
 
 " detect mail filetype
-aug mail_ft_detection
+aug ftdetectmail
   au! BufNewFile,BufRead *mutt-* set filetype=mail
 aug end
 
 " detect Cargo.toml
 if has('nvim')
-  aug cargo_ft_detection
+  aug ftdetect_cargotoml
     autocmd BufRead Cargo.toml call crates#toggle()
   aug end
 endif
