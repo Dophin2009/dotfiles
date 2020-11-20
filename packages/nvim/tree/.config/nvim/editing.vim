@@ -18,7 +18,6 @@ aug lsp_line_diagnostics
 aug END
 
 """ completion-nvim
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 let g:completion_matching_smart_case = 1
 let g:completion_chain_complete_list = [
   \ {'complete_items': ['lsp', 'snippet', 'path']}

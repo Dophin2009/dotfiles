@@ -10,6 +10,11 @@ aug end
 " detect handlebars files
 aug ftdetecthbs
   au! BufNewFile,BufFilePre,BufRead *.hbs set filetype=handlebars
+  " find a smarter way to do this:
+  au! BufNewFile,BufFilePre,BufRead *.ini.hbs set filetype=dosini.handlebars
+  au! BufNewFile,BufFilePre,BufRead *.i3config.hbs set filetype=i3config.handlebars
+  au! BufNewFile,BufFilePre,BufRead *.yaml.hbs set filetype=yaml.handlebars
+  au! BufNewFile,BufFilePre,BufRead *.yml.hbs set filetype=yaml.handlebars
 aug end
 
 " detect proselint configuration
