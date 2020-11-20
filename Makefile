@@ -5,13 +5,7 @@ VENDOR := vendor
 PROFILES := profiles
 LOADED := loaded.lua
 
-.PHONY : prepare gruvbox nord iceberg
-
-prepare:
-	git submodule update --init --recursive
-	cd $(VENDOR)/luafilesystem && \
-		make lib
-	cp $(VENDOR)/luafilesystem/src/lfs.so $(LIB)/lfs.so
+.PHONY : gruvbox nord iceberg
 
 gruvbox	:
 	ln -sf $(PROFILES)/gruvbox.lua $(LOADED)
