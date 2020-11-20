@@ -2,11 +2,11 @@ require('lib')
 
 pkg.name = 'hangups'
 
-pkg.files.trees:front().ignore:push('**/*.tmpl')
+pkg.files.trees:clear()
 pkg.files.templates:push({
-    src = 'tree/.config/hangups/hangups.conf.tmpl',
+    src = 'config/hangups.conf.hbs',
     dest = '.config/hangups/hangups.conf',
-    engine = 'gotmpl'
+    engine = 'handlebars'
 })
 
 local profile = require('profile').hangups
