@@ -1,0 +1,30 @@
+######### STYLES #########
+
+font pango:{{ font.family }} {{ font.size }}
+
+# colors                border                     backgr                    text                     indic                     child_border
+client.focused          {{ colors.foc.border    }} {{ colors.foc.indic    }} {{ colors.foc.text    }} {{ colors.foc.indic    }} {{ colors.foc.cborder }}
+client.focused_inactive {{ colors.foc_in.border }} {{ colors.foc_in.indic }} {{ colors.foc_in.text }} {{ colors.foc_in.indic }} {{ colors.foc_in.cborder }}
+client.unfocused        {{ colors.unfoc.border  }} {{ colors.unfoc.indic  }} {{ colors.unfoc.text  }} {{ colors.unfoc.indic  }} {{ colors.unfoc.cborder }}
+client.urgent           {{ colors.urgent.border }} {{ colors.urgent.indic }} {{ colors.urgent.text }} {{ colors.urgent.indic }} {{ colors.urgent.cborder }}
+client.placeholder      {{ colors.ph.border     }} {{ colors.ph.indic     }} {{ colors.ph.text     }} {{ colors.ph.indic     }} {{ colors.ph.cborder }}
+
+gaps inner {{ gaps.inner }}
+gaps outer {{ gaps.outer }}
+
+{{#if programs }}
+######### PROGRAMS #########
+
+{{#if programs.lock }}
+##  lock screen (optional)
+bindsym $mod+Shift+x exec {{ programs.lock }}
+{{/if}}
+
+{{/if}}
+
+######### WORKSPACES #########
+
+set $primary {{ monitors.primary }}
+set $secondary {{ monitors.secondary }}
+
+# vi:ft=i3config.handlebars

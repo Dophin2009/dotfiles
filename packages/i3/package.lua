@@ -3,11 +3,14 @@ require('lib')
 pkg.name = 'i3'
 pkg.dependencies:extend('../battery-notify', '../polybar', '../wallpaper')
 
-pkg.files.trees:front().ignore:push('**/*.tmpl')
 pkg.files.templates:push({
-    src = 'tree/.config/i3/config.tmpl',
+    src = 'config/config.i3config.hbs',
     dest = '.config/i3/config',
-    engine = 'gotmpl'
+    engine = 'handlebars',
+    partials = {
+        common = 'config/common.i3config',
+        profile = 'config/profile.i3config.hbs'
+    }
 })
 
 pkg.hooks.post.push({name = 'Reload i3', command = 'hooks/reload-i3.sh'})
