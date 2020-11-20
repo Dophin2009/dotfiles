@@ -1,8 +1,7 @@
 require('lib')
 
 pkg.name = 'i3'
-pkg.dependencies:extend('../battery-notify', '../polybar', '../wallpaper',
-                        '../fscreenshot')
+pkg.dependencies:extend('../battery-notify', '../polybar', '../wallpaper')
 
 pkg.files.trees:front().ignore:push('**/*.tmpl')
 pkg.files.templates:push({
