@@ -2,9 +2,9 @@ require('lib')
 
 pkg.name = 'bat'
 
-pkg.files.trees:front().ignore:push('**/*.hbs')
+pkg.files.trees:clear()
 pkg.files.templates:push({
-    src = 'tree/.config/bat/config.hbs',
+    src = 'config/config.hbs',
     dest = '.config/bat/config',
     engine = 'handlebars'
 })
