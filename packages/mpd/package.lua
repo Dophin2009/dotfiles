@@ -3,11 +3,10 @@ require('lib')
 pkg.name = 'mpd'
 pkg.dependencies:extend('../sh')
 
-pkg.files.trees:front().ignore:push('**/*.tmpl')
 pkg.files.templates:push({
-    src = 'tree/.config/mpd/mpd.conf.tmpl',
+    src = 'config/mpd.conf.hbs',
     dest = '.config/mpd/mpd.conf',
-    engine = 'gotmpl'
+    engine = 'handlebars'
 })
 
 pkg.variables.home = os.getenv('HOME')

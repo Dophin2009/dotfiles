@@ -12,11 +12,11 @@ local profile = require('profile').x11
 pkg.variables:overwrite(profile)
 
 local xresources_theme = 'xresources.theme'
-pkg.files.trees:front().ignore:extend('**/*.tmpl')
+pkg.files.trees:front().ignore:extend('**/*.hbs')
 pkg.files.templates:extend({
-    src = 'tree/.config/X11/xresources.theme.tmpl',
+    src = 'tree/.config/X11/xresources.theme.hbs',
     dest = '.config/X11/' .. xresources_theme,
-    engine = 'gotmpl'
+    engine = 'handlebars'
 })
 
 local home = os.getenv('HOME')

@@ -1,5 +1,5 @@
 configuration {
-  theme:             "themes/{{ .theme }}.rasi";
+  theme:             "themes/{{ theme }}.rasi";
   terminal:          "alacritty";
   ssh-client:        "ssh";
   ssh-command:       "alacritty -e {ssh-client} {host}";
@@ -7,7 +7,7 @@ configuration {
   width:             50;
   lines:             15;
   columns:           2;
-  font:              "{{ .font }} 10";
+  font:              "{{ font }} 10";
   show-icons:        true;
 
   lazy-filter-limit: 15000;

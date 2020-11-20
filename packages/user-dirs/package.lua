@@ -2,11 +2,11 @@ require('lib')
 
 pkg.name = 'user-dirs'
 
-pkg.files.trees:front().ignore:push('**/*.tmpl')
+pkg.files.trees:clear()
 pkg.files.templates:extend({
-    src = 'tree/.config/user-dirs.dirs.tmpl',
+    src = 'config/user-dirs.dirs.hbs',
     dest = '.config/user-dirs.dirs',
-    engine = 'gotmpl'
+    engine = 'handlebars'
 })
 
 local lcl = require('variables')

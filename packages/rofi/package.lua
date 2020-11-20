@@ -2,11 +2,11 @@ require('lib')
 
 pkg.name = 'rofi'
 
-pkg.files.trees:front().ignore:extend('**/*.tmpl')
+pkg.files.trees:front().ignore:extend('**/*.hbs')
 pkg.files.templates:extend({
-    src = 'tree/.config/rofi/config.rasi.tmpl',
+    src = 'tree/.config/rofi/config.rasi.hbs',
     dest = '.config/rofi/config.rasi',
-    engine = 'gotmpl'
+    engine = 'handlebars'
 })
 
 local profile = require('profile').rofi

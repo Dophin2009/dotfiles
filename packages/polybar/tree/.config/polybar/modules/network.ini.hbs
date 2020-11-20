@@ -4,15 +4,17 @@
 [module/network]
 type = internal/network
 
-interface = {{ .network.interface }}
+interface = {{ network.interface }}
 
-{{ if eq .network.type "wifi" }}
+{{ #if (eq network.type "wifi") }}
 label-connected = %{T4}%{T} %essid%
 label-disconnected = %{T4}%{T} <disconnected>
-{{ else if eq .network.type "ethernet" }}
+{{ else }}
+  {{ #if (eq network.type "ethernet") }}
 label-connected = %{T4}%{T}  eno2
 label-disconnected = %{T4}%{T}  <disconnected>
-{{ end }}
+  {{ /if }}
+{{ /if }}
 
 interval = 2
 accumulate-stats = true

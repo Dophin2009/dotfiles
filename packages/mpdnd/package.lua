@@ -3,15 +3,15 @@ require('lib')
 pkg.name = 'mpdnd'
 pkg.dependencies:extend('../sh', '../mpd')
 
-pkg.files.trees:front().ignore:push('**/*.tmpl')
+pkg.files.trees:clear()
 pkg.files.templates:extend({
-    src = 'tree/.config/mpdnd/config.toml.tmpl',
+    src = 'config/config.toml.hbs',
     dest = '.config/mpdnd/config.toml',
-    engine = 'gotmpl'
+    engine = 'handlebars'
 }, {
-    src = "tree/.config/systemd/user/mpdnd.service.tmpl",
+    src = "config/mpdnd.service.hbs",
     dest = ".config/systemd/user/mpdnd.service",
-    engine = 'gotmpl'
+    engine = 'handlebars'
 })
 
 local lcl = require('variables')

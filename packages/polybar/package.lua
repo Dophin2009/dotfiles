@@ -3,15 +3,15 @@ require('lib')
 pkg.name = 'polybar'
 pkg.dependencies:extend('../sh')
 
-pkg.files.trees:front().ignore:extend('**/*.tmpl')
+pkg.files.trees:front().ignore:extend('**/*.hbs')
 pkg.files.templates:extend({
-    src = 'tree/.config/polybar/settings.ini.tmpl',
+    src = 'tree/.config/polybar/settings.ini.hbs',
     dest = '.config/polybar/settings.ini',
-    engine = 'gotmpl'
+    engine = 'handlebars'
 }, {
-    src = 'tree/.config/polybar/modules/network.ini.tmpl',
+    src = 'tree/.config/polybar/modules/network.ini.hbs',
     dest = '.config/polybar/modules/network.ini',
-    engine = 'gotmpl'
+    engine = 'handlebars'
 })
 
 local home = os.getenv('HOME')
