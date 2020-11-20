@@ -11,7 +11,7 @@ prepare:
 	git submodule update --init --recursive
 	cd $(VENDOR)/luafilesystem && \
 		make lib
-	ln -sf ../luafilesystem/src/lfs.so $(LIB)/lfs.so
+	cp $(VENDOR)/luafilesystem/src/lfs.so $(LIB)/lfs.so
 
 gruvbox	:
 	ln -sf $(PROFILES)/gruvbox.lua $(LOADED)
