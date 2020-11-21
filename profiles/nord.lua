@@ -1,4 +1,4 @@
-local font = 'Iosevka Nerd Font'
+local font = 'JetBrains Mono Nerd Font'
 
 local colors = {
     primary = {
