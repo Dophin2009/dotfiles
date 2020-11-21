@@ -29,7 +29,7 @@ nvim_lsp.bashls.setup {
 }
 -- clangd
 nvim_lsp.clangd.setup {
-    callbacks = lsp_status.extensions.clangd.setup(),
+    handlers = lsp_status.extensions.clangd.setup(),
     init_options = {clangdFileStatus = true},
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
