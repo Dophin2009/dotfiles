@@ -33,7 +33,7 @@ local alacritty = {font = font, colors = colors, font_size = 10}
 local bat = {theme = 'gruvbox'}
 
 local dunst = {
-    font = font,
+    font = {family = font, size = 9},
     colors = {
         low = {foreground = colors.primary.foreground, background = '#32302f'},
         normal = {
