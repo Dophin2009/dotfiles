@@ -1,3 +1,11 @@
 #!/bin/sh
 # update mpd database
 alias mpcup="mpc update"
+
+# mpc shortcuts
+alias mpcp="mpc toggle"
+alias mpcl="mpc load"
+alias mpccl="mpc clear"
+alias mpcr="mpc repeat toggle"
+alias mpcz="mpc random toggle"
+alias mpcc="mpc consume toggle"
