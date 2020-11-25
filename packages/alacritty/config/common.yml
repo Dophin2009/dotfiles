@@ -37,5 +37,5 @@ window:
   dynamic_padding: false
   dynamic_title: true
   padding:
-    x: 10
-    y: 10
+    x: 6
+    y: 2
