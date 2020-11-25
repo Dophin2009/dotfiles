@@ -11,7 +11,7 @@ let g:polyglot_disabled = ['asciidoc', 'pgsql']
 
 """ vimtex inital config
 let g:vimtex_enabled = 1
-let g:tex_flavor = 'latex'
+let g:vimtex_syntax_enabled = 0
 let g:vimtex_view_method = 'zathura'
 
 execute 'source ' . g:nvim_config . '/plugins.vim'
