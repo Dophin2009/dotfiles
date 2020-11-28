@@ -11,7 +11,7 @@ export LD_LIBRARY_PATH="${XDG_LIB_HOME}"
 export XDG_DATA_DIRS="${XDG_DATA_HOME}:/usr/local/share:/usr/share"
 
 # fzf use fd
-export FZF_DEFAULT_COMMAND='fd --type f --hidden'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden -L'
 
 __files_in() {
   if [[ -d "$1" ]]; then
