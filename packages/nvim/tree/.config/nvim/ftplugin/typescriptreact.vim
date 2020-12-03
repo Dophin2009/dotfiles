@@ -1,6 +1,6 @@
 " linters
 let b:ale_linter_aliases = ['typescript', 'tsx']
-let b:ale_linters = ['eslint']
+let b:ale_linters = []
 " fixers
 let b:ale_fixers = ['eslint']
 " tagbar

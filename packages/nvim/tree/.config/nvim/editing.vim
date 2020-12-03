@@ -3,8 +3,7 @@
 """
 
 """ treesitter
-lua require('treesitter')
-
+" lua require('treesitter')
 
 """
 """ CODE COMPLETION
@@ -13,7 +12,7 @@ lua require('treesitter')
 """ nvim-lsp
 lua require('lsp')
 set completeopt=menuone,noinsert,noselect
-aug lsp_line_diagnostics
+aug lsp_autocmds
   autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 aug END
 

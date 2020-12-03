@@ -1,4 +1,4 @@
-local nvim_lsp = require('lspconfig')
+local lspconfig = require('lspconfig')
 local configs = require('lspconfig/configs')
 local completion = require('completion')
 local lsp_status = require('lsp-status')
@@ -16,28 +16,69 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] =
 
 -- grouped on_attach
 local on_attach = function(client, bufnr)
-    -- hack fix for bug(?)
-    -- client.config = {callbacks = {}}
     completion.on_attach(client, bufnr)
     lsp_status.on_attach(client, bufnr)
 end
 
 -- bash language server
-nvim_lsp.bashls.setup {
+lspconfig.bashls.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }
 -- clangd
-nvim_lsp.clangd.setup {
+lspconfig.clangd.setup {
     handlers = lsp_status.extensions.clangd.setup(),
     init_options = {clangdFileStatus = true},
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }
 -- cmake language server
-nvim_lsp.cmake.setup {
+lspconfig.cmake.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
+}
+-- cssls
+lspconfig.cssls.setup {
+    on_attach = on_attach,
+    capabilities = lsp_status.capabilities
+}
+-- diagnosticls
+lspconfig.diagnosticls.setup {
+    on_attach = on_attach,
+    capabilities = lsp_status.capabilities,
+    filetypes = {
+        'javascript', 'typescript', 'javascriptreact', 'typescriptreact'
+    },
+    init_options = {
+        linters = {
+            eslint = {
+                command = './node_modules/.bin/eslint',
+                rootPatterns = {'.git', 'package.json'},
+                debounce = 100,
+                args = {
+                    '--stdin', '--stdin-filename', '%filepath', '--format',
+                    'json'
+                },
+                sourceName = 'eslint',
+                parseJson = {
+                    errorsRoot = '[0].messages',
+                    line = 'line',
+                    column = 'column',
+                    endLine = 'endLine',
+                    endColumn = 'endColumn',
+                    message = '${message} [${ruleId}]',
+                    security = 'severity'
+                },
+                securities = {[2] = 'error', [1] = 'warning'}
+            }
+        },
+        filetypes = {
+            javascript = 'eslint',
+            typescript = 'eslint',
+            javascriptreact = 'eslint',
+            typescriptreact = 'eslint'
+        }
+    }
 }
 -- dhall lsp server
 configs.dhall_lsp = {
@@ -45,54 +86,60 @@ configs.dhall_lsp = {
         cmd = {'dhall-lsp-server'},
         filetypes = {'dhall'},
         root_dir = function(fname)
-            return nvim_lsp.util.find_git_ancestor(fname) or
+            return lspconfig.util.find_git_ancestor(fname) or
                        vim.loop.os_homedir()
         end,
         settings = {}
     }
 }
-nvim_lsp.dhall_lsp.setup {
+lspconfig.dhall_lsp.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }
 -- dockerfile language server
-nvim_lsp.dockerls.setup {
+lspconfig.dockerls.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }
 -- haskell ide engine
-nvim_lsp.hie.setup {
+lspconfig.hie.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }
 -- jedi language server
-nvim_lsp.jedi_language_server.setup {
+lspconfig.jedi_language_server.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }
 -- lua language server
-nvim_lsp.sumneko_lua.setup {
+lspconfig.sumneko_lua.setup {
     cmd = {'lua-language-server'},
     on_attach = on_attach,
     capabilities = lsp_status.capabilities,
     settings = {Lua = {diagnostics = {enable = false}}}
 }
 -- r language server
-nvim_lsp.r_language_server.setup {
+lspconfig.r_language_server.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }
 -- rust analyzer
-nvim_lsp.rust_analyzer.setup {
+lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }
-nvim_lsp.texlab.setup {
+-- texlab
+lspconfig.texlab.setup {
+    on_attach = on_attach,
+    capabilities = lsp_status.capabilities
+}
+-- tsserver
+lspconfig.tsserver.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }
 -- vim language server
-nvim_lsp.vimls.setup {
+lspconfig.vimls.setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities
 }

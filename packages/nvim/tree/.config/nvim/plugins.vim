@@ -60,7 +60,10 @@ Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 
 """ treesitter
-Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/nvim-treesitter'
+
+""" formatter.nvim
+" Plug 'mhartington/formatter.nvim'
 
 """ Asynchronous Lint Engine (ALE)
 "   hover settings
