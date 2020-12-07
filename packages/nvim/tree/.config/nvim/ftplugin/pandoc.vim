@@ -13,7 +13,7 @@ let delimitMate_quotes = "\" ` * _"
 
 ""  linters
 let b:ale_linter_aliases = ['text']
-let b:ale_linters = ['textlint', 'vale', 'languagetool']
+let b:ale_linters = ['textlint', 'vale']
 "   languagetool options
 let g:ale_languagetool_options = '--autoDetect -d WHITESPACE_RULE,DASH_RULE,EN_QUOTES'
 ""  fixers
