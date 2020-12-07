@@ -118,6 +118,11 @@ lspconfig.sumneko_lua.setup {
     capabilities = lsp_status.capabilities,
     settings = {Lua = {diagnostics = {enable = false}}}
 }
+-- pyls
+lspconfig.pyls.setup {
+    on_attach = on_attach,
+    capabilities = lsp_status.capabilities
+}
 -- r language server
 lspconfig.r_language_server.setup {
     on_attach = on_attach,
