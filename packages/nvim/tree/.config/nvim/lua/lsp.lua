@@ -1,150 +1,105 @@
 local lspconfig = require('lspconfig')
-local configs = require('lspconfig/configs')
 local completion = require('completion')
 local lsp_status = require('lsp-status')
 
-completion.addCompletionSource('vimtex', require('vimtex').complete_item)
+-- vimtex completion source
+local vimtex = require('lsp/vimtex')
+completion.addCompletionSource('vimtex', vimtex.complete_item)
 
--- diagnostics handle
-vim.lsp.handlers['textDocument/publishDiagnostics'] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        underline = true,
-        virtual_text = true,
-        signs = true,
-        update_in_insert = true
-    })
+-- override handlers
+local handlers = require('lsp/handlers')
+local on_attach = handlers.on_attach
+local capabilities = handlers.capabilities
 
--- grouped on_attach
-local on_attach = function(client, bufnr)
-    completion.on_attach(client, bufnr)
-    lsp_status.on_attach(client, bufnr)
-end
+-- extra language server configuations
+require('lsp/extra')
 
 -- bash language server
-lspconfig.bashls.setup {
-    on_attach = on_attach,
-    capabilities = lsp_status.capabilities
-}
+lspconfig.bashls.setup {on_attach = on_attach, capabilities = capabilities}
+
 -- clangd
 lspconfig.clangd.setup {
     handlers = lsp_status.extensions.clangd.setup(),
     init_options = {clangdFileStatus = true},
     on_attach = on_attach,
-    capabilities = lsp_status.capabilities
+    capabilities = capabilities
 }
+
 -- cmake language server
-lspconfig.cmake.setup {
-    on_attach = on_attach,
-    capabilities = lsp_status.capabilities
-}
+lspconfig.cmake.setup {on_attach = on_attach, capabilities = capabilities}
+
 -- cssls
-lspconfig.cssls.setup {
-    on_attach = on_attach,
-    capabilities = lsp_status.capabilities
-}
--- diagnosticls
-lspconfig.diagnosticls.setup {
-    on_attach = on_attach,
-    capabilities = lsp_status.capabilities,
-    filetypes = {
-        'javascript', 'typescript', 'javascriptreact', 'typescriptreact'
-    },
-    init_options = {
-        linters = {
-            eslint = {
-                command = './node_modules/.bin/eslint',
-                rootPatterns = {'.git', 'package.json'},
-                debounce = 100,
-                args = {
-                    '--stdin', '--stdin-filename', '%filepath', '--format',
-                    'json'
-                },
-                sourceName = 'eslint',
-                parseJson = {
-                    errorsRoot = '[0].messages',
-                    line = 'line',
-                    column = 'column',
-                    endLine = 'endLine',
-                    endColumn = 'endColumn',
-                    message = '${message} [${ruleId}]',
-                    security = 'severity'
-                },
-                securities = {[2] = 'error', [1] = 'warning'}
-            }
-        },
-        filetypes = {
-            javascript = 'eslint',
-            typescript = 'eslint',
-            javascriptreact = 'eslint',
-            typescriptreact = 'eslint'
-        }
-    }
-}
+lspconfig.cssls.setup {on_attach = on_attach, capabilities = capabilities}
+
 -- dhall lsp server
-configs.dhall_lsp = {
-    default_config = {
-        cmd = {'dhall-lsp-server'},
-        filetypes = {'dhall'},
-        root_dir = function(fname)
-            return lspconfig.util.find_git_ancestor(fname) or
-                       vim.loop.os_homedir()
-        end,
-        settings = {}
-    }
-}
-lspconfig.dhall_lsp.setup {
-    on_attach = on_attach,
-    capabilities = lsp_status.capabilities
-}
+lspconfig.dhall_lsp.setup {on_attach = on_attach, capabilities = capabilities}
+
 -- dockerfile language server
-lspconfig.dockerls.setup {
-    on_attach = on_attach,
-    capabilities = lsp_status.capabilities
-}
+lspconfig.dockerls.setup {on_attach = on_attach, capabilities = capabilities}
+
 -- haskell ide engine
-lspconfig.hie.setup {
-    on_attach = on_attach,
-    capabilities = lsp_status.capabilities
-}
+lspconfig.hie.setup {on_attach = on_attach, capabilities = capabilities}
+
 -- jedi language server
 lspconfig.jedi_language_server.setup {
     on_attach = on_attach,
-    capabilities = lsp_status.capabilities
+    capabilities = capabilities
 }
+
 -- lua language server
 lspconfig.sumneko_lua.setup {
     cmd = {'lua-language-server'},
     on_attach = on_attach,
-    capabilities = lsp_status.capabilities,
+    capabilities = capabilities,
     settings = {Lua = {diagnostics = {enable = false}}}
 }
+
 -- pyls
-lspconfig.pyls.setup {
-    on_attach = on_attach,
-    capabilities = lsp_status.capabilities
-}
+lspconfig.pyls.setup {on_attach = on_attach, capabilities = capabilities}
 -- r language server
 lspconfig.r_language_server.setup {
     on_attach = on_attach,
-    capabilities = lsp_status.capabilities
+    capabilities = capabilities
 }
+
 -- rust analyzer
 lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
-    capabilities = lsp_status.capabilities
+    capabilities = capabilities
 }
+
 -- texlab
-lspconfig.texlab.setup {
-    on_attach = on_attach,
-    capabilities = lsp_status.capabilities
-}
+lspconfig.texlab.setup {on_attach = on_attach, capabilities = capabilities}
+
 -- tsserver
 lspconfig.tsserver.setup {
-    on_attach = on_attach,
-    capabilities = lsp_status.capabilities
+    on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        on_attach(client, bufnr)
+    end,
+    capabilities = capabilities
 }
+
 -- vim language server
-lspconfig.vimls.setup {
+lspconfig.vimls.setup {on_attach = on_attach, capabilities = capabilities}
+
+-- efm-langserver
+local eslint = require('lsp/efm/eslint')
+local luafmt = require('lsp/efm/luafmt')
+local luacheck = require('lsp/efm/luacheck')
+local prettier = require('lsp/efm/prettier')
+lspconfig.efm.setup {
     on_attach = on_attach,
-    capabilities = lsp_status.capabilities
+    capabilities = capabilities,
+    init_options = {documentFormatting = true},
+    settings = {
+        rootMarkers = {'.git/'},
+        languages = {
+            javascript = {eslint, prettier},
+            javascriptreact = {eslint, prettier},
+            lua = {luafmt, luacheck},
+            typescript = {eslint, prettier},
+            typescriptreact = {eslint, prettier}
+        }
+    }
 }

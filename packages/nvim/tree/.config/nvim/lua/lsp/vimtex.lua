@@ -6,7 +6,6 @@ function M.getCompletionItems(prefix)
                                              {0, prefix})
     return items
 end
-
 M.complete_item = {item = M.getCompletionItems}
 
 return M

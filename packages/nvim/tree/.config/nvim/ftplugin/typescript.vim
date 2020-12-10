@@ -1,7 +1,7 @@
 " linters
 let b:ale_linters = []
 " fixers
-let b:ale_fixers = ['eslint']
+let b:ale_fixers = []
 " tagbar
 " npm install --global git+https://github.com/Perlence/tstags.git
 let g:tagbar_type_typescript = {
