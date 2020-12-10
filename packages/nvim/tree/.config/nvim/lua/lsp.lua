@@ -1,6 +1,10 @@
 local lspconfig = require('lspconfig')
 local completion = require('completion')
 local lsp_status = require('lsp-status')
+local lspfuzzy = require('lspfuzzy')
+
+-- fzf selection for LSP actions
+lspfuzzy.setup {fzf_modifier = ':~:.', fzf_trim = true}
 
 -- vimtex completion source
 local vimtex = require('lsp/vimtex')

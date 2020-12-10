@@ -11,6 +11,7 @@ call plug#begin(nvim_data . '/plugged')
 Plug 'tmux-plugins/vim-tmux-focus-events'
 """ fzf
 Plug 'junegunn/fzf.vim'
+Plug 'ojroques/nvim-lspfuzzy'
 """ ranger
 " Plug 'rafaqz/ranger.vim'
 """ vifm
