@@ -37,6 +37,9 @@ lspconfig.dhall_lsp.setup {on_attach = on_attach, capabilities = capabilities}
 -- dockerfile language server
 lspconfig.dockerls.setup {on_attach = on_attach, capabilities = capabilities}
 
+-- go language server
+lspconfig.gopls.setup {on_attach = on_attach, capabilities = capabilities}
+
 -- haskell ide engine
 lspconfig.hie.setup {on_attach = on_attach, capabilities = capabilities}
 
@@ -54,8 +57,6 @@ lspconfig.sumneko_lua.setup {
     settings = {Lua = {diagnostics = {enable = false}}}
 }
 
--- pyls
-lspconfig.pyls.setup {on_attach = on_attach, capabilities = capabilities}
 -- r language server
 lspconfig.r_language_server.setup {
     on_attach = on_attach,
@@ -84,10 +85,25 @@ lspconfig.tsserver.setup {
 lspconfig.vimls.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- efm-langserver
+local autopep8 = require('lsp/efm/autopep8')
 local eslint = require('lsp/efm/eslint')
+local fixjson = require('lsp/efm/fixjson')
+local flake8 = require('lsp/efm/flake8')
+local goimports = require('lsp/efm/goimports')
+local golint = require('lsp/efm/golint')
+local htmlhint = require('lsp/efm/htmlhint')
 local luafmt = require('lsp/efm/luafmt')
-local luacheck = require('lsp/efm/luacheck')
+local luac = require('lsp/efm/luac')
+local misspell = require('lsp/efm/misspell')
+local mypy = require('lsp/efm/mypy')
+local pandoc = require('lsp/efm/pandoc')
 local prettier = require('lsp/efm/prettier')
+local reorder_python_imports = require('lsp/efm/reorder_python_imports')
+local shellcheck = require('lsp/efm/shellcheck')
+local shfmt = require('lsp/efm/shfmt')
+local stylelint = require('lsp/efm/stylelint')
+local yamllint = require('lsp/efm/yamllint')
+local vint = require('lsp/efm/vint')
 lspconfig.efm.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -95,11 +111,25 @@ lspconfig.efm.setup {
     settings = {
         rootMarkers = {'.git/'},
         languages = {
+            ["="] = {misspell},
+            bash = {shellcheck},
+            css = {stylelint},
             javascript = {eslint, prettier},
             javascriptreact = {eslint, prettier},
-            lua = {luafmt, luacheck},
+            json = {fixjson},
+            go = {golint, goimports},
+            html = {htmlhint, prettier},
+            lua = {luafmt, luac},
+            pandoc = {pandoc},
+            python = {mypy, flake8, autopep8, reorder_python_imports},
+            sass = {stylelint},
+            scss = {stylelint},
+            sh = {shellcheck, shfmt},
             typescript = {eslint, prettier},
-            typescriptreact = {eslint, prettier}
+            typescriptreact = {eslint, prettier},
+            vim = {vint},
+            yaml = {yamllint},
+            zsh = {shellcheck}
         }
     }
 }

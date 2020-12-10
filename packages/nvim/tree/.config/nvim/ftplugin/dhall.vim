@@ -11,4 +11,4 @@
 " \})
 " let b:ale_linters = ['dhall-lsp']
 " fixers
-let b:ale_fixers = ['dhall']
+let b:ale_fixers = []

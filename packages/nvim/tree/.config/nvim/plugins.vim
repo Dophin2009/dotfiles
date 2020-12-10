@@ -65,36 +65,6 @@ Plug 'RishabhRD/nvim-lsputils'
 """ formatter.nvim
 " Plug 'mhartington/formatter.nvim'
 
-""" Asynchronous Lint Engine (ALE)
-"   hover settings
-Plug 'dense-analysis/ale'
-
-""" deoplete
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"   context filetype functionality
-" Plug 'Shougo/context_filetype.vim'
-"   prints documentation in completion menu
-" Plug 'Shougo/echodoc.vim'
-"   nvim-lsp source
-" Plug 'Shougo/deoplete-lsp'
-"   syntax sources
-" Plug 'Shougo/neco-syntax'
-"   file includes sources
-" Plug 'Shougo/neoinclude.vim'
-"   clang source
-" Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp', 'objc', 'objcpp']}
-"   java source
-" Plug 'artur-shaik/vim-javacomplete2', { 'tag': 'v2.4.0' }
-"   python source
-" Plug 'deoplete-plugins/deoplete-jedi'
-"   typescript source
-"   yarn install -g neovim
-"   yarn install -g typescript
-" Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-"   tmux panes source
-" Plug 'wellle/tmux-complete.vim'
-
 """ delimitMate (autoclose parentheses, etc.)
 Plug 'Raimondi/delimitMate'
 """ vim-closetag (autoclose XHTML tags)
@@ -103,6 +73,7 @@ Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 """ import-js (import js dependencies)
 Plug 'galooshi/vim-import-js', { 'for': 'javascript' }
+
 
 """
 """ FORMATTING
@@ -133,8 +104,6 @@ Plug 'a-vrma/ebnf-vim'
 Plug 'editorconfig/editorconfig-vim'
 """ elinks.conf
 Plug 'vim-scripts/elinks.vim'
-""" golang
-Plug 'fatih/vim-go', { 'for': 'go' }
 """ jsonc
 Plug 'kevinoid/vim-jsonc', { 'for': 'jsonc' }
 """ pandoc

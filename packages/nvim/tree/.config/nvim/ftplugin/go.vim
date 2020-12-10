@@ -1,19 +1,7 @@
-""  vim-go settings
-let g:go_gopls_enabled = 0
-let g:go_code_completion_enabled = 0
-let g:go_auto_type_info = 1
-let g:go_fmt_autosave = 0
-let g:go_def_mapping_enabled = 1
-let g:go_snippet_engine = 'automatic'
-let g:go_autodetect_gopath = 1
-let g:go_gocode_propose_source = 1
-"   disable vim-go :GoDef short cut (gd)
-let g:go_def_mapping_enabled = 0
-
 ""  linters
-let b:ale_linters = ['golint']
+let b:ale_linters = []
 ""  linters
-let b:ale_fixers = ['golint']
+let b:ale_fixers = []
 ""  tagbar
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',

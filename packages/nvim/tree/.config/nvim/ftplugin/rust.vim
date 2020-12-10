@@ -2,9 +2,8 @@
 autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText" }
 " linters
 let b:ale_linters = []
-let b:ale_rust_cargo_use_clippy = 1
 " fixers
-let b:ale_fixers = ['rustfmt', 'remove_trailing_lines', 'trim_whitespace']
+let b:ale_fixers = []
 " tagbar
 let g:tagbar_type_rust = {
   \ 'ctagsbin' : 'ctags',

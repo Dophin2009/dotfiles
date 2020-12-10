@@ -4,5 +4,5 @@ return {
     lintCommand = bin .. ' -f visualstudio --stdin',
     lintIgnoreExitCode = true,
     lintStdin = true,
-    lintFormats = {"%f(%l,%c): error %m", "%f(%l,%c): warning %m"}
+    lintFormats = {"%f(%l,%c): %trror %m", "%f(%l,%c): %tarning %m"}
 }

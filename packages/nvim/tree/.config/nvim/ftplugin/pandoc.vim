@@ -13,44 +13,9 @@ let delimitMate_quotes = "\" ` * _"
 
 ""  linters
 let b:ale_linter_aliases = ['text']
-let b:ale_linters = ['textlint', 'vale']
+let b:ale_linters = []
 "   languagetool options
 let g:ale_languagetool_options = '--autoDetect -d WHITESPACE_RULE,DASH_RULE,EN_QUOTES'
-""  fixers
-"   define pandoc formatter
-function PandocFix(buffer) abort
-  let l:executable = 'pandoc'
-  let l:filename = ale#Escape(bufname(a:buffer))
-  let l:input_flags = ['markdown',
-    \ '+abbreviations',
-    \ '+autolink_bare_uris',
-    \ '+markdown_attribute',
-    \ '+mmd_header_identifiers',
-    \ '+mmd_link_attributes',
-    \ '+tex_math_double_backslash',
-    \ '+emoji',
-    \ '+task_lists',
-    \ ]
-  let l:target_flags = ['markdown',
-    \ '+raw_tex',
-    \ '-native_spans',
-    \ '-simple_tables',
-    \ '-multiline_tables',
-    \ '-fenced_code_attributes',
-    \ '+emoji',
-    \ '+task_lists',
-    \ ]
-  return {
-  \   'command': ale#Escape(l:executable)
-  \     . ' -f ' . join(l:input_flags, '')
-  \     . ' -t ' . join(l:target_flags, '')
-  \     . ' -s --wrap=auto --atx-headers --columns=80 '
-  \     . l:filename
-  \}
-endfunction
-
-call ale#fix#registry#Add('pandoc', 'PandocFix', ['pandoc'], 'Pandoc formatter using pandoc')
-let b:ale_fixers = ['pandoc']
 
 ""  tagbar
 let g:tagbar_type_pandoc = {
