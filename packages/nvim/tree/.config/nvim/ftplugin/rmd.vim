@@ -1,6 +1,4 @@
-"   fixers
-let b:ale_linter_aliases = ['r']
-"   rmarkdown configuration
+"   tagbar
 let g:tagbar_type_rmd = {
   \   'ctagstype': 'rmd'
   \ , 'kinds': ['h:header', 'c:chunk', 'f:function', 'v:variable']

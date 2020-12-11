@@ -1,7 +1,3 @@
-""  linters
-let b:ale_linters = []
-""  linters
-let b:ale_fixers = []
 ""  tagbar
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',

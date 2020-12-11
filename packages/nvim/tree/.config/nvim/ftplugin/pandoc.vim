@@ -11,12 +11,6 @@ let g:pandoc#modules#disabled = ['folding', 'spell']
 let b:delimitMate_matchpairs = "(:),[:],{:}"
 let delimitMate_quotes = "\" ` * _"
 
-""  linters
-let b:ale_linter_aliases = ['text']
-let b:ale_linters = []
-"   languagetool options
-let g:ale_languagetool_options = '--autoDetect -d WHITESPACE_RULE,DASH_RULE,EN_QUOTES'
-
 ""  tagbar
 let g:tagbar_type_pandoc = {
   \ 'ctagstype': 'markdown',

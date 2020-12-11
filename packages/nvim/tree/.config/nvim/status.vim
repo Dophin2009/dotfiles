@@ -47,8 +47,6 @@ let bufferline.maximum_padding = 4
 """ airline
 "   enable tabline status
 let g:airline#extensions#tabline#enabled = 1
-"   enable ALE status
-let g:airline#extensions#ale#enabled = 1
 "   enable powerline fonts
 let g:airline_powerline_fonts = 1
 "   enable wordcount for filetypes

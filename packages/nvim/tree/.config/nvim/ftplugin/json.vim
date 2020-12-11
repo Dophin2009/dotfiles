@@ -1,7 +1,3 @@
-" linters
-let b:ale_linters = []
-" fixers
-let b:ale_fixers = []
 " tagbar
 let g:tagbar_type_json = {
   \ 'ctagstype' : 'json',
