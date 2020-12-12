@@ -96,6 +96,7 @@ local flake8 = require('lsp/efm/flake8')
 local goimports = require('lsp/efm/goimports')
 local golint = require('lsp/efm/golint')
 local htmlhint = require('lsp/efm/htmlhint')
+local lacheck = require('lsp/efm/lacheck')
 local luafmt = require('lsp/efm/luafmt')
 local luac = require('lsp/efm/luac')
 local misspell = require('lsp/efm/misspell')
@@ -123,6 +124,7 @@ lspconfig.efm.setup {
             json = {fixjson},
             go = {golint, goimports},
             html = {htmlhint, prettier},
+            latex = {lacheck},
             lua = {luafmt, luac},
             pandoc = {pandoc},
             python = {mypy, flake8, autopep8, reorder_python_imports},
