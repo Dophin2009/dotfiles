@@ -16,7 +16,7 @@ Most of the package documentation is outdated.
 ## Installation
 
 1.  Install `stew`:
-    `cargo install --git https://github.com/Dophin2009/stew --features unsafe`
+    `cargo install --git https://github.com/Dophin2009/stew --features "lua54 unsafe"`
 2.  Clone this repo somewhere (e.g. `~/.dotfiles`).
 3.  Link the desired packages: `stew <package>`.
 
