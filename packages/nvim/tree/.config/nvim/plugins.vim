@@ -63,9 +63,6 @@ Plug 'RishabhRD/nvim-lsputils'
 """ treesitter
 " Plug 'nvim-treesitter/nvim-treesitter'
 
-""" formatter.nvim
-" Plug 'mhartington/formatter.nvim'
-
 """ delimitMate (autoclose parentheses, etc.)
 Plug 'Raimondi/delimitMate'
 """ vim-closetag (autoclose XHTML tags)
@@ -74,6 +71,9 @@ Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 """ import-js (import js dependencies)
 Plug 'galooshi/vim-import-js', { 'for': 'javascript' }
+
+""" traces
+Plug 'markonm/traces.vim'
 
 
 """
