@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Load utility functions
+. "$XDG_CONFIG_HOME/sh/util"
+
+# General shortcuts
+alias ls="ls -a --color"
+alias la="ls -al --color"
+alias x="exit"
+
+# Naive words per minute calculator
+wtm() {
+	echo "scale=2; $(wc -w $1 | awk '{print $1}') / 130" | bc
+}
+
+# Load sh packages
+shloadenv "$XDG_CONFIG_HOME/sh"
+shloadrc "$XDG_CONFIG_HOME/sh"
+pathdedup
+
+# Unset utility functions
+unsetutil

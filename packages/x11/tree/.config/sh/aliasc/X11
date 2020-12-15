@@ -1,5 +1,0 @@
-#!/bin/sh
-#   copy text
-alias cclip="xclip -selection clipboard"
-#   copy image
-alias iclip="xclip -selection clipboard -t image/png -i"

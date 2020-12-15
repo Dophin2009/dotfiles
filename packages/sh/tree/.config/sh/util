@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# Remove duplicates from PATH
+pathdedup() {
+	old_PATH=$PATH:
+	PATH=
+	while [ -n "$old_PATH" ]; do
+		x=${old_PATH%%:*}
+		case $PATH: in
+		*:"$x":*) ;;
+		*) PATH=$PATH:$x ;;
+		esac
+		old_PATH=${old_PATH#*:}
+	done
+	PATH=${PATH#:}
+	unset old_PATH x
+}
+
+shpackages() {
+	[[ -d "$1" ]] && find "$1" -mindepth 1
+}
+
+shload() {
+	for directory in $(shpackages "$2/load"); do
+		[ -f "$directory/$1" ] && . "$directory/$1"
+	done
+}
+
+shloadenv() {
+	shload "env" $1
+}
+
+shloadrc() {
+	shload "rc" $1
+}
+
+unsetutil() {
+	unset -f pathdedup
+	unset -f shpackages
+	unset -f shload
+	unset -f shloadenv
+	unset -f shloadrc
+	unset -f unsetutil
+}

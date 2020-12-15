@@ -1,0 +1,8 @@
+#!/bin/sh
+# default editor
+export EDITOR=nvim
+
+# listen address
+export NVIM_LISTEN_ADDRESS=/tmp/nvim
+
+export CHKTEXRC="$XDG_CONFIG_HOME/chktexrc"

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# wordnet english dictionary search
+alias def="dict -d wn"
+# thesaurus query with aiksaurus
+alias th="aiksaurus"

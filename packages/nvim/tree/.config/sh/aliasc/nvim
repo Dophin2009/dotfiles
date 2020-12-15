@@ -1,5 +1,0 @@
-#!/bin/sh
-# remove nvim swap file
-rmnswap() {
-  rm "$HOME/.local/share/nvim/swap/$(echo $1 | tr '/' '%').swp"
-}

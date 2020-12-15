@@ -10,51 +10,17 @@ export XDG_LOG_HOME="${HOME}/.local/var/log"
 export LD_LIBRARY_PATH="${XDG_LIB_HOME}"
 export XDG_DATA_DIRS="${XDG_DATA_HOME}:/usr/local/share:/usr/share"
 
-# fzf use fd
-export FZF_DEFAULT_COMMAND='fd --type f --hidden -L'
-
-__files_in() {
-  if [[ -d "$1" ]]; then
-    find "$1" -maxdepth 1 -mindepth 1 -not -path '\.*'
-  fi
-}
-
-__source_files() {
-  if [[ "$(__files_in "$1")" ]]; then
-    for f in "$1/"*; do
-      . "$f"
-    done
-  fi
-}
-
 # Local user binaries
 if [ -d "$HOME/.local/bin" ]; then
-  export PATH="$PATH:$HOME/.local/bin"
+	export PATH="$PATH:$HOME/.local/bin"
 fi
 
-# load other env files
-__source_files "$XDG_CONFIG_HOME/sh/envc"
+# Load utility functions
+. "$XDG_CONFIG_HOME/sh/util"
 
-# Remove duplicates from PATH
-old_PATH=$PATH:
-PATH=
-while [ -n "$old_PATH" ]; do
-  x=${old_PATH%%:*}
-  case $PATH: in
-  *:"$x":*) ;;
-  *) PATH=$PATH:$x ;;
-  esac
-  old_PATH=${old_PATH#*:}
-done
-PATH=${PATH#:}
-unset old_PATH x
+# Load sh package envs
+shloadenv "$XDG_CONFIG_HOME/sh"
+pathdedup
 
-# define aliases
-. "$XDG_CONFIG_HOME/sh/aliases"
-__source_files "$XDG_CONFIG_HOME/sh/aliasc"
-
-# load other local files
-__source_files "$XDG_CONFIG_HOME/sh/local"
-
-unset -f __files_in
-unset -f __source_files
+# Unload utility functions
+unsetutil
