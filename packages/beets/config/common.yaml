@@ -23,6 +23,7 @@ plugins:
   - playlistc
   - scrub
   - smartplaylist
+  - usertag
 
 edit:
   itemfields:
@@ -35,6 +36,7 @@ edit:
     - title
     - track
     - year
+    - usertags
   albumfields:
     - album
     - albumartist
