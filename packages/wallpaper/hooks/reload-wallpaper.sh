@@ -1,2 +1,2 @@
 #!/bin/bash
-wallpaper-ctl kill
+feh --no-fehbg --bg-fill "$HOME/.config/wallpaper/still.jpg"

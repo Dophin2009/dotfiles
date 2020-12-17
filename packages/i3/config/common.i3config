@@ -20,9 +20,6 @@ mouse_warping none
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+w exec xkill
 
-##  wallpaper
-bindsym $mod+u exec wallpaper-ctl toggle
-
 ##  rofi menu
 #   application runner
 bindsym $mod+d exec rofi -show run
