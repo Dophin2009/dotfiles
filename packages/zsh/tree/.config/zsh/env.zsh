@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Load sh config
-. "$XDG_CONFIG_HOME/sh/env"
+. "$HOME/.config/sh/env"
 
 # Load utility functions
 . "$XDG_CONFIG_HOME/sh/util"
