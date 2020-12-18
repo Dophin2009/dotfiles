@@ -196,7 +196,7 @@ bindsym Mod4+Escape mode "passthrough"
 ######### STARTUP #########
 
 # set wallpaper
-exec --no-startup-id exec wallpaper-ctl kill
+exec --no-startup-id exec setbg kill
 
 # start polybar
 exec --no-startup-id exec launch-polybar
