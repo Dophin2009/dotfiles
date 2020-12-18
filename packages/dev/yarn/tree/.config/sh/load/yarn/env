@@ -1,6 +1,7 @@
 #!/bin/sh
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 
 # Yarn installed binaries
 if [ -d "$XDG_DATA_HOME/npm/bin" ]; then
-  export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
+	export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
 fi
