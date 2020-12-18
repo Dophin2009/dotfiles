@@ -135,7 +135,7 @@ lspconfig.efm.setup {
             typescriptreact = {eslint, prettier},
             vim = {vint},
             yaml = {yamllint},
-            zsh = {shellcheck}
+            zsh = {shellcheck, shfmt}
         }
     }
 }
