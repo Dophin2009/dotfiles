@@ -1,25 +1,35 @@
 #!/bin/zsh
 
-# Load sh config
-. "$XDG_CONFIG_HOME/sh/rc"
+local HERE="$(dirname "${(%):-%N}")"
+local CORE="$HERE/rc"
 
-# Load utility functions
+# Load shared components
+. "$HERE/shared.zsh"
+
+# Load zinit
+declare -A ZINIT
+ZINIT_HOME="$ZSH_DATA/zinit"
+ZINIT[HOME_DIR]="$ZINIT_HOME"
+ZINIT[BIN_DIR]="$ZINIT_HOME/bin"
+ZINIT[ZCOMPDUMP_PATH]="$ZSH_CACHE/zcompdump-$ZSH_VERSION"
+if [[ ! -f "$ZINIT_HOME/bin/zinit.zsh" ]]; then
+  command mkdir -p "$ZINIT_HOME"
+  command git clone "https://github.com/zdharma/zinit" "$ZINIT_HOME/bin"
+  zcompile "$ZINIT_HOME/bin/zinit.zsh"
+fi
+source "$ZINIT_HOME/bin/zinit.zsh"
+
+# Load core components
+. "$CORE/opts.zsh"
+. "$CORE/completion.zsh"
+. "$CORE/navigation.zsh"
+. "$CORE/misc.zsh"
+. "$CORE/keybindings.zsh"
+. "$CORE/macros.zsh"
+. "$CORE/theme.zsh"
+
+# Load manual plugins
 . "$XDG_CONFIG_HOME/sh/util"
-
-# Load zsh package envs
 shload "env.zsh" "$XDG_CONFIG_HOME/zsh"
 shload "rc.zsh" "$XDG_CONFIG_HOME/zsh"
-
-# Unload utility functions
 unsetutil
-
-# Traverse up the filesystem n times
-up() {
-  LIMIT=$1
-  LIMIT=${LIMIT:-1}
-  P=$PWD
-  for ((i = 1; i <= LIMIT; i++)); do
-    P=$P/..
-  done
-  cd $P
-}

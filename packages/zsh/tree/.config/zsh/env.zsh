@@ -1,13 +1,12 @@
 #!/bin/zsh
 
-# Load sh config
-. "$HOME/.config/sh/env"
+local HERE="$(dirname "${(%):-%N}")"
+local CORE="$HERE/core"
 
-# Load utility functions
+# Load shared components
+. "$HERE/shared.zsh"
+
+# Load manual plugins
 . "$XDG_CONFIG_HOME/sh/util"
-
-# Load zsh package envs
 shload "env.zsh" "$XDG_CONFIG_HOME/zsh"
-
-# Unload utility functions
 unsetutil
