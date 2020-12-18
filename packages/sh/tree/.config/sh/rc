@@ -4,8 +4,6 @@
 . "$XDG_CONFIG_HOME/sh/util"
 
 # General shortcuts
-alias ls="ls -a --color"
-alias la="ls -al --color"
 alias x="exit"
 
 # Naive words per minute calculator
