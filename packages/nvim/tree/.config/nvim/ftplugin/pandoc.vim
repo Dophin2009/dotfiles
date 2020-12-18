@@ -3,6 +3,15 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+"   enable spellchecking
+set spell
+let b:buffer_dir = expand('%:p:h')
+let b:local_spellfile = findfile('spellfile.en.add', b:buffer_dir)
+if !empty(b:local_spellfile)
+  let b:local_spellfile = fnamemodify(b:local_spellfile, ':p')
+  execute 'set spellfile=' . escape(b:local_spellfile, ' ')
+end
+
 ""  vim-pandoc
 let g:pandoc#modules#disabled = ['folding', 'spell']
 " let g:pandoc#filetypes#pandoc_markdown = 0
