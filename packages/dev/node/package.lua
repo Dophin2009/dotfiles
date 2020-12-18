@@ -1,6 +1,6 @@
 require('lib')
 
-pkg.name = 'npm'
+pkg.name = 'node'
 pkg.dependencies:extend('../../sh')
 
 -- Load local file if exists
