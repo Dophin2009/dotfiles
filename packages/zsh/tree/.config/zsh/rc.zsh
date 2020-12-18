@@ -6,6 +6,9 @@ local CORE="$HERE/rc"
 # Load shared components
 . "$HERE/shared.zsh"
 
+# Load sh rc
+. "$XDG_CONFIG_HOME/sh/rc"
+
 # Load zinit
 declare -A ZINIT
 ZINIT_HOME="$ZSH_DATA/zinit"
