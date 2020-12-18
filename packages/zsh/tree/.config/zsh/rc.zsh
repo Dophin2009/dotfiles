@@ -20,13 +20,13 @@ fi
 source "$ZINIT_HOME/bin/zinit.zsh"
 
 # Load core components
+. "$CORE/theme.zsh"
 . "$CORE/opts.zsh"
 . "$CORE/completion.zsh"
 . "$CORE/navigation.zsh"
 . "$CORE/misc.zsh"
 . "$CORE/keybindings.zsh"
 . "$CORE/macros.zsh"
-. "$CORE/theme.zsh"
 
 # Load manual plugins
 . "$XDG_CONFIG_HOME/sh/util"
