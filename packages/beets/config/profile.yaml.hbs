@@ -14,5 +14,5 @@ smartplaylist:
   playlists:
     - name: "_all.m3u"
       query: "^usertags:disabled"
-    - name: "_%lower{$genre}.m3u"
+    - name: "_%dashify{%lower{%asciify{$genre}}}.m3u"
       query: "^usertags:disabled"
