@@ -1,0 +1,29 @@
+if exists("b:current_syntax")
+  finish
+endif
+
+" Comments start with #
+syn match ncmpcppComment '#.*$'
+
+" Special macro actions
+syn match ncmpcppArg '\".\{-}\"'
+syn keyword ncmpcppSpecialAction push_character push_characters require_runnable nextgroup=ncmpcppArg skipwhite
+
+" Regular actions
+syn keyword ncmpcppAction mouse_event scroll_up select_item scroll_up scroll_down select_item scroll_down scroll_up_album scroll_down_album scroll_up_artist scroll_down_artist page_up page_down move_home move_end select_item enter_directory toggle_output run_action play_item add_item_to_playlist toggle_lyrics_update_on_song_change toggle_visualization_type delete_playlist_items delete_browser_items delete_stored_playlist next_column slave_screen volume_up volume_up previous_column master_screen volume_down volume_down execute_command next_screen previous_screen show_help show_playlist show_browser change_browse_mode show_search_engine reset_search_engine show_media_library toggle_media_library_columns_mode show_playlist_editor show_tag_editor show_outputs show_visualizer show_clock show_server_info stop pause next previous jump_to_parent_directory replay_song jump_to_parent_directory replay_song seek_forward seek_backward toggle_repeat toggle_random save_tag_changes start_searching toggle_single toggle_consume toggle_replay_gain_mode toggle_add_mode toggle_mouse toggle_bitrate_visibility shuffle toggle_crossfade set_crossfade update_database sort_playlist toggle_browser_sort_mode toggle_media_library_sort_mode reverse_playlist apply_filter select_found_items find find_item_forward find find_item_backward next_found_item previous_found_item toggle_find_mode edit_song edit_library_tag edit_library_album edit_directory_name edit_playlist_name edit_lyrics show_song_info show_artist_info jump_to_position_in_song show_lyrics select_range reverse_selection remove_selection select_album add_selected_items clear_playlist clear_main_playlist crop_playlist crop_main_playlist move_sort_order_up move_selected_items_up move_sort_order_down move_selected_items_down move_selected_items_to add save_playlist jump_to_playing_song jump_to_browser jump_to_playlist_editor jump_to_media_library jump_to_tag_editor toggle_playing_song_centering toggle_display_mode toggle_interface toggle_separators_between_albums toggle_lyrics_fetcher fetch_lyrics_in_background toggle_fetching_lyrics_in_background toggle_screen_lock toggle_library_tag_type refetch_lyrics add_random_items set_selected_items_priority quit dummy
+
+" Key/command definitions
+syn match ncmpcppKey '\".\{-}\"' nextgroup=ncmpcppAction,ncmpcppSpecialAction skipwhite
+syn keyword ncmpcppDefCmd def_key def_command nextgroup=ncmpcppKey skipwhite
+
+" Alias to highlight groups
+let b:current_syntax = "ncmpcpp_bindings"
+hi def link ncmpcppComment Comment
+
+hi def link ncmpcppArg String
+hi def link ncmpcppSpecialAction PreProc
+
+hi def link ncmpcppAction Function
+
+hi def link ncmpcppKey Constant
+hi def link ncmpcppDefCmd Statement

@@ -69,3 +69,5 @@ def_key "."
   dummy
 def_key ","
   dummy
+
+# vim:ft=ncmpcpp_bindings
