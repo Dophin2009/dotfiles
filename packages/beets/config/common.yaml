@@ -32,6 +32,7 @@ sort_item: album+ disc+ track+
 sort_album: album+
 
 plugins:
+  - alternatives
   - edit
   - fetchart
   - info
