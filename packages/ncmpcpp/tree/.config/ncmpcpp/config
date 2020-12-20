@@ -20,11 +20,11 @@ playlist_display_mode = classic
 # colors
 state_line_color = black
 progressbar_color = white
-progressbar_elapsed_color = magenta
+progressbar_elapsed_color = cyan
 
 # playlist view
 song_window_title_format = {%t}|{%f} - {%b}
-song_list_format = "{$3[%l]$9} {$6%65t$9} %y $R {$5%65b$9} | %10g"
+song_list_format = "{$3[%l]$9} {$6%65t$9} $R {$5%65b$9} | %10g"
 
 current_item_prefix = "$b$8>>$9$/b "
 current_item_suffix = " $b$8<<$9$/b"
