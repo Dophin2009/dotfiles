@@ -10,9 +10,9 @@ aunique:
   bracket: "[]"
 
 paths:
-  default: '%lower{%dashify{%asciify{%romanize{$album}}}}/%lower{$track-%dashify{%asciify{%romanize{$title}}}}'
-  singleton: '%lower{%dashify{%asciify{%romanize{$album}}}}/%lower{$track-%dashify{%asciify{%romanize{$title}}}}'
-  comp: '%lower{%dashify{%asciify{%romanize{$album}}}}/%lower{$track-%dashify{%asciify{%romanize{$title}}}}'
+  default: '%lower{%dashify{%asciify{%hepburn{$album}}}}/%lower{$track-%dashify{%asciify{%hepburn{$title}}}}'
+  singleton: '%lower{%dashify{%asciify{%hepburn{$album}}}}/%lower{$track-%dashify{%asciify{%hepburn{$title}}}}'
+  comp: '%lower{%dashify{%asciify{%hepburn{$album}}}}/%lower{$track-%dashify{%asciify{%hepburn{$title}}}}'
 
 replace:
   '[\\/]': '-'
