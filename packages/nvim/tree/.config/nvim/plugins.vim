@@ -12,10 +12,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 """ fzf
 Plug 'junegunn/fzf.vim'
 Plug 'ojroques/nvim-lspfuzzy'
-""" ranger
-" Plug 'rafaqz/ranger.vim'
-""" vifm
-" Plug 'vifm/vifm.vim'
 """ NERDTree
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -44,6 +40,9 @@ Plug 'airblade/vim-gitgutter'
 
 """ barbar tabline
 Plug 'romgrk/barbar.nvim'
+
+""" fterm
+Plug 'numtostr/FTerm.nvim'
 
 
 """
