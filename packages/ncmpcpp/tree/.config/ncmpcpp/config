@@ -29,8 +29,11 @@ song_list_format = "{$3[%l]$9} {$6%65t$9} $R {$5%65b$9} | %10g"
 current_item_prefix = "$b$8>>$9$/b "
 current_item_suffix = " $b$8<<$9$/b"
 
-current_item_inactive_column_prefix = "$b"
-current_item_inactive_column_suffix = "$/b"
+now_playing_prefix = "$b$8::$9 "
+now_playing_suffix = " $8::$9$/b"
+
+current_item_inactive_column_prefix = ":: $b"
+current_item_inactive_column_suffix = "$/b ::"
 
 # library view
 media_library_primary_tag = genre
@@ -41,7 +44,6 @@ progressbar_look = "→→"
 # visualization
 visualizer_fifo_path = "/tmp/mpd.fifo"
 visualizer_output_name = "my_fifo"
-visualizer_sync_interval = "30"
 visualizer_in_stereo = "yes"
 visualizer_type = "spectrum"
 visualizer_look = "+|"
