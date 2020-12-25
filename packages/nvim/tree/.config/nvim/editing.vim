@@ -3,7 +3,7 @@
 """
 
 """ treesitter
-" lua require('treesitter')
+lua require('treesitter')
 
 """
 """ CODE COMPLETION

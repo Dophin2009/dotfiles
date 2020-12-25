@@ -60,7 +60,7 @@ Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 
 """ treesitter
-" Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 """ delimitMate (autoclose parentheses, etc.)
 Plug 'Raimondi/delimitMate'

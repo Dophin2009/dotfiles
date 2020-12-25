@@ -4,7 +4,7 @@ local colorizer = require('colorizer')
 if not (treesitter == nil) then
     treesitter.setup {
         ensure_installed = 'maintained',
-        highlight = {enable = true, disable = {'rust', 'zsh'}}
+        highlight = {enable = true, disable = {'rust', 'python', 'zsh'}}
     }
 end
 
