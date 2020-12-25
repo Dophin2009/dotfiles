@@ -1,6 +1,9 @@
 [core]
   pager = delta
 
+[alias]
+  pushall = !git remote | xargs -1 git push --all
+
 [interactive]
   diffFilter = delta --color-only
 [delta]
