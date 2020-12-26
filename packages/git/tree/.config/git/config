@@ -2,6 +2,7 @@
   pager = delta
 
 [alias]
+  wdiff = diff --word-diff
   pushall = !git remote | xargs -1 git push --all
 
 [interactive]
