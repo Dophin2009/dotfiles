@@ -1,15 +1,15 @@
 "   tab size
-set tabstop=4
-set shiftwidth=4
-set expandtab
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal expandtab
 
 "   enable spellchecking
-set spell
+setlocal spell
 let b:buffer_dir = expand('%:p:h')
 let b:local_spellfile = findfile('spellfile.en.add', b:buffer_dir)
 if !empty(b:local_spellfile)
   let b:local_spellfile = fnamemodify(b:local_spellfile, ':p')
-  execute 'set spellfile=' . escape(b:local_spellfile, ' ')
+  execute 'setlocal spellfile=' . escape(b:local_spellfile, ' ')
 end
 
 ""  vim-pandoc

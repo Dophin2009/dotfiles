@@ -1,5 +1,3 @@
-let g:nvim_data = $XDG_DATA_HOME . '/nvim'
-
 "   begin plugin check/installation
 call plug#begin(nvim_data . '/plugged')
 
@@ -18,7 +16,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 """ dev icons
 Plug 'ryanoasis/vim-devicons'
 """ minimap
-Plug 'wfxr/minimap.vim'
+" Plug 'wfxr/minimap.vim'
 
 
 """
@@ -26,7 +24,7 @@ Plug 'wfxr/minimap.vim'
 """
 
 """ tagbar
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 
 """ lsp-status
 Plug 'nvim-lua/lsp-status.nvim'
@@ -41,26 +39,23 @@ Plug 'airblade/vim-gitgutter'
 """ barbar tabline
 Plug 'romgrk/barbar.nvim'
 
-""" fterm
-Plug 'numtostr/FTerm.nvim'
-
 
 """
 """ LINTING / COMPLETION
 """
 
 """ nvim-lsp
-Plug 'neovim/nvim-lsp'
+Plug 'mjlbach/nvim-lspconfig', { 'branch': 'fix_rust-analyzer_nightly' }
 """ nvim-lsp extensions
 Plug 'nvim-lua/lsp_extensions.nvim'
 """ completion-nvim
 Plug 'nvim-lua/completion-nvim'
 """ nvim-lsputils
-Plug 'RishabhRD/popfix'
-Plug 'RishabhRD/nvim-lsputils'
+" Plug 'RishabhRD/popfix'
+" Plug 'RishabhRD/nvim-lsputils'
 
 """ treesitter
-Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/nvim-treesitter'
 
 """ delimitMate (autoclose parentheses, etc.)
 Plug 'Raimondi/delimitMate'
@@ -126,7 +121,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 """ thesaurus
 Plug 'ron89/thesaurus_query.vim'
 """ fugitive
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 """
 """ THEME

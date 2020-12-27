@@ -1,14 +1,16 @@
-local treesitter = require('nvim-treesitter.configs')
-local colorizer = require('colorizer')
+local U = require('util')
 
-if not (treesitter == nil) then
+local treesitter = U.require('nvim-treesitter.configs')
+local colorizer = U.require('colorizer')
+
+if treesitter ~= nil then
     treesitter.setup {
         ensure_installed = 'maintained',
-        highlight = {enable = true, disable = {'rust', 'python', 'zsh'}}
+        highlight = {enable = false, disable = {'rust', 'python', 'zsh'}}
     }
 end
 
-if not (colorizer == nil) then
+if colorizer ~= nil then
     colorizer.setup {
         '*',
         css = {rgb_fn = true},

@@ -35,9 +35,6 @@ nnoremap <silent> t9 :BufferLast<CR>
 "   close buffer
 nnoremap <silent> tc :BufferClose<CR>
 
-""" fterm
-nnoremap <silent> <C-i> <cmd>lua require"FTerm".toggle()<CR>
-
 """ nvim-lsp
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gs <cmd>lua vim.lsp.buf.signature_help()<CR>

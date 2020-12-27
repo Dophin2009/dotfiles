@@ -1,19 +1,19 @@
 #!/usr/bin/bash
 _echo() {
-  echo "-- $@"
+	echo "-- $@"
 }
 
 checkcmd() {
-  local arr=("$@")
-  for cmd in "${arr[@]}"; do
-    _echo "Checking for command $cmd..."
-    command -v "$cmd" >/dev/null 2>&1 || return 1
-  done
+	local arr=("$@")
+	for cmd in "${arr[@]}"; do
+		_echo "Checking for command $cmd..."
+		command -v "$cmd" >/dev/null 2>&1 || return 1
+	done
 }
 
 exit1() {
-  _echo "Exiting..."
-  exit 1
+	_echo "Exiting..."
+	exit 1
 }
 
 # Check that required commands exist
@@ -22,34 +22,29 @@ checkcmd "${cmds[@]}" || exit1
 
 # Install nodejs support
 if ! checkcmd neovim-node-host; then
-  _echo "Installing neovim package with yarn..."
-  yarn global add neovim --silent
-  if ! checkcmd neovim-node-host; then
-    _echo "Consider adding the global yarn bin $(yarn global bin) to PATH..."
-  fi
+	_echo "Installing neovim package with yarn..."
+	yarn global add neovim --silent
+	if ! checkcmd neovim-node-host; then
+		_echo "Consider adding the global yarn bin $(yarn global bin) to PATH..."
+	fi
 fi
 
 # Install python support
 _echo "Installing pynvim package with pip3..."
 if ! (pip3 list | grep -F pynvim >/dev/null); then
-  pip3 install --user pynvim
+	pip3 install --user pynvim
 fi
 
 # Install vim-plug
 plugvim="$XDG_DATA_HOME/nvim/site/autoload/plug.vim"
 if [ ! -f "$plugvim" ]; then
-  curl -fLo "$plugvim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	curl -fLo "$plugvim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 # Call init script
 _echo "Sourcing nvim init.vim..."
-mv "$XDG_CONFIG_HOME/nvim/init.vim" "$XDG_CONFIG_HOME/nvim/init_.vim"
-nvim "+source $XDG_CONFIG_HOME/nvim/plugins.vim" +PlugInstall +qall
-mv "$XDG_CONFIG_HOME/nvim/init_.vim" "$XDG_CONFIG_HOME/nvim/init.vim"
-
-if checkcmd go; then
-  _echo "Install Go binaries..."
-  nvim +GoInstallBinaries +qall
-fi
+# mv "$XDG_CONFIG_HOME/nvim/init.vim" "$XDG_CONFIG_HOME/nvim/init_.vim"
+nvim "+source $XDG_CONFIG_HOME/nvim/init.vim" +PlugInstall +qall
+# mv "$XDG_CONFIG_HOME/nvim/init_.vim" "$XDG_CONFIG_HOME/nvim/init.vim"
 
 _echo "Finished bootstrapping neovim."
