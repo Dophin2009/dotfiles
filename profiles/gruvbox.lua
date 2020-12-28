@@ -1,3 +1,5 @@
+local M = {}
+
 local font = 'JetBrains Mono Nerd Font'
 
 local colors = {
@@ -28,11 +30,11 @@ local colors = {
     }
 }
 
-local alacritty = {font = font, colors = colors, font_size = 10}
+M.alacritty = {font = font, colors = colors, font_size = 10}
 
-local bat = {theme = 'gruvbox'}
+M.bat = {theme = 'gruvbox'}
 
-local dunst = {
+M.dunst = {
     font = {family = font, size = 9},
     colors = {
         low = {foreground = colors.primary.foreground, background = '#32302f'},
@@ -47,13 +49,15 @@ local dunst = {
     }
 }
 
-local fzf = {name = 'gruvbox'}
+M.fzf = {name = 'gruvbox'}
 
-local gtk = {theme = 'gruvbox-gtk'}
+M.git = {delta = {theme = 'gruvbox'}}
 
-local hangups = {theme = 'solarized-dark'}
+M.gtk = {theme = 'gruvbox-gtk'}
 
-local i3 = {
+M.hangups = {theme = 'solarized-dark'}
+
+M.i3 = {
     font = {family = font, size = 10},
     colors = {
         foc = {
@@ -95,9 +99,9 @@ local i3 = {
     gaps = {inner = 0, outer = 0}
 }
 
-local nvim = {theme = 'gruvbox-dark'}
+M.nvim = {theme = 'gruvbox-dark'}
 
-local polybar = {
+M.polybar = {
     font = font,
     colors = {
         black = colors.normal.black,
@@ -118,13 +122,13 @@ local polybar = {
     }
 }
 
-local qutebrowser = {theme = 'gruvbox-dark-medium'}
+M.qutebrowser = {theme = 'gruvbox-dark-medium'}
 
-local rofi = {font = font, theme = 'gruvbox-dark-hard'}
+M.rofi = {font = font, theme = 'gruvbox-dark-hard'}
 
-local task = {theme = 'dark-256'}
+M.task = {theme = 'dark-256'}
 
-local termite = {
+M.termite = {
     font = {family = font, size = 9},
     colors = {
         background = colors.primary.background,
@@ -149,9 +153,9 @@ local termite = {
     }
 }
 
-local tmux = {theme = 'gruvbox'}
+M.tmux = {theme = 'gruvbox'}
 
-local x11 = {
+M.x11 = {
     colors = {
         background = colors.primary.background,
         foreground = colors.primary.foreground,
@@ -174,24 +178,6 @@ local x11 = {
     }
 }
 
-local wallpaper = {name = 'gruvbox'}
+M.wallpaper = {name = 'gruvbox'}
 
-return {
-    alacritty = alacritty,
-    bat = bat,
-    dunst = dunst,
-    fzf = fzf,
-    gtk = gtk,
-    hangups = hangups,
-    i3 = i3,
-    nvim = nvim,
-    qutebrowser = qutebrowser,
-    polybar = polybar,
-    rofi = rofi,
-    task = task,
-    termite = termite,
-    tmux = tmux,
-    wallpaper = wallpaper,
-    x11 = x11
-}
-
+return M

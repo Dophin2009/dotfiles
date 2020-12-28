@@ -7,11 +7,6 @@
 
 [interactive]
   diffFilter = delta --color-only
-[delta]
-  side-by-side = true
-  line-numbers-left-format = ""
-  line-numbers-right-format = "│ "
-  syntax-theme = base16
 
 [push]
   followTags = true
@@ -20,6 +15,9 @@
 
 [credential]
   helper = cache --timeout=3600
+
+[include]
+  path = config.delta
 
 [include]
   path = config.local
