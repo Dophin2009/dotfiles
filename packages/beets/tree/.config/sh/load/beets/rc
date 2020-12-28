@@ -3,3 +3,7 @@
 alias beetup="beet update && beet splupdate"
 # remove track(s) from beets database and file system
 alias beetrmd="beet rm -d"
+# edit track by path
+beetedit() {
+	beet edit path:$1
+}
