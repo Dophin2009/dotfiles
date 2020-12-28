@@ -82,8 +82,8 @@ if lspconfig ~= nil and completion ~= nil and lsp_status ~= nil then
     lspconfig.sumneko_lua.setup {
         cmd = {'lua-language-server'},
         on_attach = on_attach,
-        capabilities = capabilities
-        -- settings = {Lua = {diagnostics = {enable = false}}}
+        capabilities = capabilities,
+        settings = {Lua = {diagnostics = {enable = false}}}
     }
 
     -- r language server
