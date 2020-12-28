@@ -69,6 +69,9 @@ Plug 'galooshi/vim-import-js', { 'for': 'javascript' }
 """ traces
 Plug 'markonm/traces.vim'
 
+""" ditto
+Plug 'dbmrq/vim-ditto'
+
 
 """
 """ FORMATTING

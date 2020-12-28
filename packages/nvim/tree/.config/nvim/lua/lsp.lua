@@ -135,7 +135,7 @@ if lspconfig ~= nil and completion ~= nil and lsp_status ~= nil then
     local shellcheck = require('lsp/efm/shellcheck')
     local shfmt = require('lsp/efm/shfmt')
     local stylelint = require('lsp/efm/stylelint')
-    -- local yamllint = require('lsp/efm/yamllint')
+    local yamllint = require('lsp/efm/yamllint')
     local vint = require('lsp/efm/vint')
     lspconfig.efm.setup {
         on_attach = on_attach,
@@ -162,7 +162,7 @@ if lspconfig ~= nil and completion ~= nil and lsp_status ~= nil then
                 typescript = {eslint, prettier},
                 typescriptreact = {eslint, prettier},
                 vim = {vint},
-                -- yaml = {yamllint},
+                yaml = {yamllint},
                 zsh = {shellcheck, shfmt}
             }
         }
