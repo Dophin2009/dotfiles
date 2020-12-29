@@ -1,7 +1,7 @@
 require('lib')
 local lfs = require('lfs')
 
-pkg.name = 'zsh'
+pkg.name = 'zshrc'
 pkg.dependencies:extend('..')
 
 -- Load local file if it exists

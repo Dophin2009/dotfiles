@@ -55,9 +55,6 @@ bindsym $mod+m exec mpdnd --now
 # battery
 bindsym $mod+b exec notify-battery -f
 
-# screenshot
-bindsym $mod+i exec fscreenshot
-
 ######### MOVEMENT #########
 # change focus
 bindsym $mod+$left focus left

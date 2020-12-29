@@ -22,6 +22,11 @@ aug ftdetectproselint
   au! BufNewFile,BufRead ~/.config/proselint/config set filetype=json
 aug end
 
+" detect swc configuration
+aug ftdetectswcrc
+  au! BufNewFile,BufRead .swcrc set filetype=json
+aug end
+
 " detect i3 configuration file
 aug ftdetecti3config
   au! BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
