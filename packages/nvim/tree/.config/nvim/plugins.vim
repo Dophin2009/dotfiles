@@ -2,7 +2,7 @@
 call plug#begin(nvim_data . '/plugged')
 
 """ startuptime
-" Plug 'tweekmonster/startuptime.vim'
+Plug 'tweekmonster/startuptime.vim'
 
 """
 """ NAVIGATION
@@ -35,9 +35,13 @@ Plug 'nvim-lua/lsp-status.nvim'
 """ airline
 Plug 'vim-airline/vim-airline'
 "   airline themes
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
+
 """ gitgutter
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
+""" gitsigns
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 """ barbar tabline
 Plug 'romgrk/barbar.nvim'
@@ -128,8 +132,6 @@ Plug 'junegunn/vader.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 """ thesaurus
 Plug 'ron89/thesaurus_query.vim'
-""" fugitive
-" Plug 'tpope/vim-fugitive'
 
 """
 """ THEME
@@ -141,9 +143,6 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'arcticicestudio/nord-vim'
 "   iceberg
 Plug 'cocopon/iceberg.vim'
-" Plug 'gkeep/iceberg-dark'
-"   terminal colors
-" Plug 'dylanaraps/wal.vim'
 
 "   end plugin check/installation
 call plug#end()
