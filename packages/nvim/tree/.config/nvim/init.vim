@@ -7,7 +7,7 @@ let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
 """ vim-polyglot disables
-let g:polyglot_disabled = ['asciidoc', 'pgsql']
+" let g:polyglot_disabled = ['asciidoc', 'pgsql']
 
 """ vimtex inital config
 let g:vimtex_enabled = 1

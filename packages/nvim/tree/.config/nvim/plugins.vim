@@ -1,6 +1,9 @@
 "   begin plugin check/installation
 call plug#begin(nvim_data . '/plugged')
 
+""" startuptime
+" Plug 'tweekmonster/startuptime.vim'
+
 """
 """ NAVIGATION
 """
@@ -89,7 +92,7 @@ Plug 'godlygeek/tabular'
 """
 
 """ polyglot (covers most languages)
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 """ asciidoc
 Plug 'habamax/vim-asciidoctor', { 'for': 'asciidoc' }
 """ csv
@@ -104,6 +107,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/elinks.vim'
 """ jsonc
 Plug 'kevinoid/vim-jsonc', { 'for': 'jsonc' }
+""" lua
+Plug 'tbastos/vim-lua', { 'for': 'lua' }
 """ pandoc
 Plug 'vim-pandoc/vim-pandoc', { 'for': ['pandoc', 'rmarkdown'] }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['pandoc', 'rmarkdown'] }
