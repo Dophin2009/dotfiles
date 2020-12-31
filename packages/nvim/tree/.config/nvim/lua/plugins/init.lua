@@ -190,6 +190,7 @@ end)
 
 require 'plugins/netrw'
 
+require 'plugins/asciidoctor'
 require 'plugins/airline'
 require 'plugins/barbar'
 require 'plugins/closetag'
