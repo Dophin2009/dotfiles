@@ -14,8 +14,6 @@ require 'global'
 
 -- Load plugins
 require 'plugins'
--- Load lsp configuration
-require 'lsp'
 
 -- Load keybindings
 require 'bindings'

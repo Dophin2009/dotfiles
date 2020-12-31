@@ -89,13 +89,25 @@ packer.startup(function()
     --
 
     -- Predefined language server configurations
-    use {'mjlbach/nvim-lspconfig', branch = 'fix_rust-analyzer_nightly'}
-
-    -- More code actions, inlay hints, etc.
-    use {'nvim-lua/lsp_extensions.nvim'}
+    use {
+        'mjlbach/nvim-lspconfig',
+        branch = 'fix_rust-analyzer_nightly',
+        after = {'completion-nvim', 'lsp-status.nvim'},
+        config = function() require 'lsp/servers' end
+    }
 
     -- Completion integration
-    use {'nvim-lua/completion-nvim'}
+    use {'nvim-lua/completion-nvim', config = function() require 'lsp/completion' end}
+
+    -- Status line integration for diagnostics
+    use {'nvim-lua/lsp-status.nvim'}
+
+    -- More code actions, inlay hints, etc.
+    use {
+        'nvim-lua/lsp_extensions.nvim',
+        ft = {'rust'},
+        config = function() require 'plugins/lsp_extensions' end
+    }
 
     -- Utilities
     -- use {'RishabhRD/nvim-lsputils', requires = {{'RishabhRD/popfix'}}}
@@ -105,9 +117,6 @@ packer.startup(function()
     -- 'nvim-treesitter/nvim-treesitter',
     -- config = function() require 'plugins/treesitter' end
     -- }
-
-    -- Status line integration for diagnostics
-    use {'nvim-lua/lsp-status.nvim'}
 
     -- FZF integration
     -- use {

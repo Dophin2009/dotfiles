@@ -1,5 +1,3 @@
-" inlay hints
-autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText" }
 " tagbar
 let g:tagbar_type_rust = {
   \ 'ctagsbin' : 'ctags',
