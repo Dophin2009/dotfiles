@@ -2,32 +2,36 @@ local U = require('util')
 
 local lspconfig = U.require('lspconfig')
 local completion = U.require('completion')
-local lsp_status = U.require('lsp-status')
-local lspfuzzy = U.require('lspfuzzy')
-
--- fzf selection for LSP actions
-if lspfuzzy ~= nil then lspfuzzy.setup {fzf_modifier = ':~:.', fzf_trim = true} end
-
--- vimtex completion source
-if completion ~= nil then
-    local vimtex = require('lsp/vimtex')
-    completion.addCompletionSource('vimtex', vimtex.complete_item)
-end
 
 -- setup lsp servers
-if lspconfig ~= nil and completion ~= nil and lsp_status ~= nil then
+if lspconfig ~= nil and completion ~= nil then
+    local configs = require('lspconfig/configs')
+    -- dhall language server
+    configs.dhall_lsp = {
+        default_config = {
+            cmd = {'dhall-lsp-server'},
+            filetypes = {'dhall'},
+            root_dir = function(fname)
+                return lspconfig.util.find_git_ancestor(fname) or
+                           vim.loop.os_homedir()
+            end,
+            settings = {}
+        }
+    }
+
     -- override handlers
     local handlers = require('lsp/handlers')
     local on_attach = handlers.on_attach
     local capabilities = handlers.capabilities
 
-    -- extra language server configuations
-    require('lsp/extra')
-
     -- bash language server
     lspconfig.bashls.setup {on_attach = on_attach, capabilities = capabilities}
 
     -- clangd
+    local lsp_status = U.require('lsp-status')
+    local clangd_handlers =
+        lsp_status and lsp_status.extensions.clangd.setup() or nil
+
     lspconfig.clangd.setup {
         handlers = lsp_status.extensions.clangd.setup(),
         init_options = {clangdFileStatus = true},

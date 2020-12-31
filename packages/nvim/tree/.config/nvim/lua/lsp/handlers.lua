@@ -15,6 +15,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] =
         signs = true,
         update_in_insert = true
     })
+
 -- async formatting handle
 vim.lsp.handlers["textDocument/formatting"] =
     function(err, _, result, _, bufnr)
