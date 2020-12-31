@@ -25,8 +25,6 @@ o.updatetime = 800
 -- Always 10 lines below cursor
 o.scrolloff = 10
 
--- Enable hlsearch
-o.hlsearch = true
 -- Ignore case in search
 o.ignorecase = true
 -- Unless search with uppercase

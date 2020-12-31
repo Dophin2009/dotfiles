@@ -23,8 +23,32 @@ packer.startup(function()
     -- NAVIGATION
     --
 
-    -- tmux compatbility
-    use {'tmux-plugins/vim-tmux-focus-events'}
+    -- FZF integration
+    -- use {'junegunn/fzf.vim', config = function() require 'plugins/fzf' end}
+
+    -- Fuzzy picker, more functionality than fzf
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        config = function() require 'plugins/telescope' end
+    }
+
+    -- Compiled style sorter for telescope.nvim
+    use {
+        'nvim-telescope/telescope-fzy-native.nvim',
+        after = {'telescope.nvim'},
+        config = function() require 'plugins/telescope-fzy-native' end
+    }
+
+    -- Packer.nvim integration with telescope
+    use {
+        'nvim-telescope/telescope-packer.nvim',
+        after = {'telescope.nvim'},
+        config = function() require 'plugins/telescope-packer' end
+    }
+
+    -- Sane buffer tabline
+    use {'romgrk/barbar.nvim', setup = function() require 'plugins/barbar' end}
 
     -- Project drawer
     -- use {
@@ -33,17 +57,14 @@ packer.startup(function()
     -- config = function() require 'plugins/nerdtree' end
     -- }
 
-    -- FZF integration
-    use {'junegunn/fzf.vim', config = function() require 'plugins/fzf' end}
-
-    -- Sane buffer tabline
-    use {'romgrk/barbar.nvim', setup = function() require 'plugins/barbar' end}
-
     -- Minimap of code
     -- use {'wfxr/minimap.vim', config = function() require 'plugins/minimap' end}
 
     -- ctags integration
     -- use {'mjutsushi/tagbar', config = function() require 'plugins/tagbar' end}
+
+    -- tmux compatbility
+    use {'tmux-plugins/vim-tmux-focus-events'}
 
     --
     -- STATUSLINE
@@ -89,11 +110,11 @@ packer.startup(function()
     use {'nvim-lua/lsp-status.nvim'}
 
     -- FZF integration
-    use {
-        'ojroques/nvim-lspfuzzy',
-        requires = {{'junegunn/fzf.vim'}},
-        config = function() require 'plugins/lspfuzzy' end
-    }
+    -- use {
+    -- 'ojroques/nvim-lspfuzzy',
+    -- requires = {{'junegunn/fzf.vim'}},
+    -- config = function() require 'plugins/lspfuzzy' end
+    -- }
 
     --
     -- EDITING
