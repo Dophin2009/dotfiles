@@ -15,15 +15,18 @@ paths:
   comp: '%lower{%dashify{%asciify{%hepburn{$album}}}}/%lower{$track-%dashify{%asciify{%hepburn{$title}}}}'
 
 replace:
-  '[\\/]': '-'
+  '[\\/・]': '-'
   '^\.': '-'
   '[\x00-\x1f]': '-'
-  '[<>:"\?\*\|]': '-'
+  '[<>:"\?\*\|#&]': '-'
   '\.$': ''
   '\s+$': ''
   '^\s+': ''
   '^-': ''
   '-$': ''
+  '[,\(\)''"]': ''
+  '(\.)+': '.'
+  '(-)+': '-'
 
 format_item: $album - $title
 format_album: $album ($year)
@@ -36,6 +39,7 @@ plugins:
   - edit
   - fetchart
   - info
+  - inline
   - mpdupdate
   - playlistc
   - romanize
