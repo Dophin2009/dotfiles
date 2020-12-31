@@ -89,7 +89,11 @@ packer.startup(function()
     use {'nvim-lua/lsp-status.nvim'}
 
     -- FZF integration
-    use {'ojroques/nvim-lspfuzzy', requires = {{'junegunn/fzf.vim'}}}
+    use {
+        'ojroques/nvim-lspfuzzy',
+        requires = {{'junegunn/fzf.vim'}},
+        config = function() require 'plugins/lspfuzzy' end
+    }
 
     --
     -- EDITING
@@ -162,7 +166,8 @@ packer.startup(function()
     use {'kevinoid/vim-jsonc', ft = {'jsonc'}}
 
     -- Better lua highlighting
-    use {'tbastos/vim-lua', ft = {'lua'}}
+    -- use {'tbastos/vim-lua', ft = {'lua'}}
+    use {'euclidianAce/BetterLua.vim', ft = {'lua'}}
 
     -- Pandoc support
     use {

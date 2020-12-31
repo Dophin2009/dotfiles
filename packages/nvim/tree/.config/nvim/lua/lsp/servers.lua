@@ -1,10 +1,9 @@
 local U = require('util')
 
 local lspconfig = U.require('lspconfig')
-local completion = U.require('completion')
 
 -- setup lsp servers
-if lspconfig ~= nil and completion ~= nil then
+if lspconfig ~= nil then
     local configs = require('lspconfig/configs')
     -- dhall language server
     configs.dhall_lsp = {

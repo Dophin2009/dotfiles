@@ -1,12 +1,20 @@
 local g, o, wo, bo = vim.g, vim.o, vim.wo, vim.bo
 local cmd, fn = vim.cmd, vim.fn
 
+-- Python paths
 g.python_host_prog = '/usr/bin/python2'
 g.python3_host_prog = '/usr/bin/python3'
 
 --
 -- Editor Defaults
 --
+
+-- Enable syntax and indent
+cmd [[syntax on]]
+cmd [[filetype plugin indent on]]
+
+-- Map leader
+g.mapleader = '\\'
 
 -- Keep buffers around
 o.hidden = true
@@ -16,19 +24,32 @@ o.shortmess = o.shortmess .. 'c'
 o.updatetime = 800
 -- Always 10 lines below cursor
 o.scrolloff = 10
+
+-- Enable hlsearch
+o.hlsearch = true
+-- Ignore case in search
+o.ignorecase = true
+-- Unless search with uppercase
+o.smartcase = true
+
 -- Show signcolumns
 wo.signcolumn = 'yes'
 -- Show line numbers
 wo.number = true
+wo.relativenumber = true
+-- Show cursorline
+wo.cursorline = true
 -- No softwrap
 wo.wrap = false
 
 -- Tabs (space tabs)
-bo.autoindent = true
-bo.tabstop = 2
-bo.shiftwidth = 2
-bo.softtabstop = 2
-bo.expandtab = true
+o.expandtab = true
+o.smarttab = true
+o.autoindent = true
+o.cindent = true
+o.tabstop = 2
+o.shiftwidth = 2
+o.softtabstop = 2
 
 -- Completion
 o.completeopt = 'menuone,noinsert,noselect'

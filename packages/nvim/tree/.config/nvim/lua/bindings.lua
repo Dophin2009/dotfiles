@@ -1,6 +1,9 @@
 local U = require('util')
 local exec = vim.api.nvim_exec
 
+-- Toggle between relative and absolute numbering
+U.nmap('<leader>=', '<cmd>set relativenumber!<CR>')
+
 -- Stop hlsearch
 U.nmap('<leader>n', '<cmd>nohlsearch<CR>')
 

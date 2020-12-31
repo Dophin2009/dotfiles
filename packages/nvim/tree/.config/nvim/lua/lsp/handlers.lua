@@ -1,7 +1,7 @@
 local U = require('util')
 
-local completion = require('completion')
-local lsp_status = require('lsp-status')
+local completion = U.require('completion')
+local lsp_status = U.require('lsp-status')
 
 -- diagnostics handle
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
@@ -36,8 +36,8 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_command [[augroup END]]
     end
 
-    completion.on_attach(client, bufnr)
-    lsp_status.on_attach(client, bufnr)
+    if completion then completion.on_attach(client, bufnr) end
+    if lsp_status then lsp_status.on_attach(client, bufnr) end
 end
 
 local capabilities = lsp_status.capabilities
