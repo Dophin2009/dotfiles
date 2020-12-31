@@ -12,12 +12,12 @@ g.python3_host_prog = '/usr/bin/python3'
 o.hidden = true
 -- Avoid hit-enter messages
 o.shortmess = o.shortmess .. 'c'
--- Show signcolumns
-wo.signcolumn = 'yes'
 -- Updatetime for CursorHold
 o.updatetime = 800
 -- Always 10 lines below cursor
 o.scrolloff = 10
+-- Show signcolumns
+wo.signcolumn = 'yes'
 -- Show line numbers
 wo.number = true
 -- No softwrap
@@ -34,7 +34,7 @@ bo.expandtab = true
 o.completeopt = 'menuone,noinsert,noselect'
 
 -- Undo
-o.undofile = true
+bo.undofile = true
 vim.api.nvim_exec([[
   let &undodir=g:nvim_cache . '/undo'
 ]], true)

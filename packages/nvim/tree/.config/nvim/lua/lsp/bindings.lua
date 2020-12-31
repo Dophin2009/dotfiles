@@ -1,20 +1,32 @@
 local U = require('util')
 local nmap = U.nmap
 
+-- Goto definition
+nmap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {silent = true})
+
 -- Goto implementation
 nmap('gD', '<cmd>lua vim.lsp.buf.implementation()<CR>', {silent = true})
 
--- Show signature help
-nmap('gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {silent = true})
-
 -- Goto type definition
 nmap('gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', {silent = true})
+
+-- Signature help
+nmap('gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {silent = true})
 
 -- Document symbol help
 nmap('g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', {silent = true})
 
 -- Workspace symbol help
-nmap('gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', {silent = true})
+nmap('g0', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', {silent = true})
+
+-- Show hover information
+nmap("gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {silent = true})
+
+-- Goto references
+nmap("gr", "<cmd>lua vim.lsp.buf.references()<CR>", {silent = true})
+
+-- Rename symbol
+nmap("gR", "<cmd>lua vim.lsp.buf.rename()<CR>", {silent = true})
 
 -- Select code action
 nmap('gC', '<cmd>lua vim.lsp.buf.code_action()<CR>', {silent = true})

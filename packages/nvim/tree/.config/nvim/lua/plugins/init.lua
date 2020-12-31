@@ -1,4 +1,8 @@
+local g = vim.g
 local cmd, fn = vim.cmd, vim.fn
+
+-- Load netrw settings
+require 'plugins/netrw'
 
 -- Load packer.nvim
 local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
@@ -23,30 +27,41 @@ packer.startup(function()
     use {'tmux-plugins/vim-tmux-focus-events'}
 
     -- Project drawer
-    -- use {'preservim/nerdtree', requires = {{'Xuyuanp/nerdtree-git-plugin'}, {'ryanoasis/vim-devicons'}}}
+    -- use {
+    -- 'preservim/nerdtree',
+    -- requires = {{'Xuyuanp/nerdtree-git-plugin'}, {'ryanoasis/vim-devicons'}},
+    -- config = function() require 'plugins/nerdtree' end
+    -- }
 
     -- FZF integration
-    use {'junegunn/fzf.vim'}
+    use {'junegunn/fzf.vim', config = function() require 'plugins/fzf' end}
 
     -- Sane buffer tabline
-    use {'romgrk/barbar.nvim'}
+    use {'romgrk/barbar.nvim', setup = function() require 'plugins/barbar' end}
 
     -- Minimap of code
-    -- use {'wfxr/minimap.vim'}
+    -- use {'wfxr/minimap.vim', config = function() require 'plugins/minimap' end}
 
     -- ctags integration
-    -- use {'mjutsushi/tagbar'}
+    -- use {'mjutsushi/tagbar', config = function() require 'plugins/tagbar' end}
 
     --
     -- STATUSLINE
     --
 
     -- Airline statusline
-    use {'vim-airline/vim-airline'}
+    use {
+        'vim-airline/vim-airline',
+        config = function() require 'plugins/airline' end
+    }
     -- use {'vim-airiline/vim-airline-themes, requires = {{'vim-airline/vim-airline'}}}
 
     -- Git signs in the signcolumn
-    use {'lewis6991/gitsigns.nvim', requires = {{'nvim-lua/plenary.nvim'}}}
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {{'nvim-lua/plenary.nvim'}},
+        config = function() require 'plugins/gitsigns' end
+    }
 
     --
     -- LSP
@@ -65,7 +80,10 @@ packer.startup(function()
     -- use {'RishabhRD/nvim-lsputils', requires = {{'RishabhRD/popfix'}}}
 
     -- Better treesitter support
-    -- use {'nvim-treesitter/nvim-treesitter'}
+    -- use {
+    -- 'nvim-treesitter/nvim-treesitter',
+    -- config = function() require 'plugins/treesitter' end
+    -- }
 
     -- Status line integration for diagnostics
     use {'nvim-lua/lsp-status.nvim'}
@@ -78,10 +96,17 @@ packer.startup(function()
     --
 
     -- Autoclose parentheses, brackets, etc.
-    use {'Raimondi/delimitMate'}
+    use {
+        'Raimondi/delimitMate',
+        config = function() require 'plugins/delimitmate' end
+    }
 
     -- Autoclose XHTML tags
-    use {'alvan/vim-closetag', ft = {'html', 'xhtml', 'xml'}}
+    use {
+        'alvan/vim-closetag',
+        ft = {'html', 'xhtml', 'xml'},
+        config = function() require 'plugins/closetag' end
+    }
 
     -- Keybindings to surround words in quotes, brackets, etc.
     -- use {'tpope/vim-surround'}
@@ -90,7 +115,10 @@ packer.startup(function()
     use {'markonm/traces.vim'}
 
     -- Comment and uncomment with keybindings (<leader>c<space>)
-    use {'scrooloose/nerdcommenter'}
+    use {
+        'scrooloose/nerdcommenter',
+        config = function() require 'plugins/nerdcommenter' end
+    }
 
     -- Automated text table spacing
     use {
@@ -106,7 +134,11 @@ packer.startup(function()
     -- use {'sheerun/vim-polyglot'}
 
     -- Asciidoctor support
-    use {'habamax/vim-asciidoctor', ft = {'asciidoc'}}
+    use {
+        'habamax/vim-asciidoctor',
+        ft = {'asciidoc'},
+        config = function() require 'plugins/asciidoctor' end
+    }
 
     -- Useful csv utilities and highlighting
     use {'mechatroner/rainbow_csv', ft = {'csv'}}
@@ -149,7 +181,7 @@ packer.startup(function()
     use {'mhinz/vim-crates', ft = {'toml'}}
 
     -- Good TeX support
-    use {'lervag/vimtex'}
+    use {'lervag/vimtex', config = function() require 'plugins/vimtex' end}
 
     -- Vader support
     use {'junegunn/vader.vim'}
@@ -159,16 +191,26 @@ packer.startup(function()
     --
 
     -- Distraction-free writing environment
-    -- use {'junegunn/goyo.vim'}
+    -- use {'junegunn/goyo.vim', config = function() require 'plugins/goyo' end}
 
     -- Find poorly repeated words in writing
-    use {'dbmrq/vim-ditto', ft = {'markdown', 'pandoc', 'text', 'tex'}}
+    use {
+        'dbmrq/vim-ditto',
+        ft = {'markdown', 'pandoc', 'text', 'tex'},
+        config = function() require 'plugins/ditto' end
+    }
 
     -- Thesaurus utility
-    use {'ron89/thesaurus_query.vim'}
+    use {
+        'ron89/thesaurus_query.vim',
+        setup = function() require 'plugins/thesaurus_query' end
+    }
 
     -- RGB, hex color highlighting
-    use {'norcalli/nvim-colorizer.lua'}
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = function() require 'plugins/colorizer' end
+    }
 
     -- Better startup profiling
     use {'tweekmonster/startuptime.vim'}
@@ -188,22 +230,6 @@ packer.startup(function()
 
 end)
 
-require 'plugins/netrw'
-
-require 'plugins/asciidoctor'
-require 'plugins/airline'
-require 'plugins/barbar'
-require 'plugins/closetag'
-require 'plugins/colorizer'
-require 'plugins/delimitmate'
-require 'plugins/ditto'
-require 'plugins/fzf'
-require 'plugins/gitsigns'
--- require 'plugins/goyo'
--- require 'plugins/minimap'
-require 'plugins/nerdcommenter'
-require 'plugins/nerdtree'
--- require 'plugins/tagbar'
-require 'plugins/thesaurus_query'
-require 'plugins/treesitter'
-require 'plugins/vimtex'
+-- Auto-compile on save this file
+cmd('autocmd BufWritePost ' .. g.nvim_config ..
+        '/lua/plugins/init.lua PackerCompile')

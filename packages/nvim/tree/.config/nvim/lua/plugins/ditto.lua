@@ -10,10 +10,3 @@ nmap('<leader>+d', '<Plug>DittoGood')
 nmap('<leader>_d', '<Plug>DittoBad')
 nmap('<leader>]d', '<Plug>DittoMore')
 nmap('<leader>[d', '<Plug>DittoLess')
-
--- Turn on Ditto for filetypes
-exec([[
-aug ditto_on
-  au FileType markdown,pandoc,text,tex DittoOn
-aug END
-]], true)
