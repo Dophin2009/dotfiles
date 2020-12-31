@@ -52,6 +52,9 @@ cmd [[ command Ctags :lua require('telescope.builtin').tags() ]]
 -- Quickfix picker
 cmd [[ command Quickfixes :lua require('telescope.builtin').quickfix() ]]
 
+-- Location list picker
+cmd [[ command Loclist :lua require('telescope.builtin').loclist() ]]
+
 -- Registers picker
 cmd [[ command Registers :lua require('telescope.builtin').registers() ]]
 
@@ -89,15 +92,19 @@ cmd [[ command BCommits :lua require('telescope.builtin').git_bcommits() ]]
 
 -- References picker
 cmd [[ command LSPReferences :lua require('telescope.builtin').lsp_references() ]]
+nmap('gr', '<cmd>LSPReferences<CR>')
 
 -- Document symbols picker
 cmd [[ command LSPDSymbols :lua require('telescope.builtin').lsp_document_symbols() ]]
+nmap('g0', '<cmd>LSPDSymbols<CR>')
 
 -- Workspace symbols picker
 cmd [[ command LSPWSymbols :lua require('telescope.builtin').lsp_workspace_symbols() ]]
+nmap('gW', '<cmd>LSPWSymbols<CR>')
 
 -- Code actions picker
 cmd [[ command LSPActions :lua require('telescope.builtin').lsp_code_actions() ]]
+nmap('gc', '<cmd>LSPActions<CR>')
 
--- Code actions picker
+-- Range code actions picker
 cmd [[ command LSPRangeActions :lua require('telescope.builtin').lsp_range_code_actions() ]]

@@ -14,22 +14,26 @@ nmap('gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', {silent = true})
 nmap('gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {silent = true})
 
 -- Document symbol help
-nmap('g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', {silent = true})
+nmap('g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>',
+     {silent = true, noremap = false})
 
 -- Workspace symbol help
-nmap('g0', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', {silent = true})
+nmap('gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>',
+     {silent = true, noremap = false})
 
 -- Show hover information
 nmap("gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {silent = true})
 
 -- Goto references
-nmap("gr", "<cmd>lua vim.lsp.buf.references()<CR>", {silent = true})
+nmap("gr", "<cmd>lua vim.lsp.buf.references()<CR>",
+     {silent = true, noremap = false})
 
 -- Rename symbol
 nmap("gR", "<cmd>lua vim.lsp.buf.rename()<CR>", {silent = true})
 
 -- Select code action
-nmap('gC', '<cmd>lua vim.lsp.buf.code_action()<CR>', {silent = true})
+nmap('gc', '<cmd>lua vim.lsp.buf.code_action()<CR>',
+     {silent = true, noremap = false})
 
 -- Goto next/previous diagnostic
 nmap('gN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', {silent = true})
