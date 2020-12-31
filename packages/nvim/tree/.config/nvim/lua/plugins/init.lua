@@ -19,52 +19,8 @@ local packer = require('packer')
 packer.startup(function()
     use {'wbthomason/packer.nvim', opt = true}
 
-    --
-    -- NAVIGATION
-    --
-
-    -- FZF integration
-    -- use {'junegunn/fzf.vim', config = function() require 'plugins/fzf' end}
-
-    -- Fuzzy picker, more functionality than fzf
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-        config = function() require 'plugins/telescope' end
-    }
-
-    -- Compiled style sorter for telescope.nvim
-    use {
-        'nvim-telescope/telescope-fzy-native.nvim',
-        after = {'telescope.nvim'},
-        config = function() require 'plugins/telescope-fzy-native' end
-    }
-
-    -- Packer.nvim integration with telescope
-    use {
-        'nvim-telescope/telescope-packer.nvim',
-        after = {'telescope.nvim'},
-        config = function() require 'plugins/telescope-packer' end
-    }
-
-    -- Sane buffer tabline
-    use {'romgrk/barbar.nvim', setup = function() require 'plugins/barbar' end}
-
-    -- Project drawer
-    -- use {
-    -- 'preservim/nerdtree',
-    -- requires = {{'Xuyuanp/nerdtree-git-plugin'}, {'ryanoasis/vim-devicons'}},
-    -- config = function() require 'plugins/nerdtree' end
-    -- }
-
-    -- Minimap of code
-    -- use {'wfxr/minimap.vim', config = function() require 'plugins/minimap' end}
-
-    -- ctags integration
-    -- use {'mjutsushi/tagbar', config = function() require 'plugins/tagbar' end}
-
-    -- tmux compatbility
-    use {'tmux-plugins/vim-tmux-focus-events'}
+    -- Better startup profiling
+    use {'tweekmonster/startuptime.vim'}
 
     --
     -- STATUSLINE
@@ -88,14 +44,6 @@ packer.startup(function()
     -- LSP
     --
 
-    -- Predefined language server configurations
-    use {
-        'mjlbach/nvim-lspconfig',
-        branch = 'fix_rust-analyzer_nightly',
-        after = {'completion-nvim', 'lsp-status.nvim', 'nvim-lsputils'},
-        config = function() require 'lsp/servers' end
-    }
-
     -- Completion integration
     use {
         'nvim-lua/completion-nvim',
@@ -103,7 +51,10 @@ packer.startup(function()
     }
 
     -- Status line integration for diagnostics
-    use {'nvim-lua/lsp-status.nvim'}
+    use {
+        'nvim-lua/lsp-status.nvim',
+        config = function() require 'lsp/status' end
+    }
 
     -- More code actions, inlay hints, etc.
     use {
@@ -113,7 +64,16 @@ packer.startup(function()
     }
 
     -- Utilities
-    use {'RishabhRD/nvim-lsputils', requires = {{'RishabhRD/popfix'}}}
+    -- use {'RishabhRD/nvim-lsputils', requires = {{'RishabhRD/popfix'}}}
+
+    -- Predefined language server configurations
+    use {
+        'mjlbach/nvim-lspconfig',
+        branch = 'fix_rust-analyzer_nightly',
+        -- Requires loading of completion-nvim, lsp-status for handlers
+        after = {'completion-nvim', 'lsp-status.nvim'},
+        config = function() require 'lsp' end
+    }
 
     -- Better treesitter support
     -- use {
@@ -162,6 +122,67 @@ packer.startup(function()
         'godlygeek/tabular',
         ft = {'asciidoc', 'markdown', 'pandoc', 'rmarkdown', 'text', 'tex'}
     }
+
+    -- RGB, hex color highlighting
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = function() require 'plugins/colorizer' end
+    }
+
+    -- Markdown preview
+    use {
+        'npxbr/glow.nvim',
+        ft = {'markdown', 'pandoc'},
+        config = function() require 'plugins/glow' end
+    }
+
+    --
+    -- NAVIGATION
+    --
+
+    -- FZF integration
+    -- use {'junegunn/fzf.vim', config = function() require 'plugins/fzf' end}
+
+    -- Fuzzy picker, more functionality than fzf
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        after = {'nvim-lspconfig'},
+        config = function() require 'plugins/telescope' end
+    }
+
+    -- Compiled style sorter for telescope.nvim
+    use {
+        'nvim-telescope/telescope-fzy-native.nvim',
+        after = {'telescope.nvim'},
+        config = function() require 'plugins/telescope-fzy-native' end
+    }
+
+    -- Packer.nvim integration with telescope
+    use {
+        'nvim-telescope/telescope-packer.nvim',
+        after = {'telescope.nvim'},
+        config = function() require 'plugins/telescope-packer' end
+    }
+
+    -- Sane buffer tabline
+    use {'romgrk/barbar.nvim', setup = function() require 'plugins/barbar' end}
+
+    -- Project drawer
+    -- use {
+    -- 'preservim/nerdtree',
+    -- requires = {{'Xuyuanp/nerdtree-git-plugin'}, {'ryanoasis/vim-devicons'}},
+    -- config = function() require 'plugins/nerdtree' end
+    -- }
+
+    -- Minimap of code
+    -- use {'wfxr/minimap.vim', config = function() require 'plugins/minimap' end}
+
+    -- ctags integration
+    -- use {'mjutsushi/tagbar', config = function() require 'plugins/tagbar' end}
+
+    -- tmux compatbility
+    use {'tmux-plugins/vim-tmux-focus-events'}
 
     --
     -- LANGUAGE SUPPORT
@@ -225,7 +246,7 @@ packer.startup(function()
     use {'junegunn/vader.vim'}
 
     --
-    -- MISC
+    -- WRITING
     --
 
     -- Distraction-free writing environment
@@ -243,15 +264,6 @@ packer.startup(function()
         'ron89/thesaurus_query.vim',
         setup = function() require 'plugins/thesaurus_query' end
     }
-
-    -- RGB, hex color highlighting
-    use {
-        'norcalli/nvim-colorizer.lua',
-        config = function() require 'plugins/colorizer' end
-    }
-
-    -- Better startup profiling
-    use {'tweekmonster/startuptime.vim'}
 
     --
     -- THEME

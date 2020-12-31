@@ -42,7 +42,11 @@ if lspconfig ~= nil then
     lspconfig.cmake.setup {on_attach = on_attach, capabilities = capabilities}
 
     -- css language server
-    lspconfig.cssls.setup {on_attach = on_attach, capabilities = capabilities}
+    lspconfig.cssls.setup {
+        cmd = {'css-languageserver'},
+        on_attach = on_attach,
+        capabilities = capabilities
+    }
 
     -- dhall lsp server
     lspconfig.dhall_lsp.setup {
@@ -63,7 +67,11 @@ if lspconfig ~= nil then
     lspconfig.hie.setup {on_attach = on_attach, capabilities = capabilities}
 
     -- html language server
-    lspconfig.html.setup {on_attach = on_attach, capabilities = capabilities}
+    lspconfig.html.setup {
+        cmd = {'html-languageserver'},
+        on_attach = on_attach,
+        capabilities = capabilities
+    }
 
     -- java language server
     -- lspconfig.jdtls.setup {
@@ -79,7 +87,11 @@ if lspconfig ~= nil then
     }
 
     -- json language server
-    lspconfig.jsonls.setup {on_attach = on_attach, capabilities = capabilities}
+    lspconfig.jsonls.setup {
+        cmd = {'json-languageserver'},
+        on_attach = on_attach,
+        capabilities = capabilities
+    }
 
     -- lua language server
     lspconfig.sumneko_lua.setup {

@@ -1,8 +1,8 @@
--- Load completion settings
-require('lsp/completion')
-
 -- Load language server configurations
 require('lsp/servers')
+
+-- Load keybindings
+require('lsp/bindings')
 
 -- Show diagnostics on hover
 vim.api.nvim_exec([[ 

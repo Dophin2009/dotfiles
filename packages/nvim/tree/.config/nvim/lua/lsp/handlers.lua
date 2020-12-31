@@ -1,4 +1,3 @@
-local completion = require('completion')
 local lsp_status = require('lsp-status')
 
 -- Diagnostics handler
@@ -24,38 +23,6 @@ vim.lsp.handlers["textDocument/formatting"] =
         end
     end
 
--- Goto definition handler
-vim.lsp.handlers['textDocument/definition'] =
-    require'lsputil.locations'.definition_handler
-
--- References handler
-vim.lsp.handlers['textDocument/references'] =
-    require'lsputil.locations'.references_handler
-
--- Goto declaration handler
-vim.lsp.handlers['textDocument/declaration'] =
-    require'lsputil.locations'.declaration_handler
-
--- Goto type definition handler
-vim.lsp.handlers['textDocument/typeDefinition'] =
-    require'lsputil.locations'.typeDefinition_handler
-
--- Goto implementation handler
-vim.lsp.handlers['textDocument/implementation'] =
-    require'lsputil.locations'.implementation_handler
-
--- Document symbol handler
-vim.lsp.handlers['textDocument/documentSymbol'] =
-    require'lsputil.symbols'.document_handler
-
--- Workspace symbol handler
-vim.lsp.handlers['workspace/symbol'] =
-    require'lsputil.symbols'.workspace_handler
-
--- Code action handler
-vim.lsp.handlers['textDocument/codeAction'] =
-    require'lsputil.codeAction'.code_action_handler
-
 -- grouped on_attach
 local on_attach = function(client, bufnr)
     if client.resolved_capabilities.document_formatting then
@@ -66,8 +33,10 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_command [[augroup END]]
     end
 
-    if completion then completion.on_attach(client, bufnr) end
-    if lsp_status then lsp_status.on_attach(client, bufnr) end
+    local completion = require('completion')
+
+    completion.on_attach(client, bufnr)
+    lsp_status.on_attach(client, bufnr)
 end
 
 local capabilities = lsp_status.capabilities
