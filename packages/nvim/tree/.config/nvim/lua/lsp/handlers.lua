@@ -1,9 +1,7 @@
-local U = require('util')
+local completion = require('completion')
+local lsp_status = require('lsp-status')
 
-local completion = U.require('completion')
-local lsp_status = U.require('lsp-status')
-
--- diagnostics handle
+-- Diagnostics handler
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
         underline = true,
@@ -12,7 +10,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] =
         update_in_insert = true
     })
 
--- async formatting handle
+-- Async formatting handle
 vim.lsp.handlers["textDocument/formatting"] =
     function(err, _, result, _, bufnr)
         if err ~= nil or result == nil then return end
@@ -25,6 +23,38 @@ vim.lsp.handlers["textDocument/formatting"] =
             end
         end
     end
+
+-- Goto definition handler
+vim.lsp.handlers['textDocument/definition'] =
+    require'lsputil.locations'.definition_handler
+
+-- References handler
+vim.lsp.handlers['textDocument/references'] =
+    require'lsputil.locations'.references_handler
+
+-- Goto declaration handler
+vim.lsp.handlers['textDocument/declaration'] =
+    require'lsputil.locations'.declaration_handler
+
+-- Goto type definition handler
+vim.lsp.handlers['textDocument/typeDefinition'] =
+    require'lsputil.locations'.typeDefinition_handler
+
+-- Goto implementation handler
+vim.lsp.handlers['textDocument/implementation'] =
+    require'lsputil.locations'.implementation_handler
+
+-- Document symbol handler
+vim.lsp.handlers['textDocument/documentSymbol'] =
+    require'lsputil.symbols'.document_handler
+
+-- Workspace symbol handler
+vim.lsp.handlers['workspace/symbol'] =
+    require'lsputil.symbols'.workspace_handler
+
+-- Code action handler
+vim.lsp.handlers['textDocument/codeAction'] =
+    require'lsputil.codeAction'.code_action_handler
 
 -- grouped on_attach
 local on_attach = function(client, bufnr)
