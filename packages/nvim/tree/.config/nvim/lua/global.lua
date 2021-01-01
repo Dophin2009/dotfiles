@@ -41,13 +41,18 @@ wo.cursorline = true
 wo.wrap = false
 
 -- Tabs (space tabs)
-o.expandtab = true
+function opt(name, value)
+    o[name] = value
+    bo[name] = value
+end
+
 o.smarttab = true
-o.autoindent = true
-o.cindent = true
-o.tabstop = 2
-o.shiftwidth = 2
-o.softtabstop = 2
+opt('expandtab', true)
+opt('autoindent', true)
+opt('cindent', true)
+opt('tabstop', 2)
+opt('shiftwidth', 2)
+opt('softtabstop', 2)
 
 -- Completion
 o.completeopt = 'menuone,noinsert,noselect'

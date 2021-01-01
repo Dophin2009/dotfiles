@@ -17,6 +17,11 @@ aug ftdetecthbs
   au! BufNewFile,BufFilePre,BufRead *.yml.hbs set filetype=yaml.handlebars
 aug end
 
+" detect luacheckrc
+aug ftdetectluacheckrc
+  au! BufNewFile,BufRead .luacheckrc set filetype=lua
+aug end
+
 " detect proselint configuration
 aug ftdetectproselint
   au! BufNewFile,BufRead ~/.config/proselint/config set filetype=json
