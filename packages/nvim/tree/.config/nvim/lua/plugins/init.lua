@@ -87,13 +87,6 @@ packer.startup(function()
     -- config = function() require 'plugins/treesitter' end
     -- }
 
-    -- FZF integration
-    -- use {
-    -- 'ojroques/nvim-lspfuzzy',
-    -- requires = {{'junegunn/fzf.vim'}},
-    -- config = function() require 'plugins/lspfuzzy' end
-    -- }
-
     --
     -- EDITING
     --
@@ -116,6 +109,9 @@ packer.startup(function()
 
     -- Preview search and replace
     use {'markonm/traces.vim'}
+
+    -- Disable hlsearch when done searching, renable when searching again
+    use {'romainl/vim-cool'}
 
     -- Comment and uncomment with keybindings (<leader>c<space>)
     use {
@@ -141,6 +137,9 @@ packer.startup(function()
         ft = {'markdown', 'pandoc'},
         config = function() require 'plugins/glow' end
     }
+
+    -- Peak registers
+    use {'junegunn/vim-peekaboo'}
 
     --
     -- NAVIGATION
@@ -173,6 +172,9 @@ packer.startup(function()
 
     -- Sane buffer tabline
     use {'romgrk/barbar.nvim', setup = function() require 'plugins/barbar' end}
+
+    -- Marks in gutter
+    use {'kshenoy/vim-signature'}
 
     -- Project drawer
     -- use {

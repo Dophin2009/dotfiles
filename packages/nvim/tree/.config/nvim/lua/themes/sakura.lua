@@ -1,6 +1,12 @@
 local g, o = vim.g, vim.o
-local cmd = vim.cmd
+local exec = vim.api.nvim_exec
 
+-- Use sakura colorscheme
 o.background = 'dark'
 
-cmd [[ colorscheme sakura ]]
+exec([[
+try
+  colorscheme sakura
+  catch
+endtry
+]], true)

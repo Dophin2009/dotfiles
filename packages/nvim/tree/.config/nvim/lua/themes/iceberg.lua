@@ -1,7 +1,13 @@
 local g, o = vim.g, vim.o
-local cmd = vim.cmd
+local exec = vim.api.nvim_exec
 
+-- Use iceberg theme
 o.background = 'dark'
 g.airline_theme = 'icebergDark'
 
-cmd [[ colorscheme iceberg ]]
+exec([[
+try
+  colorscheme iceberg
+  catch
+endtry
+]], true)

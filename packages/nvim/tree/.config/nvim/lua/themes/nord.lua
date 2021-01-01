@@ -1,7 +1,13 @@
 local g, o = vim.g, vim.o
-local cmd = vim.cmd
+local exec = vim.api.nvim_exec
 
+-- Use nord colorscheme
 o.background = 'dark'
 g.airline_theme = 'nord_minimal'
 
-cmd [[ colorscheme nord ]]
+exec([[
+try
+  colorscheme nord
+  catch
+endtry
+]], true)
