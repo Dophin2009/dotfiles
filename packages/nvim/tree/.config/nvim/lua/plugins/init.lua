@@ -44,9 +44,16 @@ packer.startup(function()
     -- LSP
     --
 
+    -- Snippets
+    use {
+        'norcalli/snippets.nvim',
+        config = function() require 'plugins/snippets' end
+    }
+
     -- Completion integration
     use {
         'nvim-lua/completion-nvim',
+        after = {'snippets.nvim'},
         config = function() require 'lsp/completion' end
     }
 
