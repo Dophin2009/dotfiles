@@ -41,10 +41,3 @@ aug end
 aug ftdetectmail
   au! BufNewFile,BufRead *mutt-* set filetype=mail
 aug end
-
-" detect Cargo.toml
-if has('nvim')
-  aug ftdetect_cargotoml
-    autocmd BufRead Cargo.toml call crates#toggle()
-  aug end
-endif

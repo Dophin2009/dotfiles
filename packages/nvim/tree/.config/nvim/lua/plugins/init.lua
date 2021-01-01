@@ -75,8 +75,7 @@ packer.startup(function()
 
     -- Predefined language server configurations
     use {
-        'mjlbach/nvim-lspconfig',
-        branch = 'fix_rust-analyzer_nightly',
+        'neovim/nvim-lspconfig',
         -- Requires loading of completion-nvim, lsp-status for handlers
         after = {'completion-nvim', 'lsp-status.nvim'},
         config = function() require 'lsp' end
@@ -243,8 +242,16 @@ packer.startup(function()
     -- R Markdown support
     use {'vim-pandoc/vim-rmarkdown', ft = {'rmarkdown'}}
 
+    -- TOML support
+    use {'cespare/vim-toml'}
+
     -- Cargo.toml crate version hints
-    use {'mhinz/vim-crates', ft = {'toml'}}
+    use {
+        'mhinz/vim-crates',
+        ft = {'toml'},
+        after = {'vim-toml'},
+        config = function() require 'plugins/vim-crates' end
+    }
 
     -- Good TeX support
     use {'lervag/vimtex', config = function() require 'plugins/vimtex' end}
