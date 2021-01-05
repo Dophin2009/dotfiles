@@ -3,6 +3,9 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
 
+"   no wrapping
+setlocal nowrap
+
 "   enable spellchecking
 setlocal spell
 let b:buffer_dir = expand('%:p:h')
@@ -11,10 +14,6 @@ if !empty(b:local_spellfile)
   let b:local_spellfile = fnamemodify(b:local_spellfile, ':p')
   execute 'setlocal spellfile=' . escape(b:local_spellfile, ' ')
 end
-
-""  vim-pandoc
-let g:pandoc#modules#disabled = ['folding', 'spell']
-" let g:pandoc#filetypes#pandoc_markdown = 0
 
 ""  delimitMate
 let b:delimitMate_matchpairs = "(:),[:],{:}"

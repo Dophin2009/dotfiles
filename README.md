@@ -5,7 +5,7 @@ The dotfiles for my Linux machines, managed by
 
 Each subdirectory is a package. Each package has its own set of configuration
 files. Some packages require the specification of other local variables in local
-configuration files. Some packages list other packages as prerequesites.
+configuration files. Some packages list other packages as prerequisites.
 
 Most of the package documentation is outdated.
 

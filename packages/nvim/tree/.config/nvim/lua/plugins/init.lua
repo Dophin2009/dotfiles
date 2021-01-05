@@ -111,7 +111,7 @@ packer.startup(function()
     use {'markonm/traces.vim'}
 
     -- Disable hlsearch when done searching, renable when searching again
-    use {'romainl/vim-cool'}
+    -- use {'romainl/vim-cool'}
 
     -- Comment and uncomment with keybindings (<leader>c<space>)
     use {
@@ -166,7 +166,8 @@ packer.startup(function()
     -- Packer.nvim integration with telescope
     use {
         'nvim-telescope/telescope-packer.nvim',
-        after = {'telescope.nvim'},
+        after = {'telescope.nvim', 'packer.nvim'},
+        opt = true,
         config = function() require 'plugins/telescope-packer' end
     }
 
@@ -234,15 +235,18 @@ packer.startup(function()
     -- Pandoc support
     use {
         'vim-pandoc/vim-pandoc',
-        ft = {'pandoc', 'rmarkdown'},
-        requires = {{'vim-pandoc/vim-pandoc-syntax'}}
+        requires = {{'vim-pandoc/vim-pandoc-syntax'}},
+        config = function() require 'plugins/pandoc' end
     }
 
     -- PostgreSQL support
     use {'lifepillar/pgsql.vim', ft = {'pgsql'}}
 
     -- R Markdown support
-    use {'vim-pandoc/vim-rmarkdown', ft = {'rmarkdown'}}
+    use {'vim-pandoc/vim-rmarkdown', after = {'vim-pandoc'}, ft = {'rmarkdown'}}
+
+    -- Rust syntax highlighting
+    -- use {'arzg/vim-rust-syntax-ext', ft = {'rust'}}
 
     -- TOML support
     use {'cespare/vim-toml'}
