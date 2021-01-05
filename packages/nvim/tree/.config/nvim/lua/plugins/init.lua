@@ -81,6 +81,13 @@ packer.startup(function()
         config = function() require 'lsp' end
     }
 
+    use {
+        'mfussenegger/nvim-jdtls',
+        ft = {'java'},
+        after = {'nvim-lspconfig'},
+        config = function() require 'lsp/jdtls' end
+    }
+
     -- Better treesitter support
     -- use {
     -- 'nvim-treesitter/nvim-treesitter',
