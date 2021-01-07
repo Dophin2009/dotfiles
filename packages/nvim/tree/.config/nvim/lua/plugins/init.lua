@@ -235,6 +235,9 @@ packer.startup(function()
     -- JSONC support
     use {'kevinoid/vim-jsonc', ft = {'jsonc'}}
 
+    -- LLVM IR support
+    use {'rhysd/vim-llvm'}
+
     -- Better lua highlighting
     -- use {'tbastos/vim-lua', ft = {'lua'}}
     use {'euclidianAce/BetterLua.vim', ft = {'lua'}}
