@@ -252,6 +252,13 @@ packer.startup(function()
     -- PostgreSQL support
     use {'lifepillar/pgsql.vim', ft = {'pgsql'}}
 
+    -- Python syntax highlighting
+    use {
+        'vim-python/python-syntax',
+        ft = {'python'},
+        config = function() require 'plugins/python' end
+    }
+
     -- R Markdown support
     use {'vim-pandoc/vim-rmarkdown', after = {'vim-pandoc'}, ft = {'rmarkdown'}}
 
