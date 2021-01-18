@@ -101,7 +101,17 @@ lspconfig.r_language_server.setup {
 -- rust analyzer
 lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
-    capabilities = capabilities
+    capabilities = capabilities,
+    settings = {
+        cargo = {loadOutDirsFromCheck = true},
+        checkOnSave = {
+            overrideCommand = {
+                'cargo', 'clippy', '--workspace', '--message-format=json',
+                '--all-targets'
+            }
+        },
+        procMacro = {enable = true}
+    }
 }
 
 -- texlab
