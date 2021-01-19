@@ -34,6 +34,8 @@ M.alacritty = {font = font, colors = colors, font_size = 10}
 
 M.bat = {theme = 'gruvbox'}
 
+M.discord = {theme = 'gruvbox'}
+
 M.dunst = {
     font = {family = font, size = 9},
     colors = {
