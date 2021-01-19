@@ -19,22 +19,6 @@ end
 let b:delimitMate_matchpairs = "(:),[:],{:}"
 let delimitMate_quotes = "\" ` * _"
 
-""  tagbar
-let g:tagbar_type_pandoc = {
-  \ 'ctagstype': 'markdown',
-  \ 'ctagsbin' : g:nvim_config . '/scripts/markdown2ctags.py',
-  \ 'ctagsargs' : '-f - --sort=yes --sro=»',
-  \ 'kinds' : [
-      \ 's:sections',
-      \ 'i:images'
-  \ ],
-  \ 'sro' : '»',
-  \ 'kind2scope' : {
-      \ 's' : 'section',
-  \ },
-  \ 'sort': 0,
-\}
-
 ""  tabular
 "   auto-align when using pipe key to make table
 inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
