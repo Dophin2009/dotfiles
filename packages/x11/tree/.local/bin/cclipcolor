@@ -1,2 +1,2 @@
 #!/bin/sh
-xcolor | cclip
+xcolor | xclip -selection clipboard
