@@ -25,11 +25,11 @@ lspconfig.bashls.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- clangd
 local lsp_status = U.require('lsp-status')
-local clangd_handlers = lsp_status and lsp_status.extensions.clangd.setup() or
-                            nil
+local clangd_handlers = nil
+if lsp_status then clangd_handlers = lsp_status.extensions.clangd.setup() end
 
 lspconfig.clangd.setup {
-    handlers = lsp_status.extensions.clangd.setup(),
+    handlers = clangd_handlers,
     init_options = {clangdFileStatus = true},
     on_attach = on_attach,
     capabilities = capabilities
@@ -72,10 +72,10 @@ lspconfig.html.setup {
 -- }
 
 -- jedi language server
-lspconfig.jedi_language_server.setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
+-- lspconfig.jedi_language_server.setup {
+-- on_attach = on_attach,
+-- capabilities = capabilities
+-- }
 
 -- json language server
 lspconfig.jsonls.setup {
@@ -91,6 +91,12 @@ lspconfig.sumneko_lua.setup {
     capabilities = capabilities,
     settings = {Lua = {diagnostics = {enable = false}}}
 }
+
+-- python language server
+lspconfig.pyls.setup {on_attach = on_attach, capabilities = capabilities}
+
+-- pyright language server
+lspconfig.pyright.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- r language server
 lspconfig.r_language_server.setup {
@@ -133,10 +139,10 @@ lspconfig.vimls.setup {on_attach = on_attach, capabilities = capabilities}
 lspconfig.yamlls.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- efm-langserver
-local autopep8 = require('lsp/efm/autopep8')
+-- local autopep8 = require('lsp/efm/autopep8')
 local eslint = require('lsp/efm/eslint')
 local fixjson = require('lsp/efm/fixjson')
-local flake8 = require('lsp/efm/flake8')
+-- local flake8 = require('lsp/efm/flake8')
 local goimports = require('lsp/efm/goimports')
 local golint = require('lsp/efm/golint')
 local htmlhint = require('lsp/efm/htmlhint')
@@ -144,10 +150,10 @@ local lacheck = require('lsp/efm/lacheck')
 local luafmt = require('lsp/efm/luafmt')
 local luac = require('lsp/efm/luac')
 -- local misspell = require('lsp/efm/misspell')
-local mypy = require('lsp/efm/mypy')
+-- local mypy = require('lsp/efm/mypy')
 local pandoc = require('lsp/efm/pandoc')
 local prettier = require('lsp/efm/prettier')
-local reorder_python_imports = require('lsp/efm/reorder_python_imports')
+-- local reorder_python_imports = require('lsp/efm/reorder_python_imports')
 local shellcheck = require('lsp/efm/shellcheck')
 local shfmt = require('lsp/efm/shfmt')
 local stylelint = require('lsp/efm/stylelint')
@@ -171,7 +177,6 @@ lspconfig.efm.setup {
             latex = {lacheck},
             lua = {luafmt, luac},
             pandoc = {pandoc},
-            python = {mypy, flake8, autopep8, reorder_python_imports},
             sass = {stylelint},
             scss = {stylelint},
             sh = {shellcheck, shfmt},
