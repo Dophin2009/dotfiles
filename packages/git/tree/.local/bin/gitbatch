@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+import os
+import sys
+import subprocess
+
+commandMap = {
+	# Key(command) => Value(Tuple(list of commands to run, whether to ask for confirmation))
+	'rebase': (['git', 'svn', 'rebase'], False),
+	'diff': (['git', 'diff'], False),
+	'dcommit': (['git', 'svn', 'dcommit'], False),
+	'fetch': (['git', 'fetch', 'origin'], False),
+	'fetch': (['git', 'pull', 'origin'], False),
+	'status': (['git', 'status', '-s'], False),
+	'add': (['git', 'add', '.'], False),
+	'commit': (['git', 'commit'], False),
+	'stash': (['git', 'stash'], False),
+	'pop': (['git', 'stash', 'pop'], False),
+	'push': (['git', 'push', '-v'], False),
+	'clear': (['git', 'stash', 'clear'], False),
+	'list': (['git', 'stash', 'list'], False),
+	'resethard': (['git', 'reset', '--hard'], True),
+}
+
+def callCommand(command_list):
+    p = subprocess.Popen(command_list)
+    os.waitpid(p.pid, 0)
+
+def callCommandOnGitDirs(root_dir, command_list):
+    for dir in os.listdir(root_dir):
+        if not os.path.isdir(dir):
+            continue
+        oldDir = os.getcwd()
+        try:
+            os.chdir(dir)
+            if '.git' in os.listdir('.') and os.path.isdir('.git'):
+                print("###", " ".join(command_list), "on:", dir)
+                callCommand(command_list)
+        finally:
+            os.chdir(oldDir)
+
+def usage():
+    print("Usage: gitbatch <option>")
+    print("")
+    print("option:")
+    print("    rebase: call 'git svn rebase' on each git repository in current directory")
+    print("    dcommit: call 'git svn dcommit' on each git repository in current directory")
+
+def checkArgs():
+    if len(sys.argv) < 2:
+        print("ERROR: you didn't provide an option")
+        usage()
+    elif len(sys.argv[1]) < 2:
+        print("ERROR: you have to use at least 2 letter abbreviations\n")
+        usage()
+    else:
+        return
+
+    sys.exit(0)
+
+def main():
+    checkArgs()
+
+    the_command = sys.argv[1]
+
+    for command, tup in commandMap.items():
+        command_list, confirm = tup
+        if command.startswith(the_command):
+            if confirm:
+                c = input('are you sure you want to run: "' + " ".join(command_list) + '" (y/N)? ')
+            if not confirm or c == 'y':
+                callCommandOnGitDirs('.', command_list)
+            break
+
+if __name__ == "__main__":
+    main()
