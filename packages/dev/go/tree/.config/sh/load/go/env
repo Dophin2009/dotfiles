@@ -3,5 +3,5 @@ export GOPATH="${XDG_DATA_HOME}/go"
 
 # Go installed binaries
 if [ -d "$GOPATH/bin" ]; then
-  export PATH="$PATH:$GOPATH/bin"
+  export PATH="$GOPATH/bin:$PATH"
 fi

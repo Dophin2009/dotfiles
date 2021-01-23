@@ -8,5 +8,5 @@ export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/cache"
 
 # Ruby gems installed binaries
 if [ -d "$GEM_HOME/bin" ]; then
-  export PATH="$PATH:$GEM_HOME/bin"
+  export PATH="$GEM_HOME/bin:$PATH"
 fi
