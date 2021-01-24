@@ -1,2 +1,4 @@
 media-fonts/nerd-fonts ~amd64
+
 dev-lua/lua-language-server ~amd64
+dev-lua/luaformatter ~amd64
