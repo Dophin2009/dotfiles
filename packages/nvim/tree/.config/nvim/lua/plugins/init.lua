@@ -197,6 +197,9 @@ packer.startup(function()
     -- ctags integration
     -- use {'mjutsushi/tagbar', config = function() require 'plugins/tagbar' end}
 
+    -- Smooth page-down and page-up
+    use {'psliwka/vim-smoothie'}
+
     -- tmux compatbility
     use {'tmux-plugins/vim-tmux-focus-events'}
 

@@ -78,7 +78,7 @@ c.editor.command = ['alacritty', '-e', 'nvim',
                     '{file}', '-c', 'normal {file}G{column0}l']
 
 # default fonts
-c.fonts.default_family = ['JetBrains Mono', 'Iosevka',
+c.fonts.default_family = ['JetBrains Mono Nerd Font', 'Iosevka',
                           'Inconsolata', 'Fira Code', 'DejaVu Sans Mono']
 c.fonts.default_size = '10pt'
 
