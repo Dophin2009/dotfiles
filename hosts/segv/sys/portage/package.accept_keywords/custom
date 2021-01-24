@@ -1,4 +1,8 @@
-media-fonts/nerd-fonts ~amd64
+dev-go/efm-langserver ~amd64
 
 dev-lua/lua-language-server ~amd64
 dev-lua/luaformatter ~amd64
+
+media-fonts/nerd-fonts ~amd64
+
+media-sound/mpdnd ~amd64

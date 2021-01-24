@@ -13,10 +13,18 @@ Most of the package documentation is outdated.
 -   [Profiles](#profiles)
 -   [To-Do](#to-do)
 
+## Hosts
+
+[hosts/](./hosts) contains system configurations and files for specific machines.
+
+-   `segv` - Gentoo system on Lenovo Flex 6 laptop
+-   `origin` - Arch home PC
+
+
 ## Installation
 
 1.  Install `stew`:
-    `cargo install --git https://github.com/Dophin2009/stew --features "lua54 unsafe"`
+    `cargo install --git https://github.com/Dophin2009/stew --features "luajit unsafe"`
 2.  Clone this repo somewhere (e.g. `~/.dotfiles`).
 3.  Link the desired packages: `stew <package>`.
 
