@@ -1,0 +1,2 @@
+sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE
+x11-drivers/nvidia-drivers NVIDIA-r2

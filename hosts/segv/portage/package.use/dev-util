@@ -1,0 +1,2 @@
+# enable distributed compilation client
+dev-util/sccache dist-client

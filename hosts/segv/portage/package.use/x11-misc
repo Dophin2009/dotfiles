@@ -1,0 +1,2 @@
+# i3, mpd, network modules for polybar
+x11-misc/polybar i3wm ipc mpd network

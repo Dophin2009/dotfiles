@@ -1,0 +1,5 @@
+dev-util/cargo-ebuild ~amd64
+dev-util/rustup ~amd64
+dev-util/sccache ~amd64
+
+dev-util/shellcheck ~amd64

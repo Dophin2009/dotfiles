@@ -1,0 +1,25 @@
+www-client/qutebrowser scripts
+# required by dev-python/PyQtWebEngine-5.15.2::gentoo
+# required by www-client/qutebrowser-1.14.1::gentoo
+# required by www-client/qutebrowser (argument)
+>=dev-python/PyQt5-5.15.2 sql declarative webchannel
+# required by dev-python/PyQtWebEngine-5.15.2::gentoo
+# required by www-client/qutebrowser-1.14.1::gentoo
+# required by www-client/qutebrowser (argument)
+>=dev-qt/qtwebengine-5.15.2 widgets
+# required by dev-qt/qtwebengine-5.15.2::gentoo
+# required by dev-python/PyQtWebEngine-5.15.2::gentoo
+# required by www-client/qutebrowser-1.14.1::gentoo
+# required by www-client/qutebrowser (argument)
+>=dev-qt/qtwebchannel-5.15.2 qml
+# required by dev-qt/qtwebengine-5.15.2::gentoo
+# required by dev-python/PyQtWebEngine-5.15.2::gentoo
+# required by www-client/qutebrowser-1.14.1::gentoo
+# required by www-client/qutebrowser (argument)
+>=sys-libs/zlib-1.2.11-r2 minizip
+# required by dev-python/PyQt5-5.15.2::gentoo[multimedia]
+# required by dev-python/PyQtWebEngine-5.15.2::gentoo
+# required by www-client/qutebrowser-1.14.1::gentoo
+# required by www-client/qutebrowser (argument)
+>=dev-qt/qtmultimedia-5.15.2 widgets
+

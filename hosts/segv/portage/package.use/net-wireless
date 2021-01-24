@@ -1,0 +1,2 @@
+# x11 support not needed for wpa_supplicant
+net-wireless/wpa_supplicant -X
