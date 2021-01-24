@@ -226,6 +226,9 @@ packer.startup(function()
     -- EBNF syntax file
     use {'a-vrma/ebnf-vim'}
 
+    -- ebuild support
+    use {'gentoo/gentoo-syntax'}
+
     -- editorconfig support
     use {'editorconfig/editorconfig-vim'}
 
