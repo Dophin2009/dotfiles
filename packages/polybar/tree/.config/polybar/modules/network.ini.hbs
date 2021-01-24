@@ -7,8 +7,8 @@ type = internal/network
 interface = {{ network.interface }}
 
 {{ #if (eq network.type "wifi") }}
-label-connected = %{T4}%{T} %essid%
-label-disconnected = %{T4}%{T} <disconnected>
+label-connected = %{T4}%{T} %{T1}%essid%%{T}
+label-disconnected = %{T4}%{T} %{T1}<disconnected>%{T}
 {{ else }}
   {{ #if (eq network.type "ethernet") }}
 label-connected = %{T4}%{T}  eno2
