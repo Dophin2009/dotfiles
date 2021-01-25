@@ -5,3 +5,13 @@ dev-util/cargo-ebuild ~amd64
 dev-util/cargo-license ~amd64
 
 dev-util/shellcheck ~amd64
+# required by dev-haskell/regex-tdfa-1.3.1.0::gentoo
+# required by dev-util/shellcheck-0.7.1::gentoo
+# required by dev-util/shellcheck (argument)
+=dev-haskell/regex-base-0.94.0.0 ~amd64
+# required by dev-util/shellcheck-0.7.1::gentoo
+# required by dev-util/shellcheck (argument)
+=dev-haskell/regex-tdfa-1.3.1.0 ~amd64
+# required by dev-util/shellcheck-0.7.1::gentoo
+# required by dev-util/shellcheck (argument)
+=dev-haskell/diff-0.4.0 ~amd64

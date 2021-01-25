@@ -1,0 +1,6 @@
+# required by app-editors/neovim-9999::gentoo[lua_single_target_luajit]
+# required by app-editors/neovim (argument)
+>=dev-lua/lpeg-1.0.2-r101 lua_targets_luajit
+# required by app-editors/neovim-9999::gentoo[lua_single_target_luajit]
+# required by app-editors/neovim (argument)
+>=dev-lua/mpack-1.0.8-r100 lua_targets_luajit

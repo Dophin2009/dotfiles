@@ -1,0 +1,3 @@
+app-editors/neovim **
+# required by =app-editors/neovim-9999::gentoo
+dev-libs/tree-sitter ~amd64
