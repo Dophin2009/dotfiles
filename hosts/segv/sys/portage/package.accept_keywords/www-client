@@ -4,3 +4,7 @@ www-client/qutebrowser ~amd64
 >=dev-python/tldextract-2.2.1 ~amd64
 # required by dev-python/tldextract-2.2.1::gentoo
 >=dev-python/requests-file-1.4.3 ~amd64
+
+www-client/firefox ~amd64
+# required by www-client/firefox::gentoo
+>=dev-libs/nss-3.61 ~amd64
