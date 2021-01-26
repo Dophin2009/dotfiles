@@ -116,6 +116,11 @@ lspconfig.rust_analyzer.setup {
                 '--all-targets'
             }
         },
+        diagnostics = {
+            enable = true,
+            disabled = {"unresolved-proc-macro"},
+            enableExperimental = true,
+        },
         procMacro = {enable = true}
     }
 }

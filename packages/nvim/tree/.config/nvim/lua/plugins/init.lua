@@ -73,11 +73,17 @@ packer.startup(function()
     -- Utilities
     -- use {'RishabhRD/nvim-lsputils', requires = {{'RishabhRD/popfix'}}}
 
+    -- Intelligent cursor word highlighting
+    use {
+        'RRethy/vim-illuminate',
+        config = function() require 'plugins/illuminate' end
+    }
+
     -- Predefined language server configurations
     use {
         'neovim/nvim-lspconfig',
         -- Requires loading of completion-nvim, lsp-status for handlers
-        after = {'completion-nvim', 'lsp-status.nvim'},
+        after = {'completion-nvim', 'lsp-status.nvim', 'vim-illuminate'},
         config = function() require 'lsp' end
     }
 
