@@ -1,2 +1,5 @@
+# required by dev-rust/rust-analyzer (argument)
+>=dev-rust/rust-analyzer-20210104 BSD-3
+
 # required by media-sound/mpdnd (argument)
 media-sound/mpdnd Apache-2.0-WITH-LLVM-exception BSD-2-Clause
