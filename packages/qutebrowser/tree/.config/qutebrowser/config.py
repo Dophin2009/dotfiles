@@ -6,12 +6,13 @@ import sys
 import yaml
 from qutebrowser.config.config import ConfigContainer  # noqa: F401
 from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
+
 # pylint: disable=C0111
 config = config  # type: ConfigAPI # noqa: F821 pylint: disable=E0602,C0103
 c = c  # type: ConfigContainer # noqa: F821 pylint: disable=E0602,C0103
 
-# for next qutebrowser version
-#  config.load_autoconfig(False)
+# no autoconfig
+config.load_autoconfig(False)
 
 # aliases
 aliases = {'bw': 'spawn --userscript qute-bitwarden',
@@ -34,7 +35,7 @@ c.auto_save.session = True
 config.bind(',n', 'open -t ;; messages')
 config.bind(',m', 'mpv')
 config.bind('ch', 'history-clear')
-config.bind('gy', 'open-editor')
+config.bind('gy', 'edit-text')
 
 # completion settings
 c.completion.cmd_history_max_items = 0
@@ -42,6 +43,17 @@ c.completion.web_history.max_items = 0
 
 # wait for downloads when quitting
 c.confirm_quit = ['downloads']
+
+# configure adblocking
+c.content.blocking.method = 'both'
+c.content.blocking.adblock.lists = [
+    'https://easylist.to/easylist/easylist.txt',
+    'https://easylist.to/easylist/easyprivacy.txt',
+    'https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt',
+    'https://blocklistproject.github.io/Lists/ads.txt',
+    'https://blocklistproject.github.io/Lists/phishing.txt',
+    'https://blocklistproject.github.io/Lists/tracking.txt'
+]
 
 # content settings
 # disable autoplay
@@ -56,12 +68,6 @@ c.content.geolocation = False
 c.content.headers.user_agent = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
                                 ' AppleWebKit/537.36 (KHTML, like Gecko)'
                                 ' Chrome/79.0.3945.117 Safari/537.36')
-# set YouTube user agent string
-youtube_user_agent = ('Google Bot (Mozilla/5.0'
-                      ' (compatible; Googlebot/2.1;'
-                      ' +http://www.google.com/bot.html))')
-config.set('content.headers.user_agent',
-           youtube_user_agent, '*://youtube.com/')
 # enable pdfjs
 c.content.pdfjs = True
 # set webrtc policy
@@ -81,6 +87,13 @@ c.editor.command = ['alacritty', '-e', 'nvim',
 c.fonts.default_family = ['JetBrains Mono Nerd Font', 'Iosevka',
                           'Inconsolata', 'Fira Code', 'DejaVu Sans Mono']
 c.fonts.default_size = '10pt'
+
+# file selector
+c.fileselect.handler = 'external'
+c.fileselect.single_file.command = [
+    'alacritty', '-e', 'ranger', '--choosefile={}']
+c.fileselect.multiple_files.command = [
+    'alacritty', '-e', 'ranger', '--choosefiles={}']
 
 # QT hidpi fix
 c.qt.highdpi = True
@@ -102,8 +115,8 @@ try:
     with (config.configdir / 'searchengines.yaml').open() as f:
         yaml_data = yaml.safe_load(f)
 
-    for k, v in yaml_data.items():
-        c.url.searchengines[k] = v
+        for k, v in yaml_data.items():
+            c.url.searchengines[k] = v
 except IOError:
     pass
 
