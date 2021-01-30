@@ -160,6 +160,7 @@ local prettier = require('lsp/efm/prettier')
 local shellcheck = require('lsp/efm/shellcheck')
 local shfmt = require('lsp/efm/shfmt')
 local stylelint = require('lsp/efm/stylelint')
+local taplo = require('lsp/efm/taplo')
 local yamllint = require('lsp/efm/yamllint')
 local vint = require('lsp/efm/vint')
 lspconfig.efm.setup {
@@ -183,6 +184,7 @@ lspconfig.efm.setup {
             sass = {stylelint},
             scss = {stylelint},
             sh = {shellcheck, shfmt},
+            toml = {taplo},
             typescript = {eslint, prettier},
             typescriptreact = {eslint, prettier},
             vim = {vint},
