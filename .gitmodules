@@ -7,3 +7,7 @@
 [submodule "packages/gtk/themes/nordic"]
 	path = packages/gtk/themes/nordic
 	url = https://github.com/EliverLara/Nordic
+[submodule "packages/qutebrowser/tree/.config/qutebrowser/jmatrix"]
+	path = packages/qutebrowser/tree/.config/qutebrowser/jmatrix
+	url = https://github.com/Dophin2009/jmatrix
+	branch = qutebrowserv2-patch
