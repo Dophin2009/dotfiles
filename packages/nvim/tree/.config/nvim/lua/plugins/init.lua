@@ -144,6 +144,9 @@ packer.startup(function()
         ft = {'asciidoc', 'markdown', 'pandoc', 'rmarkdown', 'text', 'tex'}
     }
 
+    -- Quickly expand/unexpand code
+    use {'AndrewRadev/splitjoin.vim'}
+
     -- RGB, hex color highlighting
     use {
         'norcalli/nvim-colorizer.lua',
