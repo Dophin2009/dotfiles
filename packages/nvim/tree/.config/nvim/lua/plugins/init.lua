@@ -100,6 +100,12 @@ packer.startup(function()
     -- config = function() require 'plugins/treesitter' end
     -- }
 
+    -- Code actions inidicator
+    use {
+        'kosayoda/nvim-lightbulb',
+        config = function() require 'plugins/lightbulb' end
+    }
+
     --
     -- EDITING
     --
