@@ -22,6 +22,9 @@ packer.startup(function()
     -- Better startup profiling
     use {'tweekmonster/startuptime.vim'}
 
+    -- CurserHold performance fix
+    use {'antoinemadec/FixCursorHold.nvim'}
+
     --
     -- STATUSLINE
     --

@@ -12,7 +12,6 @@ g['airline#extensions#tabline#enabled'] = 1
 g['airline#extensions#wordcount#filetypes'] =
     [[ \vasciidoc|help|mail|markdown|pandoc|org|rst|tex|text ]]
 
-if U.require('lsp_status') then
-    -- Enable lsp_status integration
-    g['g:airline#extensions#nvimlsp#enabled'] = 1
-end
+-- Disable lsp_status integration
+g['airline#extensions#nvimlsp#enabled'] = 0
+-- if U.require('lsp_status') then g['g:airline#extensions#nvimlsp#enabled'] = 1 end
