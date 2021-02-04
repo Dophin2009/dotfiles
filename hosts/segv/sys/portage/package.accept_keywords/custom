@@ -7,6 +7,8 @@ dev-rust/rust-analyzer **
 
 media-fonts/nerd-fonts ~amd64
 
+media-gfx/ueberzug ~amd64
+
 media-sound/mpdnd ~amd64
 
 x11-terms/alacritty-ligatures ~amd64
