@@ -24,9 +24,9 @@ local capabilities = handlers.capabilities
 lspconfig.bashls.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- clangd
-local lsp_status = U.require('lsp-status')
+-- local lsp_status = U.require('lsp-status')
 local clangd_handlers = nil
-if lsp_status then clangd_handlers = lsp_status.extensions.clangd.setup() end
+-- if lsp_status then clangd_handlers = lsp_status.extensions.clangd.setup() end
 
 lspconfig.clangd.setup {
     handlers = clangd_handlers,

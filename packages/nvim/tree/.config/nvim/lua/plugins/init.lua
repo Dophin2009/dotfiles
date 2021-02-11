@@ -48,30 +48,30 @@ packer.startup(function()
     --
 
     -- Snippets
-    use {
-        'norcalli/snippets.nvim',
-        config = function() require 'plugins/snippets' end
-    }
+    -- use {
+    -- 'norcalli/snippets.nvim',
+    -- config = function() require 'plugins/snippets' end
+    -- }
 
     -- Completion integration
     use {
         'nvim-lua/completion-nvim',
-        after = {'snippets.nvim'},
+        -- after = {'snippets.nvim'},
         config = function() require 'lsp/completion' end
     }
 
     -- Status line integration for diagnostics
-    use {
-        'nvim-lua/lsp-status.nvim',
-        config = function() require 'lsp/status' end
-    }
+    -- use {
+        -- 'nvim-lua/lsp-status.nvim',
+        -- config = function() require 'lsp/status' end
+    -- }
 
     -- More code actions, inlay hints, etc.
-    use {
-        'nvim-lua/lsp_extensions.nvim',
-        ft = {'rust'},
-        config = function() require 'plugins/lsp_extensions' end
-    }
+    -- use {
+    -- 'nvim-lua/lsp_extensions.nvim',
+    -- ft = {'rust'},
+    -- config = function() require 'plugins/lsp_extensions' end
+    -- }
 
     -- Utilities
     -- use {'RishabhRD/nvim-lsputils', requires = {{'RishabhRD/popfix'}}}
@@ -86,7 +86,9 @@ packer.startup(function()
     use {
         'neovim/nvim-lspconfig',
         -- Requires loading of completion-nvim, lsp-status for handlers
-        after = {'completion-nvim', 'lsp-status.nvim', 'vim-illuminate'},
+        after = {'completion-nvim', 
+        -- 'lsp-status.nvim', 
+        'vim-illuminate'},
         config = function() require 'lsp' end
     }
 
@@ -148,7 +150,7 @@ packer.startup(function()
     }
 
     -- Quickly expand/unexpand code
-    use {'AndrewRadev/splitjoin.vim'}
+    -- use {'AndrewRadev/splitjoin.vim'}
 
     -- RGB, hex color highlighting
     use {
@@ -189,18 +191,18 @@ packer.startup(function()
     }
 
     -- Packer.nvim integration with telescope
-    use {
-        'nvim-telescope/telescope-packer.nvim',
-        after = {'telescope.nvim', 'packer.nvim'},
-        opt = true,
-        config = function() require 'plugins/telescope-packer' end
-    }
+    -- use {
+    -- 'nvim-telescope/telescope-packer.nvim',
+    -- after = {'telescope.nvim', 'packer.nvim'},
+    -- opt = true,
+    -- config = function() require 'plugins/telescope-packer' end
+    -- }
 
     -- Sane buffer tabline
     use {'romgrk/barbar.nvim', setup = function() require 'plugins/barbar' end}
 
     -- Marks in gutter
-    use {'kshenoy/vim-signature'}
+    -- use {'kshenoy/vim-signature'}
 
     -- Project drawer
     -- use {
