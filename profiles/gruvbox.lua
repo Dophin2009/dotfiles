@@ -98,7 +98,7 @@ M.i3 = {
             cborder = colors.normal.white
         }
     },
-    gaps = {inner = 0, outer = 0}
+    gaps = {inner = 5, outer = 0}
 }
 
 M.nvim = {theme = 'gruvbox-dark'}

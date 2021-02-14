@@ -8,7 +8,8 @@ set $right l
 
 ######### STYLES #########
 
-default_border pixel 1
+default_border none
+default_floating_border pixel 1
 hide_edge_borders smart
 
 focus_follows_mouse no
