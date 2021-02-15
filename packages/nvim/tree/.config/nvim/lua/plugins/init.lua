@@ -62,8 +62,8 @@ packer.startup(function()
 
     -- Status line integration for diagnostics
     -- use {
-        -- 'nvim-lua/lsp-status.nvim',
-        -- config = function() require 'lsp/status' end
+    -- 'nvim-lua/lsp-status.nvim',
+    -- config = function() require 'lsp/status' end
     -- }
 
     -- More code actions, inlay hints, etc.
@@ -86,9 +86,10 @@ packer.startup(function()
     use {
         'neovim/nvim-lspconfig',
         -- Requires loading of completion-nvim, lsp-status for handlers
-        after = {'completion-nvim', 
-        -- 'lsp-status.nvim', 
-        'vim-illuminate'},
+        after = {
+            'completion-nvim', -- 'lsp-status.nvim', 
+            'vim-illuminate'
+        },
         config = function() require 'lsp' end
     }
 
@@ -257,6 +258,9 @@ packer.startup(function()
 
     -- ELinks configuration syntax file
     use {'vim-scripts/elinks.vim'}
+
+    -- i3 configuration file syntax
+    use {'mboughaba/i3config.vim'}
 
     -- JSONC support
     use {'kevinoid/vim-jsonc', ft = {'jsonc'}}

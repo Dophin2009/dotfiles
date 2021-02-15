@@ -1,4 +1,5 @@
 #!/bin/sh
+export MANPAGER="nvim -c 'set ft=man' -"
 
 # remove nvim swap file
 rmnswap() {
