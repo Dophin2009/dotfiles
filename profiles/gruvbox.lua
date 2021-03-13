@@ -32,7 +32,7 @@ local colors = {
 
 M.alacritty = {font = font, colors = colors, font_size = 10}
 
-M.bat = {theme = 'gruvbox'}
+M.bat = {theme = 'gruvbox-dark'}
 
 M.discord = {theme = 'gruvbox'}
 
