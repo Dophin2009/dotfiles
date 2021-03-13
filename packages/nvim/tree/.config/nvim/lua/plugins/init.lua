@@ -293,7 +293,7 @@ packer.startup(function()
     use {'vim-pandoc/vim-rmarkdown', after = {'vim-pandoc'}, ft = {'rmarkdown'}}
 
     -- Rust syntax highlighting
-    -- use {'arzg/vim-rust-syntax-ext', ft = {'rust'}}
+    -- use {'arzg/vim-rust-syntax-ext'}
 
     -- TOML support
     use {'cespare/vim-toml'}
@@ -344,6 +344,16 @@ packer.startup(function()
 
     -- Iceberg
     use {'cocopon/iceberg.vim'}
+
+    --
+    -- MISC
+    --
+
+    -- Discord presence
+    use {
+        'andweeb/presence.nvim',
+        config = function() require 'plugins/presence' end
+    }
 
 end)
 
