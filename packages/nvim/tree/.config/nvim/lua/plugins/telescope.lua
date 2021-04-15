@@ -14,7 +14,7 @@ cmd [[ command Pickers :lua require('telescope.builtin').builtin() ]]
 --
 
 -- File picker
-cmd [[ command Files :lua require('telescope.builtin').find_files({find_command = {'rg', '--ignore', '--hidden', '--files', '--follow'}}) ]]
+cmd [[ command Files :lua require('telescope.builtin').find_files({find_command = {'rg', '--ignore', '--hidden', '--files', '--follow', '-g!.git'}}) ]]
 nmap('<C-p>', "<cmd>Files<CR>")
 
 -- Git files picker

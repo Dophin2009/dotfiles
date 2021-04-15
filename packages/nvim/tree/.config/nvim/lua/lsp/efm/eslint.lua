@@ -1,4 +1,4 @@
-local bin = './node_modules/.bin/eslint'
+local bin = 'eslint_d'
 
 return {
     lintCommand = bin .. ' -f visualstudio --stdin',

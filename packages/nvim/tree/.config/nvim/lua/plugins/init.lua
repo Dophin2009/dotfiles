@@ -82,22 +82,32 @@ packer.startup(function()
         config = function() require 'plugins/illuminate' end
     }
 
+    use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
+
     -- Predefined language server configurations
     use {
         'neovim/nvim-lspconfig',
         -- Requires loading of completion-nvim, lsp-status for handlers
         after = {
-            'completion-nvim', -- 'lsp-status.nvim', 
-            'vim-illuminate'
+            'completion-nvim', -- 'lsp-status.nvim',
+            'vim-illuminate', 'nvim-lsp-ts-utils'
         },
         config = function() require 'lsp' end
     }
 
+    -- Jdtls for Java
     use {
         'mfussenegger/nvim-jdtls',
         ft = {'java'},
         after = {'nvim-lspconfig'},
         config = function() require 'lsp/jdtls' end
+    }
+
+    -- Scala support with metals
+    use {
+        'scalameta/nvim-metals',
+        ft = {'scala', 'sbt'},
+        config = function() require 'lsp/metals' end
     }
 
     -- Better treesitter support
@@ -259,11 +269,20 @@ packer.startup(function()
     -- ELinks configuration syntax file
     use {'vim-scripts/elinks.vim'}
 
+    -- HTML tag completion
+    use {'othree/html5.vim', ft = {'html'}}
+
     -- i3 configuration file syntax
     use {'mboughaba/i3config.vim'}
 
+    -- Better javascript highlighting
+    use {'jelera/vim-javascript-syntax'}
+
     -- JSONC support
     use {'kevinoid/vim-jsonc', ft = {'jsonc'}}
+
+    -- Kotlin syntax
+    use {'udalov/kotlin-vim', ft = {'kotlin'}}
 
     -- LLVM IR support
     use {'rhysd/vim-llvm'}
@@ -294,6 +313,9 @@ packer.startup(function()
 
     -- Rust syntax highlighting
     -- use {'arzg/vim-rust-syntax-ext'}
+
+    -- Better SCSS syntax highlighting
+    use {'cakebaker/scss-syntax.vim'}
 
     -- TOML support
     use {'cespare/vim-toml'}

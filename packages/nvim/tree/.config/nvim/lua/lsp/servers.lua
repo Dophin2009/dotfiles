@@ -39,11 +39,14 @@ lspconfig.clangd.setup {
 lspconfig.cmake.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- css language server
-lspconfig.cssls.setup {
-    cmd = {'css-languageserver'},
-    on_attach = on_attach,
-    capabilities = capabilities
-}
+lspconfig.cssls.setup {on_attach = on_attach, capabilities = capabilities}
+
+-- deno language server
+-- lspconfig.denols.setup {
+-- init_options = {lint = true},
+-- on_attach = on_attach,
+-- capabilities = capabilities
+-- }
 
 -- dhall lsp server
 lspconfig.dhall_lsp.setup {on_attach = on_attach, capabilities = capabilities}
@@ -58,11 +61,7 @@ lspconfig.gopls.setup {on_attach = on_attach, capabilities = capabilities}
 lspconfig.hie.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- html language server
-lspconfig.html.setup {
-    cmd = {'html-languageserver'},
-    on_attach = on_attach,
-    capabilities = capabilities
-}
+lspconfig.html.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- java language server
 -- lspconfig.jdtls.setup {
@@ -78,8 +77,10 @@ lspconfig.html.setup {
 -- }
 
 -- json language server
-lspconfig.jsonls.setup {
-    cmd = {'json-languageserver'},
+lspconfig.jsonls.setup {on_attach = on_attach, capabilities = capabilities}
+
+-- kotlin language server
+lspconfig.kotlin_language_server.setup {
     on_attach = on_attach,
     capabilities = capabilities
 }
@@ -132,6 +133,21 @@ lspconfig.texlab.setup {on_attach = on_attach, capabilities = capabilities}
 lspconfig.tsserver.setup {
     on_attach = function(client, bufnr)
         client.resolved_capabilities.document_formatting = false
+
+        local ts_utils = require('nvim-lsp-ts-utils')
+        vim.lsp.handlers['textDocument/codeAction'] =
+            ts_utils.code_action_handler
+        ts_utils.setup {enable_import_on_completion = true}
+
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "gS", ":TSLspOrganize<CR>",
+                                    {silent = true})
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "gQ", ":TSLspFixCurrent<CR>",
+                                    {silent = true})
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "gT", ":TSLspRenameFile<CR>",
+                                    {silent = true})
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>",
+                                    {silent = true})
+
         on_attach(client, bufnr)
     end,
     capabilities = capabilities
@@ -141,7 +157,7 @@ lspconfig.tsserver.setup {
 lspconfig.vimls.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- yaml language server
-lspconfig.yamlls.setup {on_attach = on_attach, capabilities = capabilities}
+-- lspconfig.yamlls.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- efm-langserver
 -- local autopep8 = require('lsp/efm/autopep8')
@@ -151,6 +167,7 @@ local fixjson = require('lsp/efm/fixjson')
 local goimports = require('lsp/efm/goimports')
 local golint = require('lsp/efm/golint')
 local htmlhint = require('lsp/efm/htmlhint')
+-- local ktlint = require('lsp/efm/ktlint')
 local lacheck = require('lsp/efm/lacheck')
 local luafmt = require('lsp/efm/luafmt')
 local luac = require('lsp/efm/luac')
@@ -163,7 +180,7 @@ local shellcheck = require('lsp/efm/shellcheck')
 local shfmt = require('lsp/efm/shfmt')
 local stylelint = require('lsp/efm/stylelint')
 local taplo = require('lsp/efm/taplo')
-local yamllint = require('lsp/efm/yamllint')
+-- local yamllint = require('lsp/efm/yamllint')
 local vint = require('lsp/efm/vint')
 lspconfig.efm.setup {
     on_attach = on_attach,
@@ -180,6 +197,7 @@ lspconfig.efm.setup {
             json = {fixjson},
             go = {golint, goimports},
             html = {htmlhint, prettier},
+            -- kotlin = {ktlint},
             latex = {lacheck},
             lua = {luafmt, luac},
             pandoc = {pandoc},
@@ -190,7 +208,7 @@ lspconfig.efm.setup {
             typescript = {eslint, prettier},
             typescriptreact = {eslint, prettier},
             vim = {vint},
-            yaml = {yamllint},
+            -- yaml = {yamllint},
             zsh = {shellcheck, shfmt}
         }
     }
