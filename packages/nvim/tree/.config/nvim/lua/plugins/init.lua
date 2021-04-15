@@ -291,6 +291,9 @@ packer.startup(function()
     -- use {'tbastos/vim-lua', ft = {'lua'}}
     use {'euclidianAce/BetterLua.vim', ft = {'lua'}}
 
+    -- Nginx configuration highlighting
+    use {'chr4/nginx.vim'}
+
     -- Pandoc support
     use {
         'vim-pandoc/vim-pandoc',
@@ -372,10 +375,10 @@ packer.startup(function()
     --
 
     -- Discord presence
-    use {
-        'andweeb/presence.nvim',
-        config = function() require 'plugins/presence' end
-    }
+    -- use {
+        -- 'andweeb/presence.nvim',
+        -- config = function() require 'plugins/presence' end
+    -- }
 
 end)
 
