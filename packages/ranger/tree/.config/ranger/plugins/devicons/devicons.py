@@ -99,6 +99,9 @@ file_node_extensions = {
     'jsx': '',
     'key': '',
     'ksh': '',
+    # TODO: Kotlin icon
+    'kt': '',
+    'kts': '',
     'leex': '',
     'less': '',
     'lha': '',
