@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local U = {}
 
 U.require = function(pkg)
@@ -11,8 +12,6 @@ U.map = function(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-U.nmap = function(lhs, rhs, opts)
-    U.map('n', lhs, rhs, opts)
-end
+U.nmap = function(lhs, rhs, opts) U.map('n', lhs, rhs, opts) end
 
 return U

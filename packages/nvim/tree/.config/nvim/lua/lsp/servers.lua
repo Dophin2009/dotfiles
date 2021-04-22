@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local U = require('util')
 
 local lspconfig = U.require('lspconfig')
@@ -172,8 +173,9 @@ local golint = require('lsp/efm/golint')
 local htmlhint = require('lsp/efm/htmlhint')
 -- local ktlint = require('lsp/efm/ktlint')
 local lacheck = require('lsp/efm/lacheck')
+local luacheck = require('lsp/efm/luacheck')
 local luafmt = require('lsp/efm/luafmt')
-local luac = require('lsp/efm/luac')
+-- local luac = require('lsp/efm/luac')
 -- local misspell = require('lsp/efm/misspell')
 -- local mypy = require('lsp/efm/mypy')
 local pandoc = require('lsp/efm/pandoc')
@@ -202,7 +204,7 @@ lspconfig.efm.setup {
             html = {htmlhint, prettier},
             -- kotlin = {ktlint},
             latex = {lacheck},
-            lua = {luafmt, luac},
+            lua = {luafmt, luacheck},
             pandoc = {pandoc},
             sass = {stylelint},
             scss = {stylelint},

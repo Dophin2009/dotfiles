@@ -1,3 +1,4 @@
+-- luacheck: globals vim use
 local g = vim.g
 local cmd, fn = vim.cmd, vim.fn
 
@@ -111,10 +112,10 @@ packer.startup(function()
     }
 
     -- Better treesitter support
-    -- use {
-    -- 'nvim-treesitter/nvim-treesitter',
-    -- config = function() require 'plugins/treesitter' end
-    -- }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        config = function() require 'plugins/treesitter' end
+    }
 
     -- Code actions inidicator
     use {
@@ -190,7 +191,7 @@ packer.startup(function()
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-        after = {'nvim-lspconfig'},
+        after = {'nvim-lspconfig', 'nvim-treesitter'},
         config = function() require 'plugins/telescope' end
     }
 
@@ -376,8 +377,8 @@ packer.startup(function()
 
     -- Discord presence
     -- use {
-        -- 'andweeb/presence.nvim',
-        -- config = function() require 'plugins/presence' end
+    -- 'andweeb/presence.nvim',
+    -- config = function() require 'plugins/presence' end
     -- }
 
 end)

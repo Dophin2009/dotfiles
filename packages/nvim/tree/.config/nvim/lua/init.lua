@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 -- Set global variables for XDG dirs
 local getenv = function(var, def)
     local env = os.getenv(var)

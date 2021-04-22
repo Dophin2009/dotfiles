@@ -1,4 +1,5 @@
-local g, o = vim.g, vim.o
+-- luacheck: globals vim
+local o = vim.o
 local exec = vim.api.nvim_exec
 
 -- Use sakura colorscheme

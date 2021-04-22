@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local colorizer = require('colorizer')
 colorizer.setup {
     '*',

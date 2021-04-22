@@ -1,6 +1,6 @@
+-- luacheck: globals vim
 local U = require('util')
 local nmap = U.nmap
-local exec = vim.api.nvim_exec
 
 -- Some bindings
 nmap('<leader>di', '<cmd>ToggleDitto<CR>')

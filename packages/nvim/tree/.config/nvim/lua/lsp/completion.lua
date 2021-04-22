@@ -1,6 +1,6 @@
-local U = require('util')
-local completion = U.require('completion')
-
+-- luacheck: globals vim
+-- local U = require('util')
+-- local completion = U.require('completion')
 local g = vim.g
 
 g.completion_auto_change_source = 1

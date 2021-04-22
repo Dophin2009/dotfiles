@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local cmd = vim.cmd
 
 local telescope = require('telescope')

@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local g = vim.g
 
 g.netrw_banner = 0

@@ -1,5 +1,6 @@
+-- luacheck: globals vim
 local g, o, wo, bo = vim.g, vim.o, vim.wo, vim.bo
-local cmd, fn = vim.cmd, vim.fn
+local cmd = vim.cmd
 
 -- Python paths
 g.python_host_prog = '/usr/bin/python2'
@@ -41,7 +42,7 @@ wo.cursorline = true
 wo.wrap = false
 
 -- Tabs (space tabs)
-function opt(name, value)
+local function opt(name, value)
     o[name] = value
     bo[name] = value
 end

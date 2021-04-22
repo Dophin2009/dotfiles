@@ -1,5 +1,5 @@
-local U = require('util')
-
+-- luacheck: globals vim
+-- local U = require('util')
 local g = vim.g
 
 -- Use powerline fonts

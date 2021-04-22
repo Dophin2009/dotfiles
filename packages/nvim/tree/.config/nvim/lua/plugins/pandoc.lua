@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local g = vim.g
 
 -- Disable pandoc modules

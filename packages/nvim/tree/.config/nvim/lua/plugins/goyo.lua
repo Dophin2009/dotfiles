@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local U = require('util')
 local g, exec = vim.g, vim.api.nvim_exec
 

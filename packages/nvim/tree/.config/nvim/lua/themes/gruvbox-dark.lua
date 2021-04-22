@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local g, o = vim.g, vim.o
 local exec = vim.api.nvim_exec
 

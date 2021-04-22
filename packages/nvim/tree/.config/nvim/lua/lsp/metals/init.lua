@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local metals = require('metals')
 
 local config = metals.bare_config

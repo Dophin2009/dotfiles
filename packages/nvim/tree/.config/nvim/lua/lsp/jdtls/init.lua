@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local jdtls = require('jdtls')
 local g = vim.g
 

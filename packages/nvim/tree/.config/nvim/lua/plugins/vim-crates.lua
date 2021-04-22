@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local exec = vim.api.nvim_exec
 
 -- detect Cargo.toml

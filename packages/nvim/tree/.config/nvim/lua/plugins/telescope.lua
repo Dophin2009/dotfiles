@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local U = require 'util'
 local nmap = U.nmap
 
@@ -14,6 +15,7 @@ cmd [[ command Pickers :lua require('telescope.builtin').builtin() ]]
 --
 
 -- File picker
+-- luacheck: no max_line_length
 cmd [[ command Files :lua require('telescope.builtin').find_files({find_command = {'rg', '--ignore', '--hidden', '--files', '--follow', '-g!.git'}}) ]]
 nmap('<C-p>', "<cmd>Files<CR>")
 
