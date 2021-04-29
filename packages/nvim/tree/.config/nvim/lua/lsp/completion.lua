@@ -1,20 +1,81 @@
 -- luacheck: globals vim
--- local U = require('util')
--- local completion = U.require('completion')
-local g = vim.g
+local compe = require 'compe'
 
-g.completion_auto_change_source = 1
+compe.setup {
+    enabled = true,
+    autocomplete = true,
+    debug = false,
+    min_length = 1,
+    preselect = "enable",
+    throttle_time = 80,
+    source_timeout = 200,
+    incomplete_delay = 400,
+    max_abbr_width = 100,
+    max_kind_width = 100,
+    max_menu_width = 100,
+    documentation = true,
+    source = {
+        path = true,
+        buffer = true,
+        calc = true,
+        vsnip = true,
+        nvim_lsp = true,
+        nvim_lua = true,
+        spell = true,
+        tags = true,
+        snippets_nvim = true,
+        treesitter = true,
+        tmux = true
+    }
+}
 
--- Enable snippet support
--- g.completion_enable_snippet = 'snippets.nvim'
+local t = function(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
 
--- Selection method
-g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
-g.completion_matching_smart_case = 1
+local check_back_space = function()
+    local col = vim.fn.col(".") - 1
+    if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+        return true
+    else
+        return false
+    end
+end
 
--- Timer adjustment
--- g.completion_timer_cycle = 200
+-- Tab completion
+_G.tab_complete = function()
+    if vim.fn.pumvisible() == 1 then
+        return t "<C-n>"
+    elseif check_back_space() then
+        return t "<Tab>"
+    else
+        return vim.fn["compe#complete"]()
+    end
+end
+_G.s_tab_complete = function()
+    if vim.fn.pumvisible() == 1 then
+        return t "<C-p>"
+    elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+        return t "<Plug>(vsnip-jump-prev)"
+    else
+        return t "<S-Tab>"
+    end
+end
 
--- Enable auto signature help and hover
-g.completion_enable_auto_signature = 1
-g.completion_enable_auto_hover = 1
+-- Completion mappings
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+function _G.completions()
+    local autopairs = require 'nvim-autopairs'
+    if vim.fn.pumvisible() == 1 then
+        if vim.fn.complete_info()["selected"] ~= -1 then
+            return vim.fn["compe#confirm"]("<CR>")
+        end
+    end
+    return autopairs.check_break_line_char()
+end
+
+vim.api.nvim_set_keymap("i", "<CR>", "v:lua.completions()", {expr = true})

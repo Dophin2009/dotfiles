@@ -32,10 +32,10 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_command [[augroup END]]
     end
 
-    local completion = require('completion')
+    local signature = require('lsp_signature')
     local illuminate = require('illuminate')
 
-    completion.on_attach(client, bufnr)
+    signature.on_attach()
     illuminate.on_attach(client, bufnr)
 end
 

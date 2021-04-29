@@ -79,15 +79,20 @@ packer.startup(function()
 
     -- Completion integration
     use {
-        'nvim-lua/completion-nvim',
-        -- after = {'snippets.nvim'},
+        'windwp/nvim-autopairs',
+        config = function() require 'plugins/autopairs' end
+    }
+    use {
+        'hrsh7th/nvim-compe',
+        requires = {{'andersevenrud/compe-tmux'}, {'ray-x/lsp_signature.nvim'}},
+        after = {'nvim-autopairs'},
         config = function() require 'lsp/completion' end
     }
 
     -- Predefined language server configurations
     use {
         'neovim/nvim-lspconfig',
-        after = {'completion-nvim', 'vim-illuminate', 'nvim-lsp-ts-utils'},
+        after = {'nvim-compe', 'vim-illuminate', 'nvim-lsp-ts-utils'},
         config = function() require 'lsp' end
     }
 
@@ -119,21 +124,26 @@ packer.startup(function()
     -- Better treesitter support
     use {
         'nvim-treesitter/nvim-treesitter',
+        requires = {
+            'windwp/nvim-ts-autotag',
+            'JoosepAlviste/nvim-ts-context-commentstring'
+        },
         config = function() require 'plugins/treesitter' end
     }
+    use {'romgrk/nvim-treesitter-context', after = {'nvim-treesitter'}}
 
     -- Autoclose parentheses, brackets, etc.
-    use {
-        'Raimondi/delimitMate',
-        config = function() require 'plugins/delimitmate' end
-    }
+    -- use {
+    -- 'Raimondi/delimitMate',
+    -- config = function() require 'plugins/delimitmate' end
+    -- }
 
     -- Autoclose XHTML tags
-    use {
-        'alvan/vim-closetag',
-        ft = {'html', 'xhtml', 'xml'},
-        config = function() require 'plugins/closetag' end
-    }
+    -- use {
+    -- 'alvan/vim-closetag',
+    -- ft = {'html', 'xhtml', 'xml'},
+    -- config = function() require 'plugins/closetag' end
+    -- }
 
     -- Preview search and replace
     use {'markonm/traces.vim'}
@@ -213,12 +223,6 @@ packer.startup(function()
     -- Useful csv utilities and highlighting
     use {'mechatroner/rainbow_csv', ft = {'csv'}}
 
-    -- Cxx semantic highlighting
-    -- use {
-        -- 'jackguo380/vim-lsp-cxx-highlight',
-        -- ft = {'c', 'cpp', 'objc', 'objcpp'}
-    -- }
-
     -- EBNF syntax file
     use {'a-vrma/ebnf-vim'}
 
@@ -231,26 +235,14 @@ packer.startup(function()
     -- ELinks configuration syntax file
     use {'vim-scripts/elinks.vim'}
 
-    -- HTML tag completion
-    -- use {'othree/html5.vim', ft = {'html'}}
-
     -- i3 configuration file syntax
     use {'mboughaba/i3config.vim'}
-
-    -- Better javascript highlighting
-    -- use {'jelera/vim-javascript-syntax'}
-
-    -- JSONC support
-    -- use {'kevinoid/vim-jsonc', ft = {'jsonc'}}
-
-    -- Kotlin syntax
-    -- use {'udalov/kotlin-vim', ft = {'kotlin'}}
 
     -- LLVM IR support
     use {'rhysd/vim-llvm'}
 
     -- Better lua highlighting
-    -- use {'euclidianAce/BetterLua.vim', ft = {'lua'}}
+    use {'euclidianAce/BetterLua.vim', ft = {'lua'}}
 
     -- Nginx configuration highlighting
     use {'chr4/nginx.vim'}
@@ -275,20 +267,10 @@ packer.startup(function()
     -- R Markdown support
     use {'vim-pandoc/vim-rmarkdown', after = {'vim-pandoc'}, ft = {'rmarkdown'}}
 
-    -- Rust syntax highlighting
-    -- use {'arzg/vim-rust-syntax-ext'}
-
-    -- Better SCSS syntax highlighting
-    -- use {'cakebaker/scss-syntax.vim'}
-
-    -- TOML support
-    -- use {'cespare/vim-toml'}
-
     -- Cargo.toml crate version hints
     use {
         'mhinz/vim-crates',
         ft = {'toml'},
-        after = {'vim-toml'},
         config = function() require 'plugins/vim-crates' end
     }
 
@@ -337,12 +319,6 @@ packer.startup(function()
 
     -- Unix command use
     use {'tpope/vim-eunuch'}
-
-    -- Discord presence
-    -- use {
-    -- 'andweeb/presence.nvim',
-    -- config = function() require 'plugins/presence' end
-    -- }
 
 end)
 
