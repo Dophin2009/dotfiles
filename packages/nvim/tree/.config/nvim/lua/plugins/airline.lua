@@ -1,5 +1,5 @@
 -- luacheck: globals vim
--- local U = require('util')
+local U = require('util')
 local g = vim.g
 
 -- Use powerline fonts
@@ -14,4 +14,4 @@ g['airline#extensions#wordcount#filetypes'] =
 
 -- Disable lsp_status integration
 g['airline#extensions#nvimlsp#enabled'] = 0
--- if U.require('lsp_status') then g['g:airline#extensions#nvimlsp#enabled'] = 1 end
+if U.require('lsp-status') then g['g:airline#extensions#nvimlsp#enabled'] = 1 end

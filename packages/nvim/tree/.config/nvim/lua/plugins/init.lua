@@ -30,11 +30,18 @@ packer.startup(function()
     -- STATUSLINE
     --
 
-    -- Airline statusline
+    -- Lualine statusline
     use {
-        'vim-airline/vim-airline',
-        config = function() require 'plugins/airline' end
+        'hoob3rt/lualine.nvim',
+        requires = {{'kyazdani42/nvim-web-devicons', opt = true}},
+        config = function() require 'plugins/lualine' end
     }
+
+    -- Airline statusline
+    -- use {
+    -- 'vim-airline/vim-airline',
+    -- config = function() require 'plugins/airline' end
+    -- }
     -- use {'vim-airiline/vim-airline-themes, requires = {{'vim-airline/vim-airline'}}}
 
     -- Git signs in the signcolumn
@@ -47,6 +54,22 @@ packer.startup(function()
     --
     -- LSP
     --
+
+    -- More code actions, inlay hints, etc.
+    use {
+        'nvim-lua/lsp_extensions.nvim',
+        ft = {'rust'},
+        config = function() require 'lsp/lsp_extensions' end
+    }
+
+    -- Support for tsserver extensions
+    use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
+
+    -- Intelligent cursor word highlighting
+    use {
+        'RRethy/vim-illuminate',
+        config = function() require 'plugins/illuminate' end
+    }
 
     -- Snippets
     -- use {
@@ -61,38 +84,10 @@ packer.startup(function()
         config = function() require 'lsp/completion' end
     }
 
-    -- Status line integration for diagnostics
-    -- use {
-    -- 'nvim-lua/lsp-status.nvim',
-    -- config = function() require 'lsp/status' end
-    -- }
-
-    -- More code actions, inlay hints, etc.
-    -- use {
-    -- 'nvim-lua/lsp_extensions.nvim',
-    -- ft = {'rust'},
-    -- config = function() require 'plugins/lsp_extensions' end
-    -- }
-
-    -- Utilities
-    -- use {'RishabhRD/nvim-lsputils', requires = {{'RishabhRD/popfix'}}}
-
-    -- Intelligent cursor word highlighting
-    use {
-        'RRethy/vim-illuminate',
-        config = function() require 'plugins/illuminate' end
-    }
-
-    use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
-
     -- Predefined language server configurations
     use {
         'neovim/nvim-lspconfig',
-        -- Requires loading of completion-nvim, lsp-status for handlers
-        after = {
-            'completion-nvim', -- 'lsp-status.nvim',
-            'vim-illuminate', 'nvim-lsp-ts-utils'
-        },
+        after = {'completion-nvim', 'vim-illuminate', 'nvim-lsp-ts-utils'},
         config = function() require 'lsp' end
     }
 
@@ -111,12 +106,6 @@ packer.startup(function()
         config = function() require 'lsp/metals' end
     }
 
-    -- Better treesitter support
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        config = function() require 'plugins/treesitter' end
-    }
-
     -- Code actions inidicator
     use {
         'kosayoda/nvim-lightbulb',
@@ -126,6 +115,12 @@ packer.startup(function()
     --
     -- EDITING
     --
+
+    -- Better treesitter support
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        config = function() require 'plugins/treesitter' end
+    }
 
     -- Autoclose parentheses, brackets, etc.
     use {
@@ -140,14 +135,8 @@ packer.startup(function()
         config = function() require 'plugins/closetag' end
     }
 
-    -- Keybindings to surround words in quotes, brackets, etc.
-    -- use {'tpope/vim-surround'}
-
     -- Preview search and replace
     use {'markonm/traces.vim'}
-
-    -- Disable hlsearch when done searching, renable when searching again
-    -- use {'romainl/vim-cool'}
 
     -- Comment and uncomment with keybindings (<leader>c<space>)
     use {
@@ -160,9 +149,6 @@ packer.startup(function()
         'godlygeek/tabular',
         ft = {'asciidoc', 'markdown', 'pandoc', 'rmarkdown', 'text', 'tex'}
     }
-
-    -- Quickly expand/unexpand code
-    -- use {'AndrewRadev/splitjoin.vim'}
 
     -- RGB, hex color highlighting
     use {
@@ -177,17 +163,19 @@ packer.startup(function()
         config = function() require 'plugins/glow' end
     }
 
-    -- Peak registers
-    use {'junegunn/vim-peekaboo'}
+    -- Indent guides
+    use {
+        'Yggdroot/indentLine', {
+            'lukas-reineke/indent-blankline.nvim',
+            config = function() require 'plugins/indentguide' end
+        }
+    }
 
     --
     -- NAVIGATION
     --
 
-    -- FZF integration
-    -- use {'junegunn/fzf.vim', config = function() require 'plugins/fzf' end}
-
-    -- Fuzzy picker, more functionality than fzf
+    -- Fuzzy picker
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
@@ -202,32 +190,8 @@ packer.startup(function()
         config = function() require 'plugins/telescope-fzy-native' end
     }
 
-    -- Packer.nvim integration with telescope
-    -- use {
-    -- 'nvim-telescope/telescope-packer.nvim',
-    -- after = {'telescope.nvim', 'packer.nvim'},
-    -- opt = true,
-    -- config = function() require 'plugins/telescope-packer' end
-    -- }
-
     -- Sane buffer tabline
     use {'romgrk/barbar.nvim', setup = function() require 'plugins/barbar' end}
-
-    -- Marks in gutter
-    -- use {'kshenoy/vim-signature'}
-
-    -- Project drawer
-    -- use {
-    -- 'preservim/nerdtree',
-    -- requires = {{'Xuyuanp/nerdtree-git-plugin'}, {'ryanoasis/vim-devicons'}},
-    -- config = function() require 'plugins/nerdtree' end
-    -- }
-
-    -- Minimap of code
-    -- use {'wfxr/minimap.vim', config = function() require 'plugins/minimap' end}
-
-    -- ctags integration
-    -- use {'mjutsushi/tagbar', config = function() require 'plugins/tagbar' end}
 
     -- Smooth page-down and page-up
     use {'psliwka/vim-smoothie'}
@@ -238,9 +202,6 @@ packer.startup(function()
     --
     -- LANGUAGE SUPPORT
     --
-
-    -- Bulk language support
-    -- use {'sheerun/vim-polyglot'}
 
     -- Asciidoctor support
     use {
@@ -253,10 +214,10 @@ packer.startup(function()
     use {'mechatroner/rainbow_csv', ft = {'csv'}}
 
     -- Cxx semantic highlighting
-    use {
-        'jackguo380/vim-lsp-cxx-highlight',
-        ft = {'c', 'cpp', 'objc', 'objcpp'}
-    }
+    -- use {
+        -- 'jackguo380/vim-lsp-cxx-highlight',
+        -- ft = {'c', 'cpp', 'objc', 'objcpp'}
+    -- }
 
     -- EBNF syntax file
     use {'a-vrma/ebnf-vim'}
@@ -271,26 +232,25 @@ packer.startup(function()
     use {'vim-scripts/elinks.vim'}
 
     -- HTML tag completion
-    use {'othree/html5.vim', ft = {'html'}}
+    -- use {'othree/html5.vim', ft = {'html'}}
 
     -- i3 configuration file syntax
     use {'mboughaba/i3config.vim'}
 
     -- Better javascript highlighting
-    use {'jelera/vim-javascript-syntax'}
+    -- use {'jelera/vim-javascript-syntax'}
 
     -- JSONC support
-    use {'kevinoid/vim-jsonc', ft = {'jsonc'}}
+    -- use {'kevinoid/vim-jsonc', ft = {'jsonc'}}
 
     -- Kotlin syntax
-    use {'udalov/kotlin-vim', ft = {'kotlin'}}
+    -- use {'udalov/kotlin-vim', ft = {'kotlin'}}
 
     -- LLVM IR support
     use {'rhysd/vim-llvm'}
 
     -- Better lua highlighting
-    -- use {'tbastos/vim-lua', ft = {'lua'}}
-    use {'euclidianAce/BetterLua.vim', ft = {'lua'}}
+    -- use {'euclidianAce/BetterLua.vim', ft = {'lua'}}
 
     -- Nginx configuration highlighting
     use {'chr4/nginx.vim'}
@@ -319,10 +279,10 @@ packer.startup(function()
     -- use {'arzg/vim-rust-syntax-ext'}
 
     -- Better SCSS syntax highlighting
-    use {'cakebaker/scss-syntax.vim'}
+    -- use {'cakebaker/scss-syntax.vim'}
 
     -- TOML support
-    use {'cespare/vim-toml'}
+    -- use {'cespare/vim-toml'}
 
     -- Cargo.toml crate version hints
     use {

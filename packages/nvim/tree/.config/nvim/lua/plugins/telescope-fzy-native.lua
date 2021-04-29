@@ -1,3 +1,2 @@
--- luacheck: globals vim
-local telescope = require('telescope')
+local telescope = require 'telescope'
 telescope.load_extension('fzy_native')

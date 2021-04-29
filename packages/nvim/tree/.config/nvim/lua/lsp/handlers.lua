@@ -36,11 +36,9 @@ local on_attach = function(client, bufnr)
     local illuminate = require('illuminate')
 
     completion.on_attach(client, bufnr)
-    -- lsp_status.on_attach(client, bufnr)
     illuminate.on_attach(client, bufnr)
 end
 
--- local capabilities = lsp_status.capabilities
 local capabilities = nil
 
 return {on_attach = on_attach, capabilities = capabilities}
