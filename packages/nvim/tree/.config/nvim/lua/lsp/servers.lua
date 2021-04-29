@@ -136,6 +136,12 @@ lspconfig.texlab.setup {on_attach = on_attach, capabilities = capabilities}
 -- tsserver
 lspconfig.tsserver.setup {
     on_attach = function(client, bufnr)
+        -- Enable incremental sync
+        if client.config.flags then
+            client.config.flags.allow_incremental_sync = true
+        end
+
+        -- Disable built-in formatting
         client.resolved_capabilities.document_formatting = false
 
         local ts_utils = require('nvim-lsp-ts-utils')
@@ -199,7 +205,8 @@ lspconfig.efm.setup {
             css = {stylelint},
             javascript = {eslint, prettier},
             javascriptreact = {eslint, prettier},
-            json = {fixjson},
+            ['javascript.jsx'] = {eslint, prettier},
+            json = {fixjson, prettier},
             go = {golint, goimports},
             html = {htmlhint, prettier},
             -- kotlin = {ktlint},
@@ -212,6 +219,7 @@ lspconfig.efm.setup {
             toml = {taplo},
             typescript = {eslint, prettier},
             typescriptreact = {eslint, prettier},
+            ['typescript.tsx'] = {eslint, prettier},
             vim = {vint},
             -- yaml = {yamllint},
             zsh = {shellcheck, shfmt}

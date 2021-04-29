@@ -13,4 +13,8 @@ g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
 g.completion_matching_smart_case = 1
 
 -- Timer adjustment
-g.completion_timer_cycle = 200
+-- g.completion_timer_cycle = 200
+
+-- Enable auto signature help and hover
+g.completion_enable_auto_signature = 1
+g.completion_enable_auto_hover = 1

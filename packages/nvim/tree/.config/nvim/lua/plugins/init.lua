@@ -375,6 +375,9 @@ packer.startup(function()
     -- MISC
     --
 
+    -- Unix command use
+    use {'tpope/vim-eunuch'}
+
     -- Discord presence
     -- use {
     -- 'andweeb/presence.nvim',
