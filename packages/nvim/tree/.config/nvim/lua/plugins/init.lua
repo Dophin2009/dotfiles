@@ -33,7 +33,7 @@ packer.startup(function()
     -- Lualine statusline
     use {
         'hoob3rt/lualine.nvim',
-        requires = {{'kyazdani42/nvim-web-devicons', opt = true}},
+        requires = {{'kyazdani42/nvim-web-devicons'}},
         config = function() require 'plugins/lualine' end
     }
 
@@ -113,6 +113,13 @@ packer.startup(function()
         config = function() require 'plugins/lightbulb' end
     }
 
+    -- Pretty diagnostics view list
+    use {
+        'folke/lsp-trouble.nvim',
+        requires = {'kyazdani42/nvim-web-devicons'},
+        config = function() require 'plugins/trouble' end
+    }
+
     --
     -- EDITING
     --
@@ -184,6 +191,12 @@ packer.startup(function()
         config = function() require 'plugins/telescope-fzy-native' end
     }
 
+    -- Dim inactive buffers
+    use {'sunjon/Shade.nvim', config = function() require 'plugins/shade' end}
+
+    -- Keep eye on jump location
+    use {'edluffy/specs.nvim', config = function() require 'plugins/specs' end}
+
     -- Sane buffer tabline
     use {'romgrk/barbar.nvim', setup = function() require 'plugins/barbar' end}
 
@@ -192,6 +205,12 @@ packer.startup(function()
 
     -- tmux compatbility
     use {'tmux-plugins/vim-tmux-focus-events'}
+
+    -- Lazygit
+    use {
+        'kdheepak/lazygit.nvim',
+        config = function() require 'plugins/lazygit' end
+    }
 
     --
     -- LANGUAGE SUPPORT
@@ -303,6 +322,12 @@ packer.startup(function()
 
     -- Unix command use
     use {'tpope/vim-eunuch'}
+
+    -- Popup with keybind suggestions
+    use {
+        'folke/which-key.nvim',
+        config = function() require 'plugins/which-key' end
+    }
 
 end)
 
