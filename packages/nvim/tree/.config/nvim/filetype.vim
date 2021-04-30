@@ -17,6 +17,11 @@ aug FtdetectHbs
   au! BufNewFile,BufFilePre,BufRead *.yml.hbs set filetype=yaml.handlebars
 aug end
 
+" detect latexmkrc
+aug FtdetectLatexmk
+  au! BufNewFile,BufFilePre,BufRead latexmkrc,.latexmkrc  set filetype=perl
+aug end
+
 " detect luacheckrc
 aug FtdetectLuacheckrc
   au! BufNewFile,BufFilePre,BufRead .luacheckrc set filetype=lua

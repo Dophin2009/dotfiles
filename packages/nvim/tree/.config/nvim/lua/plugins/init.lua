@@ -37,13 +37,6 @@ packer.startup(function()
         config = function() require 'plugins/lualine' end
     }
 
-    -- Airline statusline
-    -- use {
-    -- 'vim-airline/vim-airline',
-    -- config = function() require 'plugins/airline' end
-    -- }
-    -- use {'vim-airiline/vim-airline-themes, requires = {{'vim-airline/vim-airline'}}}
-
     -- Git signs in the signcolumn
     use {
         'lewis6991/gitsigns.nvim',
@@ -92,7 +85,10 @@ packer.startup(function()
     -- Predefined language server configurations
     use {
         'neovim/nvim-lspconfig',
-        after = {'nvim-compe', 'vim-illuminate', 'nvim-lsp-ts-utils'},
+        after = {
+            'nvim-compe', 'telescope.nvim', 'vim-illuminate',
+            'nvim-lsp-ts-utils'
+        },
         config = function() require 'lsp' end
     }
 
@@ -131,19 +127,7 @@ packer.startup(function()
         config = function() require 'plugins/treesitter' end
     }
     use {'romgrk/nvim-treesitter-context', after = {'nvim-treesitter'}}
-
-    -- Autoclose parentheses, brackets, etc.
-    -- use {
-    -- 'Raimondi/delimitMate',
-    -- config = function() require 'plugins/delimitmate' end
-    -- }
-
-    -- Autoclose XHTML tags
-    -- use {
-    -- 'alvan/vim-closetag',
-    -- ft = {'html', 'xhtml', 'xml'},
-    -- config = function() require 'plugins/closetag' end
-    -- }
+    use {'haringsrob/nvim_context_vt', after = {'nvim-treesitter'}}
 
     -- Preview search and replace
     use {'markonm/traces.vim'}
@@ -189,7 +173,7 @@ packer.startup(function()
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-        after = {'nvim-lspconfig', 'nvim-treesitter'},
+        after = {'nvim-treesitter'},
         config = function() require 'plugins/telescope' end
     }
 
@@ -288,11 +272,11 @@ packer.startup(function()
     -- use {'junegunn/goyo.vim', config = function() require 'plugins/goyo' end}
 
     -- Find poorly repeated words in writing
-    use {
-        'dbmrq/vim-ditto',
-        ft = {'markdown', 'pandoc', 'text', 'tex'},
-        config = function() require 'plugins/ditto' end
-    }
+    -- use {
+    -- 'dbmrq/vim-ditto',
+    -- ft = {'markdown', 'pandoc', 'text', 'tex'},
+    -- config = function() require 'plugins/ditto' end
+    -- }
 
     -- Thesaurus utility
     use {

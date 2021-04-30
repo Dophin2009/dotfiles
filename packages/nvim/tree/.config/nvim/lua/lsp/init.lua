@@ -3,7 +3,7 @@
 require('lsp/servers')
 
 -- Load keybindings
-require('lsp/bindings')
+-- require('lsp/bindings')
 
 -- Show diagnostics on hover
 vim.api.nvim_exec([[

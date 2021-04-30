@@ -1,20 +1,11 @@
 -- luacheck: globals vim
-local U = {}
+--
+-- Syntax highlight utilities
+--
+local M = {}
 
-U.require = function(pkg)
-    local status, module = pcall(require, pkg)
-    return status and module or nil
-end
-
-U.map = function(mode, lhs, rhs, opts)
-    local options = {noremap = true}
-    if opts then options = vim.tbl_extend('force', options, opts) end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
-U.nmap = function(lhs, rhs, opts) U.map('n', lhs, rhs, opts) end
-
-U.hi = setmetatable({}, {
+-- Easily set the style of a highlight group.
+M.g = setmetatable({}, {
     __newindex = function(_, hlgroup, args)
         local guifg, guibg, gui, guisp = args.guifg, args.guibg, args.gui,
                                          args.guisp
@@ -27,11 +18,12 @@ U.hi = setmetatable({}, {
     end
 })
 
-U.hilink = setmetatable({}, {
+-- Link a highlight group.
+M.link = setmetatable({}, {
     __newindex = function(_, groupm, groupn)
         local cmd = {'hi', 'link', groupm, groupn}
         vim.cmd(table.concat(cmd, ' '))
     end
 })
 
-return U
+return M

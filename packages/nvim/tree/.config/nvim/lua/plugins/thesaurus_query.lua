@@ -6,4 +6,4 @@ local g = vim.g
 g.tq_map_keys = 0
 
 -- Use custom keybind
-U.nmap('<leader>t', '<cmd>ThesaurusQueryReplaceCurrentWord<CR>')
+U.bind.nmap('<leader>t', '<cmd>ThesaurusQueryReplaceCurrentWord<CR>')

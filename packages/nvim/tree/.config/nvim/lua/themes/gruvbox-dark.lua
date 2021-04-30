@@ -3,10 +3,11 @@ local g, o = vim.g, vim.o
 local exec = vim.api.nvim_exec
 local U = require 'util'
 
-local hilink = U.hilink
+local hilink = U.hi.link
 
 -- Use gruvbox-material colorscheme
 o.background = 'dark'
+g.gruvbox_material_palette = 'material'
 g.gruvbox_material_background = 'medium'
 
 -- Enable bold function name
@@ -31,6 +32,7 @@ endtry
 -- Treesitter highlight modifications
 --
 hilink.TSField = 'Fg'
+hilink.TSNamespace = 'Orange'
 hilink.TSProperty = 'Fg'
 hilink.TSString = 'GreenItalic'
 hilink.TSTypeBuiltin = 'Yellow'

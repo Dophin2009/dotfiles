@@ -1,6 +1,6 @@
 -- luacheck: globals vim
 local U = require('util')
-local nmap = U.nmap
+local nmap = U.bind.nmap
 
 local g = vim.g
 

@@ -1,6 +1,6 @@
 -- luacheck: globals vim
 local U = require 'util'
-local nmap = U.nmap
+local nmap = function(lhs, rhs) U.bind.nmap(lhs, rhs, {noremap = true}) end
 
 local cmd = vim.cmd
 
@@ -92,21 +92,24 @@ cmd [[ command BCommits :lua require('telescope.builtin').git_bcommits() ]]
 -- LSP pickers
 --
 
+-- Goto definition picker
+cmd [[ command LSPGotoDefinition :lua require('telescope.builtin').lsp_definitions() ]]
+
+-- Diagnostics pickers
+cmd [[ command LSPDiagnostics :lua require('telescope.builtin').lsp_document_diagnostics() ]]
+cmd [[ command LSPWDiagnostics :lua require('telescope.builtin').lsp_workspace_diagnostics() ]]
+
 -- References picker
 cmd [[ command LSPReferences :lua require('telescope.builtin').lsp_references() ]]
-nmap('gr', '<cmd>LSPReferences<CR>')
 
 -- Document symbols picker
 cmd [[ command LSPDSymbols :lua require('telescope.builtin').lsp_document_symbols() ]]
-nmap('g0', '<cmd>LSPDSymbols<CR>')
 
 -- Workspace symbols picker
 cmd [[ command LSPWSymbols :lua require('telescope.builtin').lsp_workspace_symbols() ]]
-nmap('gW', '<cmd>LSPWSymbols<CR>')
 
 -- Code actions picker
 cmd [[ command LSPActions :lua require('telescope.builtin').lsp_code_actions() ]]
-nmap('gc', '<cmd>LSPActions<CR>')
 
 -- Range code actions picker
 cmd [[ command LSPRangeActions :lua require('telescope.builtin').lsp_range_code_actions() ]]

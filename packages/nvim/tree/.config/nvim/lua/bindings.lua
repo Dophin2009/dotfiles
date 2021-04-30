@@ -1,15 +1,8 @@
 -- luacheck: globals vim
-local U = require('util')
-local exec = vim.api.nvim_exec
+local bind = require('util').bind
 
 -- Toggle between relative and absolute numbering
-U.nmap('<leader>=', '<cmd>set relativenumber!<CR>')
+bind.nmap('<leader>=', '<cmd>set relativenumber!<CR>')
 
 -- Stop hlsearch
-U.nmap('<leader>n', '<cmd>nohlsearch<CR>')
-
--- Tab completion
-exec([[
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-]], true)
+bind.nmap('<leader>n', '<cmd>nohlsearch<CR>')
