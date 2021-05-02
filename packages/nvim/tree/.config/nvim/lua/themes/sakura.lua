@@ -11,3 +11,8 @@ try
   catch
 endtry
 ]], true)
+
+-- Initialize lualine
+local lualine = require('themes/common/lualine')
+-- TODO: Theme
+lualine.setup('nord')

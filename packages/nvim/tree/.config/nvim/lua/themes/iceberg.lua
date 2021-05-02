@@ -12,3 +12,7 @@ try
   catch
 endtry
 ]], true)
+
+-- Initialize lualine
+local lualine = require('themes/common/lualine')
+lualine.setup('iceberg_dark')

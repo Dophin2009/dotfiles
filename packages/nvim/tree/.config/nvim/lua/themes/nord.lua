@@ -1,14 +1,16 @@
 -- luacheck: globals vim
-local g, o = vim.g, vim.o
+local o = vim.o
 local exec = vim.api.nvim_exec
 
 -- Use nord colorscheme
 o.background = 'dark'
-g.airline_theme = 'nord_minimal'
-
 exec([[
 try
   colorscheme nord
   catch
 endtry
 ]], true)
+
+-- Initialize lualine
+local lualine = require('themes/common/lualine')
+lualine.setup('nord')

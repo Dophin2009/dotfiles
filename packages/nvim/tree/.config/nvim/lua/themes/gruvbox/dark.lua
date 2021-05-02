@@ -1,13 +1,16 @@
 -- luacheck: globals vim
-local shared = require('themes/gruvbox/shared')
 local U = require 'util'
 
-local hilink = U.hi.link
-
 -- Initialize colorscheme
+local shared = require('themes/gruvbox/shared')
 shared.colorscheme('light', 'original', 'hard')
 
+-- Initialize lualine
+local lualine = require('themes/common/lualine')
+lualine.setup('gruvbox-material')
+
 -- Treesitter highlight modifications
+local hilink = U.hi.link
 hilink.TSField = 'Fg'
 hilink.TSNamespace = 'Orange'
 hilink.TSProperty = 'Fg'
