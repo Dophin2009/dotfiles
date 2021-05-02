@@ -3,35 +3,34 @@ from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
 from qutebrowser.config.config import ConfigContainer  # noqa: F401
 c = c  # type: ConfigContainer # noqa: F821 pylint: disable=E0602,C0103
 config = config  # type: ConfigAPI # noqa: F821 pylint: disable=E0602,C0103
+base00 = "#f9f5d7"
 
-base00 = "#282828"
-base01 = "#3c3836"
-base02 = "#504945"
-base03 = "#665c54"
-base04 = "#bdae93"
-base05 = "#d5c4a1"
-base06 = "#ebdbb2"
-base07 = "#fbf1c7"
-base08 = "#fb4934"
-base09 = "#fe8019"
-base0A = "#fabd2f"
-base0B = "#b8bb26"
-base0C = "#8ec07c"
-base0D = "#83a598"
-base0E = "#d3869b"
+base01 = "#ebdbb2"
+base02 = "#d5c4a1"
+base03 = "#bdae93"
+base04 = "#665c54"
+base05 = "#504945"
+base06 = "#3c3836"
+base07 = "#282828"
+base08 = "#9d0006"
+base09 = "#af3a03"
+base0A = "#b57614"
+base0B = "#79740e"
+base0C = "#427b58"
+base0D = "#076678"
+base0E = "#8f3f71"
 base0F = "#d65d0e"
 
-# set qutebrowser colors
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
 c.colors.completion.fg = base05
 
 # Background color of the completion widget for odd rows.
-c.colors.completion.odd.bg = base02
+c.colors.completion.odd.bg = base01
 
 # Background color of the completion widget for even rows.
-c.colors.completion.even.bg = base01
+c.colors.completion.even.bg = base00
 
 # Foreground color of completion widget category headers.
 c.colors.completion.category.fg = base0A
@@ -46,19 +45,19 @@ c.colors.completion.category.border.top = base00
 c.colors.completion.category.border.bottom = base00
 
 # Foreground color of the selected completion item.
-c.colors.completion.item.selected.fg = base01
+c.colors.completion.item.selected.fg = base05
 
 # Background color of the selected completion item.
-c.colors.completion.item.selected.bg = base0A
+c.colors.completion.item.selected.bg = base02
 
 # Top border color of the selected completion item.
-c.colors.completion.item.selected.border.top = base0A
+c.colors.completion.item.selected.border.top = base02
 
 # Bottom border color of the selected completion item.
-c.colors.completion.item.selected.border.bottom = base0A
+c.colors.completion.item.selected.border.bottom = base02
 
 # Foreground color of the matched text in the selected completion item.
-c.colors.completion.item.selected.match.fg = base08
+c.colors.completion.item.selected.match.fg = base0B
 
 # Foreground color of the matched text in the completion.
 c.colors.completion.match.fg = base0B
@@ -69,19 +68,23 @@ c.colors.completion.scrollbar.fg = base05
 # Color of the scrollbar in the completion view.
 c.colors.completion.scrollbar.bg = base00
 
+# Background color of disabled items in the context menu.
+c.colors.contextmenu.disabled.bg = base01
+
+# Foreground color of disabled items in the context menu.
+c.colors.contextmenu.disabled.fg = base04
+
 # Background color of the context menu. If set to null, the Qt default is used.
 c.colors.contextmenu.menu.bg = base00
 
 # Foreground color of the context menu. If set to null, the Qt default is used.
 c.colors.contextmenu.menu.fg = base05
 
-# Background color of the context menu’s selected item.
-# If set to null, the Qt default is used.
-c.colors.contextmenu.selected.bg = base0A
+# Background color of the context menu’s selected item. If set to null, the Qt default is used.
+c.colors.contextmenu.selected.bg = base02
 
-# Foreground color of the context menu’s selected item.
-# If set to null, the Qt default is used.
-c.colors.contextmenu.selected.fg = base01
+# Foreground color of the context menu’s selected item. If set to null, the Qt default is used.
+c.colors.contextmenu.selected.fg = base05
 
 # Background color for the download bar.
 c.colors.downloads.bar.bg = base00
@@ -157,7 +160,7 @@ c.colors.prompts.border = base00
 c.colors.prompts.bg = base00
 
 # Background color for the selected item in filename prompts.
-c.colors.prompts.selected.bg = base0A
+c.colors.prompts.selected.bg = base02
 
 # Foreground color of the statusbar.
 c.colors.statusbar.normal.fg = base0B
@@ -181,7 +184,7 @@ c.colors.statusbar.passthrough.bg = base0C
 c.colors.statusbar.private.fg = base00
 
 # Background color of the statusbar in private browsing mode.
-c.colors.statusbar.private.bg = base03
+c.colors.statusbar.private.bg = base01
 
 # Foreground color of the statusbar in command mode.
 c.colors.statusbar.command.fg = base05
@@ -246,34 +249,34 @@ c.colors.tabs.indicator.error = base08
 c.colors.tabs.odd.fg = base05
 
 # Background color of unselected odd tabs.
-c.colors.tabs.odd.bg = base03
+c.colors.tabs.odd.bg = base01
 
 # Foreground color of unselected even tabs.
-c.colors.tabs.even.fg = base00
+c.colors.tabs.even.fg = base05
 
 # Background color of unselected even tabs.
-c.colors.tabs.even.bg = base04
+c.colors.tabs.even.bg = base00
 
 # Background color of pinned unselected even tabs.
-c.colors.tabs.pinned.even.bg = base04
+c.colors.tabs.pinned.even.bg = base0C
 
 # Foreground color of pinned unselected even tabs.
-c.colors.tabs.pinned.even.fg = base00
+c.colors.tabs.pinned.even.fg = base07
 
 # Background color of pinned unselected odd tabs.
-c.colors.tabs.pinned.odd.bg = base03
+c.colors.tabs.pinned.odd.bg = base0B
 
 # Foreground color of pinned unselected odd tabs.
-c.colors.tabs.pinned.odd.fg = base05
+c.colors.tabs.pinned.odd.fg = base07
 
 # Background color of pinned selected even tabs.
-c.colors.tabs.pinned.selected.even.bg = base00
+c.colors.tabs.pinned.selected.even.bg = base02
 
 # Foreground color of pinned selected even tabs.
 c.colors.tabs.pinned.selected.even.fg = base05
 
 # Background color of pinned selected odd tabs.
-c.colors.tabs.pinned.selected.odd.bg = base00
+c.colors.tabs.pinned.selected.odd.bg = base02
 
 # Foreground color of pinned selected odd tabs.
 c.colors.tabs.pinned.selected.odd.fg = base05
@@ -282,13 +285,13 @@ c.colors.tabs.pinned.selected.odd.fg = base05
 c.colors.tabs.selected.odd.fg = base05
 
 # Background color of selected odd tabs.
-c.colors.tabs.selected.odd.bg = base00
+c.colors.tabs.selected.odd.bg = base02
 
 # Foreground color of selected even tabs.
 c.colors.tabs.selected.even.fg = base05
 
 # Background color of selected even tabs.
-c.colors.tabs.selected.even.bg = base00
+c.colors.tabs.selected.even.bg = base02
 
 # Background color for webpages if unset (or empty to use the theme's
 # color).
