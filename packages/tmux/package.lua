@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'tmux'
 pkg.dependencies:extend('../sh')
@@ -12,4 +12,4 @@ pkg.files.extra:push({
 pkg.hooks.post:push({name = 'Reload tmux', command = 'hooks/reload-tmux.sh'})
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

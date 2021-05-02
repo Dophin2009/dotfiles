@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'steam'
 pkg.dependencies:extend('../sh')
@@ -9,4 +9,4 @@ pkg.hooks.post:extend({
 })
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

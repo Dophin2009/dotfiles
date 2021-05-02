@@ -1,4 +1,5 @@
-require('lib')
+-- luacheck: globals pkg
+local lib = require('lib')
 
 pkg.name = 'battery-notify'
 pkg.dependencies:extend('../sh')
@@ -13,4 +14,4 @@ pkg.files.templates:push({
 pkg.variables.home = os.getenv('HOME')
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

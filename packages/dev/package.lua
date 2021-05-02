@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 local lfs = require('lfs')
 
 pkg.name = 'dev'

@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'rofi'
 
@@ -13,4 +13,4 @@ local profile = require('profile').rofi
 pkg.variables:overwrite(profile)
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

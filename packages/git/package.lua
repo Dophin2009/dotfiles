@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'git'
 pkg.dependencies:extend('../sh')
@@ -16,4 +16,4 @@ local profile = require('profile').git
 pkg.variables:overwrite(profile)
 
 -- Load local file if exists
-require_opt('local')
+lib.require_opt('local')

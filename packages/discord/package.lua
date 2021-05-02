@@ -1,4 +1,5 @@
-require('lib')
+-- luacheck: globals pkg
+local lib = require('lib')
 local lfs = require('lfs')
 
 pkg.name = 'discord'
@@ -23,4 +24,4 @@ for plugin in lfs.dir('plugins') do
 
 end
 
-require_opt('local')
+lib.require_opt('local')

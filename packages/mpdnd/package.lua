@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'mpdnd'
 pkg.dependencies:extend('../sh', '../mpd')
@@ -18,4 +18,4 @@ local lcl = require('variables')
 pkg.variables:overwrite(lcl)
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

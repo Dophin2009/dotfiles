@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'user-dirs'
 
@@ -13,4 +13,4 @@ local lcl = require('variables')
 pkg.variables:overwrite(lcl)
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

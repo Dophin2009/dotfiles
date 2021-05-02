@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 local lfs = require('lfs')
 
 pkg.name = 'newsboat'
@@ -8,4 +8,4 @@ if lfs.attributes('urls') then
 end
 
 -- Load local file if exists
-require_opt('local')
+lib.require_opt('local')

@@ -1,6 +1,7 @@
-require('lib')
+-- luacheck: globals pkg
+local lib = require('lib')
 
 pkg.name = 'cursedtag'
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'dunst'
 
@@ -15,4 +15,4 @@ local profile = require('profile').dunst
 pkg.variables:overwrite(profile)
 
 -- Load local config if exists
-require_opt('local')
+lib.require_opt('local')

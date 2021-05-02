@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'fzf'
 pkg.dependencies:extend('../sh')

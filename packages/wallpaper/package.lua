@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'wallpaper'
 pkg.dependencies:extend('../sh')
@@ -19,4 +19,4 @@ pkg.files.extra:extend({
 })
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

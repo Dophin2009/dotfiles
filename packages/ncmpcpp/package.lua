@@ -1,6 +1,6 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'ncmcpp'
 
 -- Load local file if exists
-require_opt('local')
+lib.require_opt('local')

@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'gtk'
 pkg.dependencies:extend('../sh')
@@ -22,4 +22,4 @@ pkg.files.extra:push({
 })
 
 -- Load local file if exists
-require_opt('local')
+lib.require_opt('local')

@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 local lfs = require('lfs')
 
 pkg.name = 'zsh'
@@ -19,4 +19,4 @@ if lfs.attributes(localpkg) then
 end
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

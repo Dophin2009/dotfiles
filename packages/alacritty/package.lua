@@ -1,4 +1,5 @@
-require 'lib'
+-- luacheck: globals pkg
+local lib = require 'lib'
 
 pkg.name = 'alacritty'
 pkg.dependencies:extend('../qt')
@@ -18,4 +19,4 @@ local profile = require('profile').alacritty
 pkg.variables:overwrite(profile)
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

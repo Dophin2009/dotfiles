@@ -1,7 +1,7 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'pacman'
 pkg.dependencies:extend('../sh', '../zsh')
 
 -- Load local file if exists
-require_opt('local')
+lib.require_opt('local')

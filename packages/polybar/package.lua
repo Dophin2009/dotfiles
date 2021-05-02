@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 
 pkg.name = 'polybar'
 pkg.dependencies:extend('../sh')
@@ -43,4 +43,4 @@ pkg.variables.modules = {
 }
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')

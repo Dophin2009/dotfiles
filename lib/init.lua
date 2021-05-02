@@ -11,13 +11,17 @@ function table.overwrite(m, n) for k, v in pairs(n) do m[k] = v end end
 -- Extend a list table.
 function table.extend(t, ...) for _, v in ipairs({...}) do table.push(t, v) end end
 
+-- Other utilities
+local M = {}
+
 -- Require, but return nil if not found.
--- luacheck: globals require_opt
-function require_opt(path)
-    local status, import = pcall(require, path)
+M.require_opt = function(p)
+    local status, import = pcall(require, p)
     if status then
         return import
     else
         return nil
     end
 end
+
+return M

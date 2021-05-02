@@ -1,4 +1,4 @@
-require('lib')
+local lib = require('lib')
 local lfs = require('lfs')
 
 pkg.name = 'qutebrowser'
@@ -39,4 +39,4 @@ pkg.hooks.post:extend({
 })
 
 -- Load local file if it exists
-require_opt('local')
+lib.require_opt('local')
