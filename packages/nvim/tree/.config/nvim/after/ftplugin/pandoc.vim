@@ -2,12 +2,13 @@
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
+setlocal conceallevel=0
 
 "   no wrapping
 setlocal nowrap
 
 "   enable spellchecking
-setlocal spell
+" setlocal spell
 let b:buffer_dir = expand('%:p:h')
 let b:local_spellfile = findfile('spellfile.en.add', b:buffer_dir)
 if !empty(b:local_spellfile)

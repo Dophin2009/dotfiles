@@ -11,8 +11,14 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] =
     })
 
 -- Async formatting handle
+vim.g.format = true
+vim.cmd [[command! FormatOn :lua vim.g.format = true ]]
+vim.cmd [[command! FormatOff :lua vim.g.format = false ]]
+vim.cmd [[command! FormatToggle :lua vim.g.format = not vim.g.format ]]
+
 vim.lsp.handlers['textDocument/formatting'] =
     function(err, _, result, _, bufnr)
+        if not vim.g.format then return end
         if err ~= nil or result == nil then return end
         if not vim.api.nvim_buf_get_option(bufnr, 'modified') then
             local view = vim.fn.winsaveview()

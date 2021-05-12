@@ -5,7 +5,10 @@ local treesitter = U.require('nvim-treesitter.configs')
 if treesitter ~= nil then
     treesitter.setup {
         ensure_installed = 'maintained',
-        highlight = {enable = true, disable = {'rust', 'tex', 'zsh'}},
+        highlight = {
+            enable = true,
+            disable = {'latex', 'r', 'rust', 'tex', 'yaml', 'zsh'}
+        },
         indent = {enable = true, disable = {'lua', 'rust'}},
         -- External modules
         autotag = {enable = true},

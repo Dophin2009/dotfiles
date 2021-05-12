@@ -21,7 +21,7 @@ packer.startup(function()
     use {'wbthomason/packer.nvim', opt = true}
 
     -- Better startup profiling
-    use {'tweekmonster/startuptime.vim'}
+    -- use {'tweekmonster/startuptime.vim'}
 
     -- CurserHold performance fix
     use {'antoinemadec/FixCursorHold.nvim'}
@@ -110,11 +110,11 @@ packer.startup(function()
     }
 
     -- Pretty diagnostics view list
-    use {
-        'folke/lsp-trouble.nvim',
-        requires = {'kyazdani42/nvim-web-devicons'},
-        config = function() require 'plugins/trouble' end
-    }
+    -- use {
+    -- 'folke/lsp-trouble.nvim',
+    -- requires = {'kyazdani42/nvim-web-devicons'},
+    -- config = function() require 'plugins/trouble' end
+    -- }
 
     --
     -- EDITING
@@ -129,8 +129,8 @@ packer.startup(function()
         },
         config = function() require 'plugins/treesitter' end
     }
-    use {'romgrk/nvim-treesitter-context', after = {'nvim-treesitter'}}
-    use {'haringsrob/nvim_context_vt', after = {'nvim-treesitter'}}
+    -- use {'romgrk/nvim-treesitter-context', after = {'nvim-treesitter'}}
+    -- use {'haringsrob/nvim_context_vt', after = {'nvim-treesitter'}}
 
     -- Preview search and replace
     use {'markonm/traces.vim'}
@@ -166,6 +166,12 @@ packer.startup(function()
             'lukas-reineke/indent-blankline.nvim',
             config = function() require 'plugins/indentguide' end
         }
+    }
+
+    -- Toggle between short/long constructs
+    use {
+        'AndrewRadev/splitjoin.vim',
+        config = function() require 'plugins/splitjoin' end
     }
 
     --
@@ -243,6 +249,9 @@ packer.startup(function()
     -- Better lua highlighting
     use {'euclidianAce/BetterLua.vim', ft = {'lua'}}
 
+    -- NEON filetype support
+    use {'Dophin2009/neon-syntax.vim'}
+
     -- Nginx configuration highlighting
     use {'chr4/nginx.vim'}
 
@@ -316,6 +325,13 @@ packer.startup(function()
     use {
         'folke/which-key.nvim',
         config = function() require 'plugins/which-key' end
+    }
+
+    -- Run code snippets
+    use {
+        'michaelb/sniprun',
+        run = 'bash ./install.sh',
+        config = function() require 'plugins/sniprun' end
     }
 
 end)

@@ -3,18 +3,6 @@ local U = require('util')
 
 local lspconfig = U.require('lspconfig')
 local configs = require('lspconfig/configs')
--- dhall language server
-configs.dhall_lsp = {
-    default_config = {
-        cmd = {'dhall-lsp-server'},
-        filetypes = {'dhall'},
-        root_dir = function(fname)
-            return lspconfig.util.find_git_ancestor(fname) or
-                       vim.loop.os_homedir()
-        end,
-        settings = {}
-    }
-}
 
 -- override handlers
 local handlers = require('lsp/handlers')
@@ -25,12 +13,9 @@ local capabilities = handlers.capabilities
 lspconfig.bashls.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- clangd
--- local lsp_status = U.require('lsp-status')
-local clangd_handlers = nil
--- if lsp_status then clangd_handlers = lsp_status.extensions.clangd.setup() end
-
+-- local clangd_handlers = nil
 lspconfig.clangd.setup {
-    handlers = clangd_handlers,
+    -- handlers = clangd_handlers,
     init_options = {clangdFileStatus = true},
     on_attach = on_attach,
     capabilities = capabilities
@@ -49,7 +34,20 @@ lspconfig.cssls.setup {on_attach = on_attach, capabilities = capabilities}
 -- capabilities = capabilities
 -- }
 
--- dhall lsp server
+-- dhall language server
+if not configs.dhall_lsp then
+    configs.dhall_lsp = {
+        default_config = {
+            cmd = {'dhall-lsp-server'},
+            filetypes = {'dhall'},
+            root_dir = function(fname)
+                return lspconfig.util.find_git_ancestor(fname) or
+                           vim.loop.os_homedir()
+            end,
+            settings = {}
+        }
+    }
+end
 lspconfig.dhall_lsp.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- dockerfile language server
@@ -93,6 +91,26 @@ lspconfig.sumneko_lua.setup {
     capabilities = capabilities,
     settings = {Lua = {diagnostics = {enable = false}}}
 }
+
+-- php language server
+lspconfig.phpactor.setup {on_attach = on_attach, capabilities = capabilities}
+
+-- php psalm language server
+-- if not configs.psalm_lsp then
+-- configs.psalm_lsp = {
+-- default_config = {
+-- cmd = {'vendor/bin/psalm-language-server'},
+-- filetypes = {'php'},
+-- root_dir = function(fname)
+-- -- return lspconfig.util.find_git_ancestor(fname)
+-- return lspconfig.util.root_pattern('composer.json', '.git')(
+-- fname) or lspconfig.util.find_git_ancestor(fname)
+-- end,
+-- settings = {}
+-- }
+-- }
+-- end
+-- lspconfig.psalm_lsp.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- python language server
 lspconfig.pyls.setup {on_attach = on_attach, capabilities = capabilities}
@@ -178,41 +196,59 @@ local goimports = require('lsp/efm/goimports')
 local golint = require('lsp/efm/golint')
 local htmlhint = require('lsp/efm/htmlhint')
 -- local ktlint = require('lsp/efm/ktlint')
-local lacheck = require('lsp/efm/lacheck')
+-- local lacheck = require('lsp/efm/lacheck')
 local luacheck = require('lsp/efm/luacheck')
 local luafmt = require('lsp/efm/luafmt')
 -- local luac = require('lsp/efm/luac')
 -- local misspell = require('lsp/efm/misspell')
 -- local mypy = require('lsp/efm/mypy')
 local pandoc = require('lsp/efm/pandoc')
+-- local psalm = require('lsp/efm/psalm')
+local phpstan = require('lsp/efm/phpstan')
 local prettier = require('lsp/efm/prettier')
 -- local reorder_python_imports = require('lsp/efm/reorder_python_imports')
 local shellcheck = require('lsp/efm/shellcheck')
 local shfmt = require('lsp/efm/shfmt')
 local stylelint = require('lsp/efm/stylelint')
 local taplo = require('lsp/efm/taplo')
--- local yamllint = require('lsp/efm/yamllint')
+local tidy = require('lsp/efm/tidy')
+local vale = require('lsp/efm/vale')
 local vint = require('lsp/efm/vint')
+-- local xmllint = require('lsp/efm/xmllint')
+-- local yamllint = require('lsp/efm/yamllint')
+
+local logfile = os.getenv('XDG_CACHE_HOME') .. '/nvim/efm.log'
 lspconfig.efm.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     init_options = {documentformatting = true},
     settings = {
+        cmd = {'efm-langserver', '-logfile', logfile},
+        filetypes = {
+            'bash', 'css', 'go', 'html', 'javascript', 'javascript',
+            'javascriptreact', 'javascript.jsx', 'json', 'lua', 'pandoc', 'php',
+            'sass', 'scss', 'sh', 'toml', 'typescript', 'typescriptreact',
+            'typescript.tsx', 'vim', 'zsh'
+        },
         rootmarkers = {'.git/'},
         languages = {
             -- ["="] = {misspell},
             bash = {shellcheck},
             css = {stylelint},
+            go = {golint, goimports},
+            html = {htmlhint, prettier},
             javascript = {eslint, prettier},
             javascriptreact = {eslint, prettier},
             ['javascript.jsx'] = {eslint, prettier},
             json = {fixjson, prettier},
-            go = {golint, goimports},
-            html = {htmlhint, prettier},
             -- kotlin = {ktlint},
-            latex = {lacheck},
+            -- latex = {lacheck},
             lua = {luafmt, luacheck},
-            pandoc = {pandoc},
+            pandoc = {pandoc, vale},
+            php = {
+                prettier, -- psalm,
+                phpstan
+            },
             sass = {stylelint},
             scss = {stylelint},
             sh = {shellcheck, shfmt},
@@ -221,6 +257,10 @@ lspconfig.efm.setup {
             typescriptreact = {eslint, prettier},
             ['typescript.tsx'] = {eslint, prettier},
             vim = {vint},
+            xml = {
+                -- xmllint,
+                tidy
+            },
             -- yaml = {yamllint},
             zsh = {shellcheck, shfmt}
         }

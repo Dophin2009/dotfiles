@@ -15,17 +15,18 @@ compe.setup {
     max_menu_width = 100,
     documentation = true,
     source = {
-        path = true,
+        calc = false,
         buffer = true,
-        calc = true,
-        vsnip = true,
         nvim_lsp = true,
         nvim_lua = true,
+        omni = true,
+        path = true,
+        snippets_nvim = false,
         spell = true,
         tags = true,
-        snippets_nvim = true,
-        treesitter = true,
-        tmux = true
+        treesitter = false,
+        tmux = true,
+        vsnip = false
     }
 }
 

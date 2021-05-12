@@ -19,6 +19,9 @@ end
 -- Bind a key for normal mode.
 M.nmap = function(lhs, rhs, opts) M.map('n', lhs, rhs, opts) end
 
+-- Bind a key for visual mode.
+M.vmap = function(lhs, rhs, opts) M.map('v', lhs, rhs, opts) end
+
 -- Bind a key for insert mode.
 M.imap = function(lhs, rhs, opts) M.map('i', lhs, rhs, opts) end
 
