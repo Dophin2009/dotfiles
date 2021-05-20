@@ -93,7 +93,13 @@ lspconfig.sumneko_lua.setup {
 }
 
 -- php language server
-lspconfig.phpactor.setup {on_attach = on_attach, capabilities = capabilities}
+lspconfig.intelephense.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+-- php language server
+-- lspconfig.phpactor.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- php psalm language server
 -- if not configs.psalm_lsp then
@@ -204,6 +210,7 @@ local luafmt = require('lsp/efm/luafmt')
 -- local mypy = require('lsp/efm/mypy')
 local pandoc = require('lsp/efm/pandoc')
 -- local psalm = require('lsp/efm/psalm')
+local phpcs = require('lsp/efm/phpcs')
 local phpstan = require('lsp/efm/phpstan')
 local prettier = require('lsp/efm/prettier')
 -- local reorder_python_imports = require('lsp/efm/reorder_python_imports')
@@ -247,10 +254,10 @@ lspconfig.efm.setup {
             pandoc = {pandoc, vale},
             php = {
                 prettier, -- psalm,
-                phpstan
+                phpstan, phpcs
             },
-            sass = {stylelint},
-            scss = {stylelint},
+            sass = {prettier, stylelint},
+            scss = {prettier, stylelint},
             sh = {shellcheck, shfmt},
             toml = {taplo},
             typescript = {eslint, prettier},

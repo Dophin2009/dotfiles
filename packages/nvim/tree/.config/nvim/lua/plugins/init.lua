@@ -110,11 +110,11 @@ packer.startup(function()
     }
 
     -- Pretty diagnostics view list
-    -- use {
-    -- 'folke/lsp-trouble.nvim',
-    -- requires = {'kyazdani42/nvim-web-devicons'},
-    -- config = function() require 'plugins/trouble' end
-    -- }
+    use {
+        'folke/lsp-trouble.nvim',
+        requires = {{'kyazdani42/nvim-web-devicons'}},
+        config = function() require 'plugins/trouble' end
+    }
 
     --
     -- EDITING
@@ -193,6 +193,13 @@ packer.startup(function()
         config = function() require 'plugins/telescope-fzy-native' end
     }
 
+    -- Zoxide for telescope.nvim
+    use {
+        'jvgrootveld/telescope-zoxide',
+        after = {'telescope.nvim'},
+        config = function() require 'plugins/telescope-zoxide' end
+    }
+
     -- Dim inactive buffers
     use {'sunjon/Shade.nvim', config = function() require 'plugins/shade' end}
 
@@ -212,6 +219,12 @@ packer.startup(function()
     use {
         'kdheepak/lazygit.nvim',
         config = function() require 'plugins/lazygit' end
+    }
+
+    -- Dashboard
+    use {
+        'glepnir/dashboard-nvim',
+        config = function() require 'plugins/dashboard' end
     }
 
     --

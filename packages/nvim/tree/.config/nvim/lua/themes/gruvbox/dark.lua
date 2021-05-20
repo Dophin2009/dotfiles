@@ -12,6 +12,7 @@ lualine.setup('gruvbox_material')
 -- Treesitter highlight modifications
 local hilink = U.hi.link
 hilink.TSField = 'Fg'
+-- hilink.TSKeyword = 'RedItalic'
 hilink.TSKeywordOperator = 'Orange'
 hilink.TSNamespace = 'Orange'
 hilink.TSProperty = 'Fg'
