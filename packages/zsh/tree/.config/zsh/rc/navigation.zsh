@@ -13,3 +13,8 @@ zinit light MichaelAquilina/zsh-autoswitch-virtualenv
 
 # autoswitch poetry
 zinit light darvid/zsh-poetry
+
+# auto source env files
+zinit light Tarrasch/zsh-autoenv
+export AUTOENV_FILE_ENTER=".autoenv.zsh"
+export AUTOENV_FILE_LEAVE=".autoenv.exit.zsh"
