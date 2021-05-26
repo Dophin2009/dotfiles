@@ -1,0 +1,15 @@
+# Files
+data.location=~/.local/share/task
+
+# Reports
+report.all.filter=
+
+# Color theme
+include ~/.config/task/theme.theme
+color.deleted=grey
+color.completed=green
+color.overdue=magenta
+color.active=blue
+
+# taskwarrior-tui
+uda.taskwarrior-tui.task-report.next.filter=
