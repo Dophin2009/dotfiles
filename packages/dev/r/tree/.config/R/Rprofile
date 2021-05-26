@@ -1,6 +1,5 @@
 # Set library paths
-r_lib <- paste(Sys.getenv("XDG_DATA_HOME"), "/R/library")
-.libPaths(c(r_lib, .libPaths()))
+.libPaths(c(paste(Sys.getenv("XDG_DATA_HOME"), "/R/library"), .libPaths()))
 
 # Set CRAN mirror
 local({
