@@ -1,3 +1,5 @@
+dev-util/conan ~amd64
+
 dev-util/rustup ~amd64
 dev-util/sccache ~amd64
 

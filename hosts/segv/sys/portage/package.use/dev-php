@@ -1,0 +1,5 @@
+# required by dev-php/composer-2.0.13::gentoo
+# required by dev-php/composer (argument)
+>=dev-lang/php-7.4.19 curl
+# enable xml support for php
+>=dev-lang/php-7.4.19 xml xmlreader xmlwriter
