@@ -3,7 +3,7 @@ local g, o, wo, bo = vim.g, vim.o, vim.wo, vim.bo
 local cmd = vim.cmd
 
 -- Python paths
-g.python_host_prog = '/usr/bin/python2'
+-- g.python_host_prog = '/usr/bin/python2'
 g.python3_host_prog = '/usr/bin/python3'
 
 --

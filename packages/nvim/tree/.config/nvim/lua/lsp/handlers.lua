@@ -98,8 +98,8 @@ local on_attach = function(client, bufnr)
     signature.on_attach()
 
     -- Attach word highlighting
-    local illuminate = require('illuminate')
-    illuminate.on_attach(client, bufnr)
+    -- local illuminate = require('illuminate')
+    -- illuminate.on_attach(client, bufnr)
 end
 
 local capabilities = nil

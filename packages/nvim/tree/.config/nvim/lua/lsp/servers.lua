@@ -224,13 +224,12 @@ local vint = require('lsp/efm/vint')
 -- local xmllint = require('lsp/efm/xmllint')
 -- local yamllint = require('lsp/efm/yamllint')
 
-local logfile = os.getenv('XDG_CACHE_HOME') .. '/nvim/efm.log'
 lspconfig.efm.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     init_options = {documentformatting = true},
     settings = {
-        cmd = {'efm-langserver', '-logfile', logfile},
+        cmd = {'efm-langserver'},
         filetypes = {
             'bash', 'css', 'go', 'html', 'javascript', 'javascript',
             'javascriptreact', 'javascript.jsx', 'json', 'lua', 'pandoc', 'php',

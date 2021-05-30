@@ -55,10 +55,10 @@ packer.startup(function()
     use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
 
     -- Intelligent cursor word highlighting
-    use {
-        'RRethy/vim-illuminate',
-        config = function() require 'plugins/illuminate' end
-    }
+    -- use {
+    -- 'RRethy/vim-illuminate',
+    -- config = function() require 'plugins/illuminate' end
+    -- }
 
     -- Snippets
     -- use {
@@ -82,7 +82,7 @@ packer.startup(function()
     use {
         'neovim/nvim-lspconfig',
         after = {
-            'nvim-compe', 'telescope.nvim', 'vim-illuminate',
+            'nvim-compe', 'telescope.nvim', -- 'vim-illuminate',
             'nvim-lsp-ts-utils'
         },
         config = function() require 'lsp' end
@@ -104,10 +104,10 @@ packer.startup(function()
     }
 
     -- Code actions inidicator
-    use {
-        'kosayoda/nvim-lightbulb',
-        config = function() require 'plugins/lightbulb' end
-    }
+    -- use {
+    -- 'kosayoda/nvim-lightbulb',
+    -- config = function() require 'plugins/lightbulb' end
+    -- }
 
     -- Pretty diagnostics view list
     use {
@@ -124,8 +124,8 @@ packer.startup(function()
     use {
         'nvim-treesitter/nvim-treesitter',
         requires = {
-            'windwp/nvim-ts-autotag',
-            'JoosepAlviste/nvim-ts-context-commentstring'
+            'windwp/nvim-ts-autotag'
+            -- 'JoosepAlviste/nvim-ts-context-commentstring'
         },
         config = function() require 'plugins/treesitter' end
     }
@@ -213,7 +213,7 @@ packer.startup(function()
     use {'psliwka/vim-smoothie'}
 
     -- tmux compatbility
-    use {'tmux-plugins/vim-tmux-focus-events'}
+    -- use {'tmux-plugins/vim-tmux-focus-events'}
 
     -- Lazygit
     use {
@@ -261,6 +261,9 @@ packer.startup(function()
 
     -- Better lua highlighting
     use {'euclidianAce/BetterLua.vim', ft = {'lua'}}
+
+    -- mbsyncrc highlighting
+    use {'zsugabubus/vim-mbsyncrc'}
 
     -- NEON filetype support
     use {'Dophin2009/neon-syntax.vim'}
