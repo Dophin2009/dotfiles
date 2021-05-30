@@ -1,0 +1,8 @@
+# required by gnome-base/gnome-keyring-3.36.0::gentoo
+# required by app-crypt/libsecret-0.20.4::gentoo
+# required by mail-mta/protonmail-bridge-1.8.1::gentoo
+>=app-crypt/pinentry-1.1.0-r4 gnome-keyring
+# required by gnome-base/gnome-keyring-3.36.0::gentoo
+# required by app-crypt/libsecret-0.20.4::gentoo
+# required by app-crypt/pinentry-1.1.0-r4::gentoo[gnome-keyring]
+>=app-crypt/gcr-3.38.1 gtk

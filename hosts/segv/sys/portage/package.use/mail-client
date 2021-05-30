@@ -1,0 +1,6 @@
+# required by mail-client/alot-9999::gentoo
+>=app-crypt/gpgme-1.14.0 python
+# required by mail-client/alot-9999::gentoo
+>=net-mail/notmuch-0.31.3 python
+
+mail-client/neomutt notmuch gpgme sasl

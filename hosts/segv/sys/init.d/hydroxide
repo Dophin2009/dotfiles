@@ -1,0 +1,5 @@
+#!/sbin/openrc-run
+command="hydroxide"
+command_args="serve"
+
+command_user="${USER}"

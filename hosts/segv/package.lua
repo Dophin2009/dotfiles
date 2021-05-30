@@ -1,8 +1,9 @@
+-- luacheck: globals pkg
 require 'lib'
 
 pkg.name = 'host::segv'
 
-dependencies = {
+local dependencies = {
     'alacritty', 'bat', 'battery-notify', 'beets', 'bin', 'bitwarden',
     'cursedtag', 'dev', 'dict', 'dunst', 'elinks', 'fzf', 'gimp', 'git',
     'gnupg', 'gtk', 'hangups', 'i3', 'ibus', 'less', 'mpd', 'mpdnd', 'mplayer',
@@ -11,6 +12,6 @@ dependencies = {
     'youtube-dl', 'zathura', 'zsh', 'zsh/zprofile', 'zsh/zshrc'
 }
 
-for i, dep in ipairs(dependencies) do
+for _, dep in ipairs(dependencies) do
     pkg.dependencies:extend('../../packages/' .. dep)
 end
