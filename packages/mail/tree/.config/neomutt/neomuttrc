@@ -1,0 +1,30 @@
+# Accounts
+source ~/.config/neomutt/accounts
+
+#
+# General settings
+#
+
+# sort with most recent on top
+set sort=threads
+set sort_aux=reverse-last-date-received
+set date_format="%y/%m/%d %I:%M%p"
+
+# sidebar
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
+# mailcap
+set mailcap_path=~/.config/neomutt/mailcap
+# automatically open HTML
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# keybindings
+source ~/.config/neomutt/bindings
+
+# colorscheme
+source ~/.config/neomutt/colors/gruvbox
+
+# composing
+set edit_headers=yes

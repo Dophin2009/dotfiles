@@ -1,0 +1,94 @@
+#
+# Unbind some defaults
+#
+bind index <esc>V noop
+bind index <esc>v noop
+
+#
+# Naviation
+#
+
+# navigate to top
+bind index,pager g noop
+bind alias,index,browser,query gg first-entry
+
+# navigate to bottom
+bind alias,index,browser,query G last-entry
+bind pager G bottom
+
+# jump to next/previous search
+bind index n search-next
+bind index N search-opposite
+
+# readline-like history browsing using up/down keys
+bind editor <up> history-up
+bind editor <down> history-down
+
+# navigate by thread
+bind index { previous-thread
+bind index } next-thread
+# show thread of current mail
+bind index,pager x entire-thread
+# collapse threads
+bind index za collapse-all
+bind index zA collapse-thread
+
+# switch to other common folders
+macro index gr '<change-folder>^<enter><buffy-list>'        'refresh folder'
+macro index gi '<change-folder>+inbox<enter><buffy-list>'   'open inbox'
+macro index gd '<change-folder>+drafts<enter><buffy-list>'  'open drafts'
+macro index gs '<change-folder>+sent<enter><buffy-list>'    'open sent mail'
+macro index gj '<change-folder>+spam<enter><buffy-list>'    'open junk mail (spam)'
+macro index gt '<change-folder>+trash<enter><buffy-list>'   'open trash'
+
+# toggle and navigate sidebar
+macro index,pager B '<sidebar-toggle-visible>'
+bind index \Cn noop
+macro index,pager \Cn '<sidebar-next>'
+bind index \Cp noop
+macro index,pager \CN '<sidebar-prev>'
+macro index,pager \Co '<sidebar-open>'
+macro index J '<sidebar-toggle-visible><sidebar-next><sidebar-open><sidebar-toggle-visible>'
+macro index K '<sidebar-toggle-visible><sidebar-prev><sidebar-open><sidebar-toggle-visible>'
+
+#
+# Pager
+#
+
+# scrolling in pager
+bind pager j next-line
+bind pager k previous-line
+bind pager J next-undeleted
+bind pager K previous-undeleted 
+bind pager { half-up
+bind pager } half-down
+
+# exit pager
+bind pager h exit
+bind pager i display-toggle-weed
+
+# jump to top
+bind pager gg top
+
+# <ctrl>b to navigate and open urls
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+#
+# Management
+#
+
+# skip trash when deleting with the delete key
+bind index,pager <delete> purge-message
+
+# sync mailbox via mbsync 
+macro index S '<enter-command>unset wait_key<enter><shell-escape>~/.config/neomutt/scripts/mbsync.sh<enter>' 'mbsync'
+
+#
+# Composing
+#
+
+# compose new email (not a reply) to the sender
+bind index,pager @ compose-to-sender
+
+# vim:ft=neomuttrc

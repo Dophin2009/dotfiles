@@ -1,2 +1,4 @@
 #!/bin/sh
-alias mbsync='mbsync -c "${XDG_CONFIG_HOME}/isync/mbsyncrc"'
+function mbsync() {
+	/usr/bin/mbsync -c "${XDG_CONFIG_HOME}/isync/mbsyncrc" $@
+}
