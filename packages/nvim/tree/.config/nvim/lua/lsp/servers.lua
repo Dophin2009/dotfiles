@@ -228,14 +228,14 @@ lspconfig.efm.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     init_options = {documentformatting = true},
+    filetypes = {
+        'bash', 'css', 'go', 'html', 'javascript', 'javascript',
+        'javascriptreact', 'javascript.jsx', 'json', 'lua', 'pandoc', 'php',
+        'sass', 'scss', 'sh', 'toml', 'typescript', 'typescriptreact',
+        'typescript.tsx', 'vim', 'zsh'
+    },
     settings = {
         cmd = {'efm-langserver'},
-        filetypes = {
-            'bash', 'css', 'go', 'html', 'javascript', 'javascript',
-            'javascriptreact', 'javascript.jsx', 'json', 'lua', 'pandoc', 'php',
-            'sass', 'scss', 'sh', 'toml', 'typescript', 'typescriptreact',
-            'typescript.tsx', 'vim', 'zsh'
-        },
         rootmarkers = {'.git/'},
         languages = {
             -- ["="] = {misspell},
