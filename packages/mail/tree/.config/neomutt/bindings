@@ -32,6 +32,8 @@ bind index,pager x entire-thread
 # collapse threads
 bind index za collapse-all
 bind index zA collapse-thread
+# limit to current thread
+bind index \Cl limit-current-thread
 
 # switch to other common folders
 macro index gr '<change-folder>^<enter><buffy-list>'        'refresh folder'
@@ -79,7 +81,7 @@ macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract 
 #
 
 # skip trash when deleting with the delete key
-bind index,pager <delete> purge-message
+bind index,pager D purge-message
 
 # sync mailbox via mbsync 
 macro index S '<enter-command>unset wait_key<enter><shell-escape>~/.config/neomutt/scripts/mbsync.sh<enter>' 'mbsync'
