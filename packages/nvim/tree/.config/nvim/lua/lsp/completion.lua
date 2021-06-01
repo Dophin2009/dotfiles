@@ -19,11 +19,11 @@ compe.setup {
         buffer = true,
         nvim_lsp = true,
         nvim_lua = true,
-        omni = true,
+        omni = false,
         path = true,
         snippets_nvim = false,
         spell = true,
-        tags = true,
+        tags = false,
         treesitter = false,
         tmux = true,
         vsnip = false

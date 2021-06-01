@@ -312,10 +312,10 @@ packer.startup(function()
     -- }
 
     -- Thesaurus utility
-    use {
-        'ron89/thesaurus_query.vim',
-        setup = function() require 'plugins/thesaurus_query' end
-    }
+    -- use {
+    -- 'ron89/thesaurus_query.vim',
+    -- setup = function() require 'plugins/thesaurus_query' end
+    -- }
 
     --
     -- THEME
@@ -344,11 +344,11 @@ packer.startup(function()
     }
 
     -- Run code snippets
-    use {
-        'michaelb/sniprun',
-        run = 'bash ./install.sh',
-        config = function() require 'plugins/sniprun' end
-    }
+    -- use {
+    -- 'michaelb/sniprun',
+    -- run = 'bash ./install.sh',
+    -- config = function() require 'plugins/sniprun' end
+    -- }
 
 end)
 
