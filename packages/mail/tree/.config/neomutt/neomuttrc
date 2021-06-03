@@ -25,7 +25,7 @@ set mail_check_stats
 set mailcap_path=~/.config/neomutt/mailcap
 
 # Automatically open HTML
-auto_view text/plain text/html text/calendar application/ics
+auto_view text/html text/calendar application/ics
 alternative_order text/plain text/enriched text/html
 
 #
@@ -46,3 +46,8 @@ source ~/.config/neomutt/colors/gruvbox
 set edit_headers=yes
 # Enable forgotten attachment warning
 set abort_noattach="ask-yes"
+
+#
+# Hooks
+#
+set new_mail_command="notify-send 'New mail in %f' '%n new, %u unread.' &"
