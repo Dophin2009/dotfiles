@@ -47,6 +47,9 @@ set edit_headers=yes
 # Enable forgotten attachment warning
 set abort_noattach="ask-yes"
 
+# Contacts usage
+set query_command='abook --config "${XDG_CONFIG_HOME}/abook/abookrc" --datafile "${XDG_DATA_HOME}/abook/addressbook" --mutt-query \'%s\''
+
 #
 # Hooks
 #

@@ -1,4 +1,8 @@
 text/html; elinks -dump; copiousoutput
-application/vnd.openxml-formats-officedocument.wordprocessingml.document; pandoc --from docx --to markdown %s; copiousoutput
-application/vnd.oasis.opendocument.text; pandoc --from odt --to markdown %s; copiousoutput
+
 application/pdf; pdftotext -layout %s -; copiousoutput;
+application/vnd.openxml-formats-officedocument.wordprocessingml.document; pandoc --from docx --to markdown %s; copiousoutput
+application/vnd.oasis.opendocument.text; pandoc --from odt --to markdown %s; copiousoutput;
+
+image/*; sxiv %s;
+image/gif; sxiv -a %s;

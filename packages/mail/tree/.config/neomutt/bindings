@@ -83,6 +83,10 @@ macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract 
 # skip trash when deleting with the delete key
 bind index,pager D purge-message
 
+# add to addressbook
+macro index,pager A '<pipe-message>abook --config "${XDG_CONFIG_HOME}/abook/abookrc" --datafile "${XDG_DATA_HOME}/abook/addressbook" --add-email-quiet<return>' 'Add this sender to abook'
+bind editor <Tab> complete-query
+
 # sync mailbox via mbsync 
 macro index S '<enter-command>unset wait_key<enter><shell-escape>~/.config/neomutt/scripts/mbsync.sh<enter>' 'mbsync'
 
