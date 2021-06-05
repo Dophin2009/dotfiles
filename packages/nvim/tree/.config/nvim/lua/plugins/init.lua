@@ -121,14 +121,14 @@ packer.startup(function()
     --
 
     -- Better treesitter support
-    -- use {
-    -- 'nvim-treesitter/nvim-treesitter',
-    -- requires = {
-    -- 'windwp/nvim-ts-autotag'
-    -- -- 'JoosepAlviste/nvim-ts-context-commentstring'
-    -- },
-    -- config = function() require 'plugins/treesitter' end
-    -- }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        requires = {
+            'windwp/nvim-ts-autotag'
+            -- 'JoosepAlviste/nvim-ts-context-commentstring'
+        },
+        config = function() require 'plugins/treesitter' end
+    }
     -- use {'romgrk/nvim-treesitter-context', after = {'nvim-treesitter'}}
     -- use {'haringsrob/nvim_context_vt', after = {'nvim-treesitter'}}
 
@@ -182,7 +182,7 @@ packer.startup(function()
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-        -- after = {'nvim-treesitter'},
+        after = {'nvim-treesitter'},
         config = function() require 'plugins/telescope' end
     }
 

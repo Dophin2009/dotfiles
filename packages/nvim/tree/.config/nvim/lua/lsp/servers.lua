@@ -94,7 +94,10 @@ lspconfig.sumneko_lua.setup {
 
 -- php language server
 lspconfig.intelephense.setup {
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        on_attach(client, bufnr)
+    end,
     capabilities = capabilities
 }
 
