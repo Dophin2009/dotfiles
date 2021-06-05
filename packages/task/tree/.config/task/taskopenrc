@@ -1,0 +1,3 @@
+NOTES_FOLDER="${XDG_DATA_HOME}/task/taskopen/"
+NOTES_EXT=".md"
+NOTES_REGEX="notes"
