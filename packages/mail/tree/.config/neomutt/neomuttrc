@@ -8,7 +8,17 @@ source ~/.config/neomutt/accounts
 # Sort with most recent on top
 set sort=threads
 set sort_aux=reverse-last-date-received
-set date_format="%y/%m/%d %I:%M%p"
+set date_format="%y-%m-%d %I:%M%p"
+
+# Speed up folder switch
+set sleep_time=0
+
+#
+# Pager
+#
+
+# Stop at end instead of display next mail
+set pager_stop=yes
 
 #
 # Sidebar
@@ -31,21 +41,32 @@ alternative_order text/plain text/enriched text/html
 #
 # Keybindings
 #
+
 source ~/.config/neomutt/bindings
 
 #
 # Colorscheme
 #
+
 source ~/.config/neomutt/colors/gruvbox
 
 #
 # Composing
 #
 
+# Stick to defaults on reply
+set fast_reply=yes
+set include=yes
+
+# Use ascii or utf-8
+set send_charset="us-ascii:utf-8"
+
 # Show/edit headers in editor
 set edit_headers=yes
 # Enable forgotten attachment warning
 set abort_noattach="ask-yes"
+# Header cache
+set header_cache=~/.cache/neomutt
 
 # Contacts usage
 set query_command='abook --config "${XDG_CONFIG_HOME}/abook/abookrc" --datafile "${XDG_DATA_HOME}/abook/addressbook" --mutt-query \'%s\''
@@ -53,4 +74,6 @@ set query_command='abook --config "${XDG_CONFIG_HOME}/abook/abookrc" --datafile 
 #
 # Hooks
 #
+
+# Notify on new mail
 set new_mail_command="notify-send 'New mail in %f' '%n new, %u unread.' &"
