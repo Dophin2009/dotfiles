@@ -1,4 +1,4 @@
-set textwidth=0
-set wrap
-set linebreak
-set showbreak=+
+setlocal textwidth=0
+setlocal wrap
+setlocal linebreak
+setlocal showbreak=+

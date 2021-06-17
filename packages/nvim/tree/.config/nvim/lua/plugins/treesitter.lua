@@ -7,7 +7,9 @@ if treesitter ~= nil then
         ensure_installed = 'maintained',
         highlight = {
             enable = true,
-            disable = {'latex', 'r', 'rust', 'scss', 'tex', 'yaml', 'zsh'}
+            disable = {
+                'latex', 'ocaml', 'r', 'rust', 'scss', 'tex', 'yaml', 'zsh'
+            }
         },
         indent = {enable = true, disable = {'lua', 'rust'}},
         -- External modules

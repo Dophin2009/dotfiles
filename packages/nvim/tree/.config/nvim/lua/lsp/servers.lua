@@ -92,6 +92,21 @@ lspconfig.sumneko_lua.setup {
     settings = {Lua = {diagnostics = {enable = false}}}
 }
 
+-- ocaml/reason language server
+if not configs.ocaml_lsp then
+    configs.ocaml_lsp = {
+        default_config = {
+            cmd = {'ocamllsp'},
+            filetypes = {'ocaml', 'reason'},
+            root_dir = function(fname)
+                return lspconfig.util.root_pattern('dune')(fname) or
+                           lspconfig.util.find_git_ancestor(fname);
+            end
+        }
+    }
+end
+lspconfig.ocaml_lsp.setup {on_attach = on_attach, capabilities = capabilities}
+
 -- php language server
 lspconfig.intelephense.setup {
     on_attach = function(client, bufnr)
