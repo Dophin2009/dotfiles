@@ -1,5 +1,3 @@
-# use latest version of bat
 sys-apps/bat ~amd64
-
-# use latest version of yarn
+sys-apps/cchmod ~amd64
 sys-apps/yarn ~amd64

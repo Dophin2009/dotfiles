@@ -5,3 +5,4 @@ media-sound/beets ~amd64
 
 media-sound/mpd ~amd64
 media-sound/ncmpcpp ~amd64
+media-sound/mpdnd ~amd64
