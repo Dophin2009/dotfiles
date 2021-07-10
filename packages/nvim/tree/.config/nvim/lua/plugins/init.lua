@@ -67,15 +67,28 @@ packer.startup(function()
     -- }
 
     -- Completion integration
+    -- use {
+    -- 'windwp/nvim-autopairs',
+    -- config = function() require 'plugins/autopairs' end
+    -- }
     use {
-        'windwp/nvim-autopairs',
-        config = function() require 'plugins/autopairs' end
+        'cohama/lexima.vim',
+        setup = function() require 'plugins/lexima/setup' end,
+        config = function() require 'plugins/lexima/config' end
     }
     use {
         'hrsh7th/nvim-compe',
         requires = {{'andersevenrud/compe-tmux'}, {'ray-x/lsp_signature.nvim'}},
-        after = {'nvim-autopairs'},
+        after = {
+            -- 'nvim-autopairs'
+            'lexima.vim'
+        },
         config = function() require 'lsp/completion' end
+    }
+
+    use {
+        'SirVer/ultisnips',
+        config = function() require 'plugins/ultisnips' end
     }
 
     -- Predefined language server configurations
@@ -162,17 +175,15 @@ packer.startup(function()
 
     -- Indent guides
     use {
-        'Yggdroot/indentLine', {
-            'lukas-reineke/indent-blankline.nvim',
-            config = function() require 'plugins/indentguide' end
-        }
+        'lukas-reineke/indent-blankline.nvim',
+        config = function() require 'plugins/indentguide' end
     }
 
     -- Toggle between short/long constructs
-    use {
-        'AndrewRadev/splitjoin.vim',
-        config = function() require 'plugins/splitjoin' end
-    }
+    -- use {
+    -- 'AndrewRadev/splitjoin.vim',
+    -- config = function() require 'plugins/splitjoin' end
+    -- }
 
     --
     -- NAVIGATION
@@ -194,17 +205,17 @@ packer.startup(function()
     }
 
     -- Zoxide for telescope.nvim
-    use {
-        'jvgrootveld/telescope-zoxide',
-        after = {'telescope.nvim'},
-        config = function() require 'plugins/telescope-zoxide' end
-    }
+    -- use {
+    -- 'jvgrootveld/telescope-zoxide',
+    -- after = {'telescope.nvim'},
+    -- config = function() require 'plugins/telescope-zoxide' end
+    -- }
 
     -- Dim inactive buffers
-    use {'sunjon/Shade.nvim', config = function() require 'plugins/shade' end}
+    -- use {'sunjon/Shade.nvim', config = function() require 'plugins/shade' end}
 
     -- Keep eye on jump location
-    use {'edluffy/specs.nvim', config = function() require 'plugins/specs' end}
+    -- use {'edluffy/specs.nvim', config = function() require 'plugins/specs' end}
 
     -- Sane buffer tabline
     use {'romgrk/barbar.nvim', setup = function() require 'plugins/barbar' end}
@@ -226,6 +237,9 @@ packer.startup(function()
         'glepnir/dashboard-nvim',
         config = function() require 'plugins/dashboard' end
     }
+
+    -- Automatically make nonexistent directories
+    use {'benizi/vim-automkdir'}
 
     --
     -- LANGUAGE SUPPORT
@@ -349,6 +363,12 @@ packer.startup(function()
     -- run = 'bash ./install.sh',
     -- config = function() require 'plugins/sniprun' end
     -- }
+
+    -- Discord presence
+    use {
+        'andweeb/presence.nvim',
+        config = function() require 'plugins/presence' end
+    }
 
 end)
 

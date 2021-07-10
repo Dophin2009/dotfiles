@@ -1,0 +1,84 @@
+snippet prt "\part*{...}"
+\part*{${1}}
+${0}
+endsnippet
+
+snippet "([^\s].*)\.prt" "\part*{...}" r
+\part*{`!p snip.rv = match.group(1)`}
+${0}
+endsnippet
+
+snippet prtn "\part{...}"
+\part{${1}}
+${0}
+endsnippet
+
+snippet "([^\s].*)\.prtn" "\part{...}" r
+\part{`!p snip.rv = match.group(1)`}
+${0}
+endsnippet
+
+snippet sec "\section*{...}"
+\section*{${1}}
+${0}
+endsnippet
+
+snippet "([^\s].*)\.sec" "\section*{...}" r
+\section*{`!p snip.rv = match.group(1)`}
+${0}
+endsnippet
+
+snippet secn "\section{...}"
+\section{${1}}
+${0}
+endsnippet
+
+snippet "([^\s].*)\.secn" "\section{...}" r
+\section{`!p snip.rv = match.group(1)`}
+${0}
+endsnippet
+
+snippet subsec "\subsection*{...}"
+\subsection*{${1}}
+${0}
+endsnippet
+
+snippet "([^\s].*)\.subsec" "\subsection*{...}" r
+\subsection*{`!p snip.rv = match.group(1)`}
+${0}
+endsnippet
+
+snippet subsecn "\subsection{...}"
+\subsection{${1}}
+${0}
+endsnippet
+
+snippet "([^\s].*)\.subsecn" "\subsection{...}" r
+\subsection{`!p snip.rv = match.group(1)`}
+${0}
+endsnippet
+
+snippet subsubsec "\subsubsection*{...}"
+\subsubsection*{${1}}
+${0}
+endsnippet
+
+snippet "([^\s].*)\.subsubsec" "\subsubsection*{...}" r
+\subsubsection*{`!p snip.rv = match.group(1)`}
+${0}
+endsnippet
+
+snippet subsubsecn "\subsubsection{...}"
+\subsubsection{${1}}
+${0}
+endsnippet
+
+snippet "([^\s].*)\.subsubsecn" "\subsubsection{...}" r
+\subsubsection{`!p snip.rv = match.group(1)`}
+${0}
+endsnippet
+
+snippet para "\paragraph{...}"
+\paragraph{${1}}
+${0}
+endsnippet

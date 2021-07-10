@@ -1,6 +1,8 @@
 -- luacheck: globals vim
 local compe = require 'compe'
 
+local bind = require 'util.bind'
+
 compe.setup {
     enabled = true,
     autocomplete = true,
@@ -19,64 +21,57 @@ compe.setup {
         buffer = true,
         nvim_lsp = true,
         nvim_lua = true,
-        omni = false,
+        omni = {filetypes = {'tex'}},
         path = true,
         snippets_nvim = false,
-        spell = true,
+        spell = false,
         tags = false,
         treesitter = false,
-        tmux = true,
+        tmux = false,
+        ultisnips = true,
         vsnip = false
     }
 }
 
-local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local check_back_space = function()
-    local col = vim.fn.col(".") - 1
-    if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+-- Tab completion
+local is_prior_char_whitespace = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
         return true
     else
         return false
     end
 end
-
--- Tab completion
 _G.tab_complete = function()
     if vim.fn.pumvisible() == 1 then
-        return t "<C-n>"
-    elseif check_back_space() then
-        return t "<Tab>"
+        return vim.api.nvim_replace_termcodes("<C-n>", true, true, true)
+    elseif vim.fn["UltiSnips#CanExpandSnippet"]() == 1 or
+        vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+        return vim.api.nvim_replace_termcodes(
+                   "<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>", true, true, true)
+    elseif is_prior_char_whitespace() then
+        return vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
     else
-        return vim.fn["compe#complete"]()
+        return vim.fn['compe#complete']()
     end
 end
 _G.s_tab_complete = function()
     if vim.fn.pumvisible() == 1 then
-        return t "<C-p>"
-    elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-        return t "<Plug>(vsnip-jump-prev)"
+        return vim.api.nvim_replace_termcodes("<C-p>", true, true, true)
+    elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+        return vim.api.nvim_replace_termcodes(
+                   "<C-R>=UltiSnips#JumpBackwards()<CR>", true, true, true)
     else
-        return t "<S-Tab>"
+        return vim.api.nvim_replace_termcodes("<S-Tab>", true, true, true)
     end
 end
 
--- Completion mappings
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-
-function _G.completions()
-    local autopairs = require 'nvim-autopairs'
-    if vim.fn.pumvisible() == 1 then
-        if vim.fn.complete_info()["selected"] ~= -1 then
-            return vim.fn["compe#confirm"]("<CR>")
-        end
-    end
-    return autopairs.check_break_line_char()
-end
-
-vim.api.nvim_set_keymap("i", "<CR>", "v:lua.completions()", {expr = true})
+bind.imap("<Tab>", "v:lua.tab_complete()", {expr = true, noremap = true})
+bind.smap("<Tab>", "v:lua.tab_complete()", {expr = true, noremap = true})
+bind.imap("<S-Tab>", "v:lua.s_tab_complete()", {expr = true, noremap = true})
+bind.smap("<S-Tab>", "v:lua.s_tab_complete()", {expr = true, noremap = true})
+bind.imap("<CR>", 'compe#confirm(lexima#expand("<LT>CR>", "i"))',
+          {expr = true, noremap = true})
+bind.imap("<C-e>", "compe#close('<C-e>')", {expr = true, noremap = true})
+bind.imap("<C-f>", "compe#scrol({ 'delta': +4 })", {expr = true, noremap = true})
+bind.imap("<C-d>", "compe#scrol({ 'delta': -4 })", {expr = true, noremap = true})

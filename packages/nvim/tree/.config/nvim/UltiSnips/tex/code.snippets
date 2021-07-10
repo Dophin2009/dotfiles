@@ -1,0 +1,36 @@
+snippet verb "\verb+...+"
+\verb+${1}+${0}
+endsnippet
+
+snippet imint "\mintinline{...}|...|"
+\mintinline{${1}}|${2}|${0}
+endsnippet
+
+snippet "imint(.+)" "\mintinline{...}|...|" r
+\mintinline{`!p snip.rv = match.group(1)`}|${1}|${0}
+endsnippet
+
+snippet mint "\begin{minted}{...} ... \end{minted}" 
+\begin{minted}{${1}}
+${0}
+\end{minted}
+endsnippet
+
+snippet "mint(.+)" "\begin{minted}{...} ... \end{minted}" r
+\begin{minted}{`!p snip.rv = match.group(1)`}
+${0}
+\end{minted}
+endsnippet
+
+snippet lsting "\begin{lstlisting} ... \end{lstlisting}"
+\begin{lstlisting}${1}
+${0}
+\end{lstlisting}
+endsnippet
+
+
+snippet "lsting(.+)" "\begin{lstlisting}[language=...] ... \end{lstlisting}"
+\begin{lstlisting}[language=`!p snip.rv = match.group(1)`${1}]
+${0}
+\end{lstlisting}
+endsnippet

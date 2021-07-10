@@ -102,6 +102,12 @@ local on_attach = function(client, bufnr)
     -- illuminate.on_attach(client, bufnr)
 end
 
-local capabilities = nil
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+-- Enable snippets
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {'documentation', 'detail', 'additionalTextEdits'}
+}
 
 return {on_attach = on_attach, capabilities = capabilities}

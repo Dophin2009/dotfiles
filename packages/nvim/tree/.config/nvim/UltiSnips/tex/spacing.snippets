@@ -1,0 +1,15 @@
+snippet hs "\hspace{...}"
+\hspace{${1}}${0}
+endsnippet
+
+snippet "hs(\d+)" "\hspace{...pt}" r
+\hspace{`!p snip.rv = match.group(1)`pt}${0}
+endsnippet
+
+snippet vs "\vspace{...}"
+\vspace{${1}}${0}
+endsnippet
+
+snippet "vs(\d+)" "\vspace{...pt}" r
+\vspace{`!p snip.rv = match.group(1)`pt}${0}
+endsnippet

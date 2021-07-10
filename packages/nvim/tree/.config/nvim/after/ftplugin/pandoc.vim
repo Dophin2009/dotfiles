@@ -2,7 +2,7 @@
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
-setlocal conceallevel=0
+setlocal conceallevel=2
 
 "   no wrapping
 setlocal nowrap
