@@ -12,4 +12,4 @@ color.overdue=magenta
 color.active=blue
 
 # taskwarrior-tui
-# uda.taskwarrior-tui.task-report.next.filter=
+uda.taskwarrior-tui.task-report.looping=false
