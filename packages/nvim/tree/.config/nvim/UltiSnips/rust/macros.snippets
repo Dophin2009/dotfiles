@@ -1,0 +1,30 @@
+#
+# attributes
+#
+snippet "cfg! " "#[cfg(?)]" brA
+#[cfg($1)]
+endsnippet
+
+snippet "cfgf! " "#[cfg(feature = ?)]" brA
+#[cfg(feature = "$1")]
+endsnippet
+
+#
+# macro_rules
+#
+snippet "mr! " "macro_rules! ? {}" brA
+macro_rules! ${1:name} {
+	$0
+}
+endsnippet
+
+#
+# Shortcuts
+#
+snippet pri! "print!(?)" b
+print!("$1"${2/..*/, /}$2);
+endsnippet
+
+snippet pln! "println!(?);" b
+println!("$1"${2/..*/, /}$2);
+endsnippet

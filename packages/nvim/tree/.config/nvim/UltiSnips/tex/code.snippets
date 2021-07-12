@@ -6,6 +6,7 @@ snippet imint "\mintinline{...}|...|"
 \mintinline{${1}}|${2}|${0}
 endsnippet
 
+priority 200
 snippet "imint(.+)" "\mintinline{...}|...|" r
 \mintinline{`!p snip.rv = match.group(1)`}|${1}|${0}
 endsnippet
@@ -16,6 +17,7 @@ ${0}
 \end{minted}
 endsnippet
 
+priority 100
 snippet "mint(.+)" "\begin{minted}{...} ... \end{minted}" r
 \begin{minted}{`!p snip.rv = match.group(1)`}
 ${0}

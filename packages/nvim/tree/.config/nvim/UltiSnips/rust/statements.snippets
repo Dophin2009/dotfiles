@@ -1,0 +1,21 @@
+#
+# let
+#
+snippet "let " "let ? = ?;" brA
+let ${1:var} = ${2:expr};$0
+endsnippet
+
+snippet "letm " "let mut ? = ?;" brA
+let mut ${1:var} = ${2:expr};$0
+endsnippet
+
+#
+# return
+#
+snippet "ret " "return ?;" rA
+return $1;$0
+endsnippet
+
+snippet "([^\s].*)\.ret" "return ?;" r
+return `!p snip.rv = match.group(1)`$1;$0
+endsnippet

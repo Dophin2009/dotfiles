@@ -1,0 +1,123 @@
+#
+# if / else
+#
+snippet "if " "if ? {}" rA
+if ${1:condition} {
+	$0
+}
+endsnippet
+
+snippet "else if " "else if ? {}" rA
+else if ${1:condition} {
+	$0
+}
+endsnippet
+
+snippet "else " "else {}" rA
+else {
+	$0
+}
+endsnippet
+
+snippet "if let " "if let ? = ? {}" rA
+if let ${1:destr} = ${2:expr} {
+	$0
+}
+endsnippet
+
+#
+# match
+#
+snippet "match" "match ? { ? }" rA
+match ${1:expr} {
+	$0
+}
+endsnippet
+
+#
+# for
+#
+snippet "for " "for ? in ? {}" rA
+for ${1:ele} in ${2:iter} {
+	$0
+}
+endsnippet
+
+#
+# while
+#
+snippet "while " "while ? {}" rA
+while ${1:cond} {
+	$0
+}
+endsnippet
+
+snippet "whilel " "while let ? = ? {}" rA
+while let ${1:destr} = ${2:expr} {
+	$0
+}
+endsnippet
+
+#
+# closure
+#
+snippet ||| "|?| ?" A
+|${1:param}| $0
+endsnippet
+
+snippet ||\ "|?| {}" A
+|${1:param}| {
+	$0
+}
+endsnippet
+
+#
+# Result<T>
+#
+snippet Res "Result<?>"
+Result<${1:T}>
+endsnippet
+
+snippet "Ok " "Ok(?)" rA
+Ok(${1:val})
+endsnippet
+
+snippet "Err  " "Err(?)" rA
+Err(${1:err})
+endsnippet
+
+#
+# Option<T>
+#
+snippet Opt "Option<?>"
+Option<${1:T}>
+endsnippet
+
+snippet "Some " "Some(?)" rA
+Some(${1:val})
+endsnippet
+
+#
+# Box<T>
+#
+snippet Box "Box<?>"
+Box<${1:T}>
+endsnippet
+
+snippet "box " "Box::new(?)" rA
+Box::new(${1:val})
+endsnippet
+
+#
+# Vec<T>
+#
+snippet "vec! " "vec![]" rA
+vec![${1:items}]
+endsnippet
+
+#
+# String
+#
+snippet "fmt! " "format!(?)" brA
+format!("$1"${2/..*/, /}$2)
+endsnippet
