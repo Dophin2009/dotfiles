@@ -41,14 +41,14 @@ endsnippet
 #
 priority 100
 snippet "struct " "struct ? {}" brA
-struct ${1:name} {
+struct ${1:Name} {
 	$0
 }
 endsnippet
 
 priority 200
 snippet "pstruct " "struct ? {}" brA
-pub struct ${1:name} {
+pub struct ${1:Name} {
 	$0
 }
 endsnippet
@@ -70,38 +70,38 @@ endsnippet
 #
 priority 100
 snippet "enum " "enum ? {}" brA
-enum ${1} {
+enum ${1:Name} {
 	$0
 }
 endsnippet
 
 priority 200
 snippet "penum " "pub enum ? {}" brA
-pub enum ${1} {
+pub enum ${1:Name} {
 	$0
 }
 endsnippet
 
 # trait
 snippet "trait " "trait ? {}" brA
-trait ${1} {
+trait ${1:Name} {
 	$0
 }
 endsnippet
 
 snippet "ptrait " "pub trait ? {}" brA
-pub trait ${1} {
+pub trait ${1:Name} {
 	$0
 }
 endsnippet
 
 # type
 snippet "type " "type ? = ?" brA
-type ${1:name} = ${2:type};$0
+type ${1:Name} = ${2:type};$0
 endsnippet
 
 snippet "ptype " "pub type ? = ?" brA
-pub type ${1:name} = ${2:type};$0
+pub type ${1:Name} = ${2:type};$0
 endsnippet
 
 #
@@ -140,7 +140,7 @@ snippet inline "#[inline]" bA
 endsnippet
 
 snippet "fnmain " "fn main() {}" brA
-fn main()${1/..*/-> /}$1 {
+fn main() ${1/..*/-> /}$1 {
 	${VISUAL}$0
 }
 endsnippet

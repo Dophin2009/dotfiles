@@ -1,0 +1,138 @@
+#
+# comment
+#
+snippet "\(\* " "(* ... *)" rA
+(* $1 *
+endsnippet
+
+#
+# let
+#
+snippet "let " "let ? = ? in" rA
+let ${1:name} = ${2:expr} in $0
+endsnippet
+
+snippet vlet "VISUAL: let ? = ? in" 
+let ${1:name} = ${VISUAL} in $0
+endsnippet
+
+snippet "letr " "let rec ? = ? in" rA
+let rec ${1:name} = ${2:expr} in $0
+endsnippet
+
+snippet "leto" "let open ? in" rA
+let open ${1:module} in $0
+endsnippet
+
+#
+# match
+#
+snippet "match " "match ? with ..." rA
+match ${1:expr} with
+| $0
+endsnippet
+
+snippet "matchopt " "match ? with Some(?) ..." rA
+match ${1:expr} with
+| Some ${2:v} -> ${3:()}
+| None -> ${4:()}
+endsnippet
+
+snippet "([^\s].*)\.match" "match ? with ..." r
+match `!p snip.rv = match.group(1)`$1 with
+| $0
+endsnippet
+
+
+#
+# if
+#
+snippet "if " "if ? then ? else ?" rA
+if ${1:cond} then ${2:e1} else ${3:e2}
+endsnippet
+
+snippet "([^\s].*)\.if" "if ? then ? else ?" r
+if `!p snip.rv = match.group(1)`$1 then ${2:e1} else ${3:e2}
+endsnippet
+
+#
+# fun
+#
+snippet "fun " "fun ? -> ?" rA
+(fun ${1:param} -> ${2:body})
+endsnippet
+
+#
+# raise
+#
+snippet "raise " "raise ?" rA
+raise ${1:Exception}
+endsnippet
+
+snippet "([^\s].*)\.raise" "raise ?;" r
+raise `!p snip.rv = match.group(1)`$1
+endsnippet
+
+#
+# open
+#
+snippet "open " "open ?" brA
+open ${1:Module}
+endsnippet
+
+#
+# include
+#
+snippet "include " "include ?" brA
+include ${1:Module}
+endsnippet
+
+#
+# begin / end
+#
+snippet "begin " "begin ... end" rA
+begin
+	$0
+end
+endsnippet
+
+#
+# module
+#
+snippet "mods " "module ? = struct ... end" brA
+module ${1:Name} ${2/..*/: /}$2 = struct
+	$0
+end
+endsnippet
+
+snippet "modg " "module ? = sig ... end" brA
+module ${1:Name} ${2/..*/:/} $2 = sig
+	$0
+end
+endsnippet
+
+snippet "modsg " "module ? : sig ... end = struct ... end" brA
+module ${1:Name} : sig
+	$2
+end = struct
+	$0
+end
+endsnippet
+
+snippet "modf " "module ? (? : ?) : ? = struct ... end" brA
+module ${1:Name} (${2:Param} : ${3:ParamType}) ${2/..*/:/} $2 = struct
+	$0
+end
+endsnippet
+
+snippet "struct " "struct ... end" rA
+struct
+	$0
+end
+endsnippet
+
+snippet "sig " "sig ... end" rA
+sig
+	$0
+end
+endsnippet
