@@ -1,16 +1,16 @@
 -- luacheck: globals vim
 local lint = require 'lint'
 
-local function register(names)
-    if type(names) == "table" then
-        for _, name in ipairs(names) do register(name) end
-    else
-        local ok, linter = pcall(require, 'plugins.lint.' .. names)
-        if ok then rawset(lint.linters, names, linter) end
-    end
-end
-
 local use = function(t)
+    local function register(names)
+        if type(names) == "table" then
+            for _, name in ipairs(names) do register(name) end
+        else
+            local ok, linter = pcall(require, 'plugins.lint.' .. names)
+            if ok then rawset(lint.linters, names, linter) end
+        end
+    end
+
     for _, linters in pairs(t) do register(linters) end
 
     lint.linters_by_ft = t
@@ -23,4 +23,9 @@ vim.api
 vim.api.nvim_command [[aug END]]
 
 -- Define linters
-use {lua = {'luacheck'}, sh = {'shellcheck'}, pandoc = {'vale'}}
+use {
+    lua = {'luacheck'},
+    -- pandoc = {'vale'},
+    sh = {'shellcheck'},
+    tex = {'chktex'}
+}

@@ -4,24 +4,23 @@ setlocal shiftwidth=4
 setlocal expandtab
 setlocal conceallevel=2
 
-"   no wrapping
+" no wrapping
 setlocal nowrap
 
-"   enable spellchecking
-" setlocal spell
-let b:buffer_dir = expand('%:p:h')
-let b:local_spellfile = findfile('spellfile.en.add', b:buffer_dir)
-if !empty(b:local_spellfile)
+" local spellfile
+let b:buffer_dir = expand('%:p:h') . '/.vim'
+let b:local_spellfile = findfile('spell.en.add', b:buffer_dir)
+if filereadable(b:local_spellfile)
   let b:local_spellfile = fnamemodify(b:local_spellfile, ':p')
   execute 'setlocal spellfile=' . escape(b:local_spellfile, ' ')
+  setlocal spell
+  setlocal spelllang=en_us
+else
+  setlocal spellfile=
 end
 
-""  delimitMate
-let b:delimitMate_matchpairs = "(:),[:],{:}"
-let delimitMate_quotes = "\" ` * _"
-
-""  tabular
-"   auto-align when using pipe key to make table
+" tabular
+" auto-align when using pipe key to make table
 inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'

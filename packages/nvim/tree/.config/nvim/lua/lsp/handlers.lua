@@ -63,10 +63,6 @@ local on_attach = function(client, bufnr)
     bufmap('n', 'gc', '<cmd>LSPActions<CR>')
     -- Show diagnostics for the current line
     bufmap('n', 'ge', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-    -- Go to previous diagnostic
-    bufmap('n', 'gN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
-    -- Go to next diagnostic
-    bufmap('n', 'gn', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
     -- Show document diagnostics list
     -- bufmap('n', 'gQ', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
     bufmap('n', 'gQ', '<cmd>LSPDiagnostics<CR>')

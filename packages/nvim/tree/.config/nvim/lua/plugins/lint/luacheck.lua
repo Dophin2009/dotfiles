@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local severities = {
     W = vim.lsp.protocol.DiagnosticSeverity.Warning,
     E = vim.lsp.protocol.DiagnosticSeverity.Error
@@ -9,6 +10,7 @@ return {
     cmd = 'luacheck',
     stdin = true,
     args = {'--formatter', 'plain', '--codes', '--ranges', '-'},
+    ignore_exitcode = true,
     parser = function(output, _)
         local result = vim.fn.split(output, "\n")
         local diagnostics = {}

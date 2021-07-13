@@ -1,6 +1,7 @@
 -- luacheck: globals vim
 local g, o, wo, bo = vim.g, vim.o, vim.wo, vim.bo
 local cmd = vim.cmd
+local bind = require('util.bind')
 
 -- Python paths
 -- g.python_host_prog = '/usr/bin/python2'
@@ -78,3 +79,7 @@ vim.api.nvim_command([[
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 ]])
+
+-- Go to previous diagnostic
+bind.nmap('gN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = false})
+bind.nmap('gn', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = false})
