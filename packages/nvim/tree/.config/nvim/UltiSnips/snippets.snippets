@@ -1,5 +1,19 @@
-snippet "snip " "Create a new snippet" brA
+snippet "snip " "snippet ? ? ? ... endsnippet" brA
 snippet ${1:trigger} "${2:description}" ${3:options}
-${0}
+${0:${VISUAL}}
 `echo endsnippet`
+endsnippet
+
+snippet "pri " "priority ?" brA
+priority ${1:100}
+endsnippet
+
+snippet "cont " "context ?" brA
+context "${1:${VISUAL}}"
+endsnippet
+
+snippet global "global ... endglobal" bA
+global
+${0:${VISUAL}}
+endglobal
 endsnippet

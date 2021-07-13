@@ -1,12 +1,12 @@
-snippet pac "\usepackage[...]{...}" b
+snippet pac "\usepackage[?]{?}" b
 \usepackage[${1:options}]{${2:package}}$0
 endsnippet
 
-snippet "nc(\d+)?" "\newcommand{...}[...]{...}" r
+snippet "nc(\d+)?" "\newcommand{?}[?]{?}" r
 \newcommand{${1}}`!p snip.rv = '[' + match.group(1) + ']' if match.group(1) is not None else ''`{${2}}
 endsnippet
 
-snippet undef "\let\...\undefined"
+snippet undef "\let\?\undefined"
 \let\\${1}\undefined
 ${0}
 endsnippet

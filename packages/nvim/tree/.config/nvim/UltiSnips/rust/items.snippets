@@ -26,13 +26,13 @@ endsnippet
 
 snippet "bmod " "mod ? {}" brA
 mod $1 {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 snippet "pbmod " "pub mod ? {}" brA
 pub mod $1 {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
@@ -42,14 +42,14 @@ endsnippet
 priority 100
 snippet "struct " "struct ? {}" brA
 struct ${1:Name} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 priority 200
 snippet "pstruct " "struct ? {}" brA
 pub struct ${1:Name} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
@@ -78,20 +78,20 @@ endsnippet
 priority 200
 snippet "penum " "pub enum ? {}" brA
 pub enum ${1:Name} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 # trait
 snippet "trait " "trait ? {}" brA
 trait ${1:Name} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 snippet "ptrait " "pub trait ? {}" brA
 pub trait ${1:Name} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
@@ -110,28 +110,42 @@ endsnippet
 priority 100
 snippet "fn " "fn ?(?) {}" brA
 fn ${1:name}($2) ${3/..*/-> /}$3 {
-	${VISUAL}$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 priority 200
 snippet "pfn " "pub fn ?(?) -> ? {}" brA
 pub fn ${1:name}($2)${3/..*/-> /}$3 {
-	${VISUAL}$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 priority 200
 snippet "afn " "async fn ?(?) -> ? {}" brA
 async fn ${1:name}($2)${3/..*/-> /}$3 {
-	${VISUAL}$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 priority 300
 snippet "pafn " "pub async fn ?(?) -> ? {}" brA
 pub async fn ${1:name}($2)${3/..*/-> /}$3 {
-	${VISUAL}$0
+	${0:${VISUAL}}
+}
+endsnippet
+
+priority 200
+snippet "mfn " "fn ?(&? self, ?) -> ? {}" brA
+fn ${1:name}(&$2self${3/..*/, /}$3)${4/..*/-> /}$4 {
+	${0:${VISUAL}}
+}
+endsnippet
+
+priority 300
+snippet "mfn " "fn ?(&? self, ?) -> ? {}" brA
+pub fn ${1:name}(&$2self${3/..*/, /}$3)${4/..*/-> /}$4 {
+	${0:${VISUAL}}
 }
 endsnippet
 
@@ -141,6 +155,13 @@ endsnippet
 
 snippet "fnmain " "fn main() {}" brA
 fn main() ${1/..*/-> /}$1 {
-	${VISUAL}$0
+	${0:${VISUAL}}
 }
+endsnippet
+
+#
+# const
+#
+snippet "const " "const ?: ? = ?;" brA
+const ${1:NAME}: ${2:type} = ${3:val};
 endsnippet

@@ -1,0 +1,15 @@
+snippet "from " "FROM ?:?" brA
+FROM ${1:image}:${2:tag}
+endsnippet
+
+snippet "arg " "ARG ?=?" brA
+ARG ${1:var}${2/..*/=/}$2
+endsnippet
+
+snippet "run " "RUN ?" brA
+RUN $0
+endsnippet
+
+snippet "cmd " "CMD [?]" brA
+CMD [?]
+endsnippet

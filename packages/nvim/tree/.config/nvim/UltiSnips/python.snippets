@@ -1,0 +1,123 @@
+snippet "TODO " "# TODO ?" rA
+# TODO ${0:${VISUAL}}
+endsnippet
+
+#
+# if / else
+#
+snippet "if " "if ?:" brA
+if ${1:condition}:
+	${0:${VISUAL}}
+endsnippet
+
+snippet "else if " "else if ?:" brA
+else if ${1:condition}:
+	${0:${VISUAL}}
+endsnippet
+
+snippet "else " "else:" brA
+else:
+	${0:${VISUAL}}
+endsnippet
+
+#
+# for
+#
+snippet "for " "for ? in ?:" brA
+for ${1:item} in ${2:iter}:
+	${0:${VISUAL}}
+endsnippet
+
+#
+# while
+#
+snippet "while " "while ?:" brA
+while ${1:cond}:
+	${0:${VISUAL}}
+endsnippet
+
+#
+# with
+#
+snippet "with " "with ? as ?:" brA
+with ${1:expr} as ${2:var}
+endsnippet
+
+#
+# try / except
+#
+snippet "try " "try: ... except ?:" brA
+try:
+	$1
+except ${2:Error}:
+	${0:${VISUAL}}
+endsnippet
+
+#
+# return
+#
+snippet "ret " "return ?" brA
+return ${1:expr}
+endsnippet
+
+snippet "([^\s].*)\.ret" "return ?" r
+return `!p snip.rv = match.group(1)`$1
+endsnippet
+
+#
+# lambda
+#
+snippet "lam!" "lambda ?: ?" rA
+lambda ${1:param}: ${2:ret}
+endsnippet
+
+#
+# print
+#
+snippet "print " "print(?)" rA
+print($1)
+endsnippet
+
+#
+# def
+#
+priority 100
+snippet "def " "def ?(?):" brA
+def ${1:name}($2) ${3/..*/-> /}$3:
+	${0:${VISUAL}}
+endsnippet
+
+priority 200
+snippet "defa " "def async ?(?):" brA
+def async ${1:name}($2) ${3/..*/-> /}$3:
+	${0:${VISUAL}}
+endsnippet
+
+priority 200
+snippet "defmain " "def main():" brA
+def main():
+	${0:${VISUAL}}
+endsnippet
+
+priority 300
+snippet "defmaint " "def main(): ..." brA
+def main():
+	${0:${VISUAL}}
+
+if __name__ == '__main__':
+	main()
+endsnippet
+
+
+#
+# class
+#
+snippet "class " "class ?:" brA
+class ${1:Name}`!p snip.rv = '(' if t[2] != '' else ''`${2:(}`!p snip.rv = ')' if t[2] != '' else ''`:
+	${0:${VISUAL}}
+endsnippet
+
+snippet "init! " "def __init__(self): " brA
+def __init__(self, ${1:params}):
+	${0:${VISUAL}}
+endsnippet

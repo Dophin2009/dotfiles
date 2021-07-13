@@ -1,0 +1,14 @@
+global !p
+def cargo():
+	return vim.eval('@%') == 'Cargo.toml'
+endglobal
+
+context "cargo()"
+snippet "dep! " "? = ?" brA
+${1:name} = "${2:version}"
+endsnippet
+
+context "cargo()"
+snippet "depf! " "? = { version = ?, features = [?] }" brA
+${1:name} = { version = "${2:version}", features = [$3] }
+endsnippet

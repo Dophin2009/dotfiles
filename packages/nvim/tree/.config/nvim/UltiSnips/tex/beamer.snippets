@@ -1,5 +1,5 @@
-snippet frame "\begin{frame}{...} ... \end{frame}"
-\begin{frame}${1}{${2}}
-	${0}
+snippet frame "\begin{frame}{?} ... \end{frame}"
+\begin{frame}$1${2/..*/{/}$2`!p snip.rv = '}' if t[2] != '' else ''`
+	${0:${VISUAL}}
 \end{frame}
 endsnippet

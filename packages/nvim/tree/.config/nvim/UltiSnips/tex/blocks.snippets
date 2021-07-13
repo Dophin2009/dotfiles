@@ -1,18 +1,18 @@
-snippet beg "\begin{...} / \end{...}" 
+snippet beg "\begin{?} ... \end{?}" 
 \begin{${1:env}}
-	${0}
+	${0:${VISUAL}}
 \end{$1}
 endsnippet
 
-snippet "([^\s].*)\.beg" "\begin{...} ... \end{...}" r
+snippet "([^\s].*)\.beg" "\begin{?} ... \end{?}" r
 \begin{`!p snip.rv = match.group(1)`}
-	${0}
+	${0:${VISUAL}}
 \end{`!p snip.rv = match.group(1)`}
 endsnippet
 
 snippet centered "\begin{center} ... \end{center}" 
 \begin{center}
-	${0}
+	${0:${VISUAL}}
 \end{center}
 endsnippet
 
@@ -30,6 +30,6 @@ endsnippet
 
 snippet tabl "\begin{tabular} ... \end{tabular}" 
 \begin{tabular}
-	${0}
+	${0:${VISUAL}}
 \end{tabular}
 endsnippet

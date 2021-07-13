@@ -1,0 +1,75 @@
+#
+# if / else
+#
+
+#
+# for
+#
+
+#
+# while
+#
+
+#
+# switch
+#
+
+#
+# let
+#
+
+#
+# function
+#
+priority 100
+snippet "fn " "? ?(?) {}" brA
+${1:type} ${2:name}(${3:args}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+priority 200
+snippet "fnh " "? ?(?);" brA
+${1:type} ${2:name}(${3:args});
+endsnippet
+
+#
+# struct
+#
+
+#
+# enum
+#
+
+#
+# variant
+#
+
+#
+# std::vec<T>
+#
+snippet vec "std::vec<?>"
+std::vec<${1:T}>
+endsnippet
+
+#
+# std::unique_ptr<T>
+#
+snippet up "std::unique_ptr<?>"
+std::unique_ptr<${1:T}>
+endsnippet
+
+snippet mup "std::make_unique(?)"
+std::make_unique(${1:val})
+endsnippet
+
+#
+# std::shared_ptr<T>
+#
+snippet sp "std::shared_ptr<?>"
+std::shared_ptr<${1:T}>
+endsnippet
+
+snippet msp "std::make_shared(?)"
+std::make_shared(${1:val})
+endsnippet

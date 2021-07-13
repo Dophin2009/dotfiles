@@ -1,7 +1,7 @@
 snippet "tmod " "#[cfg(test)] module test {}" brA
 #[cfg(test)]
 mod test {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
@@ -9,6 +9,6 @@ priority 200
 snippet "tfn " "#[test] fn test_?() {}" brA
 #[test]
 fn test_${1:something}() ${2/..*/-> /}$2 {
-	${VISUAL}$0
+	${0:${VISUAL}}
 }
 endsnippet

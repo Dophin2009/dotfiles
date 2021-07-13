@@ -1,38 +1,39 @@
-snippet verb "\verb+...+"
-\verb+${1}+${0}
+snippet verb "\verb+?+"
+\verb+${1:${VISUAL}}+$0
 endsnippet
 
-snippet imint "\mintinline{...}|...|"
-\mintinline{${1}}|${2}|${0}
+snippet imint "\mintinline{?}|?|"
+\mintinline{${1:lang}}|${2:${VISUAL}}|$0
 endsnippet
 
 priority 200
-snippet "imint(.+)" "\mintinline{...}|...|" r
-\mintinline{`!p snip.rv = match.group(1)`}|${1}|${0}
+snippet "imint(.+)" "\mintinline{?}|?|" r
+\mintinline{`!p snip.rv = match.group(1)`}|${1}|$0
 endsnippet
 
-snippet mint "\begin{minted}{...} ... \end{minted}" 
-\begin{minted}{${1}}
-${0}
+snippet mint "\begin{minted}{?} ... \end{minted}" 
+\begin{minted}{${1:lang}}
+${0:${VISUAL}}
 \end{minted}
 endsnippet
 
 priority 100
-snippet "mint(.+)" "\begin{minted}{...} ... \end{minted}" r
+snippet "mint(.+)" "\begin{minted}{?} ... \end{minted}" r
 \begin{minted}{`!p snip.rv = match.group(1)`}
-${0}
+${0:${VISUAL}}
 \end{minted}
 endsnippet
 
+priority 100
 snippet lsting "\begin{lstlisting} ... \end{lstlisting}"
-\begin{lstlisting}${1}
-${0}
+\begin{lstlisting}${1/..*/\[/}$1`!p snip.rv = ']' if t[1] != '' else ''`
+${0:${VISUAL}}
 \end{lstlisting}
 endsnippet
 
-
-snippet "lsting(.+)" "\begin{lstlisting}[language=...] ... \end{lstlisting}"
-\begin{lstlisting}[language=`!p snip.rv = match.group(1)`${1}]
-${0}
+priority 200
+snippet "lsting(.+)" "\begin{lstlisting}[language=?] ... \end{lstlisting}" r
+\begin{lstlisting}[language=`!p snip.rv = match.group(1)`$1]
+${0:${VISUAL}}
 \end{lstlisting}
 endsnippet

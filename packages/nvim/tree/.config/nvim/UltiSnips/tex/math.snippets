@@ -11,31 +11,31 @@ endglobal
 #
 # Blocks
 #
-snippet mb "Insert displayed math mode block" bA
+snippet mb "\[ ... \]" bA
 \[
-  ${0}
+	${0:${VISUAL}}
 \]
 endsnippet
 
-snippet mt "VISUAL: $...$"
-$${VISUAL}$
+snippet mt "$?$"
+$${0:${VISUAL}}$
 endsnippet
 
 snippet mpar "\begin{mathpar} ... \end{mathpar}" bA
 \begin{mathpar}
-	${0}
+	${0:${VISUAL}}
 \end{mathpar}
 endsnippet
 
 snippet marr "\[\begin{array} ... \end{array}\]" bA
 \[\begin{array}
-	${0}
+	${0:${VISUAL}}
 \end{array}\]
 endsnippet
 
 snippet mali "Align" bA
 \begin{align*}
-	${1:${VISUAL}}
+	${0:${VISUAL}}
 .\end{align*}
 endsnippet
 
@@ -309,15 +309,15 @@ endsnippet
 #
 # amsthm snippets
 #
-snippet thm "\begin{theorem}[...] ... \end{theorem}" b
+snippet thm "\begin{theorem}[?] ... \end{theorem}" b
 \begin{theorem}[${1}]
-  ${0}
+	${0:${VISUAL}}
 \end{theorem}
 endsnippet
 
 snippet lemm "\begin{lemma} ... \end{lemma}" b
 \begin{lemma}
-	${0}
+	${0:${VISUAL}}
 \end{lemma}
 endsnippet
 

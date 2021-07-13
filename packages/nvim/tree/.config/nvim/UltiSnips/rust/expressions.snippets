@@ -3,34 +3,34 @@
 #
 snippet "if " "if ? {}" rA
 if ${1:condition} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 snippet "else if " "else if ? {}" rA
 else if ${1:condition} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 snippet "else " "else {}" rA
 else {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 snippet "if let " "if let ? = ? {}" rA
 if let ${1:destr} = ${2:expr} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 #
 # match
 #
-snippet "match" "match ? { ? }" rA
+snippet "match " "match ? { ? }" rA
 match ${1:expr} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
@@ -39,7 +39,7 @@ endsnippet
 #
 snippet "for " "for ? in ? {}" rA
 for ${1:ele} in ${2:iter} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
@@ -48,13 +48,13 @@ endsnippet
 #
 snippet "while " "while ? {}" rA
 while ${1:cond} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
 snippet "whilel " "while let ? = ? {}" rA
 while let ${1:destr} = ${2:expr} {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
@@ -62,12 +62,12 @@ endsnippet
 # closure
 #
 snippet ||| "|?| ?" A
-|${1:param}| $0
+|${1:param}| ${0:${VISUAL}}
 endsnippet
 
 snippet ||\ "|?| {}" A
 |${1:param}| {
-	$0
+	${0:${VISUAL}}
 }
 endsnippet
 
@@ -105,7 +105,7 @@ Box<${1:T}>
 endsnippet
 
 snippet "box " "Box::new(?)" rA
-Box::new(${1:val})
+Box::new(${1:${VISUAL}})
 endsnippet
 
 #

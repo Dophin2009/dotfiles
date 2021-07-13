@@ -1,0 +1,27 @@
+#
+# if / else
+#
+snippet "if " "if ?; ... fi" brA
+if ${2:[[ ${1:cond} ]]}; then
+	${0:${VISUAL}}
+fi
+endsnippet
+
+snippet "elif " "elif ?; then ... " brA
+elif ${2:[[ ${1:cond} ]]}; then
+	${0:${VISUAL}}
+endsnippet
+
+snippet "else " "else ..." brA
+else
+	${0:${VISUAL}}
+endsnippet
+
+#
+# function
+#
+snippet "fn " "? () {}" brA
+${1:name} () {
+	${0:${VISUAL}}
+}
+endsnippet

@@ -1,51 +1,29 @@
 # Formatting
-snippet tbf "\textbf{...}"
-\textbf{${1}}${0}
+snippet tbf "\textbf{?}"
+\textbf{${1:${VISUAL}}}$0
 endsnippet
 
-snippet tbfv "VISUAL: \textbf{...}" 
-\textbf{${VISUAL}}
+snippet tit "\textit{?}"
+\textit{${1:${VISUAL}}}$0
 endsnippet
 
-snippet tit "\textit{...}"
-\textit{${1}}${0}
+snippet ttt "\texttt{?}"
+\texttt{${1:${VISUAL}}}$0
 endsnippet
 
-snippet titv "VISUAL: \textit{...}" 
-\textit{${VISUAL}}
+snippet tup "\textup{?}"
+\textup{${1:${VISUAL}}}$0
 endsnippet
 
-snippet ttt "\texttt{...}"
-\texttt{${1}}${0}
-endsnippet
-
-snippet tttv "VISUAL: \texttt{...}" 
-\texttt{${VISUAL}}
-endsnippet
-
-snippet tup "\textup{...}"
-\textup{${1}}${0}
-endsnippet
-
-snippet tupv "VISUAL: \textup{...}" 
-\textup{${VISUAL}}
-endsnippet
-
-snippet tun "\underline{...}"
-\underline{${1}}${0}
-endsnippet
-
-snippet tunv "VISUAL: \underline{...}" 
-\underline{${VISUAL}}
+snippet tun "\underline{?}"
+\underline{${1:${VISUAL}}}$0
 endsnippet
 
 # Shortcuts
-priority 100
-snippet ... "ldots" iA
+snippet ? "\ldots" iA
 \ldots
 endsnippet
 
-priority 100
-snippet ** "cdot" iA
+snippet ** "\cdot" iA
 \cdot 
 endsnippet
