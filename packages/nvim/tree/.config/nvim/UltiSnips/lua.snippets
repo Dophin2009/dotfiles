@@ -1,0 +1,134 @@
+#
+# local
+#
+snippet "local " "local ? = ?" brA
+local ${1:name} = ${2:${VISUAL}}
+endsnippet
+
+#
+# if / else
+#
+snippet "if " "if ? then ? end" brA
+if ${1:cond} then
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet "elseif " "else if ? then ?" brA
+elseif ${1:cond} then
+	${0:${VISUAL}}
+endsnippet
+
+snippet "else " "else ?" brA
+else
+	${0:${VISUAL}}
+endsnippet
+
+snippet "ife " "if ? then ? else ? end" brA
+if ${1:cond} then
+	${2:${VISUAL}}
+else
+	$3
+end
+endsnippet
+
+snippet "ifei " "if ? then ? elseif ? then ? end" brA
+if ${1:cond1} then
+	${2:${VISUAL}}
+elseif ${3:cond2} then
+	$4
+end
+endsnippet
+
+snippet "ifeie " "if ? then ? elseif ? then ? else ? end" brA
+if ${1:cond1} then
+	${2:${VISUAL}}
+elseif ${3:cond2} then
+	$4
+else
+	$5
+end
+endsnippet
+
+#
+# for
+#
+snippet "fori " "for ?, ? in ipairs(?) do ... end" brA
+for ${1:i}, ${2:v} in ipairs(${3:iter}) do
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet "forp " "for ?, ? in pairs(?) do ... end" brA
+for ${1:i}, ${2:v} in pairs(${3:iter}) do
+	${0:${VISUAL}}
+end
+endsnippet
+
+#
+# while
+#
+snippet "while " "while ? do ... end" brA
+while ${1:cond} do
+	${0:${VISUAL}}
+end
+endsnippet
+
+#
+# do
+#
+snippet "do " "do ... end" brA
+do
+	${0:${VISUAL}}
+end
+endsnippet
+
+#
+# repeat
+#
+snippet "repeat " "repeat ... until ?" brA
+repeat
+	${1:${VISUAL}}
+until $0
+endsnippet
+
+#
+# return
+#
+snippet "ret " "return ?" brA
+return ${1:${VISUAL}}
+endsnippet
+
+snippet "([^\s].*)\.ret" "return ?;" r
+return `!p snip.rv = match.group(1)`$1
+endsnippet
+
+#
+# function
+#
+snippet "function " "function ?(?) ... end" rA
+function${1/..*/ /}$1(${2:args})
+	${0:${VISUAL}}
+end
+endsnippet
+
+#
+# require
+#
+snippet "require " "require '?'" rA
+require('${1:module}')
+endsnippet
+
+#
+# pcall
+#
+snippet "pcall " "pcall(?)" rA
+pcall(${1:fn})
+endsnippet
+
+#
+# table
+#
+snippet tins "table.insert(?, ?)"
+table.insert(${1:table}, ${2:values})
+endsnippet

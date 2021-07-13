@@ -89,7 +89,9 @@ lspconfig.sumneko_lua.setup {
     cmd = {'lua-language-server'},
     on_attach = on_attach,
     capabilities = capabilities,
-    settings = {Lua = {diagnostics = {enable = false}}}
+    settings = {
+        Lua = {diagnostics = {enable = false}, workspace = {maxPreload = 2000}}
+    }
 }
 
 -- ocaml/reason language server
@@ -232,7 +234,6 @@ local phpcs = require('lsp/efm/phpcs')
 local phpstan = require('lsp/efm/phpstan')
 local prettier = require('lsp/efm/prettier')
 -- local reorder_python_imports = require('lsp/efm/reorder_python_imports')
-local shellcheck = require('lsp/efm/shellcheck')
 local shfmt = require('lsp/efm/shfmt')
 local stylelint = require('lsp/efm/stylelint')
 local taplo = require('lsp/efm/taplo')
@@ -257,7 +258,7 @@ lspconfig.efm.setup {
         rootmarkers = {'.git/'},
         languages = {
             -- ["="] = {misspell},
-            bash = {shellcheck},
+            bash = {shfmt},
             css = {stylelint},
             go = {golint, goimports},
             html = {htmlhint, prettier},
@@ -267,26 +268,25 @@ lspconfig.efm.setup {
             json = {fixjson, prettier},
             -- kotlin = {ktlint},
             -- latex = {lacheck},
-            lua = {luafmt, luacheck},
-            pandoc = {pandoc, vale},
+            lua = {luafmt},
+            pandoc = {pandoc},
             php = {
                 prettier, -- psalm,
                 phpstan, phpcs
             },
             sass = {prettier, stylelint},
             scss = {prettier, stylelint},
-            sh = {shellcheck, shfmt},
+            sh = {shfmt},
             toml = {taplo},
             typescript = {eslint, prettier},
             typescriptreact = {eslint, prettier},
             ['typescript.tsx'] = {eslint, prettier},
-            vim = {vint},
             xml = {
                 -- xmllint,
                 tidy
             },
             -- yaml = {yamllint},
-            zsh = {shellcheck, shfmt}
+            zsh = {shfmt}
         }
     }
 }

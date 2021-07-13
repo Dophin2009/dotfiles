@@ -129,6 +129,12 @@ packer.startup(function()
         config = function() require 'plugins/trouble' end
     }
 
+    -- Linter integration
+    use {
+        'mfussenegger/nvim-lint',
+        config = function() require 'plugins/lint' end
+    }
+
     --
     -- EDITING
     --
