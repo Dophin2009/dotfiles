@@ -13,6 +13,7 @@ setopt PROMPT_SUBST
 setopt NO_FLOW_CONTROL
 # do not write duplicates to history
 setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
 # save each command's beginning timestamp and the duration to the history file
 setopt EXTENDED_HISTORY
 # completion within words
@@ -37,5 +38,3 @@ autoload -Uz vcs_info
 
 # faster visual mode switching
 export KEYTIMEOUT=1
-
-
